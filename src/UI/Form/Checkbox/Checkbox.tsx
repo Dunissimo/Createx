@@ -1,18 +1,12 @@
-import { ChangeEventHandler, FC } from "react";
+import { FC } from "react";
 import { IInputProps } from "../../../utils/interfaces";
 
 import styles from "./Checkbox.module.scss";
 
-const Checkbox: FC<IInputProps> = ({ changeHandler, name, id, label }) => {
+const Checkbox: FC<IInputProps> = ({ props }) => {
   return (
     <div className={styles.container}>
-      <input
-        className={styles.checkbox}
-        type="checkbox"
-        name={name}
-        id={id}
-        onChange={changeHandler}
-      />
+      <input className={styles.checkbox} type="checkbox" {...props} />
       <span className={styles.checkmark}></span>
     </div>
   );

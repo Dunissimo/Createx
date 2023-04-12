@@ -1,53 +1,25 @@
 import { ChangeEventHandler, FC, HTMLInputTypeAttribute } from "react";
+import clsx from "clsx";
 import Checkbox from "../Checkbox/Checkbox";
 
 import styles from "./Input.module.scss";
+import { IInputProps } from "../../../utils/interfaces";
 
-interface IProps {
-  theme?: "light" | "dark";
-  type?: HTMLInputTypeAttribute;
-  name?: string;
-  id?: string;
-  size?: "small" | "regular" | "large";
-  placeholder?: string;
-  label?: {
-    position: "top" | "right";
-    content: string;
-  };
-  changeHandler?: ChangeEventHandler;
-}
+const Input: FC<IInputProps> = ({ settings, props }) => {
+  const { label, theme, size } = settings || {};
 
-const Input: FC<IProps> = ({
-  theme = "light",
-  type = "text",
-  name,
-  id,
-  size = "regular",
-  placeholder,
-  label,
-  changeHandler = () => {},
-}) => {
   const renderInput = () => {
-    if (type === "checkbox") {
-      return (
-        <Checkbox
-          label={label}
-          name={name}
-          id={id}
-          changeHandler={changeHandler}
-        />
-      );
+    if (props?.type === "checkbox") {
+      return <Checkbox settings={{ label }} {...props} />;
     } else {
       return (
         <input
-          type={type}
-          name={name || ""}
-          id={id || ""}
-          placeholder={placeholder || ""}
-          className={`${styles.input} ${styles[`input-${size}`]} ${
+          className={clsx(
+            styles.input,
+            styles[`input-${size}`],
             styles[`input-${theme}`]
-          }`}
-          onChange={changeHandler}
+          )}
+          {...props}
         />
       );
     }
@@ -55,14 +27,16 @@ const Input: FC<IProps> = ({
 
   return (
     <div
-      className={`${styles.parrentBlock} ${styles[label?.position!]} ${
-        styles[theme]
-      }`}
+      className={clsx(
+        styles.parrentBlock,
+        styles[label?.position!],
+        styles.theme
+      )}
     >
       {label && (
         <label
           className={`${styles.label} ${styles[`label-${theme}`]}`}
-          htmlFor={id}
+          htmlFor={props?.id}
         >
           {label.content}
         </label>

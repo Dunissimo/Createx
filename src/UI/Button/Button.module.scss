@@ -1,15 +1,14 @@
 @mixin baseButton {
   font-family: "Lato";
   border-radius: 4px;
-  font-size: 1em;
   font-weight: 700;
 
   transition: 0.3s;
   transition: transform 0.2s;
 
-  &:not(:disabled):hover {
-    transform: scale(1.05);
-  }
+  // &:not(:disabled):hover {
+  //   transform: scale(1.05);
+  // }
   &:not(:disabled):active {
     transform: scale(0.9);
   }
@@ -19,22 +18,23 @@
     cursor: not-allowed;
   }
 
+  &.button-xl {
+    width: 207px;
+    height: 52px;
+  }
   &.button-large {
     width: 179px;
     height: 52px;
-    position: 20px 40px;
     font-size: 1em;
   }
   &.button-regular {
     width: 166px;
     height: 44px;
-    position: 16px 32px;
     font-size: 0.875em;
   }
   &.button-small {
     width: 123px;
     height: 36px;
-    position: 12px 24px;
     font-size: 0.75em;
   }
 
@@ -43,14 +43,31 @@
   }
 }
 
+.button-simple {
+  transition: 0.3s;
+  &:hover {
+    opacity: 0.5;
+  }
+  &:active {
+    transform: scale(0.8);
+  }
+}
+
 .button {
   @include baseButton;
   color: #fff;
   background: linear-gradient(55.95deg, #ff3f3a 0%, #f75e05 100%);
+
+  &:not(:disabled):hover {
+    background: none;
+    border: 1px solid #ff3f3a;
+    color: #ff3f3a;
+  }
 }
 
 .buttonOutline {
   @include baseButton;
+  background: none;
   border: 1px solid #ff3f3a;
   color: #ff3f3a;
   position: relative;
@@ -72,10 +89,14 @@
 
   &:not(:disabled):hover {
     color: #fff;
+    transform: scale(1);
 
     &::before {
       width: 100%;
       z-index: -1;
     }
+  }
+  &:not(:disabled):active {
+    transform: scale(0.8);
   }
 }
