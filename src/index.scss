@@ -121,3 +121,27 @@ label {
 legend {
   display: block;
 }
+
+.flex-row {
+}
+.flex-col {
+}
+
+.items-start {
+  align-items: flex-start;
+}
+.items-center {
+  align-items: center;
+}
+.items-end {
+  align-items: flex-end;
+}
+.justify-start {
+  justify-items: flex-start;
+}
+.justify-center {
+  justify-items: center;
+}
+.justify-end {
+  justify-items: flex-end;
+}

@@ -1,3 +1,22 @@
+.parrentBlock {
+  display: inline-flex;
+  gap: 8px;
+  &.top {
+    flex-direction: column;
+  }
+  &.right {
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  &.dark {
+    background: #393c46;
+  }
+  &.light {
+    background: #fff;
+  }
+}
+
 @mixin baseTextInput {
   width: 100%;
 
