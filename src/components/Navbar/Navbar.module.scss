@@ -1,0 +1,46 @@
+.navbar {
+  padding: 20px 0;
+
+  & .nav {
+    display: flex;
+    margin-left: 60px;
+    margin-right: 222px;
+    gap: 40px;
+
+    li {
+      list-style: none;
+
+      a {
+        color: inherit;
+        font-weight: 700;
+        transition: 0.3s;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  & .auth {
+    display: flex;
+    gap: 37px;
+
+    & button {
+      font-weight: 700;
+    }
+
+    & button:last-child > img {
+      margin-right: 10px;
+      margin-top: 2px;
+    }
+  }
+
+  &.navbar-light {
+    color: #424551;
+    background: #fff;
+  }
+  &.navbar-dark {
+    color: #fff;
+    background: #1e212c;
+  }
+}

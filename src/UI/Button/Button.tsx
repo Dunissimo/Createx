@@ -1,4 +1,4 @@
-import { FC, MouseEventHandler, ReactNode } from "react";
+import { CSSProperties, FC, MouseEventHandler, ReactNode } from "react";
 import clsx from "clsx";
 import styles from "./Button.module.scss";
 
@@ -14,6 +14,7 @@ interface IProps {
   props?: {
     disabled?: boolean;
     onClick?: MouseEventHandler;
+    style: CSSProperties;
   };
 }
 

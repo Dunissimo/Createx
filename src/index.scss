@@ -124,8 +124,26 @@ legend {
 
 // STYLES
 
+html,
+body,
+#root {
+  height: 100%;
+  overflow-x: hidden;
+}
+
 body {
   font-family: "Lato";
+}
+
+.App {
+  min-height: 100%;
+
+  &.light {
+    background: #fff;
+  }
+  &.dark {
+    background: #1e212c;
+  }
 }
 
 .container {

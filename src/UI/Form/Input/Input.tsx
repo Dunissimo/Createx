@@ -1,26 +1,48 @@
-import { ChangeEventHandler, FC, HTMLInputTypeAttribute } from "react";
+import { FC } from "react";
 import clsx from "clsx";
 import Checkbox from "../Checkbox/Checkbox";
 
 import styles from "./Input.module.scss";
 import { IInputProps } from "../../../utils/interfaces";
 
-const Input: FC<IInputProps> = ({ settings, props }) => {
-  const { label, theme, size } = settings || {};
+import arrow from "../../../assets/icons/arrow-right.svg";
+
+interface IProps extends IInputProps {
+  settings?: IInputProps["settings"] & {
+    isWithArrow: boolean;
+  };
+}
+
+const Input: FC<IProps> = ({ settings, props }) => {
+  const {
+    label,
+    theme = "light",
+    size = "regular",
+    isWithArrow,
+  } = settings || {};
 
   const renderInput = () => {
     if (props?.type === "checkbox") {
       return <Checkbox settings={{ label }} {...props} />;
     } else {
       return (
-        <input
-          className={clsx(
-            styles.input,
-            styles[`input-${size}`],
-            styles[`input-${theme}`]
+        <div className={styles.inputDiv}>
+          <input
+            className={clsx(
+              styles.input,
+              styles[`input-${size}`],
+              styles[`input-${theme}`]
+            )}
+            {...props}
+          />
+          {isWithArrow ? (
+            <button className={styles.arrow} type="submit">
+              <img src={arrow} alt="" />
+            </button>
+          ) : (
+            "Hello"
           )}
-          {...props}
-        />
+        </div>
       );
     }
   };
@@ -29,8 +51,8 @@ const Input: FC<IInputProps> = ({ settings, props }) => {
     <div
       className={clsx(
         styles.parrentBlock,
-        styles[label?.position!],
-        styles.theme
+        styles[theme],
+        styles[label?.position!]
       )}
     >
       {label && (
