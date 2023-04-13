@@ -14,8 +14,13 @@
         color: inherit;
         font-weight: 700;
         transition: 0.3s;
+
         &:hover {
           text-decoration: underline;
+        }
+
+        &.active {
+          color: red;
         }
       }
     }

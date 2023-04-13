@@ -15,8 +15,13 @@ interface IProps {
 }
 
 const Navbar: FC<IProps> = ({ theme = "light" }) => {
+  const classs = (isActive: boolean) =>
+    clsx({
+      [styles.active]: isActive,
+    });
+
   return (
-    <div className={clsx(styles.navbar, styles[`navbar-${theme}`])}>
+    <header className={clsx(styles.navbar, styles[`navbar-${theme}`])}>
       <div className="container flex-row items-center justify-between">
         <div className="logo">
           <Link to="/">
@@ -29,19 +34,38 @@ const Navbar: FC<IProps> = ({ theme = "light" }) => {
         </div>
         <nav className={styles.nav}>
           <li>
-            <NavLink to="/about">About us</NavLink>
+            <NavLink className={({ isActive }) => classs(isActive)} to="/about">
+              About us
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/courses">Courses</NavLink>
+            <NavLink
+              className={({ isActive }) => classs(isActive)}
+              to="/courses"
+            >
+              Courses
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/events">Events</NavLink>
+            <NavLink
+              className={({ isActive }) => classs(isActive)}
+              to="/events"
+            >
+              Events
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/blog">Blog</NavLink>
+            <NavLink className={({ isActive }) => classs(isActive)} to="/blog">
+              Blog
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/contacts">Contacts</NavLink>
+            <NavLink
+              className={({ isActive }) => classs(isActive)}
+              to="/contacts"
+            >
+              Contacts
+            </NavLink>
           </li>
         </nav>
         <div className={styles.auth}>
@@ -56,7 +80,7 @@ const Navbar: FC<IProps> = ({ theme = "light" }) => {
           </Button>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 
