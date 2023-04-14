@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar/Navbar";
 import CourseUI from "./UI/Cards/Course/Course";
 import Direction from "./UI/Cards/Direction/Direction";
 import Event from "./UI/Cards/Event/Event";
+import Team from "./UI/Team/Team";
 import { ICourse } from "./utils/interfaces";
 
 const App = () => {
@@ -17,16 +18,11 @@ const App = () => {
   return (
     <div className={clsx("App", theme)}>
       <div
-        className=""
         style={{
-          width: "390px",
           margin: "2rem",
         }}
       >
-        <Direction />
-
-        {/* <Event event={} orientation="vertical" /> */}
-        <CourseUI course={course} orientation="vertical" />
+        <Team />
       </div>
     </div>
   );
