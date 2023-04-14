@@ -12,6 +12,7 @@ interface IProps {
   price: string | number;
   author: string;
   imgUrlWithExtension: string;
+  orientation: "vertical" | "horizontal";
 }
 
 const CourseUI: FC<IProps> = ({
@@ -20,11 +21,12 @@ const CourseUI: FC<IProps> = ({
   author,
   price,
   imgUrlWithExtension,
+  orientation,
 }) => {
   const url = useUrl(imgUrlWithExtension);
 
   return (
-    <div className={styles.card}>
+    <div className={styles[`card-${orientation}`]}>
       <img src={url} alt="" />
       <div className={styles.cardInfo}>
         <span
