@@ -14,7 +14,8 @@ interface IProps {
   props?: {
     disabled?: boolean;
     onClick?: MouseEventHandler;
-    style: CSSProperties;
+    style?: CSSProperties;
+    className?: string;
   };
 }
 

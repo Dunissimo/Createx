@@ -17,3 +17,38 @@ export interface IInputProps {
     onChange?: ChangeEventHandler;
   };
 }
+
+export type TType =
+  | "Marketing"
+  | "Management"
+  | "Recruting"
+  | "Design"
+  | "Development";
+
+export interface ICourse {
+  type: TType;
+  header: string;
+  price: string | number;
+  author: string;
+  imgUrlWithExtension: string;
+}
+
+export interface IEvent {
+  date: {
+    day: number | string;
+    month: number | string;
+    time: number | string;
+  };
+  title: {
+    h3: string;
+    p: string;
+  };
+  button: string;
+}
+
+export interface IDirectionData {
+  imgUrlWithExtension: string;
+  type: TType;
+  paragraph: string;
+  button: string;
+}

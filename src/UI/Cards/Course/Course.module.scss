@@ -1,10 +1,6 @@
 .card-horizontal,
 .card-vertical {
   border: 1px solid #e5e8ed;
-  box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08),
-    0px 30px 24px -10px rgba(154, 156, 165, 0.05),
-    0px 12px 10px -6px rgba(154, 156, 165, 0.04),
-    0px 4px 4px -4px rgba(30, 33, 44, 0.03);
   border-radius: 4px;
 
   transition: 0.3s;
@@ -43,37 +39,14 @@
       opacity: 1;
     }
   }
-
-  .cardType {
-    width: 30%;
-    display: inline;
-    text-align: center;
-    color: #fff;
-    padding: 8px;
-    border-radius: 4px;
-  }
-
-  & .card-marketing {
-    background: #03cea4;
-  }
-  & .card-management {
-    background: #5a87fc;
-  }
-  & .card-recruting {
-    background: #f89828;
-  }
-  & .card-design {
-    background: #f52f6e;
-  }
-  & .card-development {
-    background: #7772f1;
-  }
 }
 
 .card-horizontal:hover,
 .card-vertical:hover {
-  transform: scale(1.01);
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08),
+    0px 30px 24px -10px rgba(154, 156, 165, 0.05),
+    0px 12px 10px -6px rgba(154, 156, 165, 0.04),
+    0px 4px 4px -4px rgba(30, 33, 44, 0.03);
 }
 
 .card-horizontal {
