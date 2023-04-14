@@ -5,7 +5,6 @@ import { useUrl } from "./utils/hooks";
 
 const App = () => {
   const theme = "light";
-
   return (
     <div className={clsx("App", theme)}>
       <Navbar theme={theme} />

@@ -4,20 +4,28 @@ import styles from "./Course.module.scss";
 
 import notFound from "../../../assets/imgNotFound.png";
 import clsx from "clsx";
+import { useUrl } from "../../../utils/hooks";
 
 interface IProps {
   type: "Marketing" | "Management" | "Recruting" | "Design" | "Development";
   header: string;
   price: string | number;
   author: string;
+  imgUrlWithExtension: string;
 }
 
-const CourseUI: FC<IProps> = ({ type, header, author, price }) => {
-  console.log(type.toLowerCase());
+const CourseUI: FC<IProps> = ({
+  type,
+  header,
+  author,
+  price,
+  imgUrlWithExtension,
+}) => {
+  const url = useUrl(imgUrlWithExtension);
 
   return (
     <div className={styles.card}>
-      <img src={notFound} alt="" />
+      <img src={url} alt="" />
       <div className={styles.cardInfo}>
         <span
           className={clsx(
