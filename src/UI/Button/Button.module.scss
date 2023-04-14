@@ -6,9 +6,6 @@
   transition: 0.3s;
   transition: transform 0.2s;
 
-  // &:not(:disabled):hover {
-  //   transform: scale(1.05);
-  // }
   &:not(:disabled):active {
     transform: scale(0.9);
   }

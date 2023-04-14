@@ -19,7 +19,7 @@ interface IProps {
 }
 
 const Button: FC<IProps> = ({ children, settings, props }) => {
-  const { simple, outline, isFullWidth, size } = settings || {};
+  const { simple, outline, isFullWidth, size = "regular" } = settings || {};
 
   if (simple) {
     return (
