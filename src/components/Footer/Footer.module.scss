@@ -1,0 +1,118 @@
+.footer {
+  padding-top: 80px;
+  background: #1e212c;
+
+  .body {
+    padding-bottom: 60px;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #fff;
+    font-size: 1em;
+
+    .info {
+      width: 25%;
+
+      font-size: 0.75em;
+
+      p {
+        margin: 25px 0 40px 0;
+        line-height: 18px;
+        opacity: 0.6;
+      }
+
+      .socialMedia {
+        display: flex;
+        gap: 25px;
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    .map,
+    .courses {
+      nav,
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        li {
+          list-style: none;
+          a {
+            color: #a5a6ab;
+
+            &:hover {
+              color: #edeef1;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+
+    .contact {
+      p {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        margin-bottom: 8px;
+        color: #a5a6ab;
+
+        img {
+          opacity: 0.6;
+        }
+      }
+    }
+
+    .news {
+      p {
+        margin-top: 12px;
+        font-size: 0.75em;
+        opacity: 0.6;
+      }
+    }
+
+    .map,
+    .courses,
+    .contact,
+    .news {
+      h2 {
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+    }
+  }
+  .footerFoot {
+    padding: 20px 0;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+
+    .footerContainer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      p {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      a {
+        color: rgba(255, 255, 255, 0.35);
+
+        &:hover {
+          color: rgba(255, 255, 255, 0.75);
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
