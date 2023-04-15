@@ -10,7 +10,7 @@ interface IProps {
   orientation: "horizontal" | "vertical";
 }
 
-const Event: FC<IProps> = ({ event, orientation }) => {
+const EventUI: FC<IProps> = ({ event, orientation }) => {
   const { date, title, button } = event;
   return (
     <div className={clsx(styles.event, styles[`event-${orientation}`])}>
@@ -44,4 +44,4 @@ const Event: FC<IProps> = ({ event, orientation }) => {
   );
 };
 
-export default Event;
+export default EventUI;

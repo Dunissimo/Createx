@@ -55,9 +55,20 @@
   color: #fff;
   background: linear-gradient(55.95deg, #ff3f3a 0%, #f75e05 100%);
 
+  transition: color 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
+  a {
+    transition: color 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    color: #fff;
+  }
+
   &:not(:disabled):hover {
     background: none;
+
     border: 1px solid #ff3f3a;
+    color: #ff3f3a;
+  }
+  &:not(:disabled):hover a {
     color: #ff3f3a;
   }
 }
@@ -68,6 +79,13 @@
   border: 1px solid #ff3f3a;
   color: #ff3f3a;
   position: relative;
+
+  transition: color 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
+  a {
+    transition: color 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    color: #ff3f3a;
+  }
 
   &::before {
     content: "";
@@ -84,7 +102,8 @@
     transition: width 0.75s;
   }
 
-  &:not(:disabled):hover {
+  &:not(:disabled):hover,
+  &:not(:disabled):hover a {
     color: #fff;
     transform: scale(1);
 

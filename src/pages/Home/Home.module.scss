@@ -1,0 +1,105 @@
+.header {
+  background: #fedbd3;
+
+  .headerBody {
+    padding: 4em 0 120px;
+    .headerLeft {
+      h2 {
+        margin: 24px 0 60px 0;
+
+        font-size: clamp(2rem, 6vw, 64px);
+
+        line-height: 1.25em;
+        font-weight: 900;
+      }
+
+      > button {
+        display: flex;
+        align-items: center;
+
+        font-weight: 700;
+        font-size: 1em;
+
+        &:hover {
+          opacity: 1;
+          color: gray;
+
+          img {
+            background: lightpink;
+          }
+        }
+
+        img {
+          padding: 15px;
+          background: #fec8c1;
+          border-radius: 50%;
+          transition: background 0.3s;
+        }
+      }
+    }
+    .buttons {
+      display: flex;
+      gap: 1.5rem;
+    }
+  }
+
+  .headerFooter {
+    padding-bottom: 80px;
+    .headerAchievements {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        span {
+          font-size: 2.875em;
+          font-weight: 900;
+          color: black;
+        }
+        p {
+          font-size: 1em;
+          color: #1e212c;
+        }
+      }
+      > span {
+        width: 8px;
+        height: 8px;
+        background: red;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+.whoWeAre {
+  padding: 180px 0;
+
+  .whoWeAreList {
+    margin-top: 40px;
+    margin-bottom: 48px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    li {
+      width: 70%;
+      margin-left: 1.5rem;
+      padding-left: 16px;
+      color: #424551;
+      list-style: url("../../assets/icons/check.svg");
+    }
+  }
+}
+
+.courses {
+  .coursesHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 60px;
+  }
+}
