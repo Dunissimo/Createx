@@ -26,11 +26,12 @@ export type TType =
   | "Development";
 
 export interface ICourse {
+  id: number | string;
   type: TType;
-  header: string;
+  title: string;
   price: string | number;
   author: string;
-  imgUrlWithExtension: string;
+  imgName: string;
 }
 
 export interface IEvent {
