@@ -10,9 +10,11 @@ interface IProps {
 
 const Type: FC<IProps> = ({ type }) => {
   return (
-    <span className={clsx(styles.type, styles[`type-${type.toLowerCase()}`])}>
-      {type}
-    </span>
+    <div>
+      <span className={clsx(styles.type, styles[`type-${type.toLowerCase()}`])}>
+        {type}
+      </span>
+    </div>
   );
 };
 

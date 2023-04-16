@@ -7,22 +7,30 @@ import { useUrl } from "../../../utils/hooks";
 import Type from "../../Type/Type";
 import { ICourse } from "../../../utils/interfaces";
 
+import notFound from "../../../assets/imgNotFound.svg";
+
 interface IProps {
   course: ICourse;
-  orientation: "vertical" | "horizontal";
+  orientation?: "vertical" | "horizontal";
 }
 
-const CourseUI: FC<IProps> = ({ course, orientation }) => {
-  const { type, header, price, author, imgUrlWithExtension } = course;
+const CourseUI: FC<IProps> = ({ course, orientation = "horizontal" }) => {
+  const { type, title, price, author, imgName } = course;
 
-  const url = useUrl(imgUrlWithExtension);
+  let url = useUrl(`courses/${imgName}`);
+
+  if (/undefined/.test(url)) {
+    console.log(url);
+
+    url = notFound;
+  }
 
   return (
     <div className={styles[`card-${orientation}`]}>
       <img src={url} alt="" />
       <div className={styles.cardInfo}>
         <Type type={type} />
-        <h2>{header}</h2>
+        <h2>{title}</h2>
         <div className={styles.cardPrice}>
           <span>${price}</span>|<span>by {author}</span>
         </div>
