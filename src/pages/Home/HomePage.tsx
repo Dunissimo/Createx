@@ -11,6 +11,7 @@ import whoWeAreIllustration from "../../assets/whoWeAre.png";
 import Title from "../../UI/Title/Title";
 import clsx from "clsx";
 import { Link } from "react-router-dom";
+import CoursesList from "../../components/CoursesList/CoursesList";
 
 const HomePage: FC = () => {
   return (
@@ -109,6 +110,7 @@ const HomePage: FC = () => {
             <Link to="/courses">View all courses</Link>
           </Button>
         </div>
+        <CoursesList />
       </div>
     </section>
   );
