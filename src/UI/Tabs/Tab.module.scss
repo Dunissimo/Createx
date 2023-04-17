@@ -1,0 +1,53 @@
+.buttons {
+  margin-top: 70px;
+  margin-bottom: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tab {
+  padding: 1rem 2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 1em;
+  // color: #9a9ca5;
+  filter: brightness(0) saturate(100%) invert(66%) sepia(12%) saturate(175%)
+    hue-rotate(192deg) brightness(93%) contrast(88%);
+
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(0) saturate(100%) invert(54%) sepia(87%) saturate(4775%)
+      hue-rotate(336deg) brightness(96%) contrast(115%);
+  }
+}
+
+.tabButton {
+  display: flex;
+  gap: 10px;
+}
+
+.active {
+  border: 1px solid #ff3f3a;
+  filter: brightness(0) saturate(100%) invert(54%) sepia(87%) saturate(4775%)
+    hue-rotate(336deg) brightness(96%) contrast(115%);
+}
+
+.tutorsLeft {
+  h3 {
+    font-weight: 900;
+    font-size: 2em;
+  }
+  p {
+    width: 75%;
+    margin-top: 24px;
+    color: #424551;
+  }
+}
