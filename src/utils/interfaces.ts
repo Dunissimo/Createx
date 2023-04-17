@@ -35,13 +35,14 @@ export interface ICourse {
 }
 
 export interface IEvent {
+  id: number | string;
   date: {
     day: number | string;
     month: number | string;
     time: number | string;
   };
-  title: {
-    h3: string;
+  text: {
+    title: string;
     p: string;
   };
   button: string;

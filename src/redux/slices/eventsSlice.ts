@@ -1,52 +1,46 @@
-import {
-  AsyncThunkAction,
-  createAsyncThunk,
-  createSlice,
-  PayloadAction,
-} from "@reduxjs/toolkit";
-import { ErrorInfo } from "react";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IEvent } from "../../utils/interfaces";
 import CreatexAPI from "../../utils/api";
-import { ICourse } from "../../utils/interfaces";
 
 interface IInitial {
-  courses: ICourse[];
+  events: IEvent[];
   loading: boolean;
   error: Error | null;
 }
 
 const initialState: IInitial = {
-  courses: [],
+  events: [],
   loading: false,
   error: null,
 };
 
-export const fetchCourses = createAsyncThunk(
-  "courses/fetchCourses",
+export const fetchEvents = createAsyncThunk(
+  "events/fetchEvents",
   async (_, { rejectWithValue }) => {
     try {
-      return await CreatexAPI.fetchCourses();
+      return await CreatexAPI.fetchEvents();
     } catch (error) {
       return rejectWithValue(error);
     }
   }
 );
 
-export const coursesSlice = createSlice({
-  name: "courses",
+const eventSlice = createSlice({
+  name: "events",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchCourses.pending, (state) => {
+    builder.addCase(fetchEvents.pending, (state) => {
       state.error = null;
       state.loading = true;
     });
-    builder.addCase(fetchCourses.fulfilled, (state, action) => {
+    builder.addCase(fetchEvents.fulfilled, (state, action) => {
       state.loading = false;
       state.error = null;
-      state.courses = action.payload;
+      state.events = action.payload;
     });
     builder.addCase(
-      fetchCourses.rejected,
+      fetchEvents.rejected,
       (state, action: PayloadAction<any>) => {
         state.error = action.payload;
         state.loading = false;
@@ -55,4 +49,4 @@ export const coursesSlice = createSlice({
   },
 });
 
-export const coursesReducer = coursesSlice.reducer;
+export const eventsReducer = eventSlice.reducer;

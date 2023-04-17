@@ -7,11 +7,11 @@ import styles from "./Event.module.scss";
 
 interface IProps {
   event: IEvent;
-  orientation: "horizontal" | "vertical";
+  orientation?: "horizontal" | "vertical";
 }
 
-const EventUI: FC<IProps> = ({ event, orientation }) => {
-  const { date, title, button } = event;
+const EventUI: FC<IProps> = ({ event, orientation = "horizontal" }) => {
+  const { date, text, button } = event;
   return (
     <div className={clsx(styles.event, styles[`event-${orientation}`])}>
       {orientation === "horizontal" ? (
@@ -32,13 +32,13 @@ const EventUI: FC<IProps> = ({ event, orientation }) => {
       )}
 
       <div className={styles.title}>
-        <h3>{title.h3}</h3>
-        <p>{title.p}</p>
+        <h3>{text.title}</h3>
+        <p>{text.p}</p>
       </div>
       <Button
         settings={{ outline: true, isFullWidth: orientation === "vertical" }}
       >
-        {button}
+        View more
       </Button>
     </div>
   );

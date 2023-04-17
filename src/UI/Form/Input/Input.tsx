@@ -9,7 +9,7 @@ import arrow from "../../../assets/icons/arrow-right.svg";
 
 interface IProps extends IInputProps {
   settings?: IInputProps["settings"] & {
-    isWithArrow: boolean;
+    isWithArrow?: boolean;
   };
 }
 
@@ -39,9 +39,7 @@ const Input: FC<IProps> = ({ settings, props }) => {
             <button className={styles.arrow} type="submit">
               <img src={arrow} alt="" />
             </button>
-          ) : (
-            "Hello"
-          )}
+          ) : null}
         </div>
       );
     }

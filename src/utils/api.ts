@@ -10,6 +10,16 @@ class CreatexAPI {
 
     return await res.json();
   };
+
+  fetchEvents = async () => {
+    const res = await fetch(`${URL}/events`);
+
+    if (!res.ok) {
+      throw new Error(res.statusText);
+    }
+
+    return await res.json();
+  };
 }
 
 export default new CreatexAPI();
