@@ -54,3 +54,10 @@ export interface IDirectionData {
   paragraph: string;
   button: string;
 }
+
+export interface ITeam {
+  imgName: string;
+  name: string;
+  job: string;
+  id: number;
+}

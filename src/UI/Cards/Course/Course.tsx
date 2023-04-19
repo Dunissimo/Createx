@@ -7,8 +7,6 @@ import { useUrl } from "../../../utils/hooks";
 import Type from "../../Type/Type";
 import { ICourse } from "../../../utils/interfaces";
 
-import notFound from "../../../assets/imgNotFound.svg";
-
 interface IProps {
   course: ICourse;
   orientation?: "vertical" | "horizontal";
@@ -18,12 +16,6 @@ const CourseUI: FC<IProps> = ({ course, orientation = "horizontal" }) => {
   const { type, title, price, author, imgName } = course;
 
   let url = useUrl(`courses/${imgName}`);
-
-  if (/undefined/.test(url)) {
-    console.log(url);
-
-    url = notFound;
-  }
 
   return (
     <div className={styles[`card-${orientation}`]}>
