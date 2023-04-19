@@ -4,7 +4,6 @@ import {
   createSlice,
   PayloadAction,
 } from "@reduxjs/toolkit";
-import { ErrorInfo } from "react";
 import CreatexAPI from "../../utils/api";
 import { ICourse } from "../../utils/interfaces";
 
@@ -24,7 +23,7 @@ export const fetchCourses = createAsyncThunk(
   "courses/fetchCourses",
   async (_, { rejectWithValue }) => {
     try {
-      return await CreatexAPI.fetchCourses();
+      return await CreatexAPI.fetchData("courses");
     } catch (error) {
       return rejectWithValue(error);
     }

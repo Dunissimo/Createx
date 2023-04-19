@@ -1,10 +1,12 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { coursesReducer } from "./slices/coursesSlice";
 import { eventsReducer } from "./slices/eventsSlice";
+import { teamReducer } from "./slices/teamSlice";
 
 const rootReducer = combineReducers({
   courses: coursesReducer,
   events: eventsReducer,
+  team: teamReducer,
 });
 
 export const store = configureStore({
