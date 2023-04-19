@@ -1,5 +1,7 @@
 .team {
   width: 285px;
+  min-height: 340px;
+
   text-align: center;
 
   .bg {
@@ -64,7 +66,6 @@
 
     > div {
       display: none;
-      // display: flex;
       gap: 15px;
     }
   }

@@ -124,7 +124,12 @@ const HomeTabs: FC = () => {
     <>
       <div className={styles.buttons}>
         {data.map((tab) => (
-          <Tab index={tab.index} active={active} setActive={setActive}>
+          <Tab
+            key={tab.index}
+            index={tab.index}
+            active={active}
+            setActive={setActive}
+          >
             {tab.text}
           </Tab>
         ))}

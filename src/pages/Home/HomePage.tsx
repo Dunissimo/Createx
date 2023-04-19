@@ -20,6 +20,7 @@ import logo2 from "../../assets/companies/logo-1.svg";
 import logo3 from "../../assets/companies/logo-2.svg";
 import certificate from "../../assets/certificate.png";
 import Subscribe from "../../components/Subscribe/Subscribe";
+import TeamList from "../../components/TeamList/TeamList";
 
 const HomePage: FC = () => {
   return (
@@ -182,6 +183,7 @@ const HomePage: FC = () => {
               <h3>Meet our team</h3>
             </Title>
           </div>
+          <TeamList />
         </div>
       </div>
 
