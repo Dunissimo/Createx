@@ -17,7 +17,6 @@
   border-radius: 4px;
   font-weight: 700;
   font-size: 1em;
-  // color: #9a9ca5;
   filter: brightness(0) saturate(100%) invert(66%) sepia(12%) saturate(175%)
     hue-rotate(192deg) brightness(93%) contrast(88%);
 
@@ -40,7 +39,11 @@
     hue-rotate(336deg) brightness(96%) contrast(115%);
 }
 
-.tutorsLeft {
+.outlet {
+  img {
+    width: 100%;
+    height: 100%;
+  }
   h3 {
     font-weight: 900;
     font-size: 2em;
