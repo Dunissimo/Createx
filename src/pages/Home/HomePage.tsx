@@ -1,14 +1,15 @@
 import { FC } from "react";
+import { Link } from "react-router-dom";
+import clsx from "clsx";
 import Navbar from "../../components/Navbar/Navbar";
 import Button from "../../UI/Button/Button";
 import Row from "../../UI/Row/Row";
-import clsx from "clsx";
 import Title from "../../UI/Title/Title";
-import { Link } from "react-router-dom";
 import CoursesList from "../../components/CoursesList/CoursesList";
-import Tab from "../../UI/Tabs/Tab";
 import HomeTabs from "../../UI/Tabs/HomeTabs";
 import EventsList from "../../components/EventsList/EventsList";
+import Subscribe from "../../components/Subscribe/Subscribe";
+import TeamList from "../../components/TeamList/TeamList";
 
 import styles from "./Home.module.scss";
 
@@ -19,8 +20,7 @@ import logo1 from "../../assets/companies/logo.svg";
 import logo2 from "../../assets/companies/logo-1.svg";
 import logo3 from "../../assets/companies/logo-2.svg";
 import certificate from "../../assets/certificate.png";
-import Subscribe from "../../components/Subscribe/Subscribe";
-import TeamList from "../../components/TeamList/TeamList";
+import Testimonials from "../../components/Testimonials/Testimonials";
 
 const HomePage: FC = () => {
   return (
@@ -73,7 +73,7 @@ const HomePage: FC = () => {
       </header>
 
       {/* Who we are */}
-      <div className={styles.whoWeAre}>
+      <section className={styles.whoWeAre}>
         <Row
           className="container"
           settings={{ gap: "135px", align: "flex-start" }}
@@ -105,10 +105,10 @@ const HomePage: FC = () => {
             <Button>More about us</Button>
           </div>
         </Row>
-      </div>
+      </section>
 
       {/* courses */}
-      <div className={styles.courses}>
+      <section className={styles.courses}>
         <div className={clsx("container", styles.coursesHeader)}>
           <Title>
             <h2>Ready to learn?</h2>
@@ -120,10 +120,10 @@ const HomePage: FC = () => {
           </Button>
         </div>
         <CoursesList />
-      </div>
+      </section>
 
       {/* benefits */}
-      <div className={styles.benefits}>
+      <section className={styles.benefits}>
         <div className="container">
           <Title align="center">
             <h2>Our benefits</h2>
@@ -131,11 +131,11 @@ const HomePage: FC = () => {
           </Title>
           <HomeTabs />
         </div>
-      </div>
+      </section>
 
       {/* Events */}
 
-      <div className={styles.events}>
+      <section className={styles.events}>
         <div className="container">
           <Title align="center">
             <h2>Our events</h2>
@@ -149,33 +149,36 @@ const HomePage: FC = () => {
             <Button settings={{ size: "xl" }}>Explore all events</Button>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Certificate */}
-      <div className={styles.certificate}>
+      <section className={styles.certificate}>
         <div className="container">
-          <div className={styles.certificateInfo}>
-            <Title>
-              <h2>Createx Certificate</h2>
-              <h3>Your expertise will be confirmed</h3>
-            </Title>
-            <p>
-              We are accredited by international professional organizations and
-              institutes:
-            </p>
-            <div className={styles.imgDiv}>
-              <img src={logo1} alt="" />
-              <img src={logo2} alt="" />
-              <img src={logo3} alt="" />
+          <Row>
+            <div className={styles.certificateInfo}>
+              <Title>
+                <h2>Createx Certificate</h2>
+                <h3>Your expertise will be confirmed</h3>
+              </Title>
+              <p>
+                We are accredited by international professional organizations
+                and institutes:
+              </p>
+              <div className={styles.imgDiv}>
+                <img src={logo1} alt="" />
+                <img src={logo2} alt="" />
+                <img src={logo3} alt="" />
+              </div>
             </div>
-          </div>
+
+            <img className={styles.certificateImg} src={certificate} alt="" />
+          </Row>
         </div>
-        <img className={styles.certificateImg} src={certificate} alt="" />
-      </div>
+      </section>
 
       {/* team */}
 
-      <div className={styles.team}>
+      <section className={styles.team}>
         <div className="container">
           <div className={styles.teamTop}>
             <Title>
@@ -185,10 +188,12 @@ const HomePage: FC = () => {
           </div>
           <TeamList />
         </div>
-      </div>
+      </section>
 
       {/* testimonials */}
+      <Testimonials />
       {/* latest posts */}
+
       {/* subscribe */}
       <Subscribe />
     </section>
