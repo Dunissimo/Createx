@@ -27,6 +27,13 @@
     h2 {
       font-size: 1.25em;
       font-weight: 700;
+
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      line-height: 1.4em;
+      height: 2.8em;
     }
   }
   .cardPrice {
@@ -67,6 +74,7 @@
   }
 
   .cardInfo {
+    padding: 24px;
     gap: 20px;
   }
 }
