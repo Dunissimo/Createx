@@ -1,9 +1,13 @@
 .list {
   margin-bottom: 180px;
 
-  display: flex;
-  flex-wrap: wrap;
+  // display: flex;
+  // flex-wrap: wrap;
+  // gap: 30px;
+
+  display: grid;
   gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .linkToCourse {

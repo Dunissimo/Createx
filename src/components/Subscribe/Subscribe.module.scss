@@ -2,6 +2,8 @@
   padding: 120px 0 180px 0;
   background: #fedbd3;
 
+  position: relative;
+
   .body {
     width: 80%;
     margin: 0 auto;
@@ -15,5 +17,23 @@
 
     display: flex;
     gap: 24px;
+  }
+
+  .illustration {
+    position: absolute;
+    bottom: 0;
+
+    &:first-child {
+      left: 0;
+    }
+    &:last-child {
+      right: 0;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .illustration {
+    display: none;
   }
 }

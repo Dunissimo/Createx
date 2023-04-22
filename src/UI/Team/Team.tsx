@@ -3,11 +3,20 @@ import { FC } from "react";
 import styles from "./Team.module.scss";
 import people from "../../assets/peopleTeam/bell.svg";
 import SocialMedia from "../SocialMedia/SocialMedia";
-const Team: FC = () => {
+import { ITeam } from "../../utils/interfaces";
+import { useUrl } from "../../utils/hooks";
+
+interface IProps {
+  team: ITeam;
+}
+
+const Team: FC<IProps> = ({ team }) => {
+  const url = useUrl(`team/${team.imgName}`);
+
   return (
     <div className={styles.team}>
       <div className={styles.bg}>
-        <img src={people} alt="" />
+        <img src={url} alt="" />
         <div className={styles.social}>
           <div className="">
             <SocialMedia className="team" social="facebook" />
@@ -16,8 +25,8 @@ const Team: FC = () => {
           </div>
         </div>
       </div>
-      <h3>Dianne Russell</h3>
-      <p>Founder and CEO</p>
+      <h3>{team.name}</h3>
+      <p>{team.job}</p>
     </div>
   );
 };

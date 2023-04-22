@@ -3,8 +3,6 @@
   display: flex;
   gap: 8px;
 
-  background-color: inherit;
-
   &.top {
     flex-direction: column;
   }
@@ -58,6 +56,8 @@
   }
   &.input-light {
     color: #000;
+
+    background-color: #fff;
 
     border-color: #d7dadd;
 

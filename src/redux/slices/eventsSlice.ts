@@ -18,7 +18,7 @@ export const fetchEvents = createAsyncThunk(
   "events/fetchEvents",
   async (_, { rejectWithValue }) => {
     try {
-      return await CreatexAPI.fetchEvents();
+      return await CreatexAPI.fetchData("events");
     } catch (error) {
       return rejectWithValue(error);
     }

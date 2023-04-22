@@ -79,11 +79,10 @@ const HomeTabs: FC = () => {
             <div className={styles.tutorsLeft}>
               <h3>Library</h3>
               <p>
-                Urna nisi, arcu cras nunc. Aenean quam est lobortis mi non fames
-                dictum suspendisse. Morbi mauris cras massa ut dolor quis sociis
-                mollis augue. Nunc, sodales tortor sit diam mi amet massa.
-                Fermentum diam diam sociis vestibulum. Nulla nisl accumsan, id
-                dignissim massa ut amet. Amet enim, nisi tempus vehicula.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Possimus vitae neque corporis porro, omnis, explicabo qui
+                temporibus saepe sit tempore consequuntur aliquam eum dolorum
+                nam illo provident molestias numquam necessitatibus!
               </p>
             </div>
             <img src={notFound} alt="" />
@@ -105,11 +104,11 @@ const HomeTabs: FC = () => {
             <div className={styles.tutorsLeft}>
               <h3>Community</h3>
               <p>
-                Urna nisi, arcu cras nunc. Aenean quam est lobortis mi non fames
-                dictum suspendisse. Morbi mauris cras massa ut dolor quis sociis
-                mollis augue. Nunc, sodales tortor sit diam mi amet massa.
-                Fermentum diam diam sociis vestibulum. Nulla nisl accumsan, id
-                dignissim massa ut amet. Amet enim, nisi tempus vehicula.
+                Quisquam pariatur atque necessitatibus quo placeat suscipit quis
+                impedit assumenda maxime, non aspernatur nulla aperiam voluptate
+                officia, fuga dolorum magni! Necessitatibus ad ab impedit in rem
+                deserunt praesentium commodi quo molestias, expedita nemo
+                pariatur!
               </p>
             </div>
             <img src={notFound} alt="" />
@@ -125,13 +124,18 @@ const HomeTabs: FC = () => {
     <>
       <div className={styles.buttons}>
         {data.map((tab) => (
-          <Tab index={tab.index} active={active} setActive={setActive}>
+          <Tab
+            key={tab.index}
+            index={tab.index}
+            active={active}
+            setActive={setActive}
+          >
             {tab.text}
           </Tab>
         ))}
       </div>
 
-      <div className="outlet">
+      <div className={styles.outlet}>
         {data.filter((d) => d.index === active)[0]?.outlet}
       </div>
     </>

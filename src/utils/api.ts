@@ -1,18 +1,8 @@
 const URL = "https://api.npoint.io/66466e607109c64c28f2";
 
 class CreatexAPI {
-  fetchCourses = async () => {
-    const res = await fetch(`${URL}/courses`);
-
-    if (!res.ok) {
-      throw new Error(res.statusText);
-    }
-
-    return await res.json();
-  };
-
-  fetchEvents = async () => {
-    const res = await fetch(`${URL}/events`);
+  fetchData = async (url: string) => {
+    const res = await fetch(`${URL}/${url}`);
 
     if (!res.ok) {
       throw new Error(res.statusText);

@@ -5,9 +5,11 @@ import Title from "../../UI/Title/Title";
 
 import styles from "./Subscribe.module.scss";
 
+import subscribe from "../../assets/subscribe.svg";
+
 const Subscribe: FC = () => {
   return (
-    <div className={styles.subscribe}>
+    <section className={styles.subscribe}>
       <div className="container">
         <div className={styles.body}>
           <Title align="center">
@@ -20,12 +22,12 @@ const Subscribe: FC = () => {
               props={{ placeholder: "Your working email" }}
             />
             <Button settings={{ size: "large" }}>Subscribe</Button>
-
-            {/* TODO: add images */}
           </div>
         </div>
       </div>
-    </div>
+      <img src={subscribe} className={styles.illustration} alt="" />
+      <img src={subscribe} className={styles.illustration} alt="" />
+    </section>
   );
 };
 

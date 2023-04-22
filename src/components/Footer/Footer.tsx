@@ -13,6 +13,10 @@ import email from "../../assets/icons/email.svg";
 import love from "../../assets/icons/love.svg";
 
 const Footer: FC = () => {
+  const clickHandler = () => {
+    window.scrollTo({ behavior: "smooth", top: 0 });
+  };
+
   return (
     <footer className={styles.footer}>
       <div className={clsx(styles.body, "container")}>
@@ -109,7 +113,9 @@ const Footer: FC = () => {
               Dunissimo
             </Link>
           </p>
-          <Button settings={{ simple: true }}>GO TO TOP</Button>
+          <Button props={{ onClick: clickHandler }} settings={{ simple: true }}>
+            GO TO TOP
+          </Button>
         </div>
       </div>
     </footer>

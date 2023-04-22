@@ -9,9 +9,17 @@ import styles from "./Courses.module.scss";
 
 interface IProps {
   limit?: number | string;
+  orientation?: "vertical" | "horizontal";
+  columns?: number;
+  className?: string;
 }
 
-const CoursesList: FC<IProps> = ({ limit = 6 }) => {
+const CoursesList: FC<IProps> = ({
+  className,
+  limit = 6,
+  orientation = "horizontal",
+  columns = 2,
+}) => {
   const dispatch = useAppDispatch();
   const { courses, loading, error } = useAppSelector((state) => state.courses);
 
@@ -26,12 +34,15 @@ const CoursesList: FC<IProps> = ({ limit = 6 }) => {
   }
 
   return (
-    <div className={clsx("container", styles.list)}>
+    <div
+      className={clsx("container", styles.list, className)}
+      style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
+    >
       {loading && <div>Loading...</div>}
       {courses.slice(0, +limit).map((course) => (
-        <div key={course.id} style={{ width: "calc(50% - 30px)" }}>
+        <div key={course.id}>
           <Link className={styles.linkToCourse} to={`/courses/${course.id}`}>
-            <CourseUI course={course} />
+            <CourseUI course={course} orientation={orientation} />
           </Link>
         </div>
       ))}

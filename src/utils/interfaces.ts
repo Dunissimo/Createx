@@ -54,3 +54,23 @@ export interface IDirectionData {
   paragraph: string;
   button: string;
 }
+
+export interface ITeam {
+  imgName: string;
+  name: string;
+  job: string;
+  id: number;
+}
+
+export interface IBlogCard {
+  type: "podcast" | "article" | "video";
+  imgName: string;
+  details: {
+    theme: TType;
+    date: string;
+    duration: string;
+  };
+  title: string;
+  p: string;
+  id: number;
+}

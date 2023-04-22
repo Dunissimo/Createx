@@ -125,7 +125,11 @@ legend {
 // STYLES
 
 html,
-body,
+body {
+  // min-height: 100%;
+  overflow-x: hidden;
+}
+
 #root {
   height: 100%;
   overflow-x: hidden;
