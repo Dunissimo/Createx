@@ -161,3 +161,14 @@
     justify-content: space-between;
   }
 }
+
+.latestPosts {
+  margin-top: 120px;
+  margin-bottom: 140px;
+
+  .latestTop {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}

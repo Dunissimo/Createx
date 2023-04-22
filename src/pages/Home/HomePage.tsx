@@ -21,6 +21,7 @@ import logo2 from "../../assets/companies/logo-1.svg";
 import logo3 from "../../assets/companies/logo-2.svg";
 import certificate from "../../assets/certificate.png";
 import Testimonials from "../../components/Testimonials/Testimonials";
+import BlogCardUI from "../../UI/Blog/BlogCard/BlogCard";
 
 const HomePage: FC = () => {
   return (
@@ -193,6 +194,20 @@ const HomePage: FC = () => {
       {/* testimonials */}
       <Testimonials />
       {/* latest posts */}
+      <section className={styles.latestPosts}>
+        <div className="container">
+          <div className={styles.latestTop}>
+            <Title>
+              <h2>Our blog</h2>
+              <h3>Latest posts</h3>
+            </Title>
+
+            <Button>Go to blog</Button>
+          </div>
+
+          {/* <LatestPosts/> */}
+        </div>
+      </section>
 
       {/* subscribe */}
       <Subscribe />
