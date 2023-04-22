@@ -22,8 +22,6 @@ const Subscribe: FC = () => {
               props={{ placeholder: "Your working email" }}
             />
             <Button settings={{ size: "large" }}>Subscribe</Button>
-
-            {/* TODO: add images */}
           </div>
         </div>
       </div>

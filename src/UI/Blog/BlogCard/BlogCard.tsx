@@ -13,6 +13,12 @@ interface IProps {
   card: IBlogCard;
 }
 
+const buttons = {
+  video: "Watch",
+  podcast: "Listen",
+  article: "Read",
+};
+
 const BlogCardUI: FC<IProps> = ({ card }) => {
   const { details, imgName, p, title, type } = card;
 
@@ -21,6 +27,13 @@ const BlogCardUI: FC<IProps> = ({ card }) => {
   };
 
   const url = useUrl(`blog/${imgName}`);
+
+  const duration = details.duration ? (
+    <div className={styles.duration}>
+      <img src={clock} alt="" />
+      {details.duration}
+    </div>
+  ) : null;
 
   return (
     <section className={styles.card}>
@@ -36,10 +49,7 @@ const BlogCardUI: FC<IProps> = ({ card }) => {
           <img src={calendar} alt="" />
           {details.date}
         </div>
-        <div className={styles.duration}>
-          <img src={clock} alt="" />
-          {details.duration}
-        </div>
+        {duration}
       </div>
       <div className={styles.title}>
         <h2>{title}</h2>
@@ -49,7 +59,7 @@ const BlogCardUI: FC<IProps> = ({ card }) => {
         settings={{ isWithArrow: true, simple: true }}
         props={{ style: { fontWeight: "700" } }}
       >
-        Listen
+        {buttons[type]}
       </Button>
     </section>
   );

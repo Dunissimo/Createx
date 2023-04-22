@@ -22,6 +22,7 @@ import logo3 from "../../assets/companies/logo-2.svg";
 import certificate from "../../assets/certificate.png";
 import Testimonials from "../../components/Testimonials/Testimonials";
 import BlogCardUI from "../../UI/Blog/BlogCard/BlogCard";
+import LatestPosts from "../../components/LatestPosts/LatestPosts";
 
 const HomePage: FC = () => {
   return (
@@ -205,7 +206,7 @@ const HomePage: FC = () => {
             <Button>Go to blog</Button>
           </div>
 
-          {/* <LatestPosts/> */}
+          <LatestPosts />
         </div>
       </section>
 

@@ -1,4 +1,5 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { postsReducer } from "./slices/blogSlice";
 import { coursesReducer } from "./slices/coursesSlice";
 import { eventsReducer } from "./slices/eventsSlice";
 import { teamReducer } from "./slices/teamSlice";
@@ -7,6 +8,7 @@ const rootReducer = combineReducers({
   courses: coursesReducer,
   events: eventsReducer,
   team: teamReducer,
+  posts: postsReducer,
 });
 
 export const store = configureStore({
