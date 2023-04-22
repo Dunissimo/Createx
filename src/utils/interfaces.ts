@@ -61,3 +61,16 @@ export interface ITeam {
   job: string;
   id: number;
 }
+
+export interface IBlogCard {
+  type: "podcast" | "article" | "video";
+  imgName: string;
+  details: {
+    theme: TType;
+    date: string;
+    duration: string;
+  };
+  title: string;
+  p: string;
+  id: number;
+}

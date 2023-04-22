@@ -2,6 +2,8 @@ import { CSSProperties, FC, MouseEventHandler, ReactNode } from "react";
 import clsx from "clsx";
 import styles from "./Button.module.scss";
 
+import arrowImg from "../../assets/icons/arrow-red.svg";
+
 interface IProps {
   children: ReactNode;
 
@@ -10,6 +12,7 @@ interface IProps {
     outline?: boolean;
     isFullWidth?: boolean;
     simple?: boolean;
+    isWithArrow?: boolean;
   };
   props?: {
     disabled?: boolean;
@@ -20,12 +23,21 @@ interface IProps {
 }
 
 const Button: FC<IProps> = ({ children, settings, props }) => {
-  const { simple, outline, isFullWidth, size = "regular" } = settings || {};
+  const {
+    simple,
+    outline,
+    isFullWidth,
+    size = "regular",
+    isWithArrow,
+  } = settings || {};
+
+  const arrow = isWithArrow ? <img src={arrowImg} alt="" /> : null;
 
   if (simple) {
     return (
       <button className={clsx(styles["button-simple"])} {...props}>
         {children}
+        {arrow}
       </button>
     );
   }
@@ -39,6 +51,7 @@ const Button: FC<IProps> = ({ children, settings, props }) => {
       {...props}
     >
       {children}
+      {arrow}
     </button>
   );
 };

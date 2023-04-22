@@ -61,7 +61,7 @@ const Input: FC<IProps> = ({ settings, props }) => {
           {label.content}
         </label>
       )}
-      {/* TODO: сделать states для инпутов, а также сделать их управляемыми */}
+      {/* TODO: сделать inputs управляемыми */}
 
       {renderInput()}
     </div>

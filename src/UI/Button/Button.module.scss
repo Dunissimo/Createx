@@ -42,8 +42,11 @@
 
 .button-simple {
   transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   &:hover {
-    opacity: 0.5;
+    color: red;
   }
   &:active {
     transform: scale(0.8);
