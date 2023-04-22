@@ -33,8 +33,6 @@ const CoursesList: FC<IProps> = ({
     return <h1>Error!</h1>;
   }
 
-  console.log(courses.length / columns);
-
   return (
     <div
       className={clsx("container", styles.list, className)}
