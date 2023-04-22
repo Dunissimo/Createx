@@ -1,0 +1,19 @@
+.certificate {
+  margin-top: 120px;
+  margin-bottom: 90px;
+
+  .certificateInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    p {
+      width: 55%;
+    }
+
+    .imgDiv {
+      display: flex;
+      gap: 25px;
+    }
+  }
+}

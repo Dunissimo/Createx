@@ -10,19 +10,15 @@ import HomeTabs from "../../UI/Tabs/HomeTabs";
 import EventsList from "../../components/EventsList/EventsList";
 import Subscribe from "../../components/Subscribe/Subscribe";
 import TeamList from "../../components/TeamList/TeamList";
+import Testimonials from "../../components/Testimonials/Testimonials";
+import LatestPosts from "../../components/LatestPosts/LatestPosts";
+import Certificate from "../../components/Certificate/Certificate";
 
 import styles from "./Home.module.scss";
 
 import showreel from "../../assets/icons/showreel.svg";
 import homeIllustration from "../../assets/homeIllustration.svg";
 import whoWeAreIllustration from "../../assets/whoWeAre.png";
-import logo1 from "../../assets/companies/logo.svg";
-import logo2 from "../../assets/companies/logo-1.svg";
-import logo3 from "../../assets/companies/logo-2.svg";
-import certificate from "../../assets/certificate.png";
-import Testimonials from "../../components/Testimonials/Testimonials";
-import BlogCardUI from "../../UI/Blog/BlogCard/BlogCard";
-import LatestPosts from "../../components/LatestPosts/LatestPosts";
 
 const HomePage: FC = () => {
   return (
@@ -154,29 +150,7 @@ const HomePage: FC = () => {
       </section>
 
       {/* Certificate */}
-      <section className={styles.certificate}>
-        <div className="container">
-          <Row>
-            <div className={styles.certificateInfo}>
-              <Title>
-                <h2>Createx Certificate</h2>
-                <h3>Your expertise will be confirmed</h3>
-              </Title>
-              <p>
-                We are accredited by international professional organizations
-                and institutes:
-              </p>
-              <div className={styles.imgDiv}>
-                <img src={logo1} alt="" />
-                <img src={logo2} alt="" />
-                <img src={logo3} alt="" />
-              </div>
-            </div>
-
-            <img className={styles.certificateImg} src={certificate} alt="" />
-          </Row>
-        </div>
-      </section>
+      <Certificate />
 
       {/* team */}
 
