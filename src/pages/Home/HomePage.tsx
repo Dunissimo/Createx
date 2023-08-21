@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import clsx from "clsx";
 import Button from "@ui/Button/Button";
 import Row from "@ui/Row/Row";
+import RowItem from "@ui/Row/RowItem/RowItem";
 import Title from "@ui/Title/Title";
 import HomeTabs from "@ui/Tabs/HomeTabs";
 import Navbar from "@components/Navbar/Navbar";
@@ -28,18 +29,23 @@ const HomePage: FC = () => {
         <Navbar />
         <div className="container">
           <Row className={styles.headerBody}>
-            <div className={styles.headerLeft}>
-              <Button settings={{ simple: true }}>
-                <img src={showreel} alt="" />
-                Play showreel
-              </Button>
-              <h2>Enjoy studying with Createx Online Courses</h2>
-              <div className={styles.buttons}>
-                <Button settings={{ outline: true }}>About us</Button>
-                <Button>Explore courses</Button>
+            <RowItem>
+              <div className={styles.headerLeft}>
+                <Button settings={{ simple: true }}>
+                  <img src={showreel} alt="" />
+                  Play showreel
+                </Button>
+                <h2>Enjoy studying with Createx Online Courses</h2>
+                <div className={styles.buttons}>
+                  <Button settings={{ outline: true }}>About us</Button>
+                  <Button>Explore courses</Button>
+                </div>
               </div>
-            </div>
-            <img src={homeIllustration} alt="" />
+            </RowItem>
+
+            <RowItem>
+              <img src={homeIllustration} alt="" />
+            </RowItem>
           </Row>
           <div className={styles.headerFooter}>
             <ul className={styles.headerAchievements}>

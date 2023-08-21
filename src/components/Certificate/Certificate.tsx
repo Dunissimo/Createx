@@ -33,10 +33,7 @@ const Certificate: FC = () => {
             </div>
           </RowItem>
 
-          <RowItem
-            className={styles.certificateDiv}
-            styles={{ position: "relative" }}
-          >
+          <RowItem className={styles.certificateDiv}>
             <img className={styles.certificateImg} src={certificate} alt="" />
           </RowItem>
         </Row>

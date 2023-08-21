@@ -1,6 +1,7 @@
 import { FC, MouseEventHandler, ReactNode, useState } from "react";
 import Tab from "@ui/Tabs/Tab";
 import Row from "@ui/Row/Row";
+import RowItem from "@ui/Row/RowItem/RowItem";
 
 import styles from "./Tab.module.scss";
 
@@ -24,17 +25,23 @@ const HomeTabs: FC = () => {
       outlet: (
         <>
           <Row>
-            <div className={styles.tutorsLeft}>
-              <h3>Only practicing tutors</h3>
-              <p>
-                Urna nisi, arcu cras nunc. Aenean quam est lobortis mi non fames
-                dictum suspendisse. Morbi mauris cras massa ut dolor quis sociis
-                mollis augue. Nunc, sodales tortor sit diam mi amet massa.
-                Fermentum diam diam sociis vestibulum. Nulla nisl accumsan, id
-                dignissim massa ut amet. Amet enim, nisi tempus vehicula.
-              </p>
-            </div>
-            <img src={benefits} alt="" />
+            <RowItem>
+              <div className={styles.tutorsLeft}>
+                <h3>Only practicing tutors</h3>
+                <p>
+                  Urna nisi, arcu cras nunc. Aenean quam est lobortis mi non
+                  fames dictum suspendisse. Morbi mauris cras massa ut dolor
+                  quis sociis mollis augue. Nunc, sodales tortor sit diam mi
+                  amet massa. Fermentum diam diam sociis vestibulum. Nulla nisl
+                  accumsan, id dignissim massa ut amet. Amet enim, nisi tempus
+                  vehicula.
+                </p>
+              </div>
+            </RowItem>
+
+            <RowItem>
+              <img src={benefits} alt="" />
+            </RowItem>
           </Row>
         </>
       ),

@@ -27,8 +27,8 @@ const LatestPosts: FC = () => {
     <div className={styles.list}>
       {loading && <div>Loading...</div>}
       {sorted.map((post) => (
-        <div style={{ width: "33.333%" }}>
-          <BlogCardUI card={post} key={post.id} />
+        <div style={{ width: "33.333%" }} key={post.id}>
+          <BlogCardUI card={post} />
         </div>
       ))}
     </div>
