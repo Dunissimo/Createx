@@ -1,24 +1,9 @@
 .row {
   display: flex;
-
-  .left,
-  .right {
-    width: 50%;
-  }
-
-  .left {
-  }
-  .right {
-  }
 }
 
 @media (max-width: 1024px) {
   .row {
     display: block;
-
-    .left,
-    .right {
-      width: 100%;
-    }
   }
 }

@@ -9,6 +9,7 @@ import ContactsPage from "./pages/Contacts/ContactsPage";
 import CoursesPage from "./pages/Courses/CoursesPage";
 import EventsPage from "./pages/Events/EventsPage";
 import HomePage from "./pages/Home/HomePage";
+import NotFound from "./pages/NotFound/NotFound";
 import { fetchCourses } from "./redux/slices/coursesSlice";
 import { useAppDispatch } from "./utils/hooks";
 
@@ -29,6 +30,7 @@ const App = () => {
         <Route path="/events" element={<EventsPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/contacts" element={<ContactsPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </div>

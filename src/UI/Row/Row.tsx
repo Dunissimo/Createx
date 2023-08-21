@@ -19,13 +19,14 @@ const Row: FC<IProps> = ({ className, children, settings }) => {
     justify = "justify-between",
     gap = 0,
   } = settings || {};
+
   return (
     <div
       className={clsx(styles.row, className)}
       style={{ alignItems: align, justifyContent: justify, gap }}
     >
-      <div className={styles.left}>{children[0]}</div>
-      <div className={styles.right}>{children[1]}</div>
+      {children[0]}
+      {children[1]}
     </div>
   );
 };

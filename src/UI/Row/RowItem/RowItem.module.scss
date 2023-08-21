@@ -1,0 +1,9 @@
+.item {
+  width: 50%;
+}
+
+@media (max-width: 1024px) {
+  .item {
+    width: 100%;
+  }
+}

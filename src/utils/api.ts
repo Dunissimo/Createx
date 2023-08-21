@@ -1,8 +1,8 @@
-const URL = "https://api.npoint.io/66466e607109c64c28f2";
+const BASE_URL = "https://api.npoint.io/66466e607109c64c28f2";
 
 class CreatexAPI {
   fetchData = async (url: string) => {
-    const res = await fetch(`${URL}/${url}`);
+    const res = await fetch(`${BASE_URL}/${url}`);
 
     if (!res.ok) {
       throw new Error(res.statusText);
