@@ -1,11 +1,11 @@
 import { FC } from "react";
-import Button from "../../UI/Button/Button";
-import Input from "../../UI/Form/Input/Input";
-import Title from "../../UI/Title/Title";
+import Button from "@ui/Button/Button";
+import Input from "@ui/Form/Input/Input";
+import Title from "@ui/Title/Title";
 
 import styles from "./Subscribe.module.scss";
 
-import subscribe from "../../assets/subscribe.svg";
+import subscribe from "@assets/subscribe.svg";
 
 const Subscribe: FC = () => {
   return (

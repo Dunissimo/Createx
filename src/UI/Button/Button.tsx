@@ -1,8 +1,9 @@
 import { CSSProperties, FC, MouseEventHandler, ReactNode } from "react";
 import clsx from "clsx";
+
 import styles from "./Button.module.scss";
 
-import arrowImg from "../../assets/icons/arrow-red.svg";
+import arrowImg from "@assets/icons/arrow-red.svg";
 
 interface IProps {
   children: ReactNode;

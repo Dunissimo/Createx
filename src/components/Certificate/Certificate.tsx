@@ -1,14 +1,14 @@
 import { FC } from "react";
-import Row from "../../UI/Row/Row";
-import Title from "../../UI/Title/Title";
+import Row from "@ui/Row/Row";
+import Title from "@ui/Title/Title";
+import RowItem from "@ui/Row/RowItem/RowItem";
 
 import styles from "./Certificate.module.scss";
 
-import logo1 from "../../assets/companies/logo.svg";
-import logo2 from "../../assets/companies/logo-1.svg";
-import logo3 from "../../assets/companies/logo-2.svg";
-import certificate from "../../assets/certificate.png";
-import RowItem from "../../UI/Row/RowItem/RowItem";
+import logo1 from "@assets/companies/logo.svg";
+import logo2 from "@assets/companies/logo-1.svg";
+import logo3 from "@assets/companies/logo-2.svg";
+import certificate from "@assets/certificate.png";
 
 const Certificate: FC = () => {
   return (

@@ -1,17 +1,16 @@
 import clsx from "clsx";
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import Footer from "./components/Footer/Footer";
-import Navbar from "./components/Navbar/Navbar";
-import AboutPage from "./pages/About/AboutPage";
-import BlogPage from "./pages/Blog/BlogPage";
-import ContactsPage from "./pages/Contacts/ContactsPage";
-import CoursesPage from "./pages/Courses/CoursesPage";
-import EventsPage from "./pages/Events/EventsPage";
-import HomePage from "./pages/Home/HomePage";
-import NotFound from "./pages/NotFound/NotFound";
-import { fetchCourses } from "./redux/slices/coursesSlice";
-import { useAppDispatch } from "./utils/hooks";
+import Footer from "@components/Footer/Footer";
+import AboutPage from "@pages/About/AboutPage";
+import BlogPage from "@pages/Blog/BlogPage";
+import ContactsPage from "@pages/Contacts/ContactsPage";
+import CoursesPage from "@pages/Courses/CoursesPage";
+import EventsPage from "@pages/Events/EventsPage";
+import HomePage from "@pages/Home/HomePage";
+import NotFound from "@pages/NotFound/NotFound";
+import { fetchCourses } from "@redux/slices/coursesSlice";
+import { useAppDispatch } from "@utils/hooks";
 
 const App = () => {
   const theme = "light";

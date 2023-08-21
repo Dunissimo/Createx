@@ -1,11 +1,10 @@
 import { FC } from "react";
 
-import styles from "./Course.module.scss";
+import Type from "@ui/Type/Type";
+import { ICourse } from "@utils/interfaces";
+import { useUrl } from "@utils/hooks";
 
-import clsx from "clsx";
-import { useUrl } from "../../../utils/hooks";
-import Type from "../../Type/Type";
-import { ICourse } from "../../../utils/interfaces";
+import styles from "./Course.module.scss";
 
 interface IProps {
   course: ICourse;

@@ -1,8 +1,7 @@
-import clsx from "clsx";
 import { FC, useEffect } from "react";
-import { fetchTeam } from "../../redux/slices/teamSlice";
-import Team from "../../UI/Team/Team";
-import { useAppDispatch, useAppSelector } from "../../utils/hooks";
+import { fetchTeam } from "@redux/slices/teamSlice";
+import { useAppDispatch, useAppSelector } from "@utils/hooks";
+import Team from "@ui/Team/Team";
 
 import styles from "./TeamList.module.scss";
 

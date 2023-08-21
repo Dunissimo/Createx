@@ -1,24 +1,24 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import clsx from "clsx";
-import Navbar from "../../components/Navbar/Navbar";
-import Button from "../../UI/Button/Button";
-import Row from "../../UI/Row/Row";
-import Title from "../../UI/Title/Title";
-import CoursesList from "../../components/CoursesList/CoursesList";
-import HomeTabs from "../../UI/Tabs/HomeTabs";
-import EventsList from "../../components/EventsList/EventsList";
-import Subscribe from "../../components/Subscribe/Subscribe";
-import TeamList from "../../components/TeamList/TeamList";
-import Testimonials from "../../components/Testimonials/Testimonials";
-import LatestPosts from "../../components/LatestPosts/LatestPosts";
-import Certificate from "../../components/Certificate/Certificate";
+import Button from "@ui/Button/Button";
+import Row from "@ui/Row/Row";
+import Title from "@ui/Title/Title";
+import HomeTabs from "@ui/Tabs/HomeTabs";
+import Navbar from "@components/Navbar/Navbar";
+import CoursesList from "@components/CoursesList/CoursesList";
+import EventsList from "@components/EventsList/EventsList";
+import Subscribe from "@components/Subscribe/Subscribe";
+import TeamList from "@components/TeamList/TeamList";
+import Testimonials from "@components/Testimonials/Testimonials";
+import LatestPosts from "@components/LatestPosts/LatestPosts";
+import Certificate from "@components/Certificate/Certificate";
 
 import styles from "./Home.module.scss";
 
-import showreel from "../../assets/icons/showreel.svg";
-import homeIllustration from "../../assets/homeIllustration.svg";
-import whoWeAreIllustration from "../../assets/whoWeAre.png";
+import showreel from "@assets/icons/showreel.svg";
+import homeIllustration from "@assets/homeIllustration.svg";
+import whoWeAreIllustration from "@assets/whoWeAre.png";
 
 const HomePage: FC = () => {
   return (

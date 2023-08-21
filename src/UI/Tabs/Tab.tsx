@@ -2,7 +2,6 @@ import clsx from "clsx";
 import {
   Dispatch,
   FC,
-  MouseEventHandler,
   ReactNode,
   SetStateAction,
   useEffect,

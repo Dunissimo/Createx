@@ -1,13 +1,13 @@
 import { FC } from "react";
-import Button from "../../Button/Button";
+import Button from "@ui/Button/Button";
 import clsx from "clsx";
-import { IBlogCard } from "../../../utils/interfaces";
-import { useUrl } from "../../../utils/hooks";
+import { IBlogCard } from "@utils/interfaces";
+import { useUrl } from "@utils/hooks";
 
 import styles from "./BlogCard.module.scss";
 
-import calendar from "../../../assets/icons/Calendar.svg";
-import clock from "../../../assets/icons/Clock.svg";
+import calendar from "@assets/icons/Calendar.svg";
+import clock from "@assets/icons/Clock.svg";
 
 interface IProps {
   card: IBlogCard;

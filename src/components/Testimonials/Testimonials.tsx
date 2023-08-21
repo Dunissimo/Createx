@@ -1,9 +1,9 @@
 import { FC } from "react";
-import Title from "../../UI/Title/Title";
+import Title from "@ui/Title/Title";
 
 import styles from "./Testimonials.module.scss";
 
-import profile from "../../assets/profile.svg";
+import profile from "@assets/profile.svg";
 
 const Testimonials: FC = () => {
   return (

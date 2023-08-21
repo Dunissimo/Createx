@@ -1,7 +1,7 @@
 import { FC, useEffect } from "react";
-import { fetchPosts } from "../../redux/slices/blogSlice";
-import BlogCardUI from "../../UI/Blog/BlogCard/BlogCard";
-import { useAppDispatch, useAppSelector } from "../../utils/hooks";
+import { fetchPosts } from "@redux/slices/blogSlice";
+import BlogCardUI from "@ui/Blog/BlogCard/BlogCard";
+import { useAppDispatch, useAppSelector } from "@utils/hooks";
 
 import styles from "./LatestPosts.module.scss";
 
@@ -28,7 +28,7 @@ const LatestPosts: FC = () => {
       {loading && <div>Loading...</div>}
       {sorted.map((post) => (
         <div style={{ width: "33.333%" }}>
-          <BlogCardUI card={post} />
+          <BlogCardUI card={post} key={post.id} />
         </div>
       ))}
     </div>

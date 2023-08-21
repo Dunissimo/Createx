@@ -1,10 +1,10 @@
 import { FC } from "react";
 
+import { ITeam } from "@utils/interfaces";
+import { useUrl } from "@utils/hooks";
+import SocialMedia from "@ui/SocialMedia/SocialMedia";
+
 import styles from "./Team.module.scss";
-import people from "../../assets/peopleTeam/bell.svg";
-import SocialMedia from "../SocialMedia/SocialMedia";
-import { ITeam } from "../../utils/interfaces";
-import { useUrl } from "../../utils/hooks";
 
 interface IProps {
   team: ITeam;

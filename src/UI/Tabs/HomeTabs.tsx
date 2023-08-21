@@ -1,15 +1,15 @@
 import { FC, MouseEventHandler, ReactNode, useState } from "react";
-import Tab from "./Tab";
-import Row from "../Row/Row";
+import Tab from "@ui/Tabs/Tab";
+import Row from "@ui/Row/Row";
 
 import styles from "./Tab.module.scss";
 
-import chat from "../../assets/tab/chat.svg";
-import like from "../../assets/tab/like.svg";
-import layouts from "../../assets/tab/layouts.svg";
-import star from "../../assets/tab/star.svg";
-import benefits from "../../assets/benefitsIllustration.svg";
-import notFound from "../../assets/imgNotFound.svg";
+import chat from "@assets/tab/chat.svg";
+import like from "@assets/tab/like.svg";
+import layouts from "@assets/tab/layouts.svg";
+import star from "@assets/tab/star.svg";
+import benefits from "@assets/benefitsIllustration.svg";
+import notFound from "@assets/imgNotFound.svg";
 
 const HomeTabs: FC = () => {
   const [data] = useState([

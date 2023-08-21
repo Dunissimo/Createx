@@ -1,15 +1,15 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
+import clsx from "clsx";
 
 import styles from "./SocialMedia.module.scss";
 
-import yotube from "../../assets/icons/YouTube.svg";
-import twitter from "../../assets/icons/Twitter.svg";
-import facebook from "../../assets/icons/Facebook.svg";
-import telegram from "../../assets/icons/telegram.svg";
-import instagram from "../../assets/icons/Instagram.svg";
-import linkedIn from "../../assets/icons/Linked-In.svg";
-import clsx from "clsx";
+import yotube from "@assets/icons/YouTube.svg";
+import twitter from "@assets/icons/Twitter.svg";
+import facebook from "@assets/icons/Facebook.svg";
+import telegram from "@assets/icons/telegram.svg";
+import instagram from "@assets/icons/Instagram.svg";
+import linkedIn from "@assets/icons/Linked-In.svg";
 
 const links = {
   youtube: {

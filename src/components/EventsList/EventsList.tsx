@@ -1,8 +1,8 @@
 import { FC, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { fetchEvents } from "../../redux/slices/eventsSlice";
-import EventUI from "../../UI/Cards/Event/Event";
-import { useAppDispatch, useAppSelector } from "../../utils/hooks";
+import { fetchEvents } from "@redux/slices/eventsSlice";
+import { useAppDispatch, useAppSelector } from "@utils/hooks";
+import EventUI from "@ui/Cards/Event/Event";
 
 import styles from "./EventsList.module.scss";
 

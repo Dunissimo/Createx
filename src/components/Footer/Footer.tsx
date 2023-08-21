@@ -1,16 +1,16 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import SocialMedia from "../../UI/SocialMedia/SocialMedia";
-import Input from "../../UI/Form/Input/Input";
 import clsx from "clsx";
-import Button from "../../UI/Button/Button";
+import SocialMedia from "@ui/SocialMedia/SocialMedia";
+import Input from "@ui/Form/Input/Input";
+import Button from "@ui/Button/Button";
 
 import styles from "./Footer.module.scss";
 
-import logo from "../../assets/light-logo.svg";
-import phone from "../../assets/icons/phone.svg";
-import email from "../../assets/icons/email.svg";
-import love from "../../assets/icons/love.svg";
+import logo from "@assets/light-logo.svg";
+import phone from "@assets/icons/phone.svg";
+import email from "@assets/icons/email.svg";
+import love from "@assets/icons/love.svg";
 
 const Footer: FC = () => {
   const clickHandler = () => {
