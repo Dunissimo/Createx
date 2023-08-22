@@ -12,9 +12,11 @@ const Subscribe: FC = () => {
     <section className={styles.subscribe}>
       <div className="container">
         <div className={styles.body}>
-          <Title align="center">
+          <Title align="center" style={{ color: "#1e212c" }}>
             <h2>Don’t miss anything</h2>
-            <h3>Subscribe to the Createx School announcements</h3>
+            <h3>
+              Subscribe to the Createx School <br /> announcements
+            </h3>
           </Title>
           <div className={styles.footer}>
             <Input
@@ -25,6 +27,7 @@ const Subscribe: FC = () => {
           </div>
         </div>
       </div>
+
       <img src={subscribe} className={styles.illustration} alt="" />
       <img src={subscribe} className={styles.illustration} alt="" />
     </section>

@@ -17,7 +17,10 @@ const CoursesPage: FC = () => {
 
       <section className={styles.body}>
         <div className="container">
-          <Title align="center" style={{ paddingBottom: "70px" }}>
+          <Title
+            align="center"
+            style={{ paddingBottom: "70px", color: "#1e212c" }}
+          >
             <h2>Enjoy your studying!</h2>
             <h3>Our online courses</h3>
           </Title>

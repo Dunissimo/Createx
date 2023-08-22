@@ -9,7 +9,7 @@ const Testimonials: FC = () => {
   return (
     <section className={styles.testimonials}>
       <div className="container">
-        <Title align="center">
+        <Title align="center" style={{ color: "#1e212c" }}>
           <h2>TESTIMONIALS</h2>
           <h3>What our students say</h3>
         </Title>

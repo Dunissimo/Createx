@@ -10,6 +10,7 @@
 
     p {
       width: 55%;
+      color: #1e212c;
     }
 
     .imgDiv {
@@ -20,14 +21,15 @@
 
   .certificateDiv {
     position: relative;
+    z-index: 100;
 
     .certificateImg {
       width: 100%;
-      transform: scale(1.3);
+      transform: scale(1.1);
 
       position: absolute;
-      top: -80px;
-      right: 5%;
+      top: -120px;
+      right: 0%;
     }
   }
 }

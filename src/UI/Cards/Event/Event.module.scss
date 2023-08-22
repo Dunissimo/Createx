@@ -29,6 +29,7 @@
         font-size: 1.25em;
         font-weight: 700;
         margin-bottom: 4px;
+        color: #1e212c;
       }
       .dateTime {
         color: #787a80;
@@ -53,7 +54,9 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      color: #1e212c;
     }
+
     p {
       color: #787a80;
     }

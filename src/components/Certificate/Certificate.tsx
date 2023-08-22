@@ -17,10 +17,13 @@ const Certificate: FC = () => {
         <Row>
           <RowItem>
             <div className={styles.certificateInfo}>
-              <Title>
+              <Title style={{ color: "#1e212c" }}>
                 <h2>Createx Certificate</h2>
-                <h3>Your expertise will be confirmed</h3>
+                <h3>
+                  Your expertise will <br /> be confirmed
+                </h3>
               </Title>
+
               <p>
                 We are accredited by international professional organizations
                 and institutes:

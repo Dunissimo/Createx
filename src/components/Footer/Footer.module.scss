@@ -14,7 +14,7 @@
     .info {
       width: 25%;
 
-      font-size: 0.75em;
+      font-size: 1em;
 
       p {
         margin: 25px 0 40px 0;
@@ -39,7 +39,7 @@
       ul {
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 12px;
 
         li {
           list-style: none;
@@ -59,9 +59,9 @@
       p {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
 
-        margin-bottom: 8px;
+        margin-bottom: 12px;
         color: #a5a6ab;
 
         img {
@@ -85,7 +85,7 @@
       h2 {
         font-weight: 700;
         text-transform: uppercase;
-        margin-bottom: 12px;
+        margin-bottom: 16px;
       }
     }
   }

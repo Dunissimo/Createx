@@ -27,15 +27,21 @@ const HomePage: FC = () => {
       {/* Header */}
       <header className={styles.header}>
         <Navbar />
+
         <div className="container">
           <Row className={styles.headerBody}>
             <RowItem>
               <div className={styles.headerLeft}>
-                <Button settings={{ simple: true }}>
+                <Button
+                  settings={{ simple: true }}
+                  props={{ style: { color: "#1e212c" } }}
+                >
                   <img src={showreel} alt="" />
                   Play showreel
                 </Button>
-                <h2>Enjoy studying with Createx Online Courses</h2>
+                <h2>
+                  Enjoy studying <br /> with Createx <br /> Online Courses
+                </h2>
                 <div className={styles.buttons}>
                   <Button settings={{ outline: true }}>About us</Button>
                   <Button>Explore courses</Button>
@@ -47,6 +53,7 @@ const HomePage: FC = () => {
               <img src={homeIllustration} alt="" />
             </RowItem>
           </Row>
+
           <div className={styles.headerFooter}>
             <ul className={styles.headerAchievements}>
               <li>
@@ -80,12 +87,17 @@ const HomePage: FC = () => {
       <section className={styles.whoWeAre}>
         <Row
           className="container"
-          settings={{ gap: "135px", align: "flex-start" }}
+          settings={{
+            gap: "100px",
+            align: "flex-start",
+          }}
         >
-          <img src={whoWeAreIllustration} alt="" />
+          <RowItem>
+            <img src={whoWeAreIllustration} alt="" />
+          </RowItem>
 
-          <div>
-            <Title>
+          <RowItem className={styles.whoWeAreDiv}>
+            <Title style={{ color: "#1e212c" }}>
               <h2>Who we are</h2>
               <h3>Why Createx?</h3>
             </Title>
@@ -94,27 +106,33 @@ const HomePage: FC = () => {
               <li>
                 A fermentum in morbi pretium aliquam adipiscing donec tempus.
               </li>
+
               <li>Vulputate placerat amet pulvinar lorem nisl.</li>
+
               <li>
                 Consequat feugiat habitant gravida quisque elit bibendum id
                 adipiscing sed.
               </li>
+
               <li>Etiam duis lobortis in fames ultrices commodo nibh.</li>
+
               <li>Tincidunt sagittis neque sem ac eget.</li>
+
               <li>
                 Ultricies amet justo et eget quisque purus vulputate dapibus
                 tortor.
               </li>
             </ul>
+
             <Button>More about us</Button>
-          </div>
+          </RowItem>
         </Row>
       </section>
 
       {/* courses */}
       <section className={styles.courses}>
         <div className={clsx("container", styles.coursesHeader)}>
-          <Title>
+          <Title style={{ color: "#1e212c" }}>
             <h2>Ready to learn?</h2>
             <h3>Featured Courses</h3>
           </Title>
@@ -123,16 +141,18 @@ const HomePage: FC = () => {
             <Link to="/courses">View all courses</Link>
           </Button>
         </div>
+
         <CoursesList />
       </section>
 
       {/* benefits */}
       <section className={styles.benefits}>
         <div className="container">
-          <Title align="center">
+          <Title align="center" style={{ color: "#1e212c" }}>
             <h2>Our benefits</h2>
             <h3>That's how we do it</h3>
           </Title>
+
           <HomeTabs />
         </div>
       </section>
@@ -141,7 +161,7 @@ const HomePage: FC = () => {
 
       <section className={styles.events}>
         <div className="container">
-          <Title align="center">
+          <Title align="center" style={{ color: "#1e212c" }}>
             <h2>Our events</h2>
             <h3>Lectures & workshops</h3>
           </Title>
@@ -163,22 +183,24 @@ const HomePage: FC = () => {
       <section className={styles.team}>
         <div className="container">
           <div className={styles.teamTop}>
-            <Title>
+            <Title style={{ color: "#1e212c" }}>
               <h2>Best tutors are all here</h2>
               <h3>Meet our team</h3>
             </Title>
           </div>
+
           <TeamList />
         </div>
       </section>
 
       {/* testimonials */}
       <Testimonials />
+
       {/* latest posts */}
       <section className={styles.latestPosts}>
         <div className="container">
           <div className={styles.latestTop}>
-            <Title>
+            <Title style={{ color: "#1e212c" }}>
               <h2>Our blog</h2>
               <h3>Latest posts</h3>
             </Title>
