@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ITeam } from "../../utils/interfaces";
-import CreatexAPI from "../../utils/api";
+import { ITeam } from "@utils/interfaces";
+import CreatexAPI from "@utils/api";
 
 interface IInitial {
   team: ITeam[];

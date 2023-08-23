@@ -1,4 +1,8 @@
-import { HTMLInputTypeAttribute, ChangeEventHandler } from "react";
+import {
+  HTMLInputTypeAttribute,
+  ChangeEventHandler,
+  CSSProperties,
+} from "react";
 
 export interface IInputProps {
   settings?: {
@@ -15,6 +19,7 @@ export interface IInputProps {
     id?: string;
     placeholder?: string;
     onChange?: ChangeEventHandler;
+    style?: CSSProperties;
   };
 }
 

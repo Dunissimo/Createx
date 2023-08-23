@@ -1,0 +1,49 @@
+.accordion {
+  h3 {
+    padding-left: 40px;
+    font-size: 20px;
+    position: relative;
+
+    &::before {
+      content: url("@assets/icons/plus.svg");
+      display: block;
+
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-40%);
+      transition: transform 0.3s;
+    }
+  }
+
+  h3.accOpen::before {
+    content: url("@assets/icons/minus.svg");
+    transform: translateY(-40%) rotate(180deg);
+    transition: transform 0.3s;
+  }
+
+  .body {
+    padding-top: 16px;
+    padding-left: 40px;
+
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .body.accOpen {
+    max-height: 100px;
+    overflow: visible;
+    animation: open 0.5s;
+  }
+}
+
+@keyframes open {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 100px;
+  }
+}

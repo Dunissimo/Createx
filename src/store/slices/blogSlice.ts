@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IBlogCard } from "../../utils/interfaces";
-import CreatexAPI from "../../utils/api";
+import { IBlogCard } from "@utils/interfaces";
+import CreatexAPI from "@utils/api";
 
 interface IInitial {
   posts: IBlogCard[];

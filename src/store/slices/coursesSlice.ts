@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import CreatexAPI from "../../utils/api";
-import { ICourse } from "../../utils/interfaces";
+import CreatexAPI from "@utils/api";
+import { ICourse } from "@utils/interfaces";
 
 interface IInitial {
   courses: ICourse[];

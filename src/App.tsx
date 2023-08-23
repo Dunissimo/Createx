@@ -9,6 +9,7 @@ import CoursesPage from "@pages/Courses/CoursesPage";
 import EventsPage from "@pages/Events/EventsPage";
 import HomePage from "@pages/Home/HomePage";
 import NotFound from "@pages/NotFound/NotFound";
+import CoursePage from "@pages/Courses/Course/CoursePage";
 import { fetchCourses } from "@redux/slices/coursesSlice";
 import { useAppDispatch } from "@utils/hooks";
 
@@ -24,11 +25,18 @@ const App = () => {
     <div className={clsx("App", theme)}>
       <Routes>
         <Route path="/" element={<HomePage />} />
+
         <Route path="/about" element={<AboutPage />} />
+
         <Route path="/courses" element={<CoursesPage />} />
+        <Route path="/courses/:id" element={<CoursePage />} />
+
         <Route path="/events" element={<EventsPage />} />
+
         <Route path="/blog" element={<BlogPage />} />
+
         <Route path="/contacts" element={<ContactsPage />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

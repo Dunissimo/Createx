@@ -1,4 +1,10 @@
-import { CSSProperties, FC, MouseEventHandler, ReactNode } from "react";
+import {
+  ButtonHTMLAttributes,
+  CSSProperties,
+  FC,
+  MouseEventHandler,
+  ReactNode,
+} from "react";
 import clsx from "clsx";
 
 import styles from "./Button.module.scss";
@@ -20,10 +26,15 @@ interface IProps {
     onClick?: MouseEventHandler;
     style?: CSSProperties;
     className?: string;
+    type?: "submit" | "reset" | "button";
   };
 }
 
-const Button: FC<IProps> = ({ children, settings, props }) => {
+const Button: FC<IProps> = ({
+  children,
+  settings,
+  props = { type: "button" },
+}) => {
   const {
     simple,
     outline,
