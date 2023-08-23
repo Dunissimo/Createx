@@ -1,3 +1,14 @@
+.latestPosts {
+  padding-top: 120px;
+  padding-bottom: 140px;
+
+  .latestTop {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
 .list {
   margin-top: 60px;
   display: flex;

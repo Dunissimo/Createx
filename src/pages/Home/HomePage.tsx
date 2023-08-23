@@ -197,20 +197,7 @@ const HomePage: FC = () => {
       <Testimonials />
 
       {/* latest posts */}
-      <section className={styles.latestPosts}>
-        <div className="container">
-          <div className={styles.latestTop}>
-            <Title style={{ color: "#1e212c" }}>
-              <h2>Our blog</h2>
-              <h3>Latest posts</h3>
-            </Title>
-
-            <Button>Go to blog</Button>
-          </div>
-
-          <LatestPosts />
-        </div>
-      </section>
+      <LatestPosts />
 
       {/* subscribe */}
       <Subscribe />
