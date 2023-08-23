@@ -1,13 +1,17 @@
 .header {
+  min-height: 100vh;
   background: #fedbd3;
 
   .headerBody {
     padding: 4em 0 120px;
+
     .headerLeft {
       h2 {
         margin: 24px 0 60px 0;
 
         font-size: clamp(2rem, 6vw, 64px);
+
+        color: #1e212c;
 
         line-height: 1.25em;
         font-weight: 900;
@@ -45,6 +49,7 @@
 
   .headerFooter {
     padding-bottom: 80px;
+
     .headerAchievements {
       display: flex;
       align-items: center;
@@ -55,16 +60,18 @@
         align-items: center;
         gap: 12px;
 
+        color: #1e212c;
+
         span {
           font-size: 2.875em;
           font-weight: 900;
-          color: black;
         }
+
         p {
           font-size: 1em;
-          color: #1e212c;
         }
       }
+
       > span {
         width: 8px;
         height: 8px;
@@ -74,19 +81,29 @@
     }
   }
 }
+
 .whoWeAre {
   padding: 180px 0;
 
+  .whoWeAreDiv {
+    min-height: 530px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
   .whoWeAreList {
+    max-width: 75%;
+
     margin-top: 40px;
     margin-bottom: 48px;
 
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 20px;
 
     li {
-      width: 70%;
       margin-left: 1.5rem;
       padding-left: 16px;
       color: #424551;
@@ -97,6 +114,7 @@
 
 .courses {
   padding-bottom: 80px;
+
   .coursesHeader {
     display: flex;
     justify-content: space-between;
@@ -125,6 +143,7 @@
     h3 {
       font-size: 1.75em;
       font-weight: 700;
+      color: #1e212c;
     }
   }
 }
@@ -136,17 +155,6 @@
 
   .teamTop {
     display: flex;
-    justify-content: space-between;
-  }
-}
-
-.latestPosts {
-  margin-top: 120px;
-  margin-bottom: 140px;
-
-  .latestTop {
-    display: flex;
-    align-items: flex-end;
     justify-content: space-between;
   }
 }

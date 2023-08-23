@@ -1,6 +1,7 @@
 import { FC } from "react";
-import { TType } from "../../utils/interfaces";
 import clsx from "clsx";
+
+import { TType } from "@utils/interfaces";
 
 import styles from "./Type.module.scss";
 

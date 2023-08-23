@@ -1,15 +1,16 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
+import clsx from "clsx";
 
 import styles from "./SocialMedia.module.scss";
 
-import yotube from "../../assets/icons/YouTube.svg";
-import twitter from "../../assets/icons/Twitter.svg";
-import facebook from "../../assets/icons/Facebook.svg";
-import telegram from "../../assets/icons/telegram.svg";
-import instagram from "../../assets/icons/Instagram.svg";
-import linkedIn from "../../assets/icons/Linked-In.svg";
-import clsx from "clsx";
+import yotube from "@assets/icons/YouTube.svg";
+import twitter from "@assets/icons/Twitter.svg";
+import facebook from "@assets/icons/Facebook.svg";
+import telegram from "@assets/icons/telegram.svg";
+import instagram from "@assets/icons/Instagram.svg";
+import linkedIn from "@assets/icons/Linked-In.svg";
+import behance from "@assets/icons/behance.svg";
 
 const links = {
   youtube: {
@@ -36,6 +37,10 @@ const links = {
     link: "https://www.linkedin.com/",
     img: linkedIn,
   },
+  behance: {
+    link: "https://www.behance.net/",
+    img: behance,
+  },
 };
 
 const images = {};
@@ -47,11 +52,12 @@ interface IProps {
     | "facebook"
     | "telegram"
     | "instagram"
-    | "linkedIn";
-  className: string;
+    | "linkedIn"
+    | "behance";
+  className?: "footer" | "team" | "curator";
 }
 
-const SocialMedia: FC<IProps> = ({ social, className }) => {
+const SocialMedia: FC<IProps> = ({ social, className = "team" }) => {
   return (
     <Link
       to={links[social].link}

@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import { FC, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { fetchCourses } from "../../redux/slices/coursesSlice";
-import CourseUI from "../../UI/Cards/Course/Course";
-import { useAppDispatch, useAppSelector } from "../../utils/hooks";
+import { fetchCourses } from "@redux/slices/coursesSlice";
+import { useAppDispatch, useAppSelector } from "@utils/hooks";
+import CourseUI from "@ui/Cards/Course/Course";
 
 import styles from "./Courses.module.scss";
 

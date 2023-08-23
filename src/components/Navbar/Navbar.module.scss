@@ -3,7 +3,7 @@
 
   & .nav {
     display: flex;
-    margin-left: 60px;
+    margin-left: -100px;
     margin-right: 222px;
     gap: 40px;
 
@@ -13,10 +13,10 @@
       a {
         color: inherit;
         font-weight: 700;
-        transition: 0.3s;
+        transition: 0.2s;
 
         &:hover {
-          text-decoration: underline;
+          color: red;
         }
 
         &.active {

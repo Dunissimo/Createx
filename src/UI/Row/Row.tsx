@@ -1,11 +1,12 @@
+import { CSSProperties, FC, ReactNode } from "react";
 import clsx from "clsx";
-import { FC } from "react";
 
 import styles from "./Row.module.scss";
 
 interface IProps {
-  children: React.ReactNode[];
+  children: ReactNode;
   className?: string;
+  style?: CSSProperties;
   settings?: {
     gap?: number | string;
     align?: "flex-start" | "center" | "flex-end";
@@ -13,19 +14,19 @@ interface IProps {
   };
 }
 
-const Row: FC<IProps> = ({ className, children, settings }) => {
+const Row: FC<IProps> = ({ className, style, children, settings }) => {
   const {
     align = "center",
     justify = "justify-between",
     gap = 0,
   } = settings || {};
+
   return (
     <div
       className={clsx(styles.row, className)}
-      style={{ alignItems: align, justifyContent: justify, gap }}
+      style={{ alignItems: align, justifyContent: justify, gap, ...style }}
     >
-      <div className={styles.left}>{children[0]}</div>
-      <div className={styles.right}>{children[1]}</div>
+      {children}
     </div>
   );
 };

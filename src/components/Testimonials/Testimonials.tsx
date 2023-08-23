@@ -1,15 +1,15 @@
 import { FC } from "react";
-import Title from "../../UI/Title/Title";
+import Title from "@ui/Title/Title";
 
 import styles from "./Testimonials.module.scss";
 
-import profile from "../../assets/profile.svg";
+import profile from "@assets/profile.svg";
 
 const Testimonials: FC = () => {
   return (
     <section className={styles.testimonials}>
       <div className="container">
-        <Title align="center">
+        <Title align="center" style={{ color: "#1e212c" }}>
           <h2>TESTIMONIALS</h2>
           <h3>What our students say</h3>
         </Title>

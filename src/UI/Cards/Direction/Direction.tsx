@@ -1,12 +1,13 @@
 import { FC } from "react";
-import Type from "../../Type/Type";
+
+import { IDirectionData } from "@utils/interfaces";
+import { useUrl } from "@utils/hooks";
+import Button from "@ui/Button/Button";
+import Type from "@ui/Type/Type";
 
 import styles from "./Direction.module.scss";
 
-import Button from "../../Button/Button";
-import left from "../../../assets/icons/arrow-red.svg";
-import { IDirectionData } from "../../../utils/interfaces";
-import { useUrl } from "../../../utils/hooks";
+import left from "@assets/icons/arrow-red.svg";
 
 interface IProps {
   directionData: IDirectionData;

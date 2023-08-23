@@ -1,24 +1,25 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import clsx from "clsx";
-import Navbar from "../../components/Navbar/Navbar";
-import Button from "../../UI/Button/Button";
-import Row from "../../UI/Row/Row";
-import Title from "../../UI/Title/Title";
-import CoursesList from "../../components/CoursesList/CoursesList";
-import HomeTabs from "../../UI/Tabs/HomeTabs";
-import EventsList from "../../components/EventsList/EventsList";
-import Subscribe from "../../components/Subscribe/Subscribe";
-import TeamList from "../../components/TeamList/TeamList";
-import Testimonials from "../../components/Testimonials/Testimonials";
-import LatestPosts from "../../components/LatestPosts/LatestPosts";
-import Certificate from "../../components/Certificate/Certificate";
+import Button from "@ui/Button/Button";
+import Row from "@ui/Row/Row";
+import RowItem from "@ui/Row/RowItem/RowItem";
+import Title from "@ui/Title/Title";
+import HomeTabs from "@ui/Tabs/HomeTabs";
+import Navbar from "@components/Navbar/Navbar";
+import CoursesList from "@components/CoursesList/CoursesList";
+import EventsList from "@components/EventsList/EventsList";
+import Subscribe from "@components/Subscribe/Subscribe";
+import TeamList from "@components/TeamList/TeamList";
+import Testimonials from "@components/Testimonials/Testimonials";
+import LatestPosts from "@components/LatestPosts/LatestPosts";
+import Certificate from "@components/Certificate/Certificate";
 
 import styles from "./Home.module.scss";
 
-import showreel from "../../assets/icons/showreel.svg";
-import homeIllustration from "../../assets/homeIllustration.svg";
-import whoWeAreIllustration from "../../assets/whoWeAre.png";
+import showreel from "@assets/icons/showreel.svg";
+import homeIllustration from "@assets/homeIllustration.svg";
+import whoWeAreIllustration from "@assets/whoWeAre.png";
 
 const HomePage: FC = () => {
   return (
@@ -26,21 +27,33 @@ const HomePage: FC = () => {
       {/* Header */}
       <header className={styles.header}>
         <Navbar />
+
         <div className="container">
           <Row className={styles.headerBody}>
-            <div className={styles.headerLeft}>
-              <Button settings={{ simple: true }}>
-                <img src={showreel} alt="" />
-                Play showreel
-              </Button>
-              <h2>Enjoy studying with Createx Online Courses</h2>
-              <div className={styles.buttons}>
-                <Button settings={{ outline: true }}>About us</Button>
-                <Button>Explore courses</Button>
+            <RowItem>
+              <div className={styles.headerLeft}>
+                <Button
+                  settings={{ simple: true }}
+                  props={{ style: { color: "#1e212c" } }}
+                >
+                  <img src={showreel} alt="" />
+                  Play showreel
+                </Button>
+                <h2>
+                  Enjoy studying <br /> with Createx <br /> Online Courses
+                </h2>
+                <div className={styles.buttons}>
+                  <Button settings={{ outline: true }}>About us</Button>
+                  <Button>Explore courses</Button>
+                </div>
               </div>
-            </div>
-            <img src={homeIllustration} alt="" />
+            </RowItem>
+
+            <RowItem>
+              <img src={homeIllustration} alt="" />
+            </RowItem>
           </Row>
+
           <div className={styles.headerFooter}>
             <ul className={styles.headerAchievements}>
               <li>
@@ -74,12 +87,17 @@ const HomePage: FC = () => {
       <section className={styles.whoWeAre}>
         <Row
           className="container"
-          settings={{ gap: "135px", align: "flex-start" }}
+          settings={{
+            gap: "100px",
+            align: "flex-start",
+          }}
         >
-          <img src={whoWeAreIllustration} alt="" />
+          <RowItem>
+            <img src={whoWeAreIllustration} alt="" />
+          </RowItem>
 
-          <div>
-            <Title>
+          <RowItem className={styles.whoWeAreDiv}>
+            <Title style={{ color: "#1e212c" }}>
               <h2>Who we are</h2>
               <h3>Why Createx?</h3>
             </Title>
@@ -88,27 +106,33 @@ const HomePage: FC = () => {
               <li>
                 A fermentum in morbi pretium aliquam adipiscing donec tempus.
               </li>
+
               <li>Vulputate placerat amet pulvinar lorem nisl.</li>
+
               <li>
                 Consequat feugiat habitant gravida quisque elit bibendum id
                 adipiscing sed.
               </li>
+
               <li>Etiam duis lobortis in fames ultrices commodo nibh.</li>
+
               <li>Tincidunt sagittis neque sem ac eget.</li>
+
               <li>
                 Ultricies amet justo et eget quisque purus vulputate dapibus
                 tortor.
               </li>
             </ul>
+
             <Button>More about us</Button>
-          </div>
+          </RowItem>
         </Row>
       </section>
 
       {/* courses */}
       <section className={styles.courses}>
         <div className={clsx("container", styles.coursesHeader)}>
-          <Title>
+          <Title style={{ color: "#1e212c" }}>
             <h2>Ready to learn?</h2>
             <h3>Featured Courses</h3>
           </Title>
@@ -117,16 +141,18 @@ const HomePage: FC = () => {
             <Link to="/courses">View all courses</Link>
           </Button>
         </div>
+
         <CoursesList />
       </section>
 
       {/* benefits */}
       <section className={styles.benefits}>
         <div className="container">
-          <Title align="center">
+          <Title align="center" style={{ color: "#1e212c" }}>
             <h2>Our benefits</h2>
             <h3>That's how we do it</h3>
           </Title>
+
           <HomeTabs />
         </div>
       </section>
@@ -135,7 +161,7 @@ const HomePage: FC = () => {
 
       <section className={styles.events}>
         <div className="container">
-          <Title align="center">
+          <Title align="center" style={{ color: "#1e212c" }}>
             <h2>Our events</h2>
             <h3>Lectures & workshops</h3>
           </Title>
@@ -157,32 +183,21 @@ const HomePage: FC = () => {
       <section className={styles.team}>
         <div className="container">
           <div className={styles.teamTop}>
-            <Title>
+            <Title style={{ color: "#1e212c" }}>
               <h2>Best tutors are all here</h2>
               <h3>Meet our team</h3>
             </Title>
           </div>
+
           <TeamList />
         </div>
       </section>
 
       {/* testimonials */}
       <Testimonials />
+
       {/* latest posts */}
-      <section className={styles.latestPosts}>
-        <div className="container">
-          <div className={styles.latestTop}>
-            <Title>
-              <h2>Our blog</h2>
-              <h3>Latest posts</h3>
-            </Title>
-
-            <Button>Go to blog</Button>
-          </div>
-
-          <LatestPosts />
-        </div>
-      </section>
+      <LatestPosts />
 
       {/* subscribe */}
       <Subscribe />

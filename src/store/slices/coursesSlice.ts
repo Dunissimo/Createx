@@ -1,46 +1,46 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IBlogCard } from "../../utils/interfaces";
-import CreatexAPI from "../../utils/api";
+import CreatexAPI from "@utils/api";
+import { ICourse } from "@utils/interfaces";
 
 interface IInitial {
-  posts: IBlogCard[];
+  courses: ICourse[];
   loading: boolean;
   error: Error | null;
 }
 
 const initialState: IInitial = {
-  posts: [],
-  loading: true,
+  courses: [],
+  loading: false,
   error: null,
 };
 
-export const fetchPosts = createAsyncThunk(
-  "posts/fetchBlog",
+export const fetchCourses = createAsyncThunk(
+  "courses/fetchCourses",
   async (_, { rejectWithValue }) => {
     try {
-      return await CreatexAPI.fetchData("posts");
+      return await CreatexAPI.fetchData("courses");
     } catch (error) {
       return rejectWithValue(error);
     }
   }
 );
 
-const postsSlice = createSlice({
-  name: "posts",
+export const coursesSlice = createSlice({
+  name: "courses",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchPosts.pending, (state) => {
+    builder.addCase(fetchCourses.pending, (state) => {
       state.error = null;
       state.loading = true;
     });
-    builder.addCase(fetchPosts.fulfilled, (state, action) => {
+    builder.addCase(fetchCourses.fulfilled, (state, action) => {
       state.loading = false;
       state.error = null;
-      state.posts = action.payload;
+      state.courses = action.payload;
     });
     builder.addCase(
-      fetchPosts.rejected,
+      fetchCourses.rejected,
       (state, action: PayloadAction<any>) => {
         state.error = action.payload;
         state.loading = false;
@@ -49,4 +49,4 @@ const postsSlice = createSlice({
   },
 });
 
-export const postsReducer = postsSlice.reducer;
+export const coursesReducer = coursesSlice.reducer;

@@ -1,11 +1,12 @@
 import { FC } from "react";
 import clsx from "clsx";
-import Checkbox from "../Checkbox/Checkbox";
+
+import { IInputProps } from "@utils/interfaces";
+import Checkbox from "@ui/Form/Checkbox/Checkbox";
 
 import styles from "./Input.module.scss";
-import { IInputProps } from "../../../utils/interfaces";
 
-import arrow from "../../../assets/icons/arrow-right.svg";
+import arrow from "@assets/icons/arrow-right.svg";
 
 interface IProps extends IInputProps {
   settings?: IInputProps["settings"] & {

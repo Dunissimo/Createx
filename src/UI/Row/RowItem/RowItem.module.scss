@@ -1,0 +1,22 @@
+.start,
+.center,
+.end {
+  display: flex;
+  flex-direction: column;
+}
+
+.start {
+  align-items: start;
+}
+.center {
+  align-items: center;
+}
+.end {
+  align-items: end;
+}
+
+@media (max-width: 1024px) {
+  .item {
+    width: 100%;
+  }
+}

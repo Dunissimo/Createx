@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { IInputProps } from "../../../utils/interfaces";
+import { IInputProps } from "@utils/interfaces";
 
 import styles from "./Checkbox.module.scss";
 

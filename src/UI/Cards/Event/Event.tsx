@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { FC } from "react";
-import { IEvent } from "../../../utils/interfaces";
-import Button from "../../Button/Button";
+import { IEvent } from "@utils/interfaces";
+import Button from "@ui/Button/Button";
 
 import styles from "./Event.module.scss";
 

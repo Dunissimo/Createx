@@ -1,13 +1,13 @@
 import { FC } from "react";
-import Button from "../../Button/Button";
+import Button from "@ui/Button/Button";
 import clsx from "clsx";
-import { IBlogCard } from "../../../utils/interfaces";
-import { useUrl } from "../../../utils/hooks";
+import { IBlogCard } from "@utils/interfaces";
+import { useUrl } from "@utils/hooks";
 
 import styles from "./BlogCard.module.scss";
 
-import calendar from "../../../assets/icons/Calendar.svg";
-import clock from "../../../assets/icons/Clock.svg";
+import calendar from "@assets/icons/Calendar.svg";
+import clock from "@assets/icons/Clock.svg";
 
 interface IProps {
   card: IBlogCard;
@@ -19,21 +19,21 @@ const buttons = {
   article: "Read",
 };
 
+const firstLetterToUpperCase = (str: string) => {
+  return `${str[0].toUpperCase()}${str.slice(1)}`;
+};
+
 const BlogCardUI: FC<IProps> = ({ card }) => {
   const { details, imgName, p, title, type } = card;
 
-  const firstLetterToUpperCase = (str: string) => {
-    return `${str[0].toUpperCase()}${str.slice(1)}`;
-  };
-
   const url = useUrl(`blog/${imgName}`);
 
-  const duration = details.duration ? (
+  const duration = details.duration && (
     <div className={styles.duration}>
       <img src={clock} alt="" />
       {details.duration}
     </div>
-  ) : null;
+  );
 
   return (
     <section className={styles.card}>
@@ -57,7 +57,7 @@ const BlogCardUI: FC<IProps> = ({ card }) => {
       </div>
       <Button
         settings={{ isWithArrow: true, simple: true }}
-        props={{ style: { fontWeight: "700" } }}
+        props={{ style: { fontWeight: "700", color: "#1e212c" } }}
       >
         {buttons[type]}
       </Button>

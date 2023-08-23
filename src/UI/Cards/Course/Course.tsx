@@ -1,11 +1,10 @@
 import { FC } from "react";
 
-import styles from "./Course.module.scss";
+import Type from "@ui/Type/Type";
+import { ICourse } from "@utils/interfaces";
+import { useUrl } from "@utils/hooks";
 
-import clsx from "clsx";
-import { useUrl } from "../../../utils/hooks";
-import Type from "../../Type/Type";
-import { ICourse } from "../../../utils/interfaces";
+import styles from "./Course.module.scss";
 
 interface IProps {
   course: ICourse;
@@ -20,9 +19,12 @@ const CourseUI: FC<IProps> = ({ course, orientation = "horizontal" }) => {
   return (
     <div className={styles[`card-${orientation}`]}>
       <img src={url} alt="" />
+
       <div className={styles.cardInfo}>
         <Type type={type} />
+
         <h2>{title}</h2>
+
         <div className={styles.cardPrice}>
           <span>${price}</span>|<span>by {author}</span>
         </div>
