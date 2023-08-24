@@ -197,7 +197,7 @@ const AboutPage: FC = () => {
               width="33.333%"
               directionData={{
                 imgUrlWithExtension: "directions/image-3.svg",
-                type: "Marketing",
+                type: "Management",
                 button: "Check courses",
                 paragraph:
                   "Odio posuere netus quisque faucibus lectus arcu donec. Eget dictum eu viverra faucibus. Viverra scelerisque consequat.",
@@ -208,7 +208,7 @@ const AboutPage: FC = () => {
               width="33.333%"
               directionData={{
                 imgUrlWithExtension: "directions/image-2.svg",
-                type: "Marketing",
+                type: "Recruting",
                 button: "Check courses",
                 paragraph:
                   "Odio posuere netus quisque faucibus lectus arcu donec. Eget dictum eu viverra faucibus. Viverra scelerisque consequat.",
@@ -221,7 +221,7 @@ const AboutPage: FC = () => {
               width="33.333%"
               directionData={{
                 imgUrlWithExtension: "directions/image-1.svg",
-                type: "Marketing",
+                type: "Design",
                 button: "Check courses",
                 paragraph:
                   "Odio posuere netus quisque faucibus lectus arcu donec. Eget dictum eu viverra faucibus. Viverra scelerisque consequat.",
@@ -232,7 +232,7 @@ const AboutPage: FC = () => {
               width="33.333%"
               directionData={{
                 imgUrlWithExtension: "directions/image.svg",
-                type: "Marketing",
+                type: "Development",
                 button: "Check courses",
                 paragraph:
                   "Odio posuere netus quisque faucibus lectus arcu donec. Eget dictum eu viverra faucibus. Viverra scelerisque consequat.",
