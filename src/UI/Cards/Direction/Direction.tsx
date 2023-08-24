@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { CSSProperties, FC } from "react";
 
 import { IDirectionData } from "@utils/interfaces";
 import { useUrl } from "@utils/hooks";
@@ -8,18 +8,33 @@ import Type from "@ui/Type/Type";
 import styles from "./Direction.module.scss";
 
 import left from "@assets/icons/arrow-red.svg";
+import clsx from "clsx";
 
 interface IProps {
-  directionData: IDirectionData;
+  directionData?: IDirectionData;
+  isEmpty?: boolean;
+  width?: string;
+  style?: CSSProperties;
 }
 
-const Direction: FC<IProps> = ({ directionData }) => {
-  const { imgUrlWithExtension, type, paragraph, button } = directionData;
+const Direction: FC<IProps> = ({ isEmpty, width, directionData, style }) => {
+  if (isEmpty) {
+    return (
+      <div
+        className={clsx(styles.direction, styles.empty)}
+        style={{ width, ...style }}
+      >
+        New studying program <br /> coming soon...
+      </div>
+    );
+  }
 
-  const url = useUrl(imgUrlWithExtension);
+  const { imgUrlWithExtension, type, paragraph, button } = directionData!;
+
+  const url = useUrl(imgUrlWithExtension!);
 
   return (
-    <div className={styles.direction}>
+    <div className={styles.direction} style={{ width, ...style }}>
       <img className={styles.dirMainImg} src={url} alt="" />
       <div className={styles.dirInfo}>
         <Type type={type} />

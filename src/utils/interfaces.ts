@@ -79,3 +79,8 @@ export interface IBlogCard {
   p: string;
   id: number;
 }
+
+export interface IStepData {
+  title: string;
+  par: string;
+}

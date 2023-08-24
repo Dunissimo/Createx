@@ -15,6 +15,16 @@
   align-items: end;
 }
 
+.j-start {
+  justify-content: start;
+}
+.j-center {
+  justify-content: center;
+}
+.j-end {
+  justify-content: end;
+}
+
 @media (max-width: 1024px) {
   .item {
     width: 100%;
