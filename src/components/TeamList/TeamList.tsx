@@ -7,9 +7,10 @@ import styles from "./TeamList.module.scss";
 
 interface IProps {
   limit?: number | string;
+  cardWidth?: string;
 }
 
-const TeamList: FC<IProps> = ({ limit = 4 }) => {
+const TeamList: FC<IProps> = ({ limit = 4, cardWidth = "25%" }) => {
   const dispatch = useAppDispatch();
   const { team, loading, error } = useAppSelector((state) => state.team);
 
@@ -27,7 +28,9 @@ const TeamList: FC<IProps> = ({ limit = 4 }) => {
     <div className={styles.list}>
       {loading && <div>Loading...</div>}
       {team.slice(0, +limit).map((team) => (
-        <Team key={team.id} team={team} />
+        <div style={{ width: cardWidth }}>
+          <Team key={team.id} team={team} />
+        </div>
       ))}
     </div>
   );

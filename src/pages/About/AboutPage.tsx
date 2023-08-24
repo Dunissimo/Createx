@@ -9,6 +9,9 @@ import Row from "@src/UI/Row/Row";
 import RowItem from "@src/UI/Row/RowItem/RowItem";
 import Title from "@src/UI/Title/Title";
 import Value from "@src/UI/Values/Value";
+import Direction from "@src/UI/Cards/Direction/Direction";
+import Steps from "@src/UI/Steps/Steps";
+import TeamList from "@src/components/TeamList/TeamList";
 
 import styles from "./AboutPage.module.scss";
 
@@ -18,6 +21,19 @@ import strucure from "@assets/blog/ic-structure.svg";
 import calendar from "@assets/blog/ic-calendar.svg";
 import chat from "@assets/blog/ic-chat.svg";
 import target from "@assets/blog/ic-target.svg";
+import process from "@assets/illustration-about.svg";
+import job1 from "@assets/jobs/Atlantis Health Logo.svg";
+import job2 from "@assets/jobs/Complete Health Logo - Untitled Page.svg";
+import job3 from "@assets/jobs/Del Mar Strategy Logo.svg";
+import job4 from "@assets/jobs/For Sale Logo.svg";
+import job5 from "@assets/jobs/Happy Home Logo.svg";
+import job6 from "@assets/jobs/InDepth Consulting Logo - Untitled Page.svg";
+import job7 from "@assets/jobs/National Health Logo.svg";
+import job8 from "@assets/jobs/Sentinal Consulting Logo.svg";
+import job9 from "@assets/jobs/Sunset Realty Logo.svg";
+import job10 from "@assets/jobs/Ultimate Gym Logo.svg";
+import job11 from "@assets/jobs/United Strategy Logo.svg";
+import job12 from "@assets/jobs/Higher Fit Logo - Untitled Page.svg";
 
 const AboutPage: FC = () => {
   return (
@@ -155,15 +171,152 @@ const AboutPage: FC = () => {
         </div>
       </section>
 
-      <section className="directions"></section>
+      <section className={styles.directions}>
+        <div className="container">
+          <Title
+            align="center"
+            style={{ color: "#1e212c", marginBottom: "60px" }}
+          >
+            <h2>Our main directions</h2>
+            <h3>What do we teach</h3>
+          </Title>
 
-      <section className="process"></section>
+          <Row settings={{ gap: "30px" }} style={{ marginBottom: "30px" }}>
+            <Direction
+              width="33.333%"
+              directionData={{
+                imgUrlWithExtension: "directions/image-4.svg",
+                type: "Marketing",
+                button: "Check courses",
+                paragraph:
+                  "Odio posuere netus quisque faucibus lectus arcu donec. Eget dictum eu viverra faucibus. Viverra scelerisque consequat.",
+              }}
+            />
 
-      <section className="team"></section>
+            <Direction
+              width="33.333%"
+              directionData={{
+                imgUrlWithExtension: "directions/image-3.svg",
+                type: "Marketing",
+                button: "Check courses",
+                paragraph:
+                  "Odio posuere netus quisque faucibus lectus arcu donec. Eget dictum eu viverra faucibus. Viverra scelerisque consequat.",
+              }}
+            />
+
+            <Direction
+              width="33.333%"
+              directionData={{
+                imgUrlWithExtension: "directions/image-2.svg",
+                type: "Marketing",
+                button: "Check courses",
+                paragraph:
+                  "Odio posuere netus quisque faucibus lectus arcu donec. Eget dictum eu viverra faucibus. Viverra scelerisque consequat.",
+              }}
+            />
+          </Row>
+
+          <Row settings={{ gap: "30px" }}>
+            <Direction
+              width="33.333%"
+              directionData={{
+                imgUrlWithExtension: "directions/image-1.svg",
+                type: "Marketing",
+                button: "Check courses",
+                paragraph:
+                  "Odio posuere netus quisque faucibus lectus arcu donec. Eget dictum eu viverra faucibus. Viverra scelerisque consequat.",
+              }}
+            />
+
+            <Direction
+              width="33.333%"
+              directionData={{
+                imgUrlWithExtension: "directions/image.svg",
+                type: "Marketing",
+                button: "Check courses",
+                paragraph:
+                  "Odio posuere netus quisque faucibus lectus arcu donec. Eget dictum eu viverra faucibus. Viverra scelerisque consequat.",
+              }}
+            />
+
+            <Direction width="33.333%" isEmpty />
+          </Row>
+        </div>
+      </section>
+
+      <section className={styles.process}>
+        <div className="container">
+          <Title style={{ color: "#1e212c" }}>
+            <h2>Studying process</h2>
+            <h3>That's how we do it</h3>
+          </Title>
+
+          <Row settings={{ gap: "210px" }}>
+            <RowItem>
+              <Steps
+                data={[
+                  {
+                    title: "Watching online video lectures",
+                    par: "Aliquam turpis viverra quam sit interdum blandit posuere pellentesque. Nisl, imperdiet gravida massa neque.",
+                  },
+                  {
+                    title: "Passing test",
+                    par: "Facilisis pellentesque quis accumsan ultricies. Eu egestas eget feugiat lacus, amet, sollicitudin egestas laoreet etiam. ",
+                  },
+                  {
+                    title: "Curator's feedback",
+                    par: "Eget amet, enim pharetra leo egestas nisi, odio imperdiet facilisis. Aliquet orci varius volutpat egestas facilisi lobortis. ",
+                  },
+                  {
+                    title: "Corrections if needed",
+                    par: "Non tempor pulvinar tincidunt aliquam. Placerat ultricies malesuada dui auctor.",
+                  },
+                ]}
+              />
+            </RowItem>
+
+            <RowItem contentPosition="end">
+              <img src={process} alt="" />
+            </RowItem>
+          </Row>
+        </div>
+      </section>
+
+      <section className={styles.team}>
+        <div className="container">
+          <Title align="center" style={{ color: "#1e212c" }}>
+            <h2>Best tutors are all here</h2>
+            <h3>Meet our team</h3>
+          </Title>
+
+          <TeamList limit={8} />
+        </div>
+      </section>
 
       <Testimonials />
 
-      <section className="companies"></section>
+      <section className={styles.companies}>
+        <div className="container">
+          <Title
+            align="center"
+            style={{ color: "#1e212c", marginBottom: "60px" }}
+          >
+            <h2>Best jobs for you</h2>
+            <h3>Our students work here</h3>
+          </Title>
+
+          <Row settings={{ justify: "center", gap: "60px" }}>
+            {[job1, job2, job4, job5, job6].map((job) => (
+              <img src={job} alt="" />
+            ))}
+          </Row>
+          <Row settings={{ justify: "center", gap: "60px" }}>
+            {[job7, job8, job10, job11, job12].map((job) => (
+              <img src={job} alt="" />
+            ))}
+          </Row>
+        </div>
+      </section>
 
       <LatestPosts />
 
