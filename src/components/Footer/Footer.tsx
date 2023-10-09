@@ -5,6 +5,8 @@ import SocialMedia from "@ui/SocialMedia/SocialMedia";
 import Input from "@ui/Form/Input/Input";
 import Button from "@ui/Button/Button";
 
+import { handleNavLinkClick } from "@utils/helpers";
+
 import styles from "./Footer.module.scss";
 
 import logo from "@assets/light-logo.svg";
@@ -13,10 +15,6 @@ import email from "@assets/icons/email.svg";
 import love from "@assets/icons/love.svg";
 
 const Footer: FC = () => {
-  const clickHandler = () => {
-    window.scrollTo({ behavior: "smooth", top: 0 });
-  };
-
   return (
     <footer className={styles.footer}>
       <div className={clsx(styles.body, "container")}>
@@ -42,19 +40,29 @@ const Footer: FC = () => {
           <h2>Site map</h2>
           <nav>
             <li>
-              <Link to="/about">About us</Link>
+              <Link onClick={handleNavLinkClick} to="/about">
+                About us
+              </Link>
             </li>
             <li>
-              <Link to="/courses">Courses</Link>
+              <Link onClick={handleNavLinkClick} to="/courses">
+                Courses
+              </Link>
             </li>
             <li>
-              <Link to="/events">Events</Link>
+              <Link onClick={handleNavLinkClick} to="/events">
+                Events
+              </Link>
             </li>
             <li>
-              <Link to="/blog">Blog</Link>
+              <Link onClick={handleNavLinkClick} to="/blog">
+                Blog
+              </Link>
             </li>
             <li>
-              <Link to="/contacts">Contacts</Link>
+              <Link onClick={handleNavLinkClick} to="/contacts">
+                Contacts
+              </Link>
             </li>
           </nav>
         </div>
@@ -113,7 +121,10 @@ const Footer: FC = () => {
               Dunissimo
             </Link>
           </p>
-          <Button props={{ onClick: clickHandler }} settings={{ simple: true }}>
+          <Button
+            props={{ onClick: handleNavLinkClick }}
+            settings={{ simple: true }}
+          >
             GO TO TOP
           </Button>
         </div>

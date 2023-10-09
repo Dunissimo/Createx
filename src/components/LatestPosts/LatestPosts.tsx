@@ -25,26 +25,28 @@ const LatestPosts: FC = () => {
   }
 
   const sorted = posts.slice(0, 3).sort((a, b) => {
-    return +new Date(b.details.date) - +new Date(a.details.date);
+    return Number(new Date(b.details.date)) - Number(new Date(a.details.date));
   });
 
   return (
-    <div className={clsx("container", styles.latestPosts)}>
-      <div className={styles.latestTop}>
-        <Title style={{ color: "#1e212c" }}>
-          <h2>Our blog</h2>
-          <h3>Latest posts</h3>
-        </Title>
+    <div className="container">
+      <div className={styles.latestPosts}>
+        <div className={styles.latestTop}>
+          <Title style={{ color: "#1e212c" }}>
+            <h2>Our blog</h2>
+            <h3>Latest posts</h3>
+          </Title>
 
-        <Button>Go to blog</Button>
-      </div>
+          <Button>Go to blog</Button>
+        </div>
 
-      <div className={styles.list}>
-        {sorted.map((post) => (
-          <div style={{ width: "33.333%" }} key={post.id}>
-            <BlogCardUI card={post} />
-          </div>
-        ))}
+        <div className={styles.list}>
+          {sorted.map((post) => (
+            <div style={{ width: "33.333%" }} key={post.id}>
+              <BlogCardUI card={post} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

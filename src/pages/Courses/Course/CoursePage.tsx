@@ -202,8 +202,8 @@ const CoursePage: FC = () => {
         </div>
       </section>
 
-      <section className={styles.cta}>
-        <div className={clsx("container", styles.ctaContainer)}>
+      <section className="container">
+        <div className={styles.cta}>
           <div className={styles.top}>
             <h3>20% discount for early birds!</h3>
 
@@ -268,7 +268,7 @@ const CoursePage: FC = () => {
               <Title style={{ color: "#1e212c" }}>
                 <h2>For whom?</h2>
                 <h3>
-                  Who will benefit from <br /> the course
+                  Who will benefit from <br /> the course:
                 </h3>
               </Title>
             </RowItem>
@@ -310,6 +310,7 @@ const CoursePage: FC = () => {
                 {lessons.map((lesson, i) => {
                   return (
                     <Accordion
+                      key={i}
                       head={
                         <>
                           <span
@@ -359,19 +360,27 @@ const CoursePage: FC = () => {
 
               <form className={styles.registerForm}>
                 <Input
-                  props={{ placeholder: "Your full name" }}
+                  props={{ placeholder: "Your full name", id: "fullName" }}
                   settings={{
                     label: { content: "Full name", position: "top" },
                   }}
                 />
 
                 <Input
-                  props={{ type: "email", placeholder: "Your working email" }}
+                  props={{
+                    type: "email",
+                    placeholder: "Your working email",
+                    id: "email",
+                  }}
                   settings={{ label: { content: "Email", position: "top" } }}
                 />
 
                 <Input
-                  props={{ type: "tel", placeholder: "Your phone number" }}
+                  props={{
+                    type: "tel",
+                    placeholder: "Your phone number",
+                    id: "phone",
+                  }}
                   settings={{ label: { content: "Phone", position: "top" } }}
                 />
 

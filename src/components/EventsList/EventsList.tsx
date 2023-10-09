@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "@utils/hooks";
 import EventUI from "@ui/Cards/Event/Event";
 
 import styles from "./EventsList.module.scss";
+import { handleNavLinkClick } from "@src/utils/helpers";
 
 interface IProps {
   limit?: string | number;
@@ -28,7 +29,11 @@ const EventsList: FC<IProps> = ({ limit = 3 }) => {
       {loading && <div>Loading...</div>}
       {events.slice(0, +limit).map((event) => (
         <div key={event.id}>
-          <Link className={styles.linkToEvent} to={`/courses/${event.id}`}>
+          <Link
+            className={styles.linkToEvent}
+            onClick={handleNavLinkClick}
+            to={`/events/${event.id}`}
+          >
             <EventUI event={event} />
           </Link>
         </div>

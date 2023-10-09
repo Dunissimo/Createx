@@ -46,7 +46,7 @@ const AboutPage: FC = () => {
             <RowItem>
               <Title style={{ color: "#1e212c" }}>
                 <h2>about us</h2>
-                <h3>Craetex Online School</h3>
+                <h3>Createx Online School</h3>
               </Title>
 
               <h4>
