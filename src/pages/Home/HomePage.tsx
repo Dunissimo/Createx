@@ -97,7 +97,7 @@ const HomePage: FC = () => {
           </RowItem>
 
           <RowItem className={styles.whoWeAreDiv}>
-            <Title style={{ color: "#1e212c" }}>
+            <Title>
               <h2>Who we are</h2>
               <h3>Why Createx?</h3>
             </Title>
@@ -132,7 +132,7 @@ const HomePage: FC = () => {
       {/* courses */}
       <section className={styles.courses}>
         <div className={clsx("container", styles.coursesHeader)}>
-          <Title style={{ color: "#1e212c" }}>
+          <Title>
             <h2>Ready to learn?</h2>
             <h3>Featured Courses</h3>
           </Title>
@@ -148,7 +148,7 @@ const HomePage: FC = () => {
       {/* benefits */}
       <section className={styles.benefits}>
         <div className="container">
-          <Title align="center" style={{ color: "#1e212c" }}>
+          <Title align="center">
             <h2>Our benefits</h2>
             <h3>That's how we do it</h3>
           </Title>
@@ -161,7 +161,7 @@ const HomePage: FC = () => {
 
       <section className={styles.events}>
         <div className="container">
-          <Title align="center" style={{ color: "#1e212c" }}>
+          <Title align="center">
             <h2>Our events</h2>
             <h3>Lectures & workshops</h3>
           </Title>
@@ -183,7 +183,7 @@ const HomePage: FC = () => {
       <section className={styles.team}>
         <div className="container">
           <div className={styles.teamTop}>
-            <Title style={{ color: "#1e212c" }}>
+            <Title>
               <h2>Best tutors are all here</h2>
               <h3>Meet our team</h3>
             </Title>

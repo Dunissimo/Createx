@@ -10,7 +10,10 @@ interface IProps {
 
 const Title: FC<IProps> = ({ children, align = "left", style }) => {
   return (
-    <div className={styles.title} style={{ textAlign: align, ...style }}>
+    <div
+      className={styles.title}
+      style={{ textAlign: align, color: "#1e212c", ...style }}
+    >
       {children[0]}
       {children[1]}
     </div>
