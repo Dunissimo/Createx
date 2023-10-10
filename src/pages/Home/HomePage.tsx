@@ -5,7 +5,7 @@ import Button from "@ui/Button/Button";
 import Row from "@ui/Row/Row";
 import RowItem from "@ui/Row/RowItem/RowItem";
 import Title from "@ui/Title/Title";
-import HomeTabs from "@ui/Tabs/HomeTabs";
+import BenefitsTabs from "@src/UI/Tabs/BenefitTabs";
 import Navbar from "@components/Navbar/Navbar";
 import CoursesList from "@components/CoursesList/CoursesList";
 import EventsList from "@components/EventsList/EventsList";
@@ -153,7 +153,7 @@ const HomePage: FC = () => {
             <h3>That's how we do it</h3>
           </Title>
 
-          <HomeTabs />
+          <BenefitsTabs />
         </div>
       </section>
 

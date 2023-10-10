@@ -2,16 +2,18 @@ import { FC, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { fetchEvents } from "@redux/slices/eventsSlice";
 import { useAppDispatch, useAppSelector } from "@utils/hooks";
-import EventUI from "@ui/Cards/Event/Event";
+import EventUI, { TOrientation } from "@ui/Cards/Event/Event";
 
 import styles from "./EventsList.module.scss";
 import { handleNavLinkClick } from "@src/utils/helpers";
+import clsx from "clsx";
 
 interface IProps {
   limit?: string | number;
+  orientation?: TOrientation;
 }
 
-const EventsList: FC<IProps> = ({ limit = 3 }) => {
+const EventsList: FC<IProps> = ({ limit = 3, orientation = "horizontal" }) => {
   const dispatch = useAppDispatch();
   const { events, error, loading } = useAppSelector((state) => state.events);
 
@@ -25,7 +27,9 @@ const EventsList: FC<IProps> = ({ limit = 3 }) => {
   }
 
   return (
-    <div className={styles.list}>
+    <div
+      className={clsx(orientation == "horizontal" ? styles.list : styles.grid)}
+    >
       {loading && <div>Loading...</div>}
       {events.slice(0, +limit).map((event) => (
         <div key={event.id}>
@@ -34,7 +38,7 @@ const EventsList: FC<IProps> = ({ limit = 3 }) => {
             onClick={handleNavLinkClick}
             to={`/events/${event.id}`}
           >
-            <EventUI event={event} />
+            <EventUI event={event} orientation={orientation} />
           </Link>
         </div>
       ))}

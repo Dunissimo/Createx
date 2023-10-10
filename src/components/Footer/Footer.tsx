@@ -101,10 +101,7 @@ const Footer: FC = () => {
         <div className={styles.news}>
           <h2>SIGN UP TO OUR NEWSLETTER</h2>
           <form action="post" onSubmit={(e) => e.preventDefault()}>
-            <Input
-              settings={{ isWithArrow: true, theme: "dark" }}
-              props={{ placeholder: "Email address" }}
-            />
+            <Input isWithArrow theme="dark" placeholder="Email address" />
           </form>
           <p>
             *Subscribe to our newsletter to receive communications and early{" "}

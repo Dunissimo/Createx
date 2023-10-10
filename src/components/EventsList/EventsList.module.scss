@@ -1,9 +1,25 @@
 .list {
-  margin-top: 60px;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   gap: 24px;
 }
+
+.list > div {
+  min-width: 33.333%;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 24px;
+}
+
+.grid > div {
+  width: calc(33.333% - 24px);
+}
+
 .linkToEvent {
   color: inherit;
 }
