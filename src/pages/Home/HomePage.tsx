@@ -5,7 +5,7 @@ import Button from "@ui/Button/Button";
 import Row from "@ui/Row/Row";
 import RowItem from "@ui/Row/RowItem/RowItem";
 import Title from "@ui/Title/Title";
-import HomeTabs from "@ui/Tabs/HomeTabs";
+import BenefitsTabs from "@src/UI/Tabs/BenefitTabs";
 import Navbar from "@components/Navbar/Navbar";
 import CoursesList from "@components/CoursesList/CoursesList";
 import EventsList from "@components/EventsList/EventsList";
@@ -14,6 +14,7 @@ import TeamList from "@components/TeamList/TeamList";
 import Testimonials from "@components/Testimonials/Testimonials";
 import LatestPosts from "@components/LatestPosts/LatestPosts";
 import Certificate from "@components/Certificate/Certificate";
+import { handleLinkClick } from "@src/utils/helpers";
 
 import styles from "./Home.module.scss";
 
@@ -97,7 +98,7 @@ const HomePage: FC = () => {
           </RowItem>
 
           <RowItem className={styles.whoWeAreDiv}>
-            <Title style={{ color: "#1e212c" }}>
+            <Title>
               <h2>Who we are</h2>
               <h3>Why Createx?</h3>
             </Title>
@@ -132,7 +133,7 @@ const HomePage: FC = () => {
       {/* courses */}
       <section className={styles.courses}>
         <div className={clsx("container", styles.coursesHeader)}>
-          <Title style={{ color: "#1e212c" }}>
+          <Title>
             <h2>Ready to learn?</h2>
             <h3>Featured Courses</h3>
           </Title>
@@ -148,12 +149,12 @@ const HomePage: FC = () => {
       {/* benefits */}
       <section className={styles.benefits}>
         <div className="container">
-          <Title align="center" style={{ color: "#1e212c" }}>
+          <Title align="center">
             <h2>Our benefits</h2>
             <h3>That's how we do it</h3>
           </Title>
 
-          <HomeTabs />
+          <BenefitsTabs />
         </div>
       </section>
 
@@ -161,16 +162,21 @@ const HomePage: FC = () => {
 
       <section className={styles.events}>
         <div className="container">
-          <Title align="center" style={{ color: "#1e212c" }}>
+          <Title align="center" style={{ paddingBottom: "60px" }}>
             <h2>Our events</h2>
             <h3>Lectures & workshops</h3>
           </Title>
 
-          <EventsList />
+          <EventsList limit={3} />
 
           <div className={styles.eventsFooter}>
             <h3>Do you want more?</h3>
-            <Button settings={{ size: "xl" }}>Explore all events</Button>
+            <Link
+              onClick={handleLinkClick}
+              to="/events?orientation=horizontal&perPage=9"
+            >
+              <Button settings={{ size: "xl" }}>Explore all events</Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -183,7 +189,7 @@ const HomePage: FC = () => {
       <section className={styles.team}>
         <div className="container">
           <div className={styles.teamTop}>
-            <Title style={{ color: "#1e212c" }}>
+            <Title>
               <h2>Best tutors are all here</h2>
               <h3>Meet our team</h3>
             </Title>

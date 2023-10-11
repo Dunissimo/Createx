@@ -5,9 +5,11 @@ import Button from "@ui/Button/Button";
 
 import styles from "./Event.module.scss";
 
+export type TOrientation = "horizontal" | "vertical" 
+
 interface IProps {
   event: IEvent;
-  orientation?: "horizontal" | "vertical";
+  orientation?: TOrientation;
 }
 
 const EventUI: FC<IProps> = ({ event, orientation = "horizontal" }) => {

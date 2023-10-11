@@ -47,9 +47,11 @@
   .title {
     h3 {
       width: 700px;
+
+      margin-bottom: 4px;
+
       font-size: 1.25em;
       font-weight: 700;
-      margin-bottom: 4px;
 
       white-space: nowrap;
       overflow: hidden;
@@ -64,6 +66,8 @@
 }
 
 .event-vertical {
+  min-height: 290px;
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -88,10 +92,10 @@
   .title {
     h3 {
       width: 100%;
+
       white-space: normal;
-      overflow: visible;
-      text-overflow: none;
-      margin-bottom: 8px;
+      overflow: hidden;
+      text-overflow: ellipsis;
       font-size: 1.125em;
     }
     p {

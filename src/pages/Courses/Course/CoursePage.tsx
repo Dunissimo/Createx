@@ -40,8 +40,8 @@ const CoursePage: FC = () => {
         <Title align="center" style={{ padding: "120px 0" }}>
           <h2 style={{ color: "#FF3F3A" }}>Course</h2>
 
-          <h3 style={{ color: "#1e212c" }}>
-            User Experience. Principles of Human-Centered <br /> Design
+          <h3 style={{ color: "#1e212c", maxWidth: "75%", margin: "0 auto" }}>
+            User Experience. Principles of Human-Centered Design
           </h3>
         </Title>
       </header>
@@ -202,8 +202,8 @@ const CoursePage: FC = () => {
         </div>
       </section>
 
-      <section className={styles.cta}>
-        <div className={clsx("container", styles.ctaContainer)}>
+      <section className="container">
+        <div className={styles.cta}>
           <div className={styles.top}>
             <h3>20% discount for early birds!</h3>
 
@@ -232,26 +232,15 @@ const CoursePage: FC = () => {
 
           <form className={styles.body}>
             <div style={{ minWidth: "25%" }}>
-              <Input
-                props={{ placeholder: "Your full name" }}
-                settings={{
-                  label: { content: "Full name", position: "top" },
-                }}
-              />
+              <Input placeholder="Your full name" />
             </div>
 
             <div style={{ minWidth: "25%" }}>
-              <Input
-                props={{ type: "email", placeholder: "Your working email" }}
-                settings={{ label: { content: "Email", position: "top" } }}
-              />
+              <Input type="email" placeholder="Your working email" />
             </div>
 
             <div style={{ minWidth: "25%" }}>
-              <Input
-                props={{ type: "tel", placeholder: "Your phone number" }}
-                settings={{ label: { content: "Phone", position: "top" } }}
-              />
+              <Input type="tel" placeholder="Your phone number" />
             </div>
 
             <Button props={{ type: "submit", style: { width: "135px" } }}>
@@ -268,7 +257,7 @@ const CoursePage: FC = () => {
               <Title style={{ color: "#1e212c" }}>
                 <h2>For whom?</h2>
                 <h3>
-                  Who will benefit from <br /> the course
+                  Who will benefit from <br /> the course:
                 </h3>
               </Title>
             </RowItem>
@@ -310,6 +299,7 @@ const CoursePage: FC = () => {
                 {lessons.map((lesson, i) => {
                   return (
                     <Accordion
+                      key={i}
                       head={
                         <>
                           <span
@@ -358,22 +348,15 @@ const CoursePage: FC = () => {
               </Title>
 
               <form className={styles.registerForm}>
-                <Input
-                  props={{ placeholder: "Your full name" }}
-                  settings={{
-                    label: { content: "Full name", position: "top" },
-                  }}
-                />
+                <Input placeholder="Your full name" id="fullName" />
 
                 <Input
-                  props={{ type: "email", placeholder: "Your working email" }}
-                  settings={{ label: { content: "Email", position: "top" } }}
+                  type="email"
+                  placeholder="Your working email"
+                  id="email"
                 />
 
-                <Input
-                  props={{ type: "tel", placeholder: "Your phone number" }}
-                  settings={{ label: { content: "Phone", position: "top" } }}
-                />
+                <Input type="tel" placeholder="Your phone number" id="phone" />
 
                 <Button
                   settings={{ isFullWidth: true }}

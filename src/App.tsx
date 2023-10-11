@@ -12,6 +12,7 @@ import NotFound from "@pages/NotFound/NotFound";
 import CoursePage from "@pages/Courses/Course/CoursePage";
 import { fetchCourses } from "@redux/slices/coursesSlice";
 import { useAppDispatch } from "@utils/hooks";
+import EventPage from "./pages/Events/Event/EventPage";
 
 const App = () => {
   const theme = "light";
@@ -32,6 +33,7 @@ const App = () => {
         <Route path="/courses/:id" element={<CoursePage />} />
 
         <Route path="/events" element={<EventsPage />} />
+        <Route path="/events/:id" element={<EventPage />} />
 
         <Route path="/blog" element={<BlogPage />} />
 

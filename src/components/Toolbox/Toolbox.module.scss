@@ -1,0 +1,42 @@
+.toolbox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toolboxItem {
+  // max-width: 200px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  label,
+  span {
+    white-space: nowrap;
+  }
+
+  label {
+    color: #424551;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 25px; /* 25.6px */
+  }
+
+  span {
+    color: #787a80;
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+
+.inputNumber {
+  max-width: 75px;
+  padding: 0 15px !important;
+}
+
+.changeView > a:active {
+  transition: 0.2s;
+  scale: 0.85;
+}

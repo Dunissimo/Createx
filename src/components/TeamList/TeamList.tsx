@@ -28,8 +28,8 @@ const TeamList: FC<IProps> = ({ limit = 4, cardWidth = "25%" }) => {
     <div className={styles.list}>
       {loading && <div>Loading...</div>}
       {team.slice(0, +limit).map((team) => (
-        <div style={{ width: cardWidth }}>
-          <Team key={team.id} team={team} />
+        <div key={team.id} style={{ width: cardWidth }}>
+          <Team team={team} />
         </div>
       ))}
     </div>

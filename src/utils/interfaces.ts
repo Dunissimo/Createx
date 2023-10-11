@@ -2,25 +2,14 @@ import {
   HTMLInputTypeAttribute,
   ChangeEventHandler,
   CSSProperties,
+  HTMLAttributes,
+  InputHTMLAttributes,
+  DetailedHTMLProps,
 } from "react";
 
-export interface IInputProps {
-  settings?: {
-    label?: {
-      position?: "top" | "right";
-      content?: string;
-    };
-    theme?: "light" | "dark";
-    size?: "small" | "regular" | "large";
-  };
-  props?: {
-    type?: HTMLInputTypeAttribute;
-    name?: string;
-    id?: string;
-    placeholder?: string;
-    onChange?: ChangeEventHandler;
-    style?: CSSProperties;
-  };
+export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  theme?: "light" | "dark";
+  variant?: "small" | "regular" | "large";
 }
 
 export type TType =

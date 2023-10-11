@@ -20,8 +20,9 @@ const Subscribe: FC = () => {
           </Title>
           <div className={styles.footer}>
             <Input
-              settings={{ size: "large", theme: "light" }}
-              props={{ placeholder: "Your working email" }}
+              variant="large"
+              theme="light"
+              placeholder="Your working email"
             />
             <Button settings={{ size: "large" }}>Subscribe</Button>
           </div>
