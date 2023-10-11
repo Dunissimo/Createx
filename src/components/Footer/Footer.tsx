@@ -50,7 +50,10 @@ const Footer: FC = () => {
               </Link>
             </li>
             <li>
-              <Link onClick={handleNavLinkClick} to="/events">
+              <Link
+                onClick={handleNavLinkClick}
+                to="/events?orientation=horizontal&perPage=9"
+              >
                 Events
               </Link>
             </li>

@@ -1,16 +1,11 @@
-import { TOrientation } from "@src/UI/Cards/Event/Event";
+import { FC } from "react";
 import Title from "@src/UI/Title/Title";
 import EventsList from "@src/components/EventsList/EventsList";
 import Navbar from "@src/components/Navbar/Navbar";
 import Subscribe from "@src/components/Subscribe/Subscribe";
 import Toolbox from "@src/components/Toolbox/Toolbox";
-import { useQuery } from "@src/utils/hooks";
-import { FC } from "react";
 
 const EventsPage: FC = () => {
-  const query = useQuery();
-  const orientation = query.get("orientation");
-
   return (
     <section>
       <Navbar />
@@ -28,12 +23,9 @@ const EventsPage: FC = () => {
       <div
         style={{ marginTop: "60px", marginBottom: "180px", padding: "0 1rem" }}
       >
-        <EventsList limit={9} orientation={orientation as TOrientation} />
+        {/* Пока оставлю так, когда добавлю пагинацию, надо будет использовать чуток по другому */}
+        <EventsList />
       </div>
-
-      {/* ToolBar */}
-
-      {/* EventsList */}
 
       <Subscribe />
     </section>

@@ -1,6 +1,6 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import clsx from "clsx";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import Input from "@src/UI/Form/Input/Input";
 import { useQuery } from "@src/utils/hooks";
 
@@ -10,44 +10,74 @@ import grid from "@assets/icons/grid-tool.svg";
 import list from "@assets/icons/list-tool.svg";
 import gridActive from "@assets/icons/grid-tool-active.svg";
 import listActive from "@assets/icons/list-tool-active.svg";
+import Select from "@src/UI/Form/Select/Select";
 
 const Toolbox: FC = () => {
-  const query = useQuery();
-  const orientation = query.get("orientation");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const orientation = searchParams.get("orientation") || "";
+  const perPage = searchParams.get("perPage") || 9;
+  const search = searchParams.get("Search") || "";
 
   return (
     <div className="container">
       <div className={styles.toolbox}>
-        {/* TODO: сделать select */}
         <div className={styles.toolboxItem}>
-          <label htmlFor="">Event category</label>
+          <label htmlFor="themes">Event category</label>
 
-          <Input />
+          <Select
+            id="themes"
+            defaultValue="All themes"
+            values={[
+              "All themes",
+              "Online master class",
+              "Online lecture",
+              "Online workshop",
+            ]}
+          />
         </div>
 
-        {/* TODO: сделать select */}
         <div className={styles.toolboxItem}>
-          <label htmlFor="">Sort by</label>
+          <label htmlFor="sortBy">Sort by</label>
 
-          <Input />
+          <Select
+            id="sortBy"
+            style={{ minWidth: "150px" }}
+            defaultValue="Newest"
+            values={["Newest", "Oldest"]}
+          />
         </div>
 
         <div className={styles.toolboxItem}>
-          <label htmlFor="">Show</label>
+          <label htmlFor="inputNumber">Show</label>
 
           <Input
+            className={styles.inputNumber}
+            id="inputNumber"
+            type="number"
             min={0}
             max={100}
-            defaultValue={9}
-            type="number"
-            className={styles.inputNumber}
+            value={searchParams.get("perPage") || 9}
+            onChange={(e) => {
+              setSearchParams({ orientation, perPage: e.target.value });
+            }}
           />
 
-          <span>event per page</span>
+          <span>events per page</span>
         </div>
 
+        {/* TODO: сделать иконку поиска  */}
         <div className={styles.toolboxItem}>
-          <Input placeholder="Search event..." />
+          <Input
+            placeholder="Search event..."
+            value={searchParams.get("search") || ""}
+            onChange={(e) =>
+              setSearchParams({
+                orientation,
+                perPage: String(perPage),
+                search: e.target.value,
+              })
+            }
+          />
         </div>
 
         <div className={clsx(styles.toolboxItem, styles.changeView)}>
