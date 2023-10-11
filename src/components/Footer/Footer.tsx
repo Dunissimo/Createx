@@ -5,7 +5,7 @@ import SocialMedia from "@ui/SocialMedia/SocialMedia";
 import Input from "@ui/Form/Input/Input";
 import Button from "@ui/Button/Button";
 
-import { handleNavLinkClick } from "@utils/helpers";
+import { handleSmoothLinkClick } from "@utils/helpers";
 
 import styles from "./Footer.module.scss";
 
@@ -40,30 +40,30 @@ const Footer: FC = () => {
           <h2>Site map</h2>
           <nav>
             <li>
-              <Link onClick={handleNavLinkClick} to="/about">
+              <Link onClick={handleSmoothLinkClick} to="/about">
                 About us
               </Link>
             </li>
             <li>
-              <Link onClick={handleNavLinkClick} to="/courses">
+              <Link onClick={handleSmoothLinkClick} to="/courses">
                 Courses
               </Link>
             </li>
             <li>
               <Link
-                onClick={handleNavLinkClick}
+                onClick={handleSmoothLinkClick}
                 to="/events?orientation=horizontal&perPage=9"
               >
                 Events
               </Link>
             </li>
             <li>
-              <Link onClick={handleNavLinkClick} to="/blog">
+              <Link onClick={handleSmoothLinkClick} to="/blog">
                 Blog
               </Link>
             </li>
             <li>
-              <Link onClick={handleNavLinkClick} to="/contacts">
+              <Link onClick={handleSmoothLinkClick} to="/contacts">
                 Contacts
               </Link>
             </li>
@@ -122,7 +122,7 @@ const Footer: FC = () => {
             </Link>
           </p>
           <Button
-            props={{ onClick: handleNavLinkClick }}
+            props={{ onClick: handleSmoothLinkClick }}
             settings={{ simple: true }}
           >
             GO TO TOP

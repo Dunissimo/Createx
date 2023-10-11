@@ -5,17 +5,20 @@ import { useAppDispatch, useAppSelector } from "@utils/hooks";
 import EventUI, { TOrientation } from "@ui/Cards/Event/Event";
 
 import styles from "./EventsList.module.scss";
-import { handleNavLinkClick } from "@src/utils/helpers";
+import { handleLinkClick } from "@src/utils/helpers";
 import clsx from "clsx";
 
-interface IProps {}
+interface IProps {
+  limit?: number;
+  orientation?: TOrientation;
+  search?: string;
+}
 
-const EventsList: FC<IProps> = () => {
-  const [searchParams] = useSearchParams();
-  const limit = searchParams.get("perPage") || 9;
-  const orientation = searchParams.get("orientation") || "horizontal";
-  const search = searchParams.get("search") || "";
-
+const EventsList: FC<IProps> = ({
+  limit = 9,
+  orientation = "horizontal",
+  search = "",
+}) => {
   const dispatch = useAppDispatch();
   const { events, error, loading } = useAppSelector((state) => state.events);
 
@@ -40,7 +43,7 @@ const EventsList: FC<IProps> = () => {
           <div key={event.id}>
             <Link
               className={styles.linkToEvent}
-              onClick={handleNavLinkClick}
+              onClick={handleLinkClick}
               to={`/events/${event.id}`}
             >
               <EventUI

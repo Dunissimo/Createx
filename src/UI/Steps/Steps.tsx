@@ -12,7 +12,7 @@ const Steps: FC<IProps> = ({ data }) => {
   return (
     <div className={styles.steps}>
       {data.map((step, index) => (
-        <Step data={step} index={index + 1} />
+        <Step key={index} data={step} index={index + 1} />
       ))}
     </div>
   );

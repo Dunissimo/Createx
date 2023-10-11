@@ -14,6 +14,7 @@ import TeamList from "@components/TeamList/TeamList";
 import Testimonials from "@components/Testimonials/Testimonials";
 import LatestPosts from "@components/LatestPosts/LatestPosts";
 import Certificate from "@components/Certificate/Certificate";
+import { handleLinkClick } from "@src/utils/helpers";
 
 import styles from "./Home.module.scss";
 
@@ -161,16 +162,21 @@ const HomePage: FC = () => {
 
       <section className={styles.events}>
         <div className="container">
-          <Title align="center">
+          <Title align="center" style={{ paddingBottom: "60px" }}>
             <h2>Our events</h2>
             <h3>Lectures & workshops</h3>
           </Title>
 
-          <EventsList />
+          <EventsList limit={3} />
 
           <div className={styles.eventsFooter}>
             <h3>Do you want more?</h3>
-            <Button settings={{ size: "xl" }}>Explore all events</Button>
+            <Link
+              onClick={handleLinkClick}
+              to="/events?orientation=horizontal&perPage=9"
+            >
+              <Button settings={{ size: "xl" }}>Explore all events</Button>
+            </Link>
           </div>
         </div>
       </section>
