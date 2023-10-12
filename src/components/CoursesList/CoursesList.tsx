@@ -21,7 +21,11 @@ const CoursesList: FC<IProps> = ({
   columns = 2,
 }) => {
   const dispatch = useAppDispatch();
-  const { courses, loading, error } = useAppSelector((state) => state.courses);
+  const {
+    items: courses,
+    loading,
+    error,
+  } = useAppSelector((state) => state.courses);
 
   useEffect(() => {
     dispatch(fetchCourses());
@@ -35,8 +39,8 @@ const CoursesList: FC<IProps> = ({
 
   return (
     <div
-      className={clsx("container", styles.list, className)}
-      style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
+      className={clsx(styles.list, styles[orientation], className)}
+      // style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
     >
       {loading && <div>Loading...</div>}
       {courses.slice(0, +limit).map((course) => (

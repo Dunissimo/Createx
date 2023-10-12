@@ -7,6 +7,7 @@ import Testimonials from "@components/Testimonials/Testimonials";
 import Title from "@ui/Title/Title";
 
 import styles from "./Courses.module.scss";
+import ItemsList from "@src/components/ItemList/ItemList";
 
 const CoursesPage: FC = () => {
   return (
@@ -24,12 +25,13 @@ const CoursesPage: FC = () => {
             <h2>Enjoy your studying!</h2>
             <h3>Our online courses</h3>
           </Title>
+
           {/* TODO: <CoursesTabs/> */}
-          <CoursesList
-            columns={3}
+          <ItemsList
+            type="course"
             orientation="vertical"
             limit={9}
-            className={styles.list}
+            columns={3}
           />
         </div>
       </section>

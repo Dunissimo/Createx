@@ -20,7 +20,11 @@ const EventsList: FC<IProps> = ({
   search = "",
 }) => {
   const dispatch = useAppDispatch();
-  const { events, error, loading } = useAppSelector((state) => state.events);
+  const {
+    items: events,
+    error,
+    loading,
+  } = useAppSelector((state) => state.events);
 
   useEffect(() => {
     dispatch(fetchEvents());

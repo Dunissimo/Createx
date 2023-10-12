@@ -6,6 +6,7 @@ import Subscribe from "@src/components/Subscribe/Subscribe";
 import Toolbox from "@src/components/Toolbox/Toolbox";
 import { useSearchParams } from "react-router-dom";
 import { TOrientation } from "@src/UI/Cards/Event/Event";
+import ItemsList from "@src/components/ItemList/ItemList";
 
 const EventsPage: FC = () => {
   const [searchParams] = useSearchParams();
@@ -17,25 +18,32 @@ const EventsPage: FC = () => {
     <section>
       <Navbar />
 
-      <Title align="center" style={{ margin: "80px 0 60px 0" }}>
-        <h2 style={{ color: "#FF3F3A" }}>Our Events</h2>
+      <div className="container">
+        <Title align="center" style={{ margin: "80px 0 60px 0" }}>
+          <h2 style={{ color: "#FF3F3A" }}>Our Events</h2>
 
-        <h3 style={{ color: "#1e212c" }}>
-          Lectures, workshops & master-classes
-        </h3>
-      </Title>
+          <h3 style={{ color: "#1e212c" }}>
+            Lectures, workshops & master-classes
+          </h3>
+        </Title>
 
-      <Toolbox />
+        <Toolbox />
 
-      <div
-        style={{ marginTop: "60px", marginBottom: "180px", padding: "0 1rem" }}
-      >
-        {/* Пока оставлю так, когда добавлю пагинацию, надо будет использовать чуток по другому */}
-        <EventsList
-          limit={+limit}
-          orientation={orientation as TOrientation}
-          search={search}
-        />
+        <div
+          style={{
+            marginTop: "60px",
+            marginBottom: "180px",
+          }}
+        >
+          {/* Пока оставлю так, когда добавлю пагинацию, надо будет использовать чуток по другому */}
+          <ItemsList
+            type="event"
+            limit={+limit}
+            orientation={orientation as TOrientation}
+            search={search}
+            columns={orientation == "horizontal" ? 1 : 3}
+          />
+        </div>
       </div>
 
       <Subscribe />

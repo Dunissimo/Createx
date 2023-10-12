@@ -19,76 +19,74 @@ const Toolbox: FC = () => {
   const search = searchParams.get("Search") || "";
 
   return (
-    <div className="container">
-      <div className={styles.toolbox}>
-        <div className={styles.toolboxItem}>
-          <label htmlFor="themes">Event category</label>
+    <div className={styles.toolbox}>
+      <div className={styles.toolboxItem}>
+        <label htmlFor="themes">Event category</label>
 
-          <Select
-            id="themes"
-            defaultValue="All themes"
-            values={[
-              "All themes",
-              "Online master class",
-              "Online lecture",
-              "Online workshop",
-            ]}
-          />
-        </div>
+        <Select
+          id="themes"
+          defaultValue="All themes"
+          values={[
+            "All themes",
+            "Online master class",
+            "Online lecture",
+            "Online workshop",
+          ]}
+        />
+      </div>
 
-        <div className={styles.toolboxItem}>
-          <label htmlFor="sortBy">Sort by</label>
+      <div className={styles.toolboxItem}>
+        <label htmlFor="sortBy">Sort by</label>
 
-          <Select
-            id="sortBy"
-            style={{ minWidth: "150px" }}
-            defaultValue="Newest"
-            values={["Newest", "Oldest"]}
-          />
-        </div>
+        <Select
+          id="sortBy"
+          style={{ minWidth: "150px" }}
+          defaultValue="Newest"
+          values={["Newest", "Oldest"]}
+        />
+      </div>
 
-        <div className={styles.toolboxItem}>
-          <label htmlFor="inputNumber">Show</label>
+      <div className={styles.toolboxItem}>
+        <label htmlFor="inputNumber">Show</label>
 
-          <Input
-            className={styles.inputNumber}
-            id="inputNumber"
-            type="number"
-            min={0}
-            max={100}
-            value={searchParams.get("perPage") || 9}
-            onChange={(e) => {
-              setSearchParams({ orientation, perPage: e.target.value });
-            }}
-          />
+        <Input
+          className={styles.inputNumber}
+          id="inputNumber"
+          type="number"
+          min={0}
+          max={100}
+          value={searchParams.get("perPage") || 9}
+          onChange={(e) => {
+            setSearchParams({ orientation, perPage: e.target.value });
+          }}
+        />
 
-          <span>events per page</span>
-        </div>
+        <span>events per page</span>
+      </div>
 
-        {/* TODO: сделать иконку поиска  */}
-        <div className={styles.toolboxItem}>
-          <Input
-            placeholder="Search event..."
-            value={searchParams.get("search") || ""}
-            onChange={(e) =>
-              setSearchParams({
-                orientation,
-                perPage: String(perPage),
-                search: e.target.value,
-              })
-            }
-          />
-        </div>
+      {/* TODO: сделать иконку поиска  */}
+      <div className={styles.toolboxItem}>
+        <Input
+          placeholder="Search event..."
+          value={searchParams.get("search") || ""}
+          onChange={(e) =>
+            setSearchParams({
+              orientation,
+              perPage: String(perPage),
+              search: e.target.value,
+            })
+          }
+        />
+      </div>
 
-        <div className={clsx(styles.toolboxItem, styles.changeView)}>
-          <Link to={"/events?orientation=vertical"}>
-            <img src={orientation == "horizontal" ? grid : gridActive} alt="" />
-          </Link>
+      <div className={clsx(styles.toolboxItem, styles.changeView)}>
+        <Link to={"/events?orientation=vertical"}>
+          <img src={orientation == "horizontal" ? grid : gridActive} alt="" />
+        </Link>
 
-          <Link to={"/events?orientation=horizontal"}>
-            <img src={orientation == "vertical" ? list : listActive} alt="" />
-          </Link>
-        </div>
+        <Link to={"/events?orientation=horizontal"}>
+          <img src={orientation == "vertical" ? list : listActive} alt="" />
+        </Link>
       </div>
     </div>
   );

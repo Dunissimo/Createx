@@ -1,0 +1,19 @@
+.item-horizontal,
+.item-vertical {
+  display: grid;
+  grid-template-rows: auto;
+  gap: 24px;
+
+  // width: 100%;
+
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+
+  // flex-wrap: wrap;
+  // gap: 24px;
+}
+
+.linkToItem {
+  color: inherit;
+}

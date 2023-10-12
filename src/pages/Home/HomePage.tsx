@@ -21,6 +21,7 @@ import styles from "./Home.module.scss";
 import showreel from "@assets/icons/showreel.svg";
 import homeIllustration from "@assets/homeIllustration.svg";
 import whoWeAreIllustration from "@assets/whoWeAre.png";
+import ItemsList from "@src/components/ItemList/ItemList";
 
 const HomePage: FC = () => {
   return (
@@ -132,18 +133,20 @@ const HomePage: FC = () => {
 
       {/* courses */}
       <section className={styles.courses}>
-        <div className={clsx("container", styles.coursesHeader)}>
-          <Title>
-            <h2>Ready to learn?</h2>
-            <h3>Featured Courses</h3>
-          </Title>
+        <div className="container">
+          <div className={styles.coursesHeader}>
+            <Title>
+              <h2>Ready to learn?</h2>
+              <h3>Featured Courses</h3>
+            </Title>
 
-          <Button>
-            <Link to="/courses">View all courses</Link>
-          </Button>
+            <Button>
+              <Link to="/courses">View all courses</Link>
+            </Button>
+          </div>
+
+          <ItemsList type="course" limit={6} columns={2} />
         </div>
-
-        <CoursesList />
       </section>
 
       {/* benefits */}
@@ -167,7 +170,7 @@ const HomePage: FC = () => {
             <h3>Lectures & workshops</h3>
           </Title>
 
-          <EventsList limit={3} />
+          <ItemsList type="event" limit={3} />
 
           <div className={styles.eventsFooter}>
             <h3>Do you want more?</h3>
