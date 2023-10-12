@@ -170,7 +170,7 @@ const HomePage: FC = () => {
             <h3>Lectures & workshops</h3>
           </Title>
 
-          <ItemsList type="event" limit={3} />
+          <ItemsList type="event" limit={3} columns={1} />
 
           <div className={styles.eventsFooter}>
             <h3>Do you want more?</h3>
