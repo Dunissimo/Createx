@@ -1,6 +1,5 @@
 import { FC } from "react";
 import Title from "@src/UI/Title/Title";
-import EventsList from "@src/components/EventsList/EventsList";
 import Navbar from "@src/components/Navbar/Navbar";
 import Subscribe from "@src/components/Subscribe/Subscribe";
 import Toolbox from "@src/components/Toolbox/Toolbox";

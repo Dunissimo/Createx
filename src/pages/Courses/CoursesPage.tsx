@@ -1,6 +1,5 @@
 import { FC } from "react";
 import Certificate from "@components/Certificate/Certificate";
-import CoursesList from "@components/CoursesList/CoursesList";
 import Navbar from "@components/Navbar/Navbar";
 import Subscribe from "@components/Subscribe/Subscribe";
 import Testimonials from "@components/Testimonials/Testimonials";

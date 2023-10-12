@@ -73,7 +73,7 @@ const ItemsList: FC<IItemListProps> = ({
             <Link
               className={styles.linkToItem}
               onClick={handleLinkClick}
-              to={`/${type == "course" ? "course" : "event"}/${item.id}`}
+              to={`/${type == "course" ? "courses" : "events"}/${item.id}`}
             >
               {type == "course" ? (
                 <CourseUI course={item as ICourse} orientation={orientation} />

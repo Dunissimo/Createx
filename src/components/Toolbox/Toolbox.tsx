@@ -2,7 +2,6 @@ import { FC, useEffect, useState } from "react";
 import clsx from "clsx";
 import { Link, useSearchParams } from "react-router-dom";
 import Input from "@src/UI/Form/Input/Input";
-import { useQuery } from "@src/utils/hooks";
 
 import styles from "./Toolbox.module.scss";
 

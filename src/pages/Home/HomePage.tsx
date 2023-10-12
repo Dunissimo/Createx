@@ -1,14 +1,11 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import clsx from "clsx";
 import Button from "@ui/Button/Button";
 import Row from "@ui/Row/Row";
 import RowItem from "@ui/Row/RowItem/RowItem";
 import Title from "@ui/Title/Title";
 import BenefitsTabs from "@src/UI/Tabs/BenefitTabs";
 import Navbar from "@components/Navbar/Navbar";
-import CoursesList from "@components/CoursesList/CoursesList";
-import EventsList from "@components/EventsList/EventsList";
 import Subscribe from "@components/Subscribe/Subscribe";
 import TeamList from "@components/TeamList/TeamList";
 import Testimonials from "@components/Testimonials/Testimonials";
