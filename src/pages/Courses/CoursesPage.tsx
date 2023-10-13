@@ -9,7 +9,7 @@ import styles from "./Courses.module.scss";
 import ItemsList from "@src/components/ItemList/ItemList";
 import CoursesToolbox from "@src/components/CoursesToolbox/CoursesToolbox";
 import { useSearchParams } from "react-router-dom";
-import { TType } from "@src/utils/interfaces";
+import { CourseTypeEnum } from "@src/utils/interfaces";
 
 const CoursesPage: FC = () => {
   const [params] = useSearchParams();
@@ -41,7 +41,7 @@ const CoursesPage: FC = () => {
             search={search}
             limit={9}
             columns={3}
-            itemType={type as TType}
+            itemType={type as CourseTypeEnum}
           />
         </div>
       </section>

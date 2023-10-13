@@ -6,12 +6,14 @@ import Toolbox from "@src/components/Toolbox/Toolbox";
 import { useSearchParams } from "react-router-dom";
 import { TOrientation } from "@src/UI/Cards/Event/Event";
 import ItemsList from "@src/components/ItemList/ItemList";
+import { EventTypeEnum } from "@src/utils/interfaces";
 
 const EventsPage: FC = () => {
   const [searchParams] = useSearchParams();
   const limit = searchParams.get("perPage") || 9;
   const orientation = searchParams.get("orientation") || "horizontal";
   const search = searchParams.get("search") || "";
+  const type = searchParams.get("type") || "";
 
   return (
     <section>
@@ -41,6 +43,7 @@ const EventsPage: FC = () => {
             orientation={orientation as TOrientation}
             search={search}
             columns={orientation == "horizontal" ? 1 : 3}
+            itemType={type as EventTypeEnum}
           />
         </div>
       </div>

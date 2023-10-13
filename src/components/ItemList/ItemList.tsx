@@ -6,7 +6,12 @@ import { useAppDispatch, useAppSelector } from "@src/utils/hooks";
 import { Link } from "react-router-dom";
 import { handleLinkClick } from "@src/utils/helpers";
 import CourseUI from "@src/UI/Cards/Course/Course";
-import { ICourse, IEvent, TType } from "@src/utils/interfaces";
+import {
+  ICourse,
+  IEvent,
+  CourseTypeEnum,
+  EventTypeEnum,
+} from "@src/utils/interfaces";
 
 import styles from "./ItemList.module.scss";
 import { fetchCourses } from "@src/store/slices/coursesSlice";
@@ -16,7 +21,7 @@ interface IItemListProps {
   limit?: number;
   orientation?: TOrientation;
   search?: string;
-  itemType?: TType;
+  itemType?: CourseTypeEnum | EventTypeEnum;
   type?: "event" | "course";
   columns?: number;
 }
@@ -50,6 +55,12 @@ const ItemsList: FC<IItemListProps> = ({
     }
   };
 
+  const filterByType = (item: any) => {
+    if (itemType == EventTypeEnum.All || !itemType) return item;
+
+    return item.type == itemType;
+  };
+
   useEffect(() => {
     if (type == "course") {
       dispatch(fetchCourses());
@@ -75,11 +86,7 @@ const ItemsList: FC<IItemListProps> = ({
         ? (items as ICourse[])
             .slice(0, +limit)
             .filter((item) => filterItems(item, search, "course"))
-            .filter((item) => {
-              if (itemType == "All" || !itemType) return item;
-
-              return item.type == itemType;
-            })
+            .filter(filterByType)
             .map((item) => (
               <div key={item.id}>
                 <Link
@@ -97,6 +104,7 @@ const ItemsList: FC<IItemListProps> = ({
         : (items as IEvent[])
             .slice(0, +limit)
             .filter((item) => filterItems(item, search, "event"))
+            .filter(filterByType)
             .map((item) => (
               <div key={item.id}>
                 <Link

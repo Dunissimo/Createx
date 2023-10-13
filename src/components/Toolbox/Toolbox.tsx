@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { ChangeEventHandler, FC, useEffect, useState } from "react";
 import clsx from "clsx";
 import { Link, useSearchParams } from "react-router-dom";
 import Input from "@src/UI/Form/Input/Input";
@@ -17,6 +17,12 @@ const Toolbox: FC = () => {
   const perPage = searchParams.get("perPage") || 9;
   const search = searchParams.get("Search") || "";
 
+  const onChange: ChangeEventHandler<HTMLSelectElement> = (e) => {
+    setSearchParams({ type: e.target.value || "" });
+
+    console.log(searchParams.get("type"));
+  };
+
   return (
     <div className={styles.toolbox}>
       <div className={styles.toolboxItem}>
@@ -26,11 +32,12 @@ const Toolbox: FC = () => {
           id="themes"
           defaultValue="All themes"
           values={[
-            "All themes",
-            "Online master class",
+            "All",
+            "Online master-class",
             "Online lecture",
             "Online workshop",
           ]}
+          onChange={onChange}
         />
       </div>
 
@@ -42,6 +49,7 @@ const Toolbox: FC = () => {
           style={{ minWidth: "150px" }}
           defaultValue="Newest"
           values={["Newest", "Oldest"]}
+          onChange={onChange}
         />
       </div>
 
