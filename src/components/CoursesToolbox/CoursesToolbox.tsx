@@ -23,6 +23,8 @@ const CoursesToolbox: FC = () => {
     setParams({ type: e.target.dataset.type || "" });
   };
 
+  // TODO: refactor
+
   return (
     <div className={styles.coursesToolbox}>
       <Tabs

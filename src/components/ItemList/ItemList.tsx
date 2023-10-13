@@ -76,7 +76,7 @@ const ItemsList: FC<IItemListProps> = ({
             .slice(0, +limit)
             .filter((item) => filterItems(item, search, "course"))
             .filter((item) => {
-              if (itemType == "All") return item;
+              if (itemType == "All" || !itemType) return item;
 
               return item.type == itemType;
             })
@@ -85,7 +85,7 @@ const ItemsList: FC<IItemListProps> = ({
                 <Link
                   className={styles.linkToItem}
                   onClick={handleLinkClick}
-                  to={`/course/${item.id}`}
+                  to={`/courses/${item.id}`}
                 >
                   <CourseUI
                     course={item as ICourse}
@@ -102,7 +102,7 @@ const ItemsList: FC<IItemListProps> = ({
                 <Link
                   className={styles.linkToItem}
                   onClick={handleLinkClick}
-                  to={`/event/${item.id}`}
+                  to={`/events/${item.id}`}
                 >
                   <EventUI
                     event={item}
