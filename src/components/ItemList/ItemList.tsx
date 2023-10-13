@@ -4,7 +4,7 @@ import { FC, useEffect } from "react";
 
 import { useAppDispatch, useAppSelector } from "@src/utils/hooks";
 import { Link } from "react-router-dom";
-import { handleLinkClick } from "@src/utils/helpers";
+import { getDate, handleLinkClick } from "@src/utils/helpers";
 import CourseUI from "@src/UI/Cards/Course/Course";
 import {
   ICourse,
@@ -24,6 +24,7 @@ interface IItemListProps {
   itemType?: CourseTypeEnum | EventTypeEnum;
   type?: "event" | "course";
   columns?: number;
+  sortBy?: "Newest" | "Oldest";
 }
 
 const ItemsList: FC<IItemListProps> = ({
@@ -33,6 +34,7 @@ const ItemsList: FC<IItemListProps> = ({
   type,
   columns = 3,
   itemType,
+  sortBy,
 }) => {
   const dispatch = useAppDispatch();
   const { items, error, loading } = useAppSelector((state) =>
@@ -59,6 +61,12 @@ const ItemsList: FC<IItemListProps> = ({
     if (itemType == EventTypeEnum.All || !itemType) return item;
 
     return item.type == itemType;
+  };
+
+  const sortByTime = (a: IEvent, b: IEvent) => {
+    if (sortBy == "Newest") return +getDate(b) - +getDate(a);
+    if (sortBy == "Oldest") return +getDate(a) - +getDate(b);
+    else return 0;
   };
 
   useEffect(() => {
@@ -105,6 +113,7 @@ const ItemsList: FC<IItemListProps> = ({
             .slice(0, +limit)
             .filter((item) => filterItems(item, search, "event"))
             .filter(filterByType)
+            .sort(sortByTime)
             .map((item) => (
               <div key={item.id}>
                 <Link

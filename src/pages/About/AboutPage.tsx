@@ -34,6 +34,7 @@ import job9 from "@assets/jobs/Sunset Realty Logo.svg";
 import job10 from "@assets/jobs/Ultimate Gym Logo.svg";
 import job11 from "@assets/jobs/United Strategy Logo.svg";
 import job12 from "@assets/jobs/Higher Fit Logo - Untitled Page.svg";
+import { CourseTypeEnum } from "@src/utils/interfaces";
 
 const AboutPage: FC = () => {
   return (
@@ -186,7 +187,7 @@ const AboutPage: FC = () => {
               width="33.333%"
               directionData={{
                 imgUrlWithExtension: "directions/image-4.svg",
-                type: "Marketing",
+                type: CourseTypeEnum.Marketing,
                 button: "Check courses",
                 paragraph:
                   "Odio posuere netus quisque faucibus lectus arcu donec. Eget dictum eu viverra faucibus. Viverra scelerisque consequat.",
@@ -197,7 +198,7 @@ const AboutPage: FC = () => {
               width="33.333%"
               directionData={{
                 imgUrlWithExtension: "directions/image-3.svg",
-                type: "Management",
+                type: CourseTypeEnum.Management,
                 button: "Check courses",
                 paragraph:
                   "Odio posuere netus quisque faucibus lectus arcu donec. Eget dictum eu viverra faucibus. Viverra scelerisque consequat.",
@@ -208,7 +209,7 @@ const AboutPage: FC = () => {
               width="33.333%"
               directionData={{
                 imgUrlWithExtension: "directions/image-2.svg",
-                type: "Recruting",
+                type: CourseTypeEnum.Recruting,
                 button: "Check courses",
                 paragraph:
                   "Odio posuere netus quisque faucibus lectus arcu donec. Eget dictum eu viverra faucibus. Viverra scelerisque consequat.",
@@ -221,7 +222,7 @@ const AboutPage: FC = () => {
               width="33.333%"
               directionData={{
                 imgUrlWithExtension: "directions/image-1.svg",
-                type: "Design",
+                type: CourseTypeEnum.Design,
                 button: "Check courses",
                 paragraph:
                   "Odio posuere netus quisque faucibus lectus arcu donec. Eget dictum eu viverra faucibus. Viverra scelerisque consequat.",
@@ -232,7 +233,7 @@ const AboutPage: FC = () => {
               width="33.333%"
               directionData={{
                 imgUrlWithExtension: "directions/image.svg",
-                type: "Development",
+                type: CourseTypeEnum.Development,
                 button: "Check courses",
                 paragraph:
                   "Odio posuere netus quisque faucibus lectus arcu donec. Eget dictum eu viverra faucibus. Viverra scelerisque consequat.",

@@ -2,26 +2,22 @@ import { ChangeEventHandler, FC, useEffect, useState } from "react";
 import clsx from "clsx";
 import { Link, useSearchParams } from "react-router-dom";
 import Input from "@src/UI/Form/Input/Input";
+import Select from "@src/UI/Form/Select/Select";
 
-import styles from "./Toolbox.module.scss";
+import styles from "./EventsToolbox.module.scss";
 
 import grid from "@assets/icons/grid-tool.svg";
 import list from "@assets/icons/list-tool.svg";
 import gridActive from "@assets/icons/grid-tool-active.svg";
 import listActive from "@assets/icons/list-tool-active.svg";
-import Select from "@src/UI/Form/Select/Select";
 
-const Toolbox: FC = () => {
+const EventsToolbox: FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const orientation = searchParams.get("orientation") || "";
+  const orientation = searchParams.get("orientation") || "horizontal";
   const perPage = searchParams.get("perPage") || 9;
-  const search = searchParams.get("Search") || "";
-
-  const onChange: ChangeEventHandler<HTMLSelectElement> = (e) => {
-    setSearchParams({ type: e.target.value || "" });
-
-    console.log(searchParams.get("type"));
-  };
+  const search = searchParams.get("search") || "";
+  const type = searchParams.get("type") || "All";
+  const sortBy = searchParams.get("sortBy") || "Newest";
 
   return (
     <div className={styles.toolbox}>
@@ -37,7 +33,15 @@ const Toolbox: FC = () => {
             "Online lecture",
             "Online workshop",
           ]}
-          onChange={onChange}
+          onChange={(e) => {
+            setSearchParams({
+              orientation,
+              perPage: String(perPage),
+              search,
+              type: e.target.value,
+              sortBy,
+            });
+          }}
         />
       </div>
 
@@ -49,7 +53,15 @@ const Toolbox: FC = () => {
           style={{ minWidth: "150px" }}
           defaultValue="Newest"
           values={["Newest", "Oldest"]}
-          onChange={onChange}
+          onChange={(e) => {
+            setSearchParams({
+              orientation,
+              perPage: String(perPage),
+              search,
+              type,
+              sortBy: e.target.value,
+            });
+          }}
         />
       </div>
 
@@ -64,7 +76,13 @@ const Toolbox: FC = () => {
           max={100}
           value={searchParams.get("perPage") || 9}
           onChange={(e) => {
-            setSearchParams({ orientation, perPage: e.target.value });
+            setSearchParams({
+              orientation,
+              perPage: e.target.value,
+              search,
+              type,
+              sortBy,
+            });
           }}
         />
 
@@ -81,17 +99,23 @@ const Toolbox: FC = () => {
               orientation,
               perPage: String(perPage),
               search: e.target.value,
+              type,
+              sortBy,
             })
           }
         />
       </div>
 
       <div className={clsx(styles.toolboxItem, styles.changeView)}>
-        <Link to={"/events?orientation=vertical"}>
+        <Link
+          to={`/events?orientation=vertical&perPage=${perPage}&search=${search}&type=${type}&sortBy=${sortBy}`}
+        >
           <img src={orientation == "horizontal" ? grid : gridActive} alt="" />
         </Link>
 
-        <Link to={"/events?orientation=horizontal"}>
+        <Link
+          to={`/events?orientation=horizontal&perPage=${perPage}&search=${search}&type=${type}&sortBy=${sortBy}`}
+        >
           <img src={orientation == "vertical" ? list : listActive} alt="" />
         </Link>
       </div>
@@ -99,4 +123,4 @@ const Toolbox: FC = () => {
   );
 };
 
-export default Toolbox;
+export default EventsToolbox;

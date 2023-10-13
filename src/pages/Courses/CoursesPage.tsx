@@ -35,14 +35,16 @@ const CoursesPage: FC = () => {
           {/* TODO: <CoursesTabs/> */}
           <CoursesToolbox />
 
-          <ItemsList
-            type="course"
-            orientation="vertical"
-            search={search}
-            limit={9}
-            columns={3}
-            itemType={type as CourseTypeEnum}
-          />
+          <div style={{ marginBottom: "120px" }}>
+            <ItemsList
+              type="course"
+              orientation="vertical"
+              search={search}
+              limit={9}
+              columns={3}
+              itemType={type as CourseTypeEnum}
+            />
+          </div>
         </div>
       </section>
       <Testimonials />

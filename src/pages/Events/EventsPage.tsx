@@ -2,7 +2,7 @@ import { FC } from "react";
 import Title from "@src/UI/Title/Title";
 import Navbar from "@src/components/Navbar/Navbar";
 import Subscribe from "@src/components/Subscribe/Subscribe";
-import Toolbox from "@src/components/Toolbox/Toolbox";
+import EventsToolbox from "@src/components/Toolbox/EventsToolbox";
 import { useSearchParams } from "react-router-dom";
 import { TOrientation } from "@src/UI/Cards/Event/Event";
 import ItemsList from "@src/components/ItemList/ItemList";
@@ -14,6 +14,7 @@ const EventsPage: FC = () => {
   const orientation = searchParams.get("orientation") || "horizontal";
   const search = searchParams.get("search") || "";
   const type = searchParams.get("type") || "";
+  const sortBy = searchParams.get("sortBy") || "";
 
   return (
     <section>
@@ -28,7 +29,7 @@ const EventsPage: FC = () => {
           </h3>
         </Title>
 
-        <Toolbox />
+        <EventsToolbox />
 
         <div
           style={{
@@ -44,6 +45,7 @@ const EventsPage: FC = () => {
             search={search}
             columns={orientation == "horizontal" ? 1 : 3}
             itemType={type as EventTypeEnum}
+            sortBy={sortBy as "Newest" | "Oldest"}
           />
         </div>
       </div>

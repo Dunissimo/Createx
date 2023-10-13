@@ -1,11 +1,4 @@
-import {
-  HTMLInputTypeAttribute,
-  ChangeEventHandler,
-  CSSProperties,
-  HTMLAttributes,
-  InputHTMLAttributes,
-  DetailedHTMLProps,
-} from "react";
+import { InputHTMLAttributes } from "react";
 
 export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   theme?: "light" | "dark";
