@@ -13,6 +13,7 @@ export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export type TType =
+  | "All"
   | "Marketing"
   | "Management"
   | "Recruting"

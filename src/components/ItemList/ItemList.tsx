@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from "@src/utils/hooks";
 import { Link } from "react-router-dom";
 import { handleLinkClick } from "@src/utils/helpers";
 import CourseUI from "@src/UI/Cards/Course/Course";
-import { ICourse, IEvent } from "@src/utils/interfaces";
+import { ICourse, IEvent, TType } from "@src/utils/interfaces";
 
 import styles from "./ItemList.module.scss";
 import { fetchCourses } from "@src/store/slices/coursesSlice";
@@ -16,6 +16,7 @@ interface IItemListProps {
   limit?: number;
   orientation?: TOrientation;
   search?: string;
+  itemType?: TType;
   type?: "event" | "course";
   columns?: number;
 }
@@ -26,6 +27,7 @@ const ItemsList: FC<IItemListProps> = ({
   search = "",
   type,
   columns = 3,
+  itemType,
 }) => {
   const dispatch = useAppDispatch();
   const { items, error, loading } = useAppSelector((state) =>
@@ -38,9 +40,13 @@ const ItemsList: FC<IItemListProps> = ({
     type?: string
   ) => {
     if (type == "event") {
-      return (item as IEvent).text.title.includes(search);
+      return (item as IEvent).text.title
+        .toLowerCase()
+        .includes(search.toLowerCase());
     } else if (type == "course") {
-      return (item as ICourse).title.includes(search);
+      return (item as ICourse).title
+        .toLowerCase()
+        .includes(search.toLowerCase());
     }
   };
 
@@ -65,27 +71,46 @@ const ItemsList: FC<IItemListProps> = ({
       className={clsx(styles[`item-${orientation}`])}
       style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
     >
-      {(items as Array<any>)
-        .slice(0, +limit)
-        .filter((item) => filterItems(item, search, type))
-        .map((item) => (
-          <div key={item.id}>
-            <Link
-              className={styles.linkToItem}
-              onClick={handleLinkClick}
-              to={`/${type == "course" ? "courses" : "events"}/${item.id}`}
-            >
-              {type == "course" ? (
-                <CourseUI course={item as ICourse} orientation={orientation} />
-              ) : (
-                <EventUI
-                  event={item}
-                  orientation={orientation as TOrientation}
-                />
-              )}
-            </Link>
-          </div>
-        ))}
+      {type == "course"
+        ? (items as ICourse[])
+            .slice(0, +limit)
+            .filter((item) => filterItems(item, search, "course"))
+            .filter((item) => {
+              if (itemType == "All") return item;
+
+              return item.type == itemType;
+            })
+            .map((item) => (
+              <div key={item.id}>
+                <Link
+                  className={styles.linkToItem}
+                  onClick={handleLinkClick}
+                  to={`/course/${item.id}`}
+                >
+                  <CourseUI
+                    course={item as ICourse}
+                    orientation={orientation}
+                  />
+                </Link>
+              </div>
+            ))
+        : (items as IEvent[])
+            .slice(0, +limit)
+            .filter((item) => filterItems(item, search, "event"))
+            .map((item) => (
+              <div key={item.id}>
+                <Link
+                  className={styles.linkToItem}
+                  onClick={handleLinkClick}
+                  to={`/event/${item.id}`}
+                >
+                  <EventUI
+                    event={item}
+                    orientation={orientation as TOrientation}
+                  />
+                </Link>
+              </div>
+            ))}
     </div>
   );
 };

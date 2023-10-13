@@ -7,8 +7,15 @@ import Title from "@ui/Title/Title";
 
 import styles from "./Courses.module.scss";
 import ItemsList from "@src/components/ItemList/ItemList";
+import CoursesToolbox from "@src/components/CoursesToolbox/CoursesToolbox";
+import { useSearchParams } from "react-router-dom";
+import { TType } from "@src/utils/interfaces";
 
 const CoursesPage: FC = () => {
+  const [params] = useSearchParams();
+  const type = params.get("type") || "";
+  const search = params.get("search") || "";
+
   return (
     <section className={styles.courses}>
       <header>
@@ -26,11 +33,15 @@ const CoursesPage: FC = () => {
           </Title>
 
           {/* TODO: <CoursesTabs/> */}
+          <CoursesToolbox />
+
           <ItemsList
             type="course"
             orientation="vertical"
+            search={search}
             limit={9}
             columns={3}
+            itemType={type as TType}
           />
         </div>
       </section>
