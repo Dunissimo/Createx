@@ -3,13 +3,13 @@ import { IEvent } from "../../utils/interfaces";
 import CreatexAPI from "../../utils/api";
 
 interface IInitial {
-  events: IEvent[];
+  items: IEvent[];
   loading: boolean;
   error: Error | null;
 }
 
 const initialState: IInitial = {
-  events: [],
+  items: [],
   loading: false,
   error: null,
 };
@@ -37,7 +37,7 @@ const eventSlice = createSlice({
     builder.addCase(fetchEvents.fulfilled, (state, action) => {
       state.loading = false;
       state.error = null;
-      state.events = action.payload;
+      state.items = action.payload;
     });
     builder.addCase(
       fetchEvents.rejected,

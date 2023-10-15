@@ -27,9 +27,13 @@ const Select: FC<ISelectProps> = ({
         {...props}
       >
         {values.map((value) => (
-          <option className={styles.option}>{value}</option>
+          <option key={value} className={styles.option}>
+            {value}
+          </option>
         ))}
       </select>
+
+      {/* TODO: иконка перекрывает select, не получается нажать на него */}
       <img className={styles.img} src={line} alt="" />
     </div>
   );

@@ -1,27 +1,29 @@
-import {
-  HTMLInputTypeAttribute,
-  ChangeEventHandler,
-  CSSProperties,
-  HTMLAttributes,
-  InputHTMLAttributes,
-  DetailedHTMLProps,
-} from "react";
+import { InputHTMLAttributes } from "react";
 
 export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   theme?: "light" | "dark";
   variant?: "small" | "regular" | "large";
 }
 
-export type TType =
-  | "Marketing"
-  | "Management"
-  | "Recruting"
-  | "Design"
-  | "Development";
+export enum CourseTypeEnum {
+  All = "All",
+  Marketing = "Marketing",
+  Management = "Management",
+  Recruting = "Recruting",
+  Design = "Design",
+  Development = "Development",
+}
+
+export enum EventTypeEnum {
+  All = "All",
+  MasterClass = "Online master-class",
+  Lecture = "Online lecture",
+  Workshop = "Online workshop",
+}
 
 export interface ICourse {
   id: number | string;
-  type: TType;
+  type: CourseTypeEnum;
   title: string;
   price: string | number;
   author: string;
@@ -37,14 +39,13 @@ export interface IEvent {
   };
   text: {
     title: string;
-    p: string;
   };
-  button: string;
+  type: EventTypeEnum;
 }
 
 export interface IDirectionData {
   imgUrlWithExtension: string;
-  type: TType;
+  type: CourseTypeEnum;
   paragraph: string;
   button: string;
 }
@@ -60,7 +61,7 @@ export interface IBlogCard {
   type: "podcast" | "article" | "video";
   imgName: string;
   details: {
-    theme: TType;
+    theme: CourseTypeEnum;
     date: string;
     duration: string;
   };

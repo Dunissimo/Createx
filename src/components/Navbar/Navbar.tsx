@@ -41,7 +41,7 @@ const Navbar: FC<IProps> = ({ theme = "light" }) => {
           <li>
             <NavLink
               className={({ isActive }) => classs(isActive)}
-              to="/courses"
+              to="/courses?type=All"
             >
               Courses
             </NavLink>
@@ -49,7 +49,7 @@ const Navbar: FC<IProps> = ({ theme = "light" }) => {
           <li>
             <NavLink
               className={({ isActive }) => classs(isActive)}
-              to="/events?orientation=horizontal&perPage=9"
+              to="/events?orientation=horizontal&type=All"
             >
               Events
             </NavLink>

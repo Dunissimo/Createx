@@ -3,13 +3,13 @@ import CreatexAPI from "@utils/api";
 import { ICourse } from "@utils/interfaces";
 
 interface IInitial {
-  courses: ICourse[];
+  items: ICourse[];
   loading: boolean;
   error: Error | null;
 }
 
 const initialState: IInitial = {
-  courses: [],
+  items: [],
   loading: false,
   error: null,
 };
@@ -37,7 +37,7 @@ export const coursesSlice = createSlice({
     builder.addCase(fetchCourses.fulfilled, (state, action) => {
       state.loading = false;
       state.error = null;
-      state.courses = action.payload;
+      state.items = action.payload;
     });
     builder.addCase(
       fetchCourses.rejected,

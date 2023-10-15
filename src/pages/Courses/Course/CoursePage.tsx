@@ -41,7 +41,7 @@ const CoursePage: FC = () => {
           <h2 style={{ color: "#FF3F3A" }}>Course</h2>
 
           <h3 style={{ color: "#1e212c", maxWidth: "75%", margin: "0 auto" }}>
-            User Experience. Principles of Human-Centered Design
+            w User Experience. Principles of Human-Centered Design
           </h3>
         </Title>
       </header>

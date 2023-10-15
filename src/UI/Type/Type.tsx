@@ -1,12 +1,12 @@
 import { FC } from "react";
 import clsx from "clsx";
 
-import { TType } from "@utils/interfaces";
+import { CourseTypeEnum } from "@utils/interfaces";
 
 import styles from "./Type.module.scss";
 
 interface IProps {
-  type: TType;
+  type: CourseTypeEnum;
 }
 
 const Type: FC<IProps> = ({ type }) => {
