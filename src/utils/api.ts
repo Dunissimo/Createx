@@ -1,4 +1,4 @@
-const BASE_URL = "https://api.npoint.io/66466e607109c64c28f2";
+const BASE_URL = "https://createx-backend.onrender.com";
 
 class CreatexAPI {
   fetchData = async (url: string) => {
