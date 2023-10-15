@@ -1,17 +1,16 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { postsReducer } from "./slices/blogSlice";
-import { coursesReducer } from "./slices/coursesSlice";
-import { eventsReducer } from "./slices/eventsSlice";
-import { teamReducer } from "./slices/teamSlice";
 
 import { coursesApi } from "@src/api/courses";
 import { eventsApi } from "@src/api/events";
+import { teamApi } from "@src/api/team";
+import { postsApi } from "@src/api/posts";
 
 const rootReducer = combineReducers({
   [coursesApi.reducerPath]: coursesApi.reducer,
   [eventsApi.reducerPath]: eventsApi.reducer,
-  team: teamReducer,
-  posts: postsReducer,
+  [teamApi.reducerPath]: teamApi.reducer,
+  [postsApi.reducerPath]: postsApi.reducer,
 });
 
 export const store = configureStore({
@@ -20,6 +19,8 @@ export const store = configureStore({
     getDefaultMiddleware().concat([
       coursesApi.middleware,
       eventsApi.middleware,
+      teamApi.middleware,
+      postsApi.middleware,
     ]),
 });
 

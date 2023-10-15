@@ -1,9 +1,8 @@
-import { FC, useEffect } from "react";
-import { fetchTeam } from "@redux/slices/teamSlice";
-import { useAppDispatch, useAppSelector } from "@utils/hooks";
+import { FC } from "react";
 import Team from "@ui/Team/Team";
 
 import styles from "./TeamList.module.scss";
+import { useGetTeamQuery } from "@src/api/team";
 
 interface IProps {
   limit?: number | string;
@@ -11,23 +10,19 @@ interface IProps {
 }
 
 const TeamList: FC<IProps> = ({ limit = 4, cardWidth = "25%" }) => {
-  const dispatch = useAppDispatch();
-  const { team, loading, error } = useAppSelector((state) => state.team);
+  const { data, isError, isLoading } = useGetTeamQuery();
 
-  useEffect(() => {
-    dispatch(fetchTeam());
-  }, []);
-
-  // TODO: переписать useEffect на RTK Query || axios
-
-  if (error) {
+  if (isError) {
     return <h1>Error!</h1>;
+  }
+
+  if (isLoading) {
+    return <h1>Loading...</h1>;
   }
 
   return (
     <div className={styles.list}>
-      {loading && <div>Loading...</div>}
-      {team.slice(0, +limit).map((team) => (
+      {data?.slice(0, +limit).map((team) => (
         <div key={team.id} style={{ width: cardWidth }}>
           <Team team={team} />
         </div>
