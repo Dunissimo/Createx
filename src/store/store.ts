@@ -4,15 +4,23 @@ import { coursesReducer } from "./slices/coursesSlice";
 import { eventsReducer } from "./slices/eventsSlice";
 import { teamReducer } from "./slices/teamSlice";
 
+import { coursesApi } from "@src/api/courses";
+import { eventsApi } from "@src/api/events";
+
 const rootReducer = combineReducers({
-  courses: coursesReducer,
-  events: eventsReducer,
+  [coursesApi.reducerPath]: coursesApi.reducer,
+  [eventsApi.reducerPath]: eventsApi.reducer,
   team: teamReducer,
   posts: postsReducer,
 });
 
 export const store = configureStore({
   reducer: rootReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat([
+      coursesApi.middleware,
+      eventsApi.middleware,
+    ]),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

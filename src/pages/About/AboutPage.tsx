@@ -257,20 +257,20 @@ const AboutPage: FC = () => {
               <Steps
                 data={[
                   {
-                    title: "Watching online video lectures",
-                    par: "Aliquam turpis viverra quam sit interdum blandit posuere pellentesque. Nisl, imperdiet gravida massa neque.",
+                    head: "Watching online video lectures",
+                    p: "Aliquam turpis viverra quam sit interdum blandit posuere pellentesque. Nisl, imperdiet gravida massa neque.",
                   },
                   {
-                    title: "Passing test",
-                    par: "Facilisis pellentesque quis accumsan ultricies. Eu egestas eget feugiat lacus, amet, sollicitudin egestas laoreet etiam. ",
+                    head: "Passing test",
+                    p: "Facilisis pellentesque quis accumsan ultricies. Eu egestas eget feugiat lacus, amet, sollicitudin egestas laoreet etiam. ",
                   },
                   {
-                    title: "Curator's feedback",
-                    par: "Eget amet, enim pharetra leo egestas nisi, odio imperdiet facilisis. Aliquet orci varius volutpat egestas facilisi lobortis. ",
+                    head: "Curator's feedback",
+                    p: "Eget amet, enim pharetra leo egestas nisi, odio imperdiet facilisis. Aliquet orci varius volutpat egestas facilisi lobortis. ",
                   },
                   {
-                    title: "Corrections if needed",
-                    par: "Non tempor pulvinar tincidunt aliquam. Placerat ultricies malesuada dui auctor.",
+                    head: "Corrections if needed",
+                    p: "Non tempor pulvinar tincidunt aliquam. Placerat ultricies malesuada dui auctor.",
                   },
                 ]}
               />

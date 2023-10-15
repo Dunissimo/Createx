@@ -1,8 +1,6 @@
 import EventUI, { TOrientation } from "@src/UI/Cards/Event/Event";
 import clsx from "clsx";
-import { FC, useEffect } from "react";
-
-import { useAppDispatch, useAppSelector } from "@src/utils/hooks";
+import { FC } from "react";
 import { Link } from "react-router-dom";
 import { getDate, handleLinkClick } from "@src/utils/helpers";
 import CourseUI from "@src/UI/Cards/Course/Course";
@@ -14,8 +12,8 @@ import {
 } from "@src/utils/interfaces";
 
 import styles from "./ItemList.module.scss";
-import { fetchCourses } from "@src/store/slices/coursesSlice";
-import { fetchEvents } from "@src/store/slices/eventsSlice";
+import { useGetCoursesQuery } from "@src/api/courses";
+import { useGetEventsQuery } from "@src/api/events";
 
 interface IItemListProps {
   limit?: number;
@@ -36,10 +34,8 @@ const ItemsList: FC<IItemListProps> = ({
   itemType,
   sortBy,
 }) => {
-  const dispatch = useAppDispatch();
-  const { items, error, loading } = useAppSelector((state) =>
-    type == "course" ? state.courses : state.events
-  );
+  const { data, isError, isLoading } =
+    type == "course" ? useGetCoursesQuery() : useGetEventsQuery();
 
   const filterItems = (
     item: ICourse | IEvent,
@@ -69,21 +65,16 @@ const ItemsList: FC<IItemListProps> = ({
     else return 0;
   };
 
-  useEffect(() => {
-    if (type == "course") {
-      dispatch(fetchCourses());
-    } else if (type == "event") {
-      dispatch(fetchEvents());
-    }
-  }, []);
-
-  if (error) {
+  if (isError) {
     return <div>Error!</div>;
   }
 
-  if (loading) {
+  if (isLoading) {
     return <div>Loading...</div>;
   }
+
+  // TODO: разграничить компонент. Пусть он отвечает только за отображение,
+  // а фильтрацию/сортировку пусть делает кто то другой
 
   return (
     <div
@@ -91,7 +82,7 @@ const ItemsList: FC<IItemListProps> = ({
       style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
     >
       {type == "course"
-        ? (items as ICourse[])
+        ? (data as ICourse[])
             .slice(0, +limit)
             .filter((item) => filterItems(item, search, "course"))
             .filter(filterByType)
@@ -109,7 +100,7 @@ const ItemsList: FC<IItemListProps> = ({
                 </Link>
               </div>
             ))
-        : (items as IEvent[])
+        : (data as IEvent[])
             .slice(0, +limit)
             .filter((item) => filterItems(item, search, "event"))
             .filter(filterByType)

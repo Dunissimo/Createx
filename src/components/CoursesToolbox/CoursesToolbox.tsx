@@ -6,15 +6,16 @@ import Input from "@src/UI/Form/Input/Input";
 import { useAppSelector } from "@src/utils/hooks";
 import { CourseTypeEnum } from "@src/utils/interfaces";
 import { useSearchParams } from "react-router-dom";
+import { useGetCoursesQuery } from "@src/api/courses";
 
 const CoursesToolbox: FC = () => {
   const [params, setParams] = useSearchParams();
   const type = params.get("type") || "";
 
-  const { items } = useAppSelector((state) => state.courses);
+  const { data: courses } = useGetCoursesQuery();
 
   const getLength = (type: CourseTypeEnum) => {
-    return items.filter((item) => item.type == type).length;
+    return courses?.filter((item) => item.type == type).length;
   };
 
   const clickHandler: MouseEventHandler<HTMLDivElement> = (e) => {
@@ -32,7 +33,11 @@ const CoursesToolbox: FC = () => {
         activeClassName={styles.coursesTabActive}
         onClick={clickHandler}
       >
-        <div className={styles.tab} data-length={items.length} data-type="All">
+        <div
+          className={styles.tab}
+          data-length={courses?.length}
+          data-type="All"
+        >
           All
         </div>
         <div
