@@ -56,8 +56,9 @@ const BlogCardUI: FC<IProps> = ({ card }) => {
         <p>{p}</p>
       </div>
       <Button
-        settings={{ isWithArrow: true, simple: true }}
-        props={{ style: { fontWeight: "700", color: "#1e212c" } }}
+        isWithArrow
+        simple
+        style={{ fontWeight: "700", color: "#1e212c" }}
       >
         {buttons[type]}
       </Button>

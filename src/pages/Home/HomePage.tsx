@@ -31,10 +31,7 @@ const HomePage: FC = () => {
           <Row className={styles.headerBody}>
             <RowItem>
               <div className={styles.headerLeft}>
-                <Button
-                  settings={{ simple: true }}
-                  props={{ style: { color: "#1e212c" } }}
-                >
+                <Button simple style={{ color: "#1e212c" }}>
                   <img src={showreel} alt="" />
                   Play showreel
                 </Button>
@@ -42,7 +39,7 @@ const HomePage: FC = () => {
                   Enjoy studying <br /> with Createx <br /> Online Courses
                 </h2>
                 <div className={styles.buttons}>
-                  <Button settings={{ outline: true }}>About us</Button>
+                  <Button outline>About us</Button>
                   <Button>Explore courses</Button>
                 </div>
               </div>
@@ -175,7 +172,7 @@ const HomePage: FC = () => {
               onClick={handleLinkClick}
               to="/events?orientation=horizontal&perPage=9"
             >
-              <Button settings={{ size: "xl" }}>Explore all events</Button>
+              <Button size="xl">Explore all events</Button>
             </Link>
           </div>
         </div>

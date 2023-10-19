@@ -69,11 +69,8 @@ const Navbar: FC<IProps> = ({ theme = "light" }) => {
           </li>
         </nav>
         <div className={styles.auth}>
-          <Button settings={{ size: "xl" }}>Get consultation</Button>
-          <Button
-            settings={{ simple: true }}
-            props={{ style: { display: "block" } }}
-          >
+          <Button size="xl">Get consultation</Button>
+          <Button simple style={{ display: "block" }}>
             {theme === "dark" ? (
               <img src={lightPerson} alt="" />
             ) : (

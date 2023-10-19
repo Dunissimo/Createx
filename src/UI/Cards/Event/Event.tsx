@@ -37,9 +37,7 @@ const EventUI: FC<IProps> = ({ event, orientation = "horizontal" }) => {
         <h3>{text.title}</h3>
         <p>{type}</p>
       </div>
-      <Button
-        settings={{ outline: true, isFullWidth: orientation === "vertical" }}
-      >
+      <Button outline isFullWidth={orientation === "vertical"}>
         View more
       </Button>
     </div>

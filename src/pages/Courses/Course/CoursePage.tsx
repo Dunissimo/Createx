@@ -117,9 +117,7 @@ const CoursePage: FC = () => {
                     </p>
                   </div>
 
-                  <Button settings={{ isFullWidth: true }}>
-                    Join the course
-                  </Button>
+                  <Button isFullWidth>Join the course</Button>
                 </>
               )}
             </RowItem>
@@ -232,7 +230,7 @@ const CoursePage: FC = () => {
                 <Input type="tel" placeholder="Your phone number" />
               </div>
 
-              <Button props={{ type: "submit", style: { width: "135px" } }}>
+              <Button type="submit" style={{ width: "135px" }}>
                 Join the course
               </Button>
             </form>
@@ -335,10 +333,7 @@ const CoursePage: FC = () => {
 
                 <Input type="tel" placeholder="Your phone number" id="phone" />
 
-                <Button
-                  settings={{ isFullWidth: true }}
-                  props={{ type: "submit", style: { marginTop: "16px" } }}
-                >
+                <Button isFullWidth type="submit" style={{ marginTop: "16px" }}>
                   Join the course
                 </Button>
               </form>

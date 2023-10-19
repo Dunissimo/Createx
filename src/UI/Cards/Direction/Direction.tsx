@@ -39,7 +39,7 @@ const Direction: FC<IProps> = ({ isEmpty, width, directionData, style }) => {
       <div className={styles.dirInfo}>
         <Type type={type} />
         <p>{paragraph}</p>
-        <Button settings={{ simple: true }} props={{ className: styles.btn }}>
+        <Button simple className={styles.btn}>
           {button}
           <img src={left} alt="" />
         </Button>

@@ -24,7 +24,7 @@ const Subscribe: FC = () => {
               theme="light"
               placeholder="Your working email"
             />
-            <Button settings={{ size: "large" }}>Subscribe</Button>
+            <Button size="large">Subscribe</Button>
           </div>
         </div>
       </div>

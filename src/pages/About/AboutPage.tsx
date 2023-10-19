@@ -64,7 +64,7 @@ const AboutPage: FC = () => {
               </p>
 
               <div className={styles.aboutButtons}>
-                <Button settings={{ outline: true }}>Explore events</Button>
+                <Button outline>Explore events</Button>
                 <Button>Browse courses</Button>
               </div>
             </RowItem>

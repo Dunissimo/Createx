@@ -147,10 +147,7 @@ const Footer: FC = () => {
               Dunissimo
             </Link>
           </p>
-          <Button
-            props={{ onClick: handleSmoothLinkClick }}
-            settings={{ simple: true }}
-          >
+          <Button onClick={handleSmoothLinkClick} simple>
             GO TO TOP
           </Button>
         </div>
