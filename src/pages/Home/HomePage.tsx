@@ -189,7 +189,7 @@ const HomePage: FC = () => {
       <section className={styles.team}>
         <div className="container">
           <div className={styles.teamTop}>
-            <Title>
+            <Title style={{ marginBottom: "60px" }}>
               <h2>Best tutors are all here</h2>
               <h3>Meet our team</h3>
             </Title>

@@ -3,6 +3,7 @@
     padding-left: 40px;
     font-size: 20px;
     position: relative;
+    cursor: pointer;
 
     &::before {
       content: url("@assets/icons/plus.svg");

@@ -1,6 +1,5 @@
 import { FC } from "react";
 import { useParams } from "react-router-dom";
-import clsx from "clsx";
 
 import Navbar from "@src/components/Navbar/Navbar";
 import Title from "@src/UI/Title/Title";
@@ -134,7 +133,6 @@ const CoursePage: FC = () => {
         </div>
       </section>
 
-      {/* TODO: Переписать на компонент из UI  */}
       <section className={styles.steps}>
         <div className="container">
           <Title
@@ -231,7 +229,6 @@ const CoursePage: FC = () => {
                 <h3>What will you learn</h3>
               </Title>
 
-              {/* TODO: сделать cursor:pointer */}
               <div className={styles.programList}>
                 {whatWillULearn?.lessons.map(
                   ({ numberOfItem, head, text }, i) => {

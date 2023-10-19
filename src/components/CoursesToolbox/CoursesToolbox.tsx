@@ -8,9 +8,12 @@ import { CourseTypeEnum } from "@src/utils/interfaces";
 import { useSearchParams } from "react-router-dom";
 import { useGetCoursesQuery } from "@src/api/courses";
 
-const CoursesToolbox: FC = () => {
+interface ICoursesToolboxProps {
+  type: CourseTypeEnum;
+}
+
+const CoursesToolbox: FC<ICoursesToolboxProps> = ({ type }) => {
   const [params, setParams] = useSearchParams();
-  const type = params.get("type") || "";
 
   const { data: courses } = useGetCoursesQuery();
 
@@ -24,58 +27,21 @@ const CoursesToolbox: FC = () => {
     setParams({ type: e.target.dataset.type || "" });
   };
 
-  // TODO: refactor
-
   return (
     <div className={styles.coursesToolbox}>
       <Tabs
         className={styles.coursesTabs}
-        activeClassName={styles.coursesTabActive}
+        values={[
+          "All",
+          CourseTypeEnum.Marketing,
+          CourseTypeEnum.Management,
+          CourseTypeEnum.Recruting,
+          CourseTypeEnum.Design,
+          CourseTypeEnum.Development,
+        ]}
         onClick={clickHandler}
-      >
-        <div
-          className={styles.tab}
-          data-length={courses?.length}
-          data-type="All"
-        >
-          All
-        </div>
-        <div
-          className={styles.tab}
-          data-length={getLength(CourseTypeEnum.Marketing)}
-          data-type={CourseTypeEnum.Marketing}
-        >
-          Marketing
-        </div>
-        <div
-          className={styles.tab}
-          data-length={getLength(CourseTypeEnum.Management)}
-          data-type={CourseTypeEnum.Management}
-        >
-          Management
-        </div>
-        <div
-          className={styles.tab}
-          data-length={getLength(CourseTypeEnum.Recruting)}
-          data-type={CourseTypeEnum.Recruting}
-        >
-          Recruting
-        </div>
-        <div
-          className={styles.tab}
-          data-length={getLength(CourseTypeEnum.Design)}
-          data-type={CourseTypeEnum.Design}
-        >
-          Design
-        </div>
-        <div
-          className={styles.tab}
-          data-length={getLength(CourseTypeEnum.Development)}
-          data-type={CourseTypeEnum.Development}
-        >
-          Development
-        </div>
-      </Tabs>
+        defaultValue={type}
+      />
 
       <Input
         placeholder="Search course..."

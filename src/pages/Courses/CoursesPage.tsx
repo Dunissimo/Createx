@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import Certificate from "@components/Certificate/Certificate";
 import Navbar from "@components/Navbar/Navbar";
 import Subscribe from "@components/Subscribe/Subscribe";
@@ -32,8 +32,7 @@ const CoursesPage: FC = () => {
             <h3>Our online courses</h3>
           </Title>
 
-          {/* TODO: <CoursesTabs/> */}
-          <CoursesToolbox />
+          <CoursesToolbox type={type as CourseTypeEnum} />
 
           <div style={{ marginBottom: "120px" }}>
             <ItemsList

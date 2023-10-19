@@ -33,7 +33,6 @@ const Select: FC<ISelectProps> = ({
         ))}
       </select>
 
-      {/* TODO: иконка перекрывает select, не получается нажать на него */}
       <img className={styles.img} src={line} alt="" />
     </div>
   );

@@ -67,10 +67,8 @@
   }
 }
 
-.select {
-  // text-indent: 1px;
-  // text-overflow: "";
-}
+// .select {
+// }
 
 .img {
   position: absolute;
@@ -78,8 +76,6 @@
   right: 15%;
 
   transform: translateY(-50%);
-}
 
-.option {
-  /* 21px */
+  pointer-events: none;
 }

@@ -10,15 +10,19 @@ import {
 } from "react";
 
 import styles from "./Tab.module.scss";
+import { useGetCoursesQuery } from "@src/api/courses";
 
 interface IProps {
   children: ReactNode;
   index: number;
   active: number;
   setActive: Dispatch<SetStateAction<number>>;
+  badge?: number;
 }
 
-const Tab: FC<IProps> = ({ index, children, active, setActive }) => {
+// TODO: разобраться с логикой табов, убрать лишнее, отрефакторить, в общем
+
+const Tab: FC<IProps> = ({ index, children, active, setActive, badge }) => {
   const [isActive, setIsActive] = useState(false);
 
   const clickHandler = (index: number) => {
@@ -34,40 +38,50 @@ const Tab: FC<IProps> = ({ index, children, active, setActive }) => {
       className={clsx(styles.tab, { [styles.active]: isActive })}
     >
       {children}
+
+      {badge ? badge : null}
     </div>
   );
 };
 
 interface ITabsProps {
-  children: ReactNode[];
   onClick?: MouseEventHandler<HTMLDivElement>;
   className?: string;
-  activeClassName?: string;
+  values?: string[];
+  defaultValue: string;
 }
 
 export const Tabs: FC<ITabsProps> = ({
-  children,
   onClick,
   className,
-  activeClassName,
+  values,
+  defaultValue,
 }) => {
-  const [active, setActive] = useState(0);
+  const { data: courses } = useGetCoursesQuery();
+  const [active, setActive] = useState(defaultValue);
 
   const clickHandler: MouseEventHandler<HTMLDivElement> = (e) => {
-    setActive(Number(e.currentTarget.dataset.index));
+    setActive(e.currentTarget.dataset.type || "All");
 
     onClick && onClick(e);
   };
 
   return (
     <div className={className}>
-      {children.map((child, index) => (
+      {values?.map((value) => (
         <div
-          data-index={index}
-          className={clsx(active == index && activeClassName)}
+          className={clsx(styles.tab, value == active ? styles.active : "")}
+          data-type={value}
           onClick={clickHandler}
         >
-          {child}
+          {value}
+
+          {/* TODO: стилизовать badge */}
+          <div>
+            {value == "All"
+              ? courses?.length
+              : courses?.filter((course) => course.type == value).length}
+          </div>
         </div>
       ))}
     </div>
