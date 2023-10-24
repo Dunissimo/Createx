@@ -20,24 +20,33 @@
       > button {
         display: flex;
         align-items: center;
+        gap: 12px;
 
         font-weight: 700;
         font-size: 1em;
+
+        transition: 0.3s;
+
+        img {
+          padding: 15px;
+          background: #fec8c1;
+          border-radius: 50%;
+          transition: 0.3s;
+        }
 
         &:hover {
           opacity: 1;
           color: gray;
 
           img {
-            background: lightpink;
+            background: #e7918e;
           }
         }
 
-        img {
-          padding: 15px;
-          background: #fec8c1;
-          border-radius: 50%;
-          transition: background 0.3s;
+        &:active {
+          img {
+            transform: scale(0.9);
+          }
         }
       }
     }

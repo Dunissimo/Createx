@@ -31,10 +31,10 @@ const HomePage: FC = () => {
           <Row className={styles.headerBody}>
             <RowItem>
               <div className={styles.headerLeft}>
-                <Button simple style={{ color: "#1e212c" }}>
+                <button onClick={() => alert("Будет реализовано в будущем!")}>
                   <img src={showreel} alt="" />
                   Play showreel
-                </Button>
+                </button>
                 <h2>
                   Enjoy studying <br /> with Createx <br /> Online Courses
                 </h2>
