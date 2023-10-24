@@ -1,5 +1,6 @@
 .tab {
   padding: 10px 20px;
+  position: relative;
 
   display: flex;
   justify-content: center;
@@ -24,4 +25,10 @@
   border: 1px solid #ff3f3a;
   filter: brightness(0) saturate(100%) invert(54%) sepia(87%) saturate(4775%)
     hue-rotate(336deg) brightness(96%) contrast(115%);
+}
+
+.tabBadge {
+  position: absolute;
+  top: 5px;
+  right: 7px;
 }

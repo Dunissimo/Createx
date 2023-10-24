@@ -37,7 +37,7 @@ const ToolboxTabs: FC<ITabsProps> = ({
           {value}
 
           {/* TODO: стилизовать badge */}
-          <div>
+          <div className={styles.tabBadge}>
             {value == "All"
               ? courses?.length
               : courses?.filter((course) => course.type == value).length}
