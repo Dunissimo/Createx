@@ -227,10 +227,17 @@
   background-color: #f4f5f6;
 
   .registerForm {
+    width: 100%;
     margin-top: 40px;
 
     display: flex;
     flex-direction: column;
     gap: 24px;
+  }
+
+  .formBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 }

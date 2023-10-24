@@ -1,12 +1,11 @@
 import { FC, MouseEventHandler } from "react";
 
 import styles from "./CoursesToolbox.module.scss";
-import { Tabs } from "@src/UI/Tabs/Tab";
 import Input from "@src/UI/Form/Input/Input";
-import { useAppSelector } from "@src/utils/hooks";
 import { CourseTypeEnum } from "@src/utils/interfaces";
 import { useSearchParams } from "react-router-dom";
 import { useGetCoursesQuery } from "@src/api/courses";
+import ToolboxTabs from "@src/UI/Tabs/ToolboxTab/ToolboxTab";
 
 interface ICoursesToolboxProps {
   type: CourseTypeEnum;
@@ -29,7 +28,7 @@ const CoursesToolbox: FC<ICoursesToolboxProps> = ({ type }) => {
 
   return (
     <div className={styles.coursesToolbox}>
-      <Tabs
+      <ToolboxTabs
         className={styles.coursesTabs}
         values={[
           "All",

@@ -311,27 +311,40 @@ const CoursePage: FC = () => {
 
       <section className={styles.register}>
         <div className="container">
-          <Row settings={{ gap: "185px" }}>
+          <Row settings={{ gap: "100px" }}>
             <RowItem>
               <img src={register} alt="" />
             </RowItem>
 
-            <RowItem>
+            <RowItem width="40%" contentAlign="center">
               <Title style={{ color: "#1e212c" }}>
                 <h2>leave a request now and get 20% off!</h2>
                 <h3>Register for the course</h3>
               </Title>
 
               <form className={styles.registerForm}>
-                <Input placeholder="Your full name" id="fullName" />
+                <div className={styles.formBlock}>
+                  <label htmlFor="fullName">Full name</label>
+                  <Input placeholder="Your full name" id="fullName" />
+                </div>
 
-                <Input
-                  type="email"
-                  placeholder="Your working email"
-                  id="email"
-                />
+                <div className={styles.formBlock}>
+                  <label htmlFor="email">Email</label>
+                  <Input
+                    type="email"
+                    placeholder="Your working email"
+                    id="email"
+                  />
+                </div>
 
-                <Input type="tel" placeholder="Your phone number" id="phone" />
+                <div className={styles.formBlock}>
+                  <label htmlFor="phone">Phone</label>
+                  <Input
+                    type="tel"
+                    placeholder="Your phone number"
+                    id="phone"
+                  />
+                </div>
 
                 <Button isFullWidth type="submit" style={{ marginTop: "16px" }}>
                   Join the course

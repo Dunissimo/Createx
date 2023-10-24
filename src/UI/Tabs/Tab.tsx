@@ -1,13 +1,5 @@
-import {
-  Dispatch,
-  FC,
-  MouseEventHandler,
-  ReactNode,
-  SetStateAction,
-  useState,
-} from "react";
+import { Dispatch, FC, ReactNode, SetStateAction } from "react";
 import clsx from "clsx";
-import { useGetCoursesQuery } from "@src/api/courses";
 
 import styles from "./Tab.module.scss";
 
@@ -28,50 +20,6 @@ const Tab: FC<IProps> = ({ index, children, active, setActive }) => {
       className={clsx(styles.tab, { [styles.active]: active === index })}
     >
       {children}
-    </div>
-  );
-};
-
-interface ITabsProps {
-  onClick?: MouseEventHandler<HTMLDivElement>;
-  className?: string;
-  values?: string[];
-  defaultValue: string;
-}
-
-export const Tabs: FC<ITabsProps> = ({
-  onClick,
-  className,
-  values,
-  defaultValue,
-}) => {
-  const { data: courses } = useGetCoursesQuery();
-  const [active, setActive] = useState(defaultValue);
-
-  const clickHandler: MouseEventHandler<HTMLDivElement> = (e) => {
-    setActive(e.currentTarget.dataset.type || "All");
-
-    onClick && onClick(e);
-  };
-
-  return (
-    <div className={className}>
-      {values?.map((value) => (
-        <div
-          className={clsx(styles.tab, value == active ? styles.active : "")}
-          data-type={value}
-          onClick={clickHandler}
-        >
-          {value}
-
-          {/* TODO: стилизовать badge */}
-          <div>
-            {value == "All"
-              ? courses?.length
-              : courses?.filter((course) => course.type == value).length}
-          </div>
-        </div>
-      ))}
     </div>
   );
 };
