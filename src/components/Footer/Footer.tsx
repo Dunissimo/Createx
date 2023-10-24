@@ -130,7 +130,12 @@ const Footer: FC = () => {
         <div className={styles.news}>
           <h2>SIGN UP TO OUR NEWSLETTER</h2>
           <form action="post" onSubmit={(e) => e.preventDefault()}>
-            <Input isWithArrow type="dark" placeholder="Email address" />
+            <Input
+              image="arrow"
+              imageAsSubmit
+              theme="dark"
+              placeholder="Email address"
+            />
           </form>
           <p>
             *Subscribe to our newsletter to receive communications and early{" "}

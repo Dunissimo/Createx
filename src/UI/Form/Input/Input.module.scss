@@ -28,20 +28,19 @@
     height: 36px;
     font-size: 0.75em;
     padding: 9px 12px;
-    padding-right: 2rem;
+    padding-right: 4rem;
   }
 
   &.input-regular {
     height: 44px;
     font-size: 0.875em;
     padding: 12px 16px;
-    padding-right: 2rem;
+    padding-right: 4rem;
   }
   &.input-large {
     height: 52px;
     font-size: 1em;
     padding: 14px 18px;
-    padding-right: 2rem;
   }
 
   &.input-dark {
@@ -81,20 +80,24 @@
   height: 100%;
 }
 
-.arrow {
-  width: 30%;
+.image {
+  width: auto;
   height: 100%;
+  padding: 1rem;
 
   position: absolute;
   bottom: 0;
-  right: -14px;
+  right: 15px;
 
-  transition: 0.3s;
-
+  cursor: default;
   display: flex;
   align-items: center;
   justify-content: center;
 
+  transition: 0.3s;
+}
+.image.submit {
+  cursor: pointer;
   &:hover {
     transform: scale(1.2);
   }

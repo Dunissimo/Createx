@@ -43,6 +43,7 @@ const CoursesToolbox: FC<ICoursesToolboxProps> = ({ type }) => {
       />
 
       <Input
+        image="search"
         placeholder="Search course..."
         value={params.get("search") || ""}
         onChange={(e) =>

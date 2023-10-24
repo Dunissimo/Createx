@@ -89,9 +89,9 @@ const EventsToolbox: FC = () => {
         <span>events per page</span>
       </div>
 
-      {/* TODO: сделать иконку поиска  */}
       <div className={styles.toolboxItem}>
         <Input
+          image="search"
           placeholder="Search event..."
           value={searchParams.get("search") || ""}
           onChange={(e) =>

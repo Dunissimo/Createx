@@ -6,16 +6,21 @@ import Checkbox from "@ui/Form/Checkbox/Checkbox";
 import styles from "./Input.module.scss";
 
 import arrow from "@assets/icons/arrow-right.svg";
+import search from "@assets/icons/search.svg";
+
+const icons = { arrow, search };
 
 interface IProps extends IInputProps {
-  isWithArrow?: boolean;
+  image?: keyof typeof icons;
+  imageAsSubmit?: boolean;
   className?: string;
 }
 
 const Input: FC<IProps> = ({
   theme = "light",
   variant = "regular",
-  isWithArrow,
+  imageAsSubmit = false,
+  image,
   className,
   ...props
 }) => {
@@ -35,11 +40,19 @@ const Input: FC<IProps> = ({
           )}
           {...props}
         />
-        {isWithArrow ? (
-          <button className={styles.arrow} type="submit">
-            <img src={arrow} alt="" />
+        {image ? (
+          <button
+            type={imageAsSubmit ? "submit" : "button"}
+            className={clsx(styles.image, imageAsSubmit && styles.submit)}
+          >
+            <img src={icons[image]} />
           </button>
         ) : null}
+        {/* {image ? ( */}
+        {/* <button className={styles.arrow} type="submit"> */}
+        {/* <img src={image!} /> */}
+        {/* </button> */}
+        {/* ) : null} */}
       </div>
     </div>
   );
