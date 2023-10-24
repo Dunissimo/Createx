@@ -1,45 +1,33 @@
-import clsx from "clsx";
 import {
   Dispatch,
   FC,
   MouseEventHandler,
   ReactNode,
   SetStateAction,
-  useEffect,
   useState,
 } from "react";
+import clsx from "clsx";
+import { useGetCoursesQuery } from "@src/api/courses";
 
 import styles from "./Tab.module.scss";
-import { useGetCoursesQuery } from "@src/api/courses";
 
 interface IProps {
   children: ReactNode;
   index: number;
   active: number;
   setActive: Dispatch<SetStateAction<number>>;
-  badge?: number;
 }
 
 // TODO: разобраться с логикой табов, убрать лишнее, отрефакторить, в общем
 
-const Tab: FC<IProps> = ({ index, children, active, setActive, badge }) => {
-  const [isActive, setIsActive] = useState(false);
-
-  const clickHandler = (index: number) => {
-    setActive(index);
-  };
-
-  useEffect(() => setIsActive(active === index), [active]);
-
+const Tab: FC<IProps> = ({ index, children, active, setActive }) => {
   return (
     <div
       data-index={index}
-      onClick={() => clickHandler(index)}
-      className={clsx(styles.tab, { [styles.active]: isActive })}
+      onClick={() => setActive(index)}
+      className={clsx(styles.tab, { [styles.active]: active === index })}
     >
       {children}
-
-      {badge ? badge : null}
     </div>
   );
 };

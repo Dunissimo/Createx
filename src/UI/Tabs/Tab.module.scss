@@ -4,6 +4,11 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+
+  img,
+  span {
+    pointer-events: none;
+  }
 }
 
 .tab {

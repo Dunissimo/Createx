@@ -285,7 +285,10 @@ const AboutPage: FC = () => {
 
       <section className={styles.team}>
         <div className="container">
-          <Title align="center" style={{ color: "#1e212c" }}>
+          <Title
+            align="center"
+            style={{ color: "#1e212c", marginBottom: "60px" }}
+          >
             <h2>Best tutors are all here</h2>
             <h3>Meet our team</h3>
           </Title>

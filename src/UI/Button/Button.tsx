@@ -20,9 +20,15 @@ interface IProps {
   type?: "submit" | "reset" | "button";
 }
 
-const Button: FC<IProps> = ({ children, ...props }) => {
-  const { simple, outline, isFullWidth, size = "regular", isWithArrow } = props;
-
+const Button: FC<IProps> = ({
+  children,
+  simple,
+  outline,
+  isFullWidth,
+  isWithArrow,
+  size = "regular",
+  ...props
+}) => {
   const arrow = isWithArrow ? <img src={arrowImg} alt="" /> : null;
 
   if (simple) {
