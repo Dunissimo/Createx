@@ -35,6 +35,8 @@ import job10 from "@assets/jobs/Ultimate Gym Logo.svg";
 import job11 from "@assets/jobs/United Strategy Logo.svg";
 import job12 from "@assets/jobs/Higher Fit Logo - Untitled Page.svg";
 import { CourseTypeEnum } from "@src/utils/interfaces";
+import { handleLinkClick } from "@src/utils/helpers";
+import { Link } from "react-router-dom";
 
 const AboutPage: FC = () => {
   return (
@@ -51,21 +53,25 @@ const AboutPage: FC = () => {
               </Title>
 
               <h4>
-                Createx Online School is a leader in online studying. We have
-                lots of courses and programs from the main market experts.
+                Createx Online School is a leader in online studying. We have
+                lots of courses and programs from the main market experts.
               </h4>
 
               <p>
-                We provide relevant approaches to online learning, internships
-                and employment in the largest companies in the country. Our
+                We provide relevant approaches to online learning, internships
+                and employment in the largest companies in the country. Our
                 educational programs help you get a new specialty from scratch.
                 During your studies, we will help you find a job. Check the
                 courses and online events that we organise.
               </p>
 
               <div className={styles.aboutButtons}>
-                <Button outline>Explore events</Button>
-                <Button>Browse courses</Button>
+                <Link to="/events" onClick={handleLinkClick}>
+                  <Button outline>Explore events</Button>
+                </Link>
+                <Link to="/courses?type=All" onClick={handleLinkClick}>
+                  <Button>Explore courses</Button>
+                </Link>
               </div>
             </RowItem>
 

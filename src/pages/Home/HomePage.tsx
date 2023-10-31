@@ -11,7 +11,7 @@ import TeamList from "@components/TeamList/TeamList";
 import Testimonials from "@components/Testimonials/Testimonials";
 import LatestPosts from "@components/LatestPosts/LatestPosts";
 import Certificate from "@components/Certificate/Certificate";
-import { handleLinkClick } from "@src/utils/helpers";
+import { handleLinkClick, handleSmoothLinkClick } from "@src/utils/helpers";
 
 import styles from "./Home.module.scss";
 
@@ -39,8 +39,12 @@ const HomePage: FC = () => {
                   Enjoy studying <br /> with Createx <br /> Online Courses
                 </h2>
                 <div className={styles.buttons}>
-                  <Button outline>About us</Button>
-                  <Button>Explore courses</Button>
+                  <Link to="/about" onClick={handleLinkClick}>
+                    <Button outline>About us</Button>
+                  </Link>
+                  <Link to="/courses?type=All" onClick={handleLinkClick}>
+                    <Button>Explore courses</Button>
+                  </Link>
                 </div>
               </div>
             </RowItem>
@@ -120,7 +124,9 @@ const HomePage: FC = () => {
               </li>
             </ul>
 
-            <Button>More about us</Button>
+            <Link to="/about" onClick={handleLinkClick}>
+              <Button>More about us</Button>
+            </Link>
           </RowItem>
         </Row>
       </section>
@@ -135,7 +141,7 @@ const HomePage: FC = () => {
             </Title>
 
             <Button>
-              <Link to="/courses">View all courses</Link>
+              <Link to="/courses?type=All">View all courses</Link>
             </Button>
           </div>
 

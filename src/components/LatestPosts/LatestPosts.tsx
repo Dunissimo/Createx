@@ -5,6 +5,8 @@ import Title from "@src/UI/Title/Title";
 import { useGetPostsQuery } from "@src/api/posts";
 
 import styles from "./LatestPosts.module.scss";
+import { handleLinkClick } from "@src/utils/helpers";
+import { Link } from "react-router-dom";
 
 const LatestPosts: FC = () => {
   const { data, isLoading, isError } = useGetPostsQuery();
@@ -30,7 +32,9 @@ const LatestPosts: FC = () => {
             <h3>Latest posts</h3>
           </Title>
 
-          <Button>Go to blog</Button>
+          <Link to="/blog" onClick={handleLinkClick}>
+            <Button>Go to blog</Button>
+          </Link>
         </div>
 
         <div className={styles.list}>
