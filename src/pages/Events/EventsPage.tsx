@@ -2,7 +2,7 @@ import { FC } from "react";
 import Title from "@src/UI/Title/Title";
 import Navbar from "@src/components/Navbar/Navbar";
 import Subscribe from "@src/components/Subscribe/Subscribe";
-import EventsToolbox from "@src/components/Toolbox/EventsToolbox";
+import EventsToolbox from "@src/components/EventsToolbox/EventsToolbox";
 import { useSearchParams } from "react-router-dom";
 import { TOrientation } from "@src/UI/Cards/Event/Event";
 import ItemsList from "@src/components/ItemList/ItemList";

@@ -21,6 +21,13 @@ export enum EventTypeEnum {
   Workshop = "Online workshop",
 }
 
+export enum BlogTypeEnum {
+  All = "All",
+  Article = "Articles",
+  Video = "Videos",
+  Podcast = "Podcasts",
+}
+
 export interface ILesson {
   numberOfItem: string;
   head: string;

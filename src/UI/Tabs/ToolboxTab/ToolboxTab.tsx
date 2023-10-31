@@ -4,11 +4,17 @@ import { MouseEventHandler, FC, useState } from "react";
 
 import styles from "./ToolboxTab.module.scss";
 
+export type ToolboxValue = {
+  text: string;
+  icon?: string;
+};
+
 interface ITabsProps {
   onClick?: MouseEventHandler<HTMLDivElement>;
   className?: string;
-  values?: string[];
+  values?: ToolboxValue[];
   defaultValue: string;
+  isWithBadge?: boolean;
 }
 
 const ToolboxTabs: FC<ITabsProps> = ({
@@ -16,6 +22,7 @@ const ToolboxTabs: FC<ITabsProps> = ({
   className,
   values,
   defaultValue,
+  isWithBadge,
 }) => {
   const { data: courses } = useGetCoursesQuery();
   const [active, setActive] = useState(defaultValue);
@@ -30,18 +37,24 @@ const ToolboxTabs: FC<ITabsProps> = ({
     <div className={className}>
       {values?.map((value) => (
         <div
-          className={clsx(styles.tab, value == active ? styles.active : "")}
+          className={clsx(
+            styles.tab,
+            value.text == active ? styles.active : ""
+          )}
           data-type={value}
           onClick={clickHandler}
         >
-          {value}
+          {value?.icon ? <img src={value.icon} alt="" /> : null}
 
-          {/* TODO: стилизовать badge */}
-          <div className={styles.tabBadge}>
-            {value == "All"
-              ? courses?.length
-              : courses?.filter((course) => course.type == value).length}
-          </div>
+          {value.text}
+
+          {isWithBadge && (
+            <div className={styles.tabBadge}>
+              {value.text == "All"
+                ? courses?.length
+                : courses?.filter((course) => course.type == value.text).length}
+            </div>
+          )}
         </div>
       ))}
     </div>

@@ -4,7 +4,6 @@ import styles from "./CoursesToolbox.module.scss";
 import Input from "@src/UI/Form/Input/Input";
 import { CourseTypeEnum } from "@src/utils/interfaces";
 import { useSearchParams } from "react-router-dom";
-import { useGetCoursesQuery } from "@src/api/courses";
 import ToolboxTabs from "@src/UI/Tabs/ToolboxTab/ToolboxTab";
 
 interface ICoursesToolboxProps {
@@ -13,12 +12,6 @@ interface ICoursesToolboxProps {
 
 const CoursesToolbox: FC<ICoursesToolboxProps> = ({ type }) => {
   const [params, setParams] = useSearchParams();
-
-  const { data: courses } = useGetCoursesQuery();
-
-  const getLength = (type: CourseTypeEnum) => {
-    return courses?.filter((item) => item.type == type).length;
-  };
 
   const clickHandler: MouseEventHandler<HTMLDivElement> = (e) => {
     if (!(e.target instanceof HTMLDivElement)) return;
@@ -31,12 +24,12 @@ const CoursesToolbox: FC<ICoursesToolboxProps> = ({ type }) => {
       <ToolboxTabs
         className={styles.coursesTabs}
         values={[
-          "All",
-          CourseTypeEnum.Marketing,
-          CourseTypeEnum.Management,
-          CourseTypeEnum.Recruting,
-          CourseTypeEnum.Design,
-          CourseTypeEnum.Development,
+          { text: CourseTypeEnum.All },
+          { text: CourseTypeEnum.Marketing },
+          { text: CourseTypeEnum.Management },
+          { text: CourseTypeEnum.Recruting },
+          { text: CourseTypeEnum.Design },
+          { text: CourseTypeEnum.Development },
         ]}
         onClick={clickHandler}
         defaultValue={type}

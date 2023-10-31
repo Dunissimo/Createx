@@ -1,5 +1,7 @@
 import Title from "@src/UI/Title/Title";
+import BlogToolbox from "@src/components/BlogToolbox/BlogToolbox";
 import Navbar from "@src/components/Navbar/Navbar";
+import { BlogTypeEnum } from "@src/utils/interfaces";
 import { FC } from "react";
 
 const BlogPage: FC = () => {
@@ -13,6 +15,9 @@ const BlogPage: FC = () => {
       </Title>
 
       {/* Toolbar */}
+      <div className="blogToolbox container">
+        <BlogToolbox type={BlogTypeEnum.All} />
+      </div>
 
       {/* posts list */}
 

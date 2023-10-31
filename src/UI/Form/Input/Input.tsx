@@ -14,6 +14,7 @@ interface IProps extends IInputProps {
   image?: keyof typeof icons;
   imageAsSubmit?: boolean;
   className?: string;
+  width?: string;
 }
 
 const Input: FC<IProps> = ({
@@ -22,6 +23,7 @@ const Input: FC<IProps> = ({
   imageAsSubmit = false,
   image,
   className,
+  width,
   ...props
 }) => {
   if (props?.type === "checkbox") {
@@ -29,7 +31,7 @@ const Input: FC<IProps> = ({
   }
 
   return (
-    <div className={clsx(styles.parrentBlock, styles[theme])}>
+    <div className={clsx(styles.parrentBlock, styles[theme])} style={{ width }}>
       <div className={styles.inputDiv}>
         <input
           className={clsx(
