@@ -9,9 +9,9 @@ import Navbar from "@components/Navbar/Navbar";
 import Subscribe from "@components/Subscribe/Subscribe";
 import TeamList from "@components/TeamList/TeamList";
 import Testimonials from "@components/Testimonials/Testimonials";
-import LatestPosts from "@components/LatestPosts/LatestPosts";
 import Certificate from "@components/Certificate/Certificate";
 import { handleLinkClick, handleSmoothLinkClick } from "@src/utils/helpers";
+import clsx from "clsx";
 
 import styles from "./Home.module.scss";
 
@@ -206,7 +206,11 @@ const HomePage: FC = () => {
       <Testimonials />
 
       {/* latest posts */}
-      <LatestPosts />
+      <div className={styles.latestPosts}>
+        <div className="container">
+          <ItemsList limit={3} type="blog" />
+        </div>
+      </div>
 
       {/* subscribe */}
       <Subscribe />
