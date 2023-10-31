@@ -21,6 +21,19 @@ export enum EventTypeEnum {
   Workshop = "Online workshop",
 }
 
+export enum BlogTypeEnum {
+  All = "All",
+  Article = "Articles",
+  Video = "Videos",
+  Podcast = "Podcasts",
+}
+
+export interface ILesson {
+  numberOfItem: string;
+  head: string;
+  text: string;
+}
+
 export interface ICourse {
   id: number | string;
   type: CourseTypeEnum;
@@ -28,6 +41,35 @@ export interface ICourse {
   price: string | number;
   author: string;
   imgName: string;
+}
+
+export interface ICourseContent {
+  id: number;
+  data: {
+    about: string;
+    curator: {
+      coursesCount: number;
+      job: string;
+      name: string;
+      rating: number;
+      socialMediaLinks: string[];
+      studentsCount: number;
+      text: string;
+    };
+    discount: number;
+    info: {
+      date: string;
+      duration: string;
+      price: number;
+    };
+    listForWhom: string[];
+    steps: IStepData[];
+    title: string;
+    whatWillULearn: {
+      lessons: ILesson[];
+    };
+    willLearn: string[];
+  };
 }
 
 export interface IEvent {
@@ -71,6 +113,6 @@ export interface IBlogCard {
 }
 
 export interface IStepData {
-  title: string;
-  par: string;
+  head: string;
+  p: string;
 }

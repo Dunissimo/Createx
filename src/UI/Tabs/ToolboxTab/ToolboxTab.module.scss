@@ -1,18 +1,6 @@
-.buttons {
-  margin-top: 70px;
-  margin-bottom: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-
-  img,
-  span {
-    pointer-events: none;
-  }
-}
-
 .tab {
   padding: 10px 20px;
+  position: relative;
 
   display: flex;
   justify-content: center;
@@ -33,29 +21,14 @@
   }
 }
 
-.tabButton {
-  display: flex;
-  gap: 10px;
-}
-
 .active {
   border: 1px solid #ff3f3a;
   filter: brightness(0) saturate(100%) invert(54%) sepia(87%) saturate(4775%)
     hue-rotate(336deg) brightness(96%) contrast(115%);
 }
 
-.outlet {
-  img {
-    width: 100%;
-    height: 100%;
-  }
-  h3 {
-    font-weight: 900;
-    font-size: 2em;
-  }
-  p {
-    width: 75%;
-    margin-top: 24px;
-    color: #424551;
-  }
+.tabBadge {
+  position: absolute;
+  top: 5px;
+  right: 7px;
 }

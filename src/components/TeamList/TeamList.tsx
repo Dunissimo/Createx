@@ -1,9 +1,10 @@
-import { FC, useEffect } from "react";
-import { fetchTeam } from "@redux/slices/teamSlice";
-import { useAppDispatch, useAppSelector } from "@utils/hooks";
+import { FC } from "react";
 import Team from "@ui/Team/Team";
+import { useGetTeamQuery } from "@src/api/team";
+import Skeleton from "react-loading-skeleton";
 
 import styles from "./TeamList.module.scss";
+import "react-loading-skeleton/dist/skeleton.css";
 
 interface IProps {
   limit?: number | string;
@@ -11,25 +12,30 @@ interface IProps {
 }
 
 const TeamList: FC<IProps> = ({ limit = 4, cardWidth = "25%" }) => {
-  const dispatch = useAppDispatch();
-  const { team, loading, error } = useAppSelector((state) => state.team);
+  const { data, isError, isLoading } = useGetTeamQuery();
 
-  useEffect(() => {
-    dispatch(fetchTeam());
-  }, []);
-
-  // TODO: переписать useEffect на RTK Query || axios
-
-  if (error) {
+  if (isError) {
     return <h1>Error!</h1>;
   }
 
   return (
     <div className={styles.list}>
-      {loading && <div>Loading...</div>}
-      {team.slice(0, +limit).map((team) => (
-        <div key={team.id} style={{ width: cardWidth }}>
-          <Team team={team} />
+      {data?.slice(0, +limit).map((team) => (
+        <div key={team.id} style={{ width: `calc(${cardWidth} - 15px)` }}>
+          {isLoading ? (
+            new Array(1)
+              .fill(0)
+              .map(() => (
+                <Skeleton
+                  baseColor="#dee1e3"
+                  highlightColor="#ebeef0"
+                  count={1}
+                  height={400}
+                />
+              ))
+          ) : (
+            <Team team={team} />
+          )}
         </div>
       ))}
     </div>

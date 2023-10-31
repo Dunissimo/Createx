@@ -1,30 +1,25 @@
-import { FC, useEffect } from "react";
-import clsx from "clsx";
-import { fetchPosts } from "@redux/slices/blogSlice";
+import { FC } from "react";
 import BlogCardUI from "@ui/Blog/BlogCard/BlogCard";
 import Button from "@src/UI/Button/Button";
 import Title from "@src/UI/Title/Title";
-import { useAppDispatch, useAppSelector } from "@utils/hooks";
+import { useGetPostsQuery } from "@src/api/posts";
 
 import styles from "./LatestPosts.module.scss";
+import { handleLinkClick } from "@src/utils/helpers";
+import { Link } from "react-router-dom";
 
 const LatestPosts: FC = () => {
-  const dispatch = useAppDispatch();
-  const { posts, loading, error } = useAppSelector((state) => state.posts);
+  const { data, isLoading, isError } = useGetPostsQuery();
 
-  useEffect(() => {
-    dispatch(fetchPosts());
-  }, []);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
+  if (isError) {
     return <h1>Error!</h1>;
   }
 
-  const sorted = posts.slice(0, 3).sort((a, b) => {
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  const sorted = data?.slice(0, 3).sort((a, b) => {
     return Number(new Date(b.details.date)) - Number(new Date(a.details.date));
   });
 
@@ -37,11 +32,13 @@ const LatestPosts: FC = () => {
             <h3>Latest posts</h3>
           </Title>
 
-          <Button>Go to blog</Button>
+          <Link to="/blog" onClick={handleLinkClick}>
+            <Button>Go to blog</Button>
+          </Link>
         </div>
 
         <div className={styles.list}>
-          {sorted.map((post) => (
+          {sorted?.map((post) => (
             <div style={{ width: "33.333%" }} key={post.id}>
               <BlogCardUI card={post} />
             </div>

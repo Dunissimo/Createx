@@ -1,5 +1,4 @@
 .steps {
-  margin-top: 60px;
   padding-left: 44px;
 
   display: flex;
@@ -7,4 +6,9 @@
   gap: 32px;
 
   border-left: 1px solid rgba(154, 156, 165, 0.5);
+}
+
+.stepVertical {
+  display: flex;
+  justify-content: space-between;
 }

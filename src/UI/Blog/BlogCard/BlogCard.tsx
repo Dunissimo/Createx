@@ -8,6 +8,7 @@ import styles from "./BlogCard.module.scss";
 
 import calendar from "@assets/icons/Calendar.svg";
 import clock from "@assets/icons/Clock.svg";
+import { Link } from "react-router-dom";
 
 interface IProps {
   card: IBlogCard;
@@ -24,7 +25,7 @@ const firstLetterToUpperCase = (str: string) => {
 };
 
 const BlogCardUI: FC<IProps> = ({ card }) => {
-  const { details, imgName, p, title, type } = card;
+  const { details, imgName, p, title, type, id } = card;
 
   const url = useUrl(`blog/${imgName}`);
 
@@ -38,7 +39,10 @@ const BlogCardUI: FC<IProps> = ({ card }) => {
   return (
     <section className={styles.card}>
       <div className={styles.cardImg}>
-        <img src={url} alt="" />
+        <Link to={`/blog/${id}`}>
+          <img src={url} alt="" />
+        </Link>
+
         <span className={clsx(styles.theme, styles[type])}>
           {firstLetterToUpperCase(type)}
         </span>
@@ -55,11 +59,14 @@ const BlogCardUI: FC<IProps> = ({ card }) => {
         <h2>{title}</h2>
         <p>{p}</p>
       </div>
-      <Button
-        settings={{ isWithArrow: true, simple: true }}
-        props={{ style: { fontWeight: "700", color: "#1e212c" } }}
-      >
-        {buttons[type]}
+
+      <Button isWithArrow simple>
+        <Link
+          to={`/blog/${id}`}
+          style={{ fontWeight: "700", color: "#1e212c" }}
+        >
+          {buttons[type]}
+        </Link>
       </Button>
     </section>
   );

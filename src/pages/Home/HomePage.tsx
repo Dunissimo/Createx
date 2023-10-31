@@ -9,9 +9,9 @@ import Navbar from "@components/Navbar/Navbar";
 import Subscribe from "@components/Subscribe/Subscribe";
 import TeamList from "@components/TeamList/TeamList";
 import Testimonials from "@components/Testimonials/Testimonials";
-import LatestPosts from "@components/LatestPosts/LatestPosts";
 import Certificate from "@components/Certificate/Certificate";
-import { handleLinkClick } from "@src/utils/helpers";
+import { handleLinkClick, handleSmoothLinkClick } from "@src/utils/helpers";
+import clsx from "clsx";
 
 import styles from "./Home.module.scss";
 
@@ -31,19 +31,20 @@ const HomePage: FC = () => {
           <Row className={styles.headerBody}>
             <RowItem>
               <div className={styles.headerLeft}>
-                <Button
-                  settings={{ simple: true }}
-                  props={{ style: { color: "#1e212c" } }}
-                >
+                <button onClick={() => alert("Будет реализовано в будущем!")}>
                   <img src={showreel} alt="" />
                   Play showreel
-                </Button>
+                </button>
                 <h2>
                   Enjoy studying <br /> with Createx <br /> Online Courses
                 </h2>
                 <div className={styles.buttons}>
-                  <Button settings={{ outline: true }}>About us</Button>
-                  <Button>Explore courses</Button>
+                  <Link to="/about" onClick={handleLinkClick}>
+                    <Button outline>About us</Button>
+                  </Link>
+                  <Link to="/courses?type=All" onClick={handleLinkClick}>
+                    <Button>Explore courses</Button>
+                  </Link>
                 </div>
               </div>
             </RowItem>
@@ -123,7 +124,9 @@ const HomePage: FC = () => {
               </li>
             </ul>
 
-            <Button>More about us</Button>
+            <Link to="/about" onClick={handleLinkClick}>
+              <Button>More about us</Button>
+            </Link>
           </RowItem>
         </Row>
       </section>
@@ -138,7 +141,7 @@ const HomePage: FC = () => {
             </Title>
 
             <Button>
-              <Link to="/courses">View all courses</Link>
+              <Link to="/courses?type=All">View all courses</Link>
             </Button>
           </div>
 
@@ -175,7 +178,7 @@ const HomePage: FC = () => {
               onClick={handleLinkClick}
               to="/events?orientation=horizontal&perPage=9"
             >
-              <Button settings={{ size: "xl" }}>Explore all events</Button>
+              <Button size="xl">Explore all events</Button>
             </Link>
           </div>
         </div>
@@ -189,7 +192,7 @@ const HomePage: FC = () => {
       <section className={styles.team}>
         <div className="container">
           <div className={styles.teamTop}>
-            <Title>
+            <Title style={{ marginBottom: "60px" }}>
               <h2>Best tutors are all here</h2>
               <h3>Meet our team</h3>
             </Title>
@@ -203,7 +206,11 @@ const HomePage: FC = () => {
       <Testimonials />
 
       {/* latest posts */}
-      <LatestPosts />
+      <div className={styles.latestPosts}>
+        <div className="container">
+          <ItemsList limit={3} type="blog" />
+        </div>
+      </div>
 
       {/* subscribe */}
       <Subscribe />

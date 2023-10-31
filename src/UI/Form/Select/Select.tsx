@@ -8,12 +8,14 @@ interface ISelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   values: string[];
   theme?: "light" | "dark";
   variant?: "small" | "regular" | "large";
+  className?: string;
 }
 
 const Select: FC<ISelectProps> = ({
   values,
   theme = "light",
   variant = "regular",
+  className,
   ...props
 }) => {
   return (
@@ -22,7 +24,8 @@ const Select: FC<ISelectProps> = ({
         className={clsx(
           styles.select,
           styles[`select-${variant}`],
-          styles[`select-${theme}`]
+          styles[`select-${theme}`],
+          className
         )}
         {...props}
       >
@@ -33,7 +36,6 @@ const Select: FC<ISelectProps> = ({
         ))}
       </select>
 
-      {/* TODO: иконка перекрывает select, не получается нажать на него */}
       <img className={styles.img} src={line} alt="" />
     </div>
   );

@@ -13,6 +13,7 @@ import logo from "@assets/light-logo.svg";
 import phone from "@assets/icons/phone.svg";
 import email from "@assets/icons/email.svg";
 import love from "@assets/icons/love.svg";
+import { CourseTypeEnum } from "@src/utils/interfaces";
 
 const Footer: FC = () => {
   return (
@@ -74,19 +75,44 @@ const Footer: FC = () => {
           <h2>Courses</h2>
           <ul>
             <li>
-              <Link to="/courses?theme=marketing">Marketing</Link>
+              <Link
+                onClick={handleSmoothLinkClick}
+                to={`/courses?type=${CourseTypeEnum.Marketing}`}
+              >
+                Marketing
+              </Link>
             </li>
             <li>
-              <Link to="/courses?theme=management">Management</Link>
+              <Link
+                onClick={handleSmoothLinkClick}
+                to={`/courses?type=${CourseTypeEnum.Management}`}
+              >
+                Management
+              </Link>
             </li>
             <li>
-              <Link to="/courses?theme=recruting">HR & Recruting</Link>
+              <Link
+                onClick={handleSmoothLinkClick}
+                to={`/courses?type=${CourseTypeEnum.Recruting}`}
+              >
+                HR & Recruting
+              </Link>
             </li>
             <li>
-              <Link to="/courses?theme=design">Design</Link>
+              <Link
+                onClick={handleSmoothLinkClick}
+                to={`/courses?theme=${CourseTypeEnum.Design}`}
+              >
+                Design
+              </Link>
             </li>
             <li>
-              <Link to="/courses?theme=development">Development</Link>
+              <Link
+                onClick={handleSmoothLinkClick}
+                to={`/courses?type=${CourseTypeEnum.Development}`}
+              >
+                Development
+              </Link>
             </li>
           </ul>
         </div>
@@ -104,7 +130,12 @@ const Footer: FC = () => {
         <div className={styles.news}>
           <h2>SIGN UP TO OUR NEWSLETTER</h2>
           <form action="post" onSubmit={(e) => e.preventDefault()}>
-            <Input isWithArrow theme="dark" placeholder="Email address" />
+            <Input
+              image="arrow"
+              imageAsSubmit
+              theme="dark"
+              placeholder="Email address"
+            />
           </form>
           <p>
             *Subscribe to our newsletter to receive communications and early{" "}
@@ -121,10 +152,7 @@ const Footer: FC = () => {
               Dunissimo
             </Link>
           </p>
-          <Button
-            props={{ onClick: handleSmoothLinkClick }}
-            settings={{ simple: true }}
-          >
+          <Button onClick={handleSmoothLinkClick} simple>
             GO TO TOP
           </Button>
         </div>

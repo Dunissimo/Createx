@@ -3,11 +3,8 @@
   border-radius: 4px;
   font-weight: 700;
 
-  transition: 0.3s;
-  transition: transform 0.2s;
-
   &:not(:disabled):active {
-    transform: scale(0.9);
+    transform: scale(0.8);
   }
 
   &:disabled {
@@ -23,6 +20,7 @@
     width: 179px;
     height: 52px;
     font-size: 1em;
+    transition: 0.15s;
   }
   &.button-regular {
     width: 166px;
@@ -41,10 +39,10 @@
 }
 
 .button-simple {
-  transition: 0.3s;
   display: flex;
   align-items: center;
   gap: 10px;
+  transition: 0.3s;
 
   &:hover {
     filter: brightness(0) saturate(100%) invert(58%) sepia(72%) saturate(7330%)
@@ -61,6 +59,7 @@
   background: linear-gradient(55.95deg, #ff3f3a 0%, #f75e05 100%);
 
   transition: color 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition: transform 0.3s;
 
   a {
     transition: color 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
@@ -86,6 +85,7 @@
   position: relative;
 
   transition: color 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition: transform 0.3s;
 
   a {
     transition: color 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);

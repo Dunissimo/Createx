@@ -10,17 +10,10 @@ import EventsPage from "@pages/Events/EventsPage";
 import HomePage from "@pages/Home/HomePage";
 import NotFound from "@pages/NotFound/NotFound";
 import CoursePage from "@pages/Courses/Course/CoursePage";
-import { fetchCourses } from "@redux/slices/coursesSlice";
-import { useAppDispatch } from "@utils/hooks";
 import EventPage from "./pages/Events/Event/EventPage";
 
 const App = () => {
   const theme = "light";
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(fetchCourses());
-  }, []);
 
   return (
     <div className={clsx("App", theme)}>

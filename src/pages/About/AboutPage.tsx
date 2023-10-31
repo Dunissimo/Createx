@@ -35,6 +35,8 @@ import job10 from "@assets/jobs/Ultimate Gym Logo.svg";
 import job11 from "@assets/jobs/United Strategy Logo.svg";
 import job12 from "@assets/jobs/Higher Fit Logo - Untitled Page.svg";
 import { CourseTypeEnum } from "@src/utils/interfaces";
+import { handleLinkClick } from "@src/utils/helpers";
+import { Link } from "react-router-dom";
 
 const AboutPage: FC = () => {
   return (
@@ -51,21 +53,25 @@ const AboutPage: FC = () => {
               </Title>
 
               <h4>
-                Createx Online School is a leader in online studying. We have
-                lots of courses and programs from the main market experts.
+                Createx Online School is a leader in online studying. We have
+                lots of courses and programs from the main market experts.
               </h4>
 
               <p>
-                We provide relevant approaches to online learning, internships
-                and employment in the largest companies in the country. Our
+                We provide relevant approaches to online learning, internships
+                and employment in the largest companies in the country. Our
                 educational programs help you get a new specialty from scratch.
                 During your studies, we will help you find a job. Check the
                 courses and online events that we organise.
               </p>
 
               <div className={styles.aboutButtons}>
-                <Button settings={{ outline: true }}>Explore events</Button>
-                <Button>Browse courses</Button>
+                <Link to="/events" onClick={handleLinkClick}>
+                  <Button outline>Explore events</Button>
+                </Link>
+                <Link to="/courses?type=All" onClick={handleLinkClick}>
+                  <Button>Explore courses</Button>
+                </Link>
               </div>
             </RowItem>
 
@@ -257,20 +263,20 @@ const AboutPage: FC = () => {
               <Steps
                 data={[
                   {
-                    title: "Watching online video lectures",
-                    par: "Aliquam turpis viverra quam sit interdum blandit posuere pellentesque. Nisl, imperdiet gravida massa neque.",
+                    head: "Watching online video lectures",
+                    p: "Aliquam turpis viverra quam sit interdum blandit posuere pellentesque. Nisl, imperdiet gravida massa neque.",
                   },
                   {
-                    title: "Passing test",
-                    par: "Facilisis pellentesque quis accumsan ultricies. Eu egestas eget feugiat lacus, amet, sollicitudin egestas laoreet etiam. ",
+                    head: "Passing test",
+                    p: "Facilisis pellentesque quis accumsan ultricies. Eu egestas eget feugiat lacus, amet, sollicitudin egestas laoreet etiam. ",
                   },
                   {
-                    title: "Curator's feedback",
-                    par: "Eget amet, enim pharetra leo egestas nisi, odio imperdiet facilisis. Aliquet orci varius volutpat egestas facilisi lobortis. ",
+                    head: "Curator's feedback",
+                    p: "Eget amet, enim pharetra leo egestas nisi, odio imperdiet facilisis. Aliquet orci varius volutpat egestas facilisi lobortis. ",
                   },
                   {
-                    title: "Corrections if needed",
-                    par: "Non tempor pulvinar tincidunt aliquam. Placerat ultricies malesuada dui auctor.",
+                    head: "Corrections if needed",
+                    p: "Non tempor pulvinar tincidunt aliquam. Placerat ultricies malesuada dui auctor.",
                   },
                 ]}
               />
@@ -285,7 +291,10 @@ const AboutPage: FC = () => {
 
       <section className={styles.team}>
         <div className="container">
-          <Title align="center" style={{ color: "#1e212c" }}>
+          <Title
+            align="center"
+            style={{ color: "#1e212c", marginBottom: "60px" }}
+          >
             <h2>Best tutors are all here</h2>
             <h3>Meet our team</h3>
           </Title>

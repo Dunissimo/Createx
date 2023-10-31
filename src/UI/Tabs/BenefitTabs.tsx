@@ -104,21 +104,18 @@ const tabs = [
       </>
     ),
     outlet: (
-      <>
-        <Row>
-          <div className={styles.tutorsLeft}>
-            <h3>Community</h3>
-            <p>
-              Quisquam pariatur atque necessitatibus quo placeat suscipit quis
-              impedit assumenda maxime, non aspernatur nulla aperiam voluptate
-              officia, fuga dolorum magni! Necessitatibus ad ab impedit in rem
-              deserunt praesentium commodi quo molestias, expedita nemo
-              pariatur!
-            </p>
-          </div>
-          <img src={notFound} alt="" />
-        </Row>
-      </>
+      <Row>
+        <div className={styles.tutorsLeft}>
+          <h3>Community</h3>
+          <p>
+            Quisquam pariatur atque necessitatibus quo placeat suscipit quis
+            impedit assumenda maxime, non aspernatur nulla aperiam voluptate
+            officia, fuga dolorum magni! Necessitatibus ad ab impedit in rem
+            deserunt praesentium commodi quo molestias, expedita nemo pariatur!
+          </p>
+        </div>
+        <img src={notFound} alt="" />
+      </Row>
     ),
   },
 ];

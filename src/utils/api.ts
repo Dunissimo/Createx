@@ -1,4 +1,4 @@
-const BASE_URL = "https://createx-backend.onrender.com";
+import { BASE_URL } from "./consts";
 
 class CreatexAPI {
   fetchData = async (url: string) => {

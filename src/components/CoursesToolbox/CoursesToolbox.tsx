@@ -1,21 +1,17 @@
 import { FC, MouseEventHandler } from "react";
 
 import styles from "./CoursesToolbox.module.scss";
-import { Tabs } from "@src/UI/Tabs/Tab";
 import Input from "@src/UI/Form/Input/Input";
-import { useAppSelector } from "@src/utils/hooks";
 import { CourseTypeEnum } from "@src/utils/interfaces";
 import { useSearchParams } from "react-router-dom";
+import ToolboxTabs from "@src/UI/Tabs/ToolboxTab/ToolboxTab";
 
-const CoursesToolbox: FC = () => {
+interface ICoursesToolboxProps {
+  type: CourseTypeEnum;
+}
+
+const CoursesToolbox: FC<ICoursesToolboxProps> = ({ type }) => {
   const [params, setParams] = useSearchParams();
-  const type = params.get("type") || "";
-
-  const { items } = useAppSelector((state) => state.courses);
-
-  const getLength = (type: CourseTypeEnum) => {
-    return items.filter((item) => item.type == type).length;
-  };
 
   const clickHandler: MouseEventHandler<HTMLDivElement> = (e) => {
     if (!(e.target instanceof HTMLDivElement)) return;
@@ -23,56 +19,24 @@ const CoursesToolbox: FC = () => {
     setParams({ type: e.target.dataset.type || "" });
   };
 
-  // TODO: refactor
-
   return (
     <div className={styles.coursesToolbox}>
-      <Tabs
+      <ToolboxTabs
         className={styles.coursesTabs}
-        activeClassName={styles.coursesTabActive}
+        values={[
+          { text: CourseTypeEnum.All },
+          { text: CourseTypeEnum.Marketing },
+          { text: CourseTypeEnum.Management },
+          { text: CourseTypeEnum.Recruting },
+          { text: CourseTypeEnum.Design },
+          { text: CourseTypeEnum.Development },
+        ]}
         onClick={clickHandler}
-      >
-        <div className={styles.tab} data-length={items.length} data-type="All">
-          All
-        </div>
-        <div
-          className={styles.tab}
-          data-length={getLength(CourseTypeEnum.Marketing)}
-          data-type={CourseTypeEnum.Marketing}
-        >
-          Marketing
-        </div>
-        <div
-          className={styles.tab}
-          data-length={getLength(CourseTypeEnum.Management)}
-          data-type={CourseTypeEnum.Management}
-        >
-          Management
-        </div>
-        <div
-          className={styles.tab}
-          data-length={getLength(CourseTypeEnum.Recruting)}
-          data-type={CourseTypeEnum.Recruting}
-        >
-          Recruting
-        </div>
-        <div
-          className={styles.tab}
-          data-length={getLength(CourseTypeEnum.Design)}
-          data-type={CourseTypeEnum.Design}
-        >
-          Design
-        </div>
-        <div
-          className={styles.tab}
-          data-length={getLength(CourseTypeEnum.Development)}
-          data-type={CourseTypeEnum.Development}
-        >
-          Development
-        </div>
-      </Tabs>
+        defaultValue={type}
+      />
 
       <Input
+        image="search"
         placeholder="Search course..."
         value={params.get("search") || ""}
         onChange={(e) =>
