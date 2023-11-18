@@ -1,0 +1,58 @@
+@mixin baseTextInput {
+  width: 100%;
+
+  border-radius: 4px;
+
+  font-family: "Lato";
+  color: inherit;
+
+  border: 1px solid;
+
+  &.input-small {
+    font-size: 0.75em;
+    padding: 9px 12px;
+    padding-right: 4rem;
+  }
+
+  &.input-regular {
+    font-size: 0.875em;
+    padding: 12px 16px;
+    padding-right: 4rem;
+  }
+  &.input-large {
+    font-size: 1em;
+    padding: 14px 18px;
+  }
+
+  &.input-dark {
+    background: #393c46;
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+
+    &:not(:disabled):focus {
+      box-shadow:
+        rgba(127, 127, 141, 0.25) 0px 6px 12px -2px,
+        rgba(80, 77, 77, 0.3) 0px 3px 7px -3px;
+    }
+  }
+  &.input-light {
+    color: #000;
+
+    background-color: #fff;
+
+    border-color: #d7dadd;
+
+    &:not(:disabled):focus {
+      box-shadow:
+        0px 80px 80px -20px rgba(149, 143, 143, 0),
+        0px 30px 24px -10px rgba(155, 143, 142, 0),
+        0px 12px 10px -6px rgba(255, 63, 58, 0.04),
+        0px 4px 4px -4px rgba(30, 33, 44, 0.03);
+      border: 1px solid rgba(94, 80, 80, 1);
+    }
+  }
+}
+
+.input {
+  @include baseTextInput;
+}

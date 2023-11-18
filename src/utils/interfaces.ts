@@ -5,6 +5,11 @@ export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   variant?: "small" | "regular" | "large";
 }
 
+export interface ITextareaProps extends InputHTMLAttributes<HTMLTextAreaElement> {
+  theme?: "light" | "dark";
+  variant?: "small" | "regular" | "large";
+}
+
 export enum CourseTypeEnum {
   All = "All",
   Marketing = "Marketing",
