@@ -25,8 +25,9 @@ const TeamList: FC<IProps> = ({ limit = 4, cardWidth = "25%" }) => {
           {isLoading ? (
             new Array(1)
               .fill(0)
-              .map(() => (
+              .map((_, index) => (
                 <Skeleton
+                  key={index}
                   baseColor="#dee1e3"
                   highlightColor="#ebeef0"
                   count={1}

@@ -1,5 +1,4 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { postsReducer } from "./slices/blogSlice";
 
 import { coursesApi } from "@src/api/courses";
 import { eventsApi } from "@src/api/events";

@@ -72,6 +72,31 @@ export interface ICourseContent {
   };
 }
 
+interface ITheme {
+  numberOfItem: string;
+  head: string;
+  text: string;
+}
+
+export interface IEventContent {
+  id: number;
+  data: {
+    type: EventTypeEnum;
+    title: string;
+    info: {
+      date: string;
+      price: string | number;
+    };
+    themes: ITheme[];
+    speaker: {
+      name: string;
+      job: string;
+      text: string;
+    };
+    listForWhom: string[];
+  };
+}
+
 export interface IEvent {
   id: number | string;
   date: {

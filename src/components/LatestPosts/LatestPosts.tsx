@@ -1,8 +1,6 @@
 import { FC } from "react";
-import BlogCardUI from "@ui/Blog/BlogCard/BlogCard";
 import Button from "@src/UI/Button/Button";
 import Title from "@src/UI/Title/Title";
-import { useGetPostsQuery } from "@src/api/posts";
 
 import styles from "./LatestPosts.module.scss";
 import { handleLinkClick } from "@src/utils/helpers";
@@ -25,7 +23,7 @@ const LatestPosts: FC = () => {
         </div>
 
         <div className={styles.list}>
-          <ItemsList type="blog" limit={3} sortBy="Newest"/>
+          <ItemsList type="blog" limit={3} sortBy="Newest" />
         </div>
       </div>
     </div>

@@ -17,7 +17,7 @@ const Step: FC<IProps> = ({ data, index, type, isLast = false }) => {
     <div
       className={clsx(
         type == "horizontal" ? styles.step : styles.stepVertical,
-        isLast && styles.finalStep
+        isLast && styles.finalStep,
       )}
     >
       {type == "horizontal" ? (

@@ -26,7 +26,7 @@ const RowItem: FC<IProps> = ({
         style.item,
         className,
         style[contentPosition!],
-        style["j-" + contentAlign!]
+        style["j-" + contentAlign!],
       )}
       style={{ width, ...styles }}
     >

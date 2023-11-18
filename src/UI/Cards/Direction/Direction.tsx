@@ -20,10 +20,7 @@ interface IProps {
 const Direction: FC<IProps> = ({ isEmpty, width, directionData, style }) => {
   if (isEmpty) {
     return (
-      <div
-        className={clsx(styles.direction, styles.empty)}
-        style={{ width, ...style }}
-      >
+      <div className={clsx(styles.direction, styles.empty)} style={{ width, ...style }}>
         New studying program <br /> coming soon...
       </div>
     );

@@ -21,9 +21,7 @@ const Accordion: FC<IProps> = ({ head, children }) => {
         {head}
       </h3>
 
-      <div className={clsx(styles.body, open && styles.accOpen)}>
-        {children}
-      </div>
+      <div className={clsx(styles.body, open && styles.accOpen)}>{children}</div>
     </div>
   );
 };

@@ -15,11 +15,7 @@ interface IProps {
 }
 
 const Row: FC<IProps> = ({ className, style, children, settings }) => {
-  const {
-    align = "center",
-    justify = "justify-between",
-    gap = 0,
-  } = settings || {};
+  const { align = "center", justify = "justify-between", gap = 0 } = settings || {};
 
   return (
     <div

@@ -37,10 +37,7 @@ const ToolboxTabs: FC<ITabsProps> = ({
     <div className={className}>
       {values?.map((value) => (
         <div
-          className={clsx(
-            styles.tab,
-            value.text == active ? styles.active : ""
-          )}
+          className={clsx(styles.tab, value.text == active ? styles.active : "")}
           data-type={value}
           onClick={clickHandler}
           key={value.text}

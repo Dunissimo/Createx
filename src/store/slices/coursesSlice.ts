@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import CreatexAPI from "@utils/api";
 import { ICourse } from "@utils/interfaces";
 
@@ -22,7 +22,7 @@ export const fetchCourses = createAsyncThunk(
     } catch (error) {
       return rejectWithValue(error);
     }
-  }
+  },
 );
 
 export const coursesSlice = createSlice({
@@ -39,13 +39,10 @@ export const coursesSlice = createSlice({
       state.error = null;
       state.items = action.payload;
     });
-    builder.addCase(
-      fetchCourses.rejected,
-      (state, action: PayloadAction<any>) => {
-        state.error = action.payload;
-        state.loading = false;
-      }
-    );
+    builder.addCase(fetchCourses.rejected, (state, action) => {
+      state.error = action.payload as Error;
+      state.loading = false;
+    });
   },
 });
 

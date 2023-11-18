@@ -38,7 +38,7 @@ const Input: FC<IProps> = ({
             styles.input,
             styles[`input-${variant}`],
             styles[`input-${theme}`],
-            className
+            className,
           )}
           {...props}
         />

@@ -14,7 +14,7 @@ interface IProps {
 const CourseUI: FC<IProps> = ({ course, orientation = "horizontal" }) => {
   const { type, title, price, author, imgName } = course;
 
-  let url = useUrl(`courses/${imgName}`);
+  const url = useUrl(`courses/${imgName}`);
 
   return (
     <div className={styles[`card-${orientation}`]}>

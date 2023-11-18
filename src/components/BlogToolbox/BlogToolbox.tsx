@@ -46,12 +46,7 @@ const BlogToolbox: FC<IBlogToolboxProps> = ({ type }) => {
           />
         </div>
 
-        <Input
-          width="50%"
-          image="search"
-          placeholder="Search blog..."
-          type="search"
-        />
+        <Input width="50%" image="search" placeholder="Search blog..." type="search" />
       </div>
     </div>
   );

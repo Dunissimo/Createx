@@ -18,8 +18,7 @@ const SubscribeNews: FC = () => {
 
         <RowItem>
           <h3>
-            Want to get the best articles weekly? <br /> Subscribe to our
-            newsletter!
+            Want to get the best articles weekly? <br /> Subscribe to our newsletter!
           </h3>
 
           <form action="newsletters" className={styles.newsForm}>

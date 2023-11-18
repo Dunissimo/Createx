@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { IBlogCard } from "@utils/interfaces";
 import CreatexAPI from "@utils/api";
 
@@ -22,7 +22,7 @@ export const fetchPosts = createAsyncThunk(
     } catch (error) {
       return rejectWithValue(error);
     }
-  }
+  },
 );
 
 const postsSlice = createSlice({
@@ -39,13 +39,10 @@ const postsSlice = createSlice({
       state.error = null;
       state.posts = action.payload;
     });
-    builder.addCase(
-      fetchPosts.rejected,
-      (state, action: PayloadAction<any>) => {
-        state.error = action.payload;
-        state.loading = false;
-      }
-    );
+    builder.addCase(fetchPosts.rejected, (state, action) => {
+      state.error = action.payload as Error;
+      state.loading = false;
+    });
   },
 });
 

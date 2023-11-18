@@ -83,7 +83,7 @@ const CoursePage: FC = () => {
 
               <ul>
                 {isLoading
-                  ? new Array(4).fill(0).map(() => <Skeleton />)
+                  ? new Array(4).fill(0).map((_, index) => <Skeleton key={index} />)
                   : willLearn?.map((item, key) => <li key={key}>{item}</li>)}
               </ul>
             </RowItem>
@@ -103,8 +103,7 @@ const CoursePage: FC = () => {
                     <h4>Duration</h4>
                     <h3>{info?.duration}</h3>
                     <p>
-                      Rhoncus pellentesque auctor auctor orci vulputate faucibus
-                      quis ut.
+                      Rhoncus pellentesque auctor auctor orci vulputate faucibus quis ut.
                     </p>
                   </div>
 
@@ -112,8 +111,8 @@ const CoursePage: FC = () => {
                     <h4>Price</h4>
                     <h3>${info?.price} per month</h3>
                     <p>
-                      Nulla sem adipiscing adipiscing felis fringilla.
-                      Adipiscing mauris quam ac elit tristique dis.
+                      Nulla sem adipiscing adipiscing felis fringilla. Adipiscing mauris
+                      quam ac elit tristique dis.
                     </p>
                   </div>
 
@@ -129,11 +128,7 @@ const CoursePage: FC = () => {
         <div className="container">
           <Row settings={{ gap: "135px" }}>
             <RowItem>
-              {isLoading ? (
-                <Skeleton height={500} />
-              ) : (
-                <img src={curatorImg} alt="" />
-              )}
+              {isLoading ? <Skeleton height={500} /> : <img src={curatorImg} alt="" />}
             </RowItem>
 
             <RowItem className={styles.curatorInfo}>
@@ -172,10 +167,7 @@ const CoursePage: FC = () => {
 
       <section className={styles.steps}>
         <div className="container">
-          <Title
-            align="center"
-            style={{ color: "#1e212c", marginBottom: "60px" }}
-          >
+          <Title align="center" style={{ color: "#1e212c", marginBottom: "60px" }}>
             <h2>Main steps</h2>
             <h3>Online learning process</h3>
           </Title>
@@ -253,7 +245,9 @@ const CoursePage: FC = () => {
             <RowItem>
               <ul className={styles.whomList}>
                 {isLoading
-                  ? new Array(5).fill(0).map(() => <Skeleton height={30} />)
+                  ? new Array(5)
+                      .fill(0)
+                      .map((_, index) => <Skeleton key={index} height={30} />)
                   : listForWhom?.map((item, key) => <li key={key}>{item}</li>)}
               </ul>
             </RowItem>
@@ -272,31 +266,31 @@ const CoursePage: FC = () => {
 
               <div className={styles.programList}>
                 {isLoading
-                  ? new Array(4).fill(0).map(() => <Skeleton height={60} />)
-                  : whatWillULearn?.lessons.map(
-                      ({ numberOfItem, head, text }, i) => {
-                        return (
-                          <Accordion
-                            key={i}
-                            head={
-                              <>
-                                <span
-                                  style={{
-                                    color: "#ff3f3a",
-                                    marginRight: "10px",
-                                  }}
-                                >
-                                  {numberOfItem}
-                                </span>
-                                {head}
-                              </>
-                            }
-                          >
-                            <p style={{ color: "#424551" }}>{text}</p>
-                          </Accordion>
-                        );
-                      }
-                    )}
+                  ? new Array(4)
+                      .fill(0)
+                      .map((_, index) => <Skeleton key={index} height={60} />)
+                  : whatWillULearn?.lessons.map(({ numberOfItem, head, text }, i) => {
+                      return (
+                        <Accordion
+                          key={i}
+                          head={
+                            <>
+                              <span
+                                style={{
+                                  color: "#ff3f3a",
+                                  marginRight: "10px",
+                                }}
+                              >
+                                {numberOfItem}
+                              </span>
+                              {head}
+                            </>
+                          }
+                        >
+                          <p style={{ color: "#424551" }}>{text}</p>
+                        </Accordion>
+                      );
+                    })}
               </div>
             </RowItem>
 
@@ -330,20 +324,12 @@ const CoursePage: FC = () => {
 
                 <div className={styles.formBlock}>
                   <label htmlFor="email">Email</label>
-                  <Input
-                    type="email"
-                    placeholder="Your working email"
-                    id="email"
-                  />
+                  <Input type="email" placeholder="Your working email" id="email" />
                 </div>
 
                 <div className={styles.formBlock}>
                   <label htmlFor="phone">Phone</label>
-                  <Input
-                    type="tel"
-                    placeholder="Your phone number"
-                    id="phone"
-                  />
+                  <Input type="tel" placeholder="Your phone number" id="phone" />
                 </div>
 
                 <Button isFullWidth type="submit" style={{ marginTop: "16px" }}>

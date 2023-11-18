@@ -25,7 +25,7 @@ const Select: FC<ISelectProps> = ({
           styles.select,
           styles[`select-${variant}`],
           styles[`select-${theme}`],
-          className
+          className,
         )}
         {...props}
       >

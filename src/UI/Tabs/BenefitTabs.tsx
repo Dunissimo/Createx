@@ -1,4 +1,4 @@
-import { FC, MouseEventHandler, ReactNode, useState } from "react";
+import { FC, useState } from "react";
 import Tab from "@ui/Tabs/Tab";
 import Row from "@ui/Row/Row";
 import RowItem from "@ui/Row/RowItem/RowItem";
@@ -28,11 +28,11 @@ const tabs = [
             <div className={styles.tutorsLeft}>
               <h3>Only practicing tutors</h3>
               <p>
-                Urna nisi, arcu cras nunc. Aenean quam est lobortis mi non fames
-                dictum suspendisse. Morbi mauris cras massa ut dolor quis sociis
-                mollis augue. Nunc, sodales tortor sit diam mi amet massa.
-                Fermentum diam diam sociis vestibulum. Nulla nisl accumsan, id
-                dignissim massa ut amet. Amet enim, nisi tempus vehicula.
+                Urna nisi, arcu cras nunc. Aenean quam est lobortis mi non fames dictum
+                suspendisse. Morbi mauris cras massa ut dolor quis sociis mollis augue.
+                Nunc, sodales tortor sit diam mi amet massa. Fermentum diam diam sociis
+                vestibulum. Nulla nisl accumsan, id dignissim massa ut amet. Amet enim,
+                nisi tempus vehicula.
               </p>
             </div>
           </RowItem>
@@ -58,11 +58,11 @@ const tabs = [
           <div className={styles.tutorsLeft}>
             <h3>Support</h3>
             <p>
-              Urna nisi, arcu cras nunc. Aenean quam est lobortis mi non fames
-              dictum suspendisse. Morbi mauris cras massa ut dolor quis sociis
-              mollis augue. Nunc, sodales tortor sit diam mi amet massa.
-              Fermentum diam diam sociis vestibulum. Nulla nisl accumsan, id
-              dignissim massa ut amet. Amet enim, nisi tempus vehicula.
+              Urna nisi, arcu cras nunc. Aenean quam est lobortis mi non fames dictum
+              suspendisse. Morbi mauris cras massa ut dolor quis sociis mollis augue.
+              Nunc, sodales tortor sit diam mi amet massa. Fermentum diam diam sociis
+              vestibulum. Nulla nisl accumsan, id dignissim massa ut amet. Amet enim, nisi
+              tempus vehicula.
             </p>
           </div>
           <img src={notFound} alt="" />
@@ -84,10 +84,10 @@ const tabs = [
           <div className={styles.tutorsLeft}>
             <h3>Library</h3>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus
-              vitae neque corporis porro, omnis, explicabo qui temporibus saepe
-              sit tempore consequuntur aliquam eum dolorum nam illo provident
-              molestias numquam necessitatibus!
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus vitae
+              neque corporis porro, omnis, explicabo qui temporibus saepe sit tempore
+              consequuntur aliquam eum dolorum nam illo provident molestias numquam
+              necessitatibus!
             </p>
           </div>
           <img src={notFound} alt="" />
@@ -108,10 +108,10 @@ const tabs = [
         <div className={styles.tutorsLeft}>
           <h3>Community</h3>
           <p>
-            Quisquam pariatur atque necessitatibus quo placeat suscipit quis
-            impedit assumenda maxime, non aspernatur nulla aperiam voluptate
-            officia, fuga dolorum magni! Necessitatibus ad ab impedit in rem
-            deserunt praesentium commodi quo molestias, expedita nemo pariatur!
+            Quisquam pariatur atque necessitatibus quo placeat suscipit quis impedit
+            assumenda maxime, non aspernatur nulla aperiam voluptate officia, fuga dolorum
+            magni! Necessitatibus ad ab impedit in rem deserunt praesentium commodi quo
+            molestias, expedita nemo pariatur!
           </p>
         </div>
         <img src={notFound} alt="" />
@@ -129,12 +129,7 @@ const BenefitsTabs: FC = () => {
     <>
       <div className={styles.buttons}>
         {data.map((tab) => (
-          <Tab
-            key={tab.index}
-            index={tab.index}
-            active={active}
-            setActive={setActive}
-          >
+          <Tab key={tab.index} index={tab.index} active={active} setActive={setActive}>
             {tab.text}
           </Tab>
         ))}

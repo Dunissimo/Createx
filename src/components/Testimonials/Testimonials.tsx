@@ -16,11 +16,11 @@ const Testimonials: FC = () => {
 
         <div className={styles.testimonial}>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo, amet
-            lectus quam viverra mus lobortis fermentum amet, eu. Pulvinar eu sed
-            purus facilisi. Vitae id turpis tempus ornare turpis quis non.
-            Congue tortor in euismod vulputate etiam eros. Pulvinar neque
-            pharetra arcu diam maecenas diam integer in.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo, amet lectus
+            quam viverra mus lobortis fermentum amet, eu. Pulvinar eu sed purus facilisi.
+            Vitae id turpis tempus ornare turpis quis non. Congue tortor in euismod
+            vulputate etiam eros. Pulvinar neque pharetra arcu diam maecenas diam integer
+            in.
           </p>
           <div className={styles.author}>
             <img src={profile} alt="" />

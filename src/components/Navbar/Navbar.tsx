@@ -60,10 +60,7 @@ const Navbar: FC<IProps> = ({ theme = "light" }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink
-              className={({ isActive }) => classs(isActive)}
-              to="/contacts"
-            >
+            <NavLink className={({ isActive }) => classs(isActive)} to="/contacts">
               Contacts
             </NavLink>
           </li>

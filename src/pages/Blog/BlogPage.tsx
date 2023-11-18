@@ -12,7 +12,7 @@ const BlogPage: FC = () => {
   return (
     <section>
       <Navbar />
-      
+
       <Title align="center" style={{ margin: "80px 0 60px 0" }}>
         <h2>Our blog</h2>
         <h3>Createx School Journal</h3>
