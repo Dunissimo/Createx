@@ -7,7 +7,7 @@ export const postsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
   endpoints: (builder) => ({
     getPosts: builder.query<IBlogCard[], void>({
-      query: () => `/posts`,
+      query: () => "/posts",
     }),
   }),
 });

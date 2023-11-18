@@ -30,6 +30,8 @@ const ToolboxTabs: FC<ITabsProps> = ({
   const clickHandler: MouseEventHandler<HTMLDivElement> = (e) => {
     setActive(e.currentTarget.dataset.type || "All");
 
+    console.log(e.currentTarget.dataset.type);
+
     onClick && onClick(e);
   };
 
@@ -37,12 +39,10 @@ const ToolboxTabs: FC<ITabsProps> = ({
     <div className={className}>
       {values?.map((value) => (
         <div
-          className={clsx(
-            styles.tab,
-            value.text == active ? styles.active : ""
-          )}
-          data-type={value}
+          className={clsx(styles.tab, value.text == active ? styles.active : "")}
+          data-type={value.text}
           onClick={clickHandler}
+          key={value.text}
         >
           {value?.icon ? <img src={value.icon} alt="" /> : null}
 

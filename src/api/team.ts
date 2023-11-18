@@ -7,7 +7,7 @@ export const teamApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
   endpoints: (builder) => ({
     getTeam: builder.query<ITeam[], void>({
-      query: () => `/team`,
+      query: () => "/team",
     }),
   }),
 });

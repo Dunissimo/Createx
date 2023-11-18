@@ -10,8 +10,7 @@ import Subscribe from "@components/Subscribe/Subscribe";
 import TeamList from "@components/TeamList/TeamList";
 import Testimonials from "@components/Testimonials/Testimonials";
 import Certificate from "@components/Certificate/Certificate";
-import { handleLinkClick, handleSmoothLinkClick } from "@src/utils/helpers";
-import clsx from "clsx";
+import { handleLinkClick } from "@src/utils/helpers";
 
 import styles from "./Home.module.scss";
 
@@ -103,15 +102,13 @@ const HomePage: FC = () => {
             </Title>
 
             <ul className={styles.whoWeAreList}>
-              <li>
-                A fermentum in morbi pretium aliquam adipiscing donec tempus.
-              </li>
+              <li>A fermentum in morbi pretium aliquam adipiscing donec tempus.</li>
 
               <li>Vulputate placerat amet pulvinar lorem nisl.</li>
 
               <li>
-                Consequat feugiat habitant gravida quisque elit bibendum id
-                adipiscing sed.
+                Consequat feugiat habitant gravida quisque elit bibendum id adipiscing
+                sed.
               </li>
 
               <li>Etiam duis lobortis in fames ultrices commodo nibh.</li>
@@ -119,8 +116,7 @@ const HomePage: FC = () => {
               <li>Tincidunt sagittis neque sem ac eget.</li>
 
               <li>
-                Ultricies amet justo et eget quisque purus vulputate dapibus
-                tortor.
+                Ultricies amet justo et eget quisque purus vulputate dapibus tortor.
               </li>
             </ul>
 
@@ -154,7 +150,7 @@ const HomePage: FC = () => {
         <div className="container">
           <Title align="center">
             <h2>Our benefits</h2>
-            <h3>That's how we do it</h3>
+            <h3>That`s how we do it</h3>
           </Title>
 
           <BenefitsTabs />
@@ -174,10 +170,7 @@ const HomePage: FC = () => {
 
           <div className={styles.eventsFooter}>
             <h3>Do you want more?</h3>
-            <Link
-              onClick={handleLinkClick}
-              to="/events?orientation=horizontal&perPage=9"
-            >
+            <Link onClick={handleLinkClick} to="/events?orientation=horizontal&perPage=9">
               <Button size="xl">Explore all events</Button>
             </Link>
           </div>

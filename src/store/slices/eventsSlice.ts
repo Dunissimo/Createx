@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { IEvent } from "../../utils/interfaces";
 import CreatexAPI from "../../utils/api";
 
@@ -22,7 +22,7 @@ export const fetchEvents = createAsyncThunk(
     } catch (error) {
       return rejectWithValue(error);
     }
-  }
+  },
 );
 
 const eventSlice = createSlice({
@@ -39,13 +39,10 @@ const eventSlice = createSlice({
       state.error = null;
       state.items = action.payload;
     });
-    builder.addCase(
-      fetchEvents.rejected,
-      (state, action: PayloadAction<any>) => {
-        state.error = action.payload;
-        state.loading = false;
-      }
-    );
+    builder.addCase(fetchEvents.rejected, (state, action) => {
+      state.error = action.payload as Error;
+      state.loading = false;
+    });
   },
 });
 

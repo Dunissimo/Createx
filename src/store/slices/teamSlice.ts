@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { ITeam } from "@utils/interfaces";
 import CreatexAPI from "@utils/api";
 
@@ -22,7 +22,7 @@ export const fetchTeam = createAsyncThunk(
     } catch (error) {
       return rejectWithValue(error);
     }
-  }
+  },
 );
 
 const teamSlice = createSlice({
@@ -39,8 +39,8 @@ const teamSlice = createSlice({
       state.error = null;
       state.team = action.payload;
     });
-    builder.addCase(fetchTeam.rejected, (state, action: PayloadAction<any>) => {
-      state.error = action.payload;
+    builder.addCase(fetchTeam.rejected, (state, action) => {
+      state.error = action.payload as Error;
       state.loading = false;
     });
   },

@@ -22,10 +22,10 @@ const Footer: FC = () => {
         <div className={styles.info}>
           <img src={logo} alt="" />
           <p>
-            Createx Online School is a leader in online studying. We have lots
-            of courses and programs from the main market experts. We provide
-            relevant approaches to online learning, internships and employment
-            inthe largest companies in the country.
+            Createx Online School is a leader in online studying. We have lots of courses
+            and programs from the main market experts. We provide relevant approaches to
+            online learning, internships and employment inthe largest companies in the
+            country.
           </p>
           <div className={styles.socialMedia}>
             <SocialMedia className="footer" social="facebook" />
@@ -130,16 +130,10 @@ const Footer: FC = () => {
         <div className={styles.news}>
           <h2>SIGN UP TO OUR NEWSLETTER</h2>
           <form action="post" onSubmit={(e) => e.preventDefault()}>
-            <Input
-              image="arrow"
-              imageAsSubmit
-              theme="dark"
-              placeholder="Email address"
-            />
+            <Input image="arrow" imageAsSubmit theme="dark" placeholder="Email address" />
           </form>
           <p>
-            *Subscribe to our newsletter to receive communications and early{" "}
-            <br />
+            *Subscribe to our newsletter to receive communications and early <br />
             updates from Createx SEO Agency.
           </p>
         </div>

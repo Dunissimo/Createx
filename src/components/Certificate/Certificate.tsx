@@ -25,8 +25,8 @@ const Certificate: FC = () => {
               </Title>
 
               <p>
-                We are accredited by international professional organizations
-                and institutes:
+                We are accredited by international professional organizations and
+                institutes:
               </p>
               <div className={styles.imgDiv}>
                 <img src={logo1} alt="" />

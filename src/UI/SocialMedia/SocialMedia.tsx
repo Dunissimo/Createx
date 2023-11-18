@@ -43,8 +43,6 @@ const links = {
   },
 };
 
-const images = {};
-
 interface IProps {
   social:
     | "youtube"
@@ -59,10 +57,7 @@ interface IProps {
 
 const SocialMedia: FC<IProps> = ({ social, className = "team" }) => {
   return (
-    <Link
-      to={links[social].link}
-      className={clsx(styles.social, styles[className])}
-    >
+    <Link to={links[social].link} className={clsx(styles.social, styles[className])}>
       <img src={links[social].img} alt={`${social} icon`} />
     </Link>
   );

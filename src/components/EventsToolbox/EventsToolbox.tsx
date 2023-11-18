@@ -1,4 +1,4 @@
-import { ChangeEventHandler, FC, useEffect, useState } from "react";
+import { FC } from "react";
 import clsx from "clsx";
 import { Link, useSearchParams } from "react-router-dom";
 import Input from "@src/UI/Form/Input/Input";
@@ -27,12 +27,7 @@ const EventsToolbox: FC = () => {
         <Select
           id="themes"
           defaultValue="All themes"
-          values={[
-            "All",
-            "Online master-class",
-            "Online lecture",
-            "Online workshop",
-          ]}
+          values={["All", "Online master-class", "Online lecture", "Online workshop"]}
           onChange={(e) => {
             setSearchParams({
               orientation,

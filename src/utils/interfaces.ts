@@ -5,6 +5,11 @@ export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   variant?: "small" | "regular" | "large";
 }
 
+export interface ITextareaProps extends InputHTMLAttributes<HTMLTextAreaElement> {
+  theme?: "light" | "dark";
+  variant?: "small" | "regular" | "large";
+}
+
 export enum CourseTypeEnum {
   All = "All",
   Marketing = "Marketing",
@@ -69,6 +74,31 @@ export interface ICourseContent {
       lessons: ILesson[];
     };
     willLearn: string[];
+  };
+}
+
+interface ITheme {
+  numberOfItem: string;
+  head: string;
+  text: string;
+}
+
+export interface IEventContent {
+  id: number;
+  data: {
+    type: EventTypeEnum;
+    title: string;
+    info: {
+      date: string;
+      price: string | number;
+    };
+    themes: ITheme[];
+    speaker: {
+      name: string;
+      job: string;
+      text: string;
+    };
+    listForWhom: string[];
   };
 }
 

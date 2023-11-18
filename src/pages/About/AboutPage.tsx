@@ -12,6 +12,9 @@ import Value from "@src/UI/Values/Value";
 import Direction from "@src/UI/Cards/Direction/Direction";
 import Steps from "@src/UI/Steps/Steps";
 import TeamList from "@src/components/TeamList/TeamList";
+import { CourseTypeEnum } from "@src/utils/interfaces";
+import { handleLinkClick } from "@src/utils/helpers";
+import { Link } from "react-router-dom";
 
 import styles from "./AboutPage.module.scss";
 
@@ -24,19 +27,14 @@ import target from "@assets/blog/ic-target.svg";
 import process from "@assets/illustration-about.svg";
 import job1 from "@assets/jobs/Atlantis Health Logo.svg";
 import job2 from "@assets/jobs/Complete Health Logo - Untitled Page.svg";
-import job3 from "@assets/jobs/Del Mar Strategy Logo.svg";
 import job4 from "@assets/jobs/For Sale Logo.svg";
 import job5 from "@assets/jobs/Happy Home Logo.svg";
 import job6 from "@assets/jobs/InDepth Consulting Logo - Untitled Page.svg";
 import job7 from "@assets/jobs/National Health Logo.svg";
 import job8 from "@assets/jobs/Sentinal Consulting Logo.svg";
-import job9 from "@assets/jobs/Sunset Realty Logo.svg";
 import job10 from "@assets/jobs/Ultimate Gym Logo.svg";
 import job11 from "@assets/jobs/United Strategy Logo.svg";
 import job12 from "@assets/jobs/Higher Fit Logo - Untitled Page.svg";
-import { CourseTypeEnum } from "@src/utils/interfaces";
-import { handleLinkClick } from "@src/utils/helpers";
-import { Link } from "react-router-dom";
 
 const AboutPage: FC = () => {
   return (
@@ -53,16 +51,16 @@ const AboutPage: FC = () => {
               </Title>
 
               <h4>
-                Createx Online School is a leader in online studying. We have
-                lots of courses and programs from the main market experts.
+                Createx Online School is a leader in online studying. We have lots of
+                courses and programs from the main market experts.
               </h4>
 
               <p>
-                We provide relevant approaches to online learning, internships
-                and employment in the largest companies in the country. Our
-                educational programs help you get a new specialty from scratch.
-                During your studies, we will help you find a job. Check the
-                courses and online events that we organise.
+                We provide relevant approaches to online learning, internships and
+                employment in the largest companies in the country. Our educational
+                programs help you get a new specialty from scratch. During your studies,
+                we will help you find a job. Check the courses and online events that we
+                organise.
               </p>
 
               <div className={styles.aboutButtons}>
@@ -117,10 +115,7 @@ const AboutPage: FC = () => {
 
       <section className={styles.values}>
         <div className="container">
-          <Title
-            align="center"
-            style={{ color: "#1e212c", marginBottom: "60px" }}
-          >
+          <Title align="center" style={{ color: "#1e212c", marginBottom: "60px" }}>
             <h2>we always stand for</h2>
             <h3>Our core values</h3>
           </Title>
@@ -131,8 +126,7 @@ const AboutPage: FC = () => {
               title="Structured Approach"
               par={
                 <>
-                  Aenean urna dictum adipiscing <br /> nec, cras quisque. Nunc
-                  in mauris.
+                  Aenean urna dictum adipiscing <br /> nec, cras quisque. Nunc in mauris.
                 </>
               }
             />
@@ -144,8 +138,7 @@ const AboutPage: FC = () => {
               title="Professional Feedbacks"
               par={
                 <>
-                  Culpa nostrud commodo ea <br /> consequat reprehenderit
-                  aliquip.
+                  Culpa nostrud commodo ea <br /> consequat reprehenderit aliquip.
                 </>
               }
             />
@@ -157,8 +150,7 @@ const AboutPage: FC = () => {
               title="Efficiency"
               par={
                 <>
-                  Viverra scelerisque consequat net. <br /> Adipisicing esse
-                  consequat.
+                  Viverra scelerisque consequat net. <br /> Adipisicing esse consequat.
                 </>
               }
             />
@@ -180,10 +172,7 @@ const AboutPage: FC = () => {
 
       <section className={styles.directions}>
         <div className="container">
-          <Title
-            align="center"
-            style={{ color: "#1e212c", marginBottom: "60px" }}
-          >
+          <Title align="center" style={{ color: "#1e212c", marginBottom: "60px" }}>
             <h2>Our main directions</h2>
             <h3>What do we teach</h3>
           </Title>
@@ -255,7 +244,7 @@ const AboutPage: FC = () => {
         <div className="container">
           <Title style={{ color: "#1e212c" }}>
             <h2>Studying process</h2>
-            <h3>That's how we do it</h3>
+            <h3>That`s how we do it</h3>
           </Title>
 
           <Row settings={{ gap: "210px" }}>
@@ -291,10 +280,7 @@ const AboutPage: FC = () => {
 
       <section className={styles.team}>
         <div className="container">
-          <Title
-            align="center"
-            style={{ color: "#1e212c", marginBottom: "60px" }}
-          >
+          <Title align="center" style={{ color: "#1e212c", marginBottom: "60px" }}>
             <h2>Best tutors are all here</h2>
             <h3>Meet our team</h3>
           </Title>
@@ -307,22 +293,19 @@ const AboutPage: FC = () => {
 
       <section className={styles.companies}>
         <div className="container">
-          <Title
-            align="center"
-            style={{ color: "#1e212c", marginBottom: "60px" }}
-          >
+          <Title align="center" style={{ color: "#1e212c", marginBottom: "60px" }}>
             <h2>Best jobs for you</h2>
             <h3>Our students work here</h3>
           </Title>
 
           <Row settings={{ justify: "center", gap: "60px" }}>
             {[job1, job2, job4, job5, job6].map((job) => (
-              <img src={job} alt="" />
+              <img key={job} src={job} alt="" />
             ))}
           </Row>
           <Row settings={{ justify: "center", gap: "60px" }}>
             {[job7, job8, job10, job11, job12].map((job) => (
-              <img src={job} alt="" />
+              <img key={job} src={job} alt="" />
             ))}
           </Row>
         </div>

@@ -2,6 +2,7 @@
 .item-vertical {
   display: grid;
   grid-template-rows: auto;
+  grid-template: "a a a" "b b c" "c c c";
   gap: 24px;
 
   // width: 100%;
@@ -12,6 +13,21 @@
 
   // flex-wrap: wrap;
   // gap: 24px;
+}
+
+.item-horizontal.item-blog > div:nth-child(4) {
+  height: 500px;
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 3;
+
+  a > img {
+    max-height: 300px;
+  }
+
+  p {
+    height: 4.6em;
+  }
 }
 
 .linkToItem {

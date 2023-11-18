@@ -12,6 +12,7 @@ const BlogPage: FC = () => {
   return (
     <section>
       <Navbar />
+
       <Title align="center" style={{ margin: "80px 0 60px 0" }}>
         <h2>Our blog</h2>
         <h3>Createx School Journal</h3>
@@ -19,21 +20,18 @@ const BlogPage: FC = () => {
 
       <div className="blogToolbox">
         <div className="container">
-          {/* TODO: не работает переключение табов */}
           <BlogToolbox type={BlogTypeEnum.All} />
         </div>
       </div>
 
       <div className={styles.postsList}>
         <div className="container">
-          {/* TODO: настроить grid или что-то похожее */}
           <ItemsList type="blog" limit={9} />
         </div>
 
         {/* pagination */}
       </div>
 
-      {/* subscribe newsletters */}
       <div className={styles.newsletters}>
         <div className="container">
           <SubscribeNews />

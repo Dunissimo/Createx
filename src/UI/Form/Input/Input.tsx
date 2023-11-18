@@ -38,7 +38,7 @@ const Input: FC<IProps> = ({
             styles.input,
             styles[`input-${variant}`],
             styles[`input-${theme}`],
-            className
+            className,
           )}
           {...props}
         />
@@ -50,11 +50,6 @@ const Input: FC<IProps> = ({
             <img src={icons[image]} />
           </button>
         ) : null}
-        {/* {image ? ( */}
-        {/* <button className={styles.arrow} type="submit"> */}
-        {/* <img src={image!} /> */}
-        {/* </button> */}
-        {/* ) : null} */}
       </div>
     </div>
   );

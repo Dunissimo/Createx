@@ -14,11 +14,7 @@ interface IProps {
 
 const Steps: FC<IProps> = ({ data, type = "horizontal" }) => {
   return (
-    <div
-      className={clsx(
-        type == "horizontal" ? styles.steps : styles.stepVertical
-      )}
-    >
+    <div className={clsx(type == "horizontal" ? styles.steps : styles.stepVertical)}>
       {data.map((step, index) => (
         <Step
           key={index}

@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Footer from "@components/Footer/Footer";
 import AboutPage from "@pages/About/AboutPage";

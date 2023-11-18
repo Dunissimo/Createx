@@ -13,8 +13,8 @@ const EventPage: FC = () => {
           <h2 style={{ color: "#FF3F3A" }}>Online lecture</h2>
 
           <h3 style={{ color: "#1e212c", maxWidth: "75%", margin: "0 auto" }}>
-            Formation of the organizational structure of the company in the face
-            of uncertainty
+            Formation of the organizational structure of the company in the face of
+            uncertainty
           </h3>
         </Title>
       </header>

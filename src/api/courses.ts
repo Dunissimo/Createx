@@ -7,7 +7,7 @@ export const coursesApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
   endpoints: (builder) => ({
     getCourses: builder.query<ICourse[], void>({
-      query: () => `/courses`,
+      query: () => "/courses",
     }),
 
     getCourse: builder.query<ICourse, string>({
@@ -20,8 +20,5 @@ export const coursesApi = createApi({
   }),
 });
 
-export const {
-  useGetCoursesQuery,
-  useGetCourseQuery,
-  useGetCourseContentQuery,
-} = coursesApi;
+export const { useGetCoursesQuery, useGetCourseQuery, useGetCourseContentQuery } =
+  coursesApi;

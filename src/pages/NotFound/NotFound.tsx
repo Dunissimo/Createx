@@ -11,10 +11,10 @@ const NotFound: FC = () => {
       </header>
 
       <section className={styles.notFound}>
-        <h1>We can't find that page.</h1>
+        <h1>We can`t find that page.</h1>
         <p>
-          It's possible that an incorrect address was specified or some kind of
-          error occurred
+          It`s possible that an incorrect address was specified or some kind of error
+          occurred
         </p>
       </section>
     </section>

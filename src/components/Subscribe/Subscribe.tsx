@@ -19,11 +19,7 @@ const Subscribe: FC = () => {
             </h3>
           </Title>
           <div className={styles.footer}>
-            <Input
-              variant="large"
-              theme="light"
-              placeholder="Your working email"
-            />
+            <Input variant="large" theme="light" placeholder="Your working email" />
             <Button size="large">Subscribe</Button>
           </div>
         </div>
