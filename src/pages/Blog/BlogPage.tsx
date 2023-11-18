@@ -20,7 +20,6 @@ const BlogPage: FC = () => {
 
       <div className="blogToolbox">
         <div className="container">
-          {/* TODO: не работает переключение табов */}
           <BlogToolbox type={BlogTypeEnum.All} />
         </div>
       </div>
