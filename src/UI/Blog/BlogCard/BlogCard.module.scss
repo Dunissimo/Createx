@@ -85,6 +85,10 @@
       line-height: 30px;
       margin-bottom: 8px;
       color: #1e212c;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
     p {
       color: #424551;

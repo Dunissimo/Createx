@@ -56,7 +56,10 @@ const BlogCardUI: FC<IProps> = ({ card }) => {
         {duration}
       </div>
       <div className={styles.title}>
-        <h2>{title}</h2>
+        <Link to={`/blog/${id}`} style={{ fontWeight: "700", color: "#1e212c" }}>
+          <h2>{title}</h2>
+        </Link>
+
         <p>{p}</p>
       </div>
 

@@ -15,7 +15,7 @@
   // gap: 24px;
 }
 
-.item-horizontal > div:nth-child(4) {
+.item-horizontal.item-blog > div:nth-child(4) {
   height: 500px;
   display: grid;
   grid-column-start: 1;
