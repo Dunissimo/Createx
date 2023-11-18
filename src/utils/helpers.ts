@@ -1,4 +1,10 @@
-import { ICourse, IEvent, EventTypeEnum, CourseTypeEnum } from "./interfaces";
+import {
+  ICourse,
+  IEvent,
+  EventTypeEnum,
+  CourseTypeEnum,
+  IBlogCard,
+} from "./interfaces";
 
 export const filterItems = (
   item: ICourse | IEvent,
@@ -24,13 +30,21 @@ export const filterByType = (
 };
 
 export const sortByTime = (
-  a: IEvent,
-  b: IEvent,
+  a: IEvent | IBlogCard,
+  b: IEvent | IBlogCard,
   sortBy: "Newest" | "Oldest"
 ) => {
-  if (sortBy == "Newest") return +getDate(b) - +getDate(a);
-  if (sortBy == "Oldest") return +getDate(a) - +getDate(b);
-  else return 0;
+  if ("text" in a && "text" in b) {
+    if (sortBy == "Newest") return +getEventDate(b) - +getEventDate(a);
+    if (sortBy == "Oldest") return +getEventDate(a) - +getEventDate(b);
+  }
+
+  if ("details" in a && "details" in b) {
+    if (sortBy == "Newest") return +getBlogDate(b) - +getBlogDate(a);
+    if (sortBy == "Oldest") return +getBlogDate(a) - +getBlogDate(b);
+  }
+
+  return 0;
 };
 
 export const handleLinkClick = () => {
@@ -41,8 +55,14 @@ export const handleSmoothLinkClick = () => {
   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
 };
 
-export const getDate = (item: any) => {
+export const getEventDate = (item: IEvent) => {
   return new Date(
-    `${item.date.month} ${item.date.day} ${item.date.time.split(" ")[0]}`
+    `${item.date.month} ${item.date.day} ${
+      item.date.time.toString().split(" ")[0]
+    }`
   );
+};
+
+const getBlogDate = (item: IBlogCard) => {
+  return new Date(item.details.date);
 };

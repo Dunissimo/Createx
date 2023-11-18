@@ -43,6 +43,7 @@ const ToolboxTabs: FC<ITabsProps> = ({
           )}
           data-type={value}
           onClick={clickHandler}
+          key={value.text}
         >
           {value?.icon ? <img src={value.icon} alt="" /> : null}
 

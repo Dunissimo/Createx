@@ -1,6 +1,6 @@
 import EventUI, { TOrientation } from "@src/UI/Cards/Event/Event";
 import clsx from "clsx";
-import { FC } from "react";
+import { CSSProperties, FC, Fragment } from "react";
 import { Link } from "react-router-dom";
 import {
   filterByType,
@@ -59,7 +59,7 @@ const ItemsList: FC<IItemListProps> = (props) => {
           .fill(0)
           .map((_, ind) => <Skeleton key={ind} count={1} height={200} />)
       ) : (
-        <Item data={data} {...props} />
+        <Item data={data} {...props}/>
       )}
     </div>
   );
@@ -74,6 +74,7 @@ interface IItemProps {
   type?: "event" | "course" | "blog";
   columns?: number;
   sortBy?: "Newest" | "Oldest";
+  style?: CSSProperties;
 }
 
 export const Item: FC<IItemProps> = ({
@@ -84,6 +85,7 @@ export const Item: FC<IItemProps> = ({
   sortBy = "Newest",
   type,
   itemType,
+  style
 }) => {
   if (type == "course") {
     return (
@@ -93,7 +95,7 @@ export const Item: FC<IItemProps> = ({
           .filter((item) => filterItems(item, search, "course"))
           .filter((item) => filterByType(item, itemType))
           .map((item) => (
-            <div key={item.id}>
+            <div key={item.id} style={style}>
               <Link
                 className={styles.linkToItem}
                 onClick={handleLinkClick}
@@ -116,7 +118,9 @@ export const Item: FC<IItemProps> = ({
           .filter((item) => filterByType(item, itemType))
           .sort((a, b) => sortByTime(a, b, sortBy))
           .map((item) => (
-            <div key={item.id}>
+            
+            
+            <div key={item.id} style={style}>
               <Link
                 className={styles.linkToItem}
                 onClick={handleLinkClick}
@@ -136,8 +140,8 @@ export const Item: FC<IItemProps> = ({
   if (type == "blog") {
     return (
       <>
-        {(data as IBlogCard[]).slice(0, +limit).map((item) => (
-          <div key={item.id}>
+        {[...(data as IBlogCard[])].sort((a,b) => sortByTime(a, b, sortBy)).slice(0, +limit).map((item) => (
+          <div key={item.id} style={style}>
             <BlogCardUI card={item} />
           </div>
         ))}

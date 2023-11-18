@@ -37,6 +37,7 @@ import job12 from "@assets/jobs/Higher Fit Logo - Untitled Page.svg";
 import { CourseTypeEnum } from "@src/utils/interfaces";
 import { handleLinkClick } from "@src/utils/helpers";
 import { Link } from "react-router-dom";
+import ItemsList from "@src/components/ItemList/ItemList";
 
 const AboutPage: FC = () => {
   return (
@@ -322,7 +323,7 @@ const AboutPage: FC = () => {
           </Row>
           <Row settings={{ justify: "center", gap: "60px" }}>
             {[job7, job8, job10, job11, job12].map((job) => (
-              <img src={job} alt="" />
+              <img key={job} src={job} alt="" />
             ))}
           </Row>
         </div>
