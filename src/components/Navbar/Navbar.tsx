@@ -26,9 +26,9 @@ const Navbar: FC<IProps> = ({ theme = "light" }) => {
         <div className="logo">
           <Link to="/">
             {theme === "dark" ? (
-              <img src={lightLogo} alt="createx logo" />
+              <img src={lightLogo} width={130} alt="createx logo" />
             ) : (
-              <img src={darkLogo} alt="createx logo" />
+              <img src={darkLogo} width={130} alt="createx logo" />
             )}
           </Link>
         </div>
@@ -69,9 +69,9 @@ const Navbar: FC<IProps> = ({ theme = "light" }) => {
           <Button size="xl">Get consultation</Button>
           <Button simple style={{ display: "block" }}>
             {theme === "dark" ? (
-              <img src={lightPerson} alt="" />
+              <img src={lightPerson} width={20} alt="" />
             ) : (
-              <img src={darkPerson} alt="" />
+              <img src={darkPerson} width={20} alt="" />
             )}
             Log in / Register
           </Button>
