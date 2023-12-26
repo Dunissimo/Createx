@@ -26,7 +26,7 @@ export enum EventTypeEnum {
   Workshop = "Online workshop",
 }
 
-export enum BlogTypeEnum {
+export enum BlogTabsTypeEnum {
   All = "All",
   Article = "Articles",
   Video = "Videos",
@@ -48,19 +48,21 @@ export interface ICourse {
   imgName: string;
 }
 
+interface ICurator {
+  coursesCount: number;
+  job: string;
+  name: string;
+  rating: number;
+  socialMediaLinks: string[];
+  studentsCount: number;
+  text: string;
+}
+
 export interface ICourseContent {
   id: number;
   data: {
     about: string;
-    curator: {
-      coursesCount: number;
-      job: string;
-      name: string;
-      rating: number;
-      socialMediaLinks: string[];
-      studentsCount: number;
-      text: string;
-    };
+    curator: ICurator;
     discount: number;
     info: {
       date: string;
@@ -129,8 +131,10 @@ export interface ITeam {
   id: number;
 }
 
+export type PostType = "podcast" | "article" | "video";
+
 export interface IBlogCard {
-  type: "podcast" | "article" | "video";
+  type: PostType;
   imgName: string;
   details: {
     theme: CourseTypeEnum;
@@ -140,6 +144,18 @@ export interface IBlogCard {
   title: string;
   p: string;
   id: number;
+}
+
+export interface IPostContent {
+  type: PostType;
+  theme: CourseTypeEnum;
+  img: string;
+  title: string;
+  date: string;
+  duration: string;
+  author: Pick<ICurator, "name" | "job" | "socialMediaLinks">;
+  content: string;
+  tags: string[];
 }
 
 export interface IStepData {

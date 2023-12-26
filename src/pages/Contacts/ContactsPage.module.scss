@@ -77,7 +77,8 @@
   position: relative;
   border-radius: 15px;
 
-  background: #afa6a6;
+  background: #fe4433;
+  color: #fff;
 
   &::before {
     content: "Sorry! There is no map yet :(";
@@ -147,6 +148,9 @@
   display: flex;
   gap: 12px;
 
+  input {
+    cursor: pointer;
+  }
   label {
     margin-top: -8px;
     font-size: 16px;
