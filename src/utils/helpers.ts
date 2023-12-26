@@ -1,5 +1,9 @@
 import { ICourse, IEvent, EventTypeEnum, CourseTypeEnum, IBlogCard } from "./interfaces";
 
+export const firstLetterToUpperCase = (str: string) => {
+  return `${str[0].toUpperCase()}${str.slice(1)}`;
+};
+
 export const filterItems = (item: ICourse | IEvent, search: string, type?: string) => {
   if (type == "event") {
     return (item as IEvent).text.title.toLowerCase().includes(search.toLowerCase());

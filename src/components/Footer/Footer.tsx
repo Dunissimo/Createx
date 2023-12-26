@@ -4,16 +4,15 @@ import clsx from "clsx";
 import SocialMedia from "@ui/SocialMedia/SocialMedia";
 import Input from "@ui/Form/Input/Input";
 import Button from "@ui/Button/Button";
-
+import { CourseTypeEnum } from "@src/utils/interfaces";
 import { handleSmoothLinkClick } from "@utils/helpers";
 
 import styles from "./Footer.module.scss";
 
 import logo from "@assets/light-logo.svg";
-import phone from "@assets/icons/phone.svg";
+import phone from "@assets/icons/phone-white.svg";
 import email from "@assets/icons/email.svg";
 import love from "@assets/icons/love.svg";
-import { CourseTypeEnum } from "@src/utils/interfaces";
 
 const Footer: FC = () => {
   return (
@@ -120,10 +119,12 @@ const Footer: FC = () => {
         <div className={styles.contact}>
           <h2>Contact us</h2>
           <p>
-            <img src={phone} alt="" /> (405) 555-0128
+            <img src={phone} alt="" width={12} style={{ marginLeft: "2px" }} />
+            <a href="tel:+74055550128">(405) 555-0128</a>
           </p>
           <p>
-            <img src={email} alt="" /> hello@createx.com
+            <img src={email} alt="" />
+            <a href="mailto:hello@createx.com">hello@createx.com</a>
           </p>
         </div>
 

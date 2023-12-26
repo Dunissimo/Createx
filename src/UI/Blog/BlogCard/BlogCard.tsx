@@ -9,6 +9,7 @@ import styles from "./BlogCard.module.scss";
 import calendar from "@assets/icons/Calendar.svg";
 import clock from "@assets/icons/Clock.svg";
 import { Link } from "react-router-dom";
+import { firstLetterToUpperCase } from "@src/utils/helpers";
 
 interface IProps {
   card: IBlogCard;
@@ -18,10 +19,6 @@ const buttons = {
   video: "Watch",
   podcast: "Listen",
   article: "Read",
-};
-
-const firstLetterToUpperCase = (str: string) => {
-  return `${str[0].toUpperCase()}${str.slice(1)}`;
 };
 
 const BlogCardUI: FC<IProps> = ({ card }) => {

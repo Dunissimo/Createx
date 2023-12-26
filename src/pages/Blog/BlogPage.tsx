@@ -2,7 +2,7 @@ import Title from "@src/UI/Title/Title";
 import BlogToolbox from "@src/components/BlogToolbox/BlogToolbox";
 import ItemsList from "@src/components/ItemList/ItemList";
 import Navbar from "@src/components/Navbar/Navbar";
-import { BlogTypeEnum } from "@src/utils/interfaces";
+import { BlogTabsTypeEnum } from "@src/utils/interfaces";
 import { FC } from "react";
 
 import styles from "./BlogPage.module.scss";
@@ -20,7 +20,7 @@ const BlogPage: FC = () => {
 
       <div className="blogToolbox">
         <div className="container">
-          <BlogToolbox type={BlogTypeEnum.All} />
+          <BlogToolbox type={BlogTabsTypeEnum.All} />
         </div>
       </div>
 

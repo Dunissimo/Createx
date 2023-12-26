@@ -1,5 +1,5 @@
 import ToolboxTabs from "@src/UI/Tabs/ToolboxTab/ToolboxTab";
-import { BlogTypeEnum, CourseTypeEnum } from "@src/utils/interfaces";
+import { BlogTabsTypeEnum, CourseTypeEnum } from "@src/utils/interfaces";
 import { FC } from "react";
 
 import styles from "./BlogToolbox.module.scss";
@@ -11,7 +11,7 @@ import article from "@assets/blog/article.svg";
 import podcast from "@assets/blog/podcast.svg";
 
 interface IBlogToolboxProps {
-  type: BlogTypeEnum;
+  type: BlogTabsTypeEnum;
 }
 
 const BlogToolbox: FC<IBlogToolboxProps> = ({ type }) => {
@@ -20,10 +20,10 @@ const BlogToolbox: FC<IBlogToolboxProps> = ({ type }) => {
       <ToolboxTabs
         className={styles.tabs}
         values={[
-          { text: BlogTypeEnum.All },
-          { text: BlogTypeEnum.Article, icon: article },
-          { text: BlogTypeEnum.Video, icon: video },
-          { text: BlogTypeEnum.Podcast, icon: podcast },
+          { text: BlogTabsTypeEnum.All },
+          { text: BlogTabsTypeEnum.Article, icon: article },
+          { text: BlogTabsTypeEnum.Video, icon: video },
+          { text: BlogTabsTypeEnum.Podcast, icon: podcast },
         ]}
         defaultValue={type}
       />

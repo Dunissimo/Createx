@@ -38,25 +38,6 @@ const CoursePage: FC = () => {
     willLearn,
   } = courseContent?.data || {};
 
-  // if (isLoading)
-  //   return (
-  //     <section style={{}}>
-  //       <header
-  //         style={{
-  //           background: "#ffdad5",
-  //           minHeight: "100vh",
-  //           paddingBottom: "60px",
-  //         }}
-  //       >
-  //         <Navbar />
-
-  //         <div className="container">
-  //           <Skeleton count={1} width={"100%"} height={400} />
-  //         </div>
-  //       </header>
-  //     </section>
-  //   );
-
   return (
     <section>
       <header style={{ background: "#ffdad5" }}>

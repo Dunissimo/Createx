@@ -10,6 +10,7 @@ import HomePage from "@pages/Home/HomePage";
 import NotFound from "@pages/NotFound/NotFound";
 import CoursePage from "@pages/Courses/Course/CoursePage";
 import EventPage from "./pages/Events/Event/EventPage";
+import PostPage from "./pages/Blog/Post/Post";
 
 const App = () => {
   const theme = "light";
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/events/:id" element={<EventPage />} />
 
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:id" element={<PostPage />} />
 
         <Route path="/contacts" element={<ContactsPage />} />
 

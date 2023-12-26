@@ -62,10 +62,17 @@
         gap: 8px;
 
         margin-bottom: 12px;
-        color: #a5a6ab;
 
         img {
           opacity: 0.6;
+        }
+
+        a {
+          color: #a5a6ab;
+
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }
