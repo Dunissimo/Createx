@@ -11,11 +11,11 @@ export const coursesApi = createApi({
     }),
 
     getCourse: builder.query<ICourse, string>({
-      query: (id) => `/courses/${+id - 1}`,
+      query: (id) => `/courses/${Number(id) - 1}`,
     }),
 
     getCourseContent: builder.query<ICourseContent, string>({
-      query: (id) => `/courses/content/${+id - 1}`,
+      query: (id) => `/courses/content/${Number(id) - 1}`,
     }),
   }),
 });

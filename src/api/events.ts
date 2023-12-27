@@ -11,11 +11,11 @@ export const eventsApi = createApi({
     }),
 
     getEvent: builder.query<IEvent, number>({
-      query: (id) => `/events/${+id - 1}`,
+      query: (id) => `/events/${Number(id) - 1}`,
     }),
 
     getEventContent: builder.query<IEventContent, number>({
-      query: (id) => `/events/content/${+id - 1}`,
+      query: (id) => `/events/content/${Number(id) - 1}`,
     }),
   }),
 });
