@@ -42,8 +42,8 @@ export const filterByType = (
 };
 
 export const sortByTime = (
-  a: IEvent | IBlogCard,
-  b: IEvent | IBlogCard,
+  a: IEvent | IBlogCard | ICourse,
+  b: IEvent | IBlogCard | ICourse,
   sortBy: "Newest" | "Oldest",
 ) => {
   if ("text" in a && "text" in b) {

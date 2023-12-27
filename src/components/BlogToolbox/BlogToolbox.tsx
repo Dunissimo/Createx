@@ -54,6 +54,13 @@ const BlogToolbox: FC<IBlogToolboxProps> = ({ type }) => {
               CourseTypeEnum.Marketing,
               CourseTypeEnum.Recruting,
             ]}
+            onChange={(e) => {
+              setParams({
+                type,
+                search,
+                theme: e.target.value,
+              });
+            }}
           />
         </div>
 

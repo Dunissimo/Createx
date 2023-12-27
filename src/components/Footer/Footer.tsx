@@ -1,18 +1,18 @@
+import { CourseTypeEnum } from "@src/utils/interfaces";
+import Button from "@ui/Button/Button";
+import Input from "@ui/Form/Input/Input";
+import SocialMedia from "@ui/SocialMedia/SocialMedia";
+import { handleSmoothLinkClick } from "@utils/helpers";
+import clsx from "clsx";
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import clsx from "clsx";
-import SocialMedia from "@ui/SocialMedia/SocialMedia";
-import Input from "@ui/Form/Input/Input";
-import Button from "@ui/Button/Button";
-import { CourseTypeEnum } from "@src/utils/interfaces";
-import { handleSmoothLinkClick } from "@utils/helpers";
 
 import styles from "./Footer.module.scss";
 
-import logo from "@assets/light-logo.svg";
-import phone from "@assets/icons/phone-white.svg";
 import email from "@assets/icons/email.svg";
 import love from "@assets/icons/love.svg";
+import phone from "@assets/icons/phone-white.svg";
+import logo from "@assets/light-logo.svg";
 
 const Footer: FC = () => {
   return (
@@ -45,7 +45,7 @@ const Footer: FC = () => {
               </Link>
             </li>
             <li>
-              <Link onClick={handleSmoothLinkClick} to="/courses">
+              <Link onClick={handleSmoothLinkClick} to="/courses?type=All">
                 Courses
               </Link>
             </li>
