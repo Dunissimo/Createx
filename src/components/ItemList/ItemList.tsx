@@ -1,39 +1,44 @@
+import CourseUI from "@src/UI/Cards/Course/Course";
 import EventUI, { TOrientation } from "@src/UI/Cards/Event/Event";
-import clsx from "clsx";
-import { CSSProperties, FC } from "react";
-import { Link } from "react-router-dom";
+import { useGetCoursesQuery } from "@src/api/courses";
+import { useGetEventsQuery } from "@src/api/events";
 import {
   filterByType,
   filterItems,
   handleLinkClick,
   sortByTime,
 } from "@src/utils/helpers";
-import CourseUI from "@src/UI/Cards/Course/Course";
 import {
-  ICourse,
-  IEvent,
+  BlogTabsTypeEnum,
   CourseTypeEnum,
   EventTypeEnum,
   IBlogCard,
+  ICourse,
+  IEvent,
 } from "@src/utils/interfaces";
-import { useGetCoursesQuery } from "@src/api/courses";
-import { useGetEventsQuery } from "@src/api/events";
+import clsx from "clsx";
+import { CSSProperties, FC } from "react";
 import Skeleton from "react-loading-skeleton";
+import { Link } from "react-router-dom";
 
-import styles from "./ItemList.module.scss";
-import "react-loading-skeleton/dist/skeleton.css";
 import BlogCardUI from "@src/UI/Blog/BlogCard/BlogCard";
 import { useGetPostsQuery } from "@src/api/posts";
+import "react-loading-skeleton/dist/skeleton.css";
+import styles from "./ItemList.module.scss";
 
-interface IItemListProps {
+type CommonType = "event" | "course" | "blog";
+
+interface ICommonProps {
   limit?: number;
   orientation?: TOrientation;
   search?: string;
-  itemType?: CourseTypeEnum | EventTypeEnum;
-  type?: "event" | "course" | "blog";
+  itemType?: CourseTypeEnum | EventTypeEnum | BlogTabsTypeEnum;
+  type?: CommonType;
   columns?: number;
   sortBy?: "Newest" | "Oldest";
 }
+
+interface IItemListProps extends ICommonProps {}
 
 const ItemsList: FC<IItemListProps> = (props) => {
   const { columns = 3, orientation = "horizontal", type, limit } = props;
@@ -65,17 +70,16 @@ const ItemsList: FC<IItemListProps> = (props) => {
   );
 };
 
-interface IItemProps {
+interface IItemProps extends ICommonProps {
   data?: ICourse[] | IEvent[] | IBlogCard[];
-  limit?: number;
-  orientation?: TOrientation;
-  search?: string;
-  itemType?: CourseTypeEnum | EventTypeEnum;
-  type?: "event" | "course" | "blog";
-  columns?: number;
-  sortBy?: "Newest" | "Oldest";
   style?: CSSProperties;
 }
+
+const paths = {
+  events: "/events",
+  courses: "/courses",
+  blog: "/blog",
+};
 
 export const Item: FC<IItemProps> = ({
   data,
@@ -87,67 +91,46 @@ export const Item: FC<IItemProps> = ({
   itemType,
   style,
 }) => {
-  if (type == "course") {
-    return (
-      <>
-        {(data as ICourse[])
-          .slice(0, +limit)
-          .filter((item) => filterItems(item, search, "course"))
-          .filter((item) => filterByType(item, itemType))
-          .map((item) => (
-            <div key={item.id} style={style}>
-              <Link
-                className={styles.linkToItem}
-                onClick={handleLinkClick}
-                to={`/courses/${item.id}`}
-              >
-                <CourseUI course={item as ICourse} orientation={orientation} />
-              </Link>
-            </div>
-          ))}
-      </>
-    );
-  }
+  const components = (item: IBlogCard | ICourse | IEvent) => ({
+    course: <CourseUI course={item as ICourse} orientation={orientation} />,
+    event: <EventUI event={item as IEvent} orientation={orientation as TOrientation} />,
+    blog: <BlogCardUI card={item as IBlogCard} />,
+  });
 
-  if (type == "event") {
-    return (
-      <>
-        {(data as IEvent[])
-          .slice(0, +limit)
-          .filter((item) => filterItems(item, search, "event"))
-          .filter((item) => filterByType(item, itemType))
-          .sort((a, b) => sortByTime(a, b, sortBy))
-          .map((item) => (
-            <div key={item.id} style={style}>
-              <Link
-                className={styles.linkToItem}
-                onClick={handleLinkClick}
-                to={`/events/${item.id}`}
-              >
-                <EventUI event={item} orientation={orientation as TOrientation} />
-              </Link>
-            </div>
-          ))}
-      </>
-    );
-  }
+  const renderItems = (data?: Array<ICourse | IEvent | IBlogCard>, type?: CommonType) => {
+    if (!data || !type) return <div>Ошибка</div>;
 
-  if (type == "blog") {
-    return (
-      <>
-        {[...(data as IBlogCard[])]
-          .sort((a, b) => sortByTime(a, b, sortBy))
-          .slice(0, +limit)
-          .map((item) => (
-            <div key={item.id} style={style}>
-              <BlogCardUI card={item} />
-            </div>
-          ))}
-      </>
-    );
-  }
+    return data
+      .slice(0, Number(limit))
+      .filter((item) => {
+        if (!item || !search) return true;
 
-  return <div>Неизвестная ошибка</div>;
+        return filterItems(item, search, type);
+      })
+      .filter((item) => {
+        if (!item || !itemType) return true;
+
+        return filterByType(item, itemType);
+      })
+      .sort((a, b) => {
+        if (!sortBy) return 0;
+
+        return sortByTime(a, b, sortBy);
+      })
+      .map((item) => (
+        <div key={item.id} style={style}>
+          <Link
+            className={styles.linkToItem}
+            onClick={handleLinkClick}
+            to={`${paths[type as keyof typeof paths]}/${item.id}`}
+          >
+            {components(item)[type]}
+          </Link>
+        </div>
+      ));
+  };
+
+  return <>{renderItems(data || [], type || "course")}</>;
 };
 
 export default ItemsList;

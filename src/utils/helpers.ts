@@ -1,24 +1,44 @@
-import { ICourse, IEvent, EventTypeEnum, CourseTypeEnum, IBlogCard } from "./interfaces";
+import {
+  BlogTabsTypeEnum,
+  CourseTypeEnum,
+  EventTypeEnum,
+  IBlogCard,
+  ICourse,
+  IEvent,
+} from "./interfaces";
 
 export const firstLetterToUpperCase = (str: string) => {
   return `${str[0].toUpperCase()}${str.slice(1)}`;
 };
 
-export const filterItems = (item: ICourse | IEvent, search: string, type?: string) => {
+export const filterItems = (
+  item: ICourse | IEvent | IBlogCard,
+  search: string,
+  type?: string,
+) => {
   if (type == "event") {
     return (item as IEvent).text.title.toLowerCase().includes(search.toLowerCase());
   } else if (type == "course") {
     return (item as ICourse).title.toLowerCase().includes(search.toLowerCase());
+  } else if (type == "blog") {
+    return (item as IBlogCard).title.toLowerCase().includes(search.toLowerCase());
   }
 };
 
 export const filterByType = (
-  item: ICourse | IEvent,
-  itemType?: CourseTypeEnum | EventTypeEnum,
+  item: ICourse | IEvent | IBlogCard,
+  itemType?: CourseTypeEnum | EventTypeEnum | BlogTabsTypeEnum,
 ) => {
-  if (itemType == EventTypeEnum.All || !itemType) return item;
+  if (
+    itemType === EventTypeEnum.All ||
+    itemType === CourseTypeEnum.All ||
+    itemType === BlogTabsTypeEnum.All ||
+    !itemType
+  ) {
+    return item;
+  }
 
-  return item.type == itemType;
+  return item.type.toLowerCase() == itemType.toLowerCase();
 };
 
 export const sortByTime = (
