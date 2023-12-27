@@ -17,6 +17,7 @@ interface IBlogToolboxProps {
 
 const BlogToolbox: FC<IBlogToolboxProps> = ({ type }) => {
   const [params, setParams] = useSearchParams();
+  const search = params.get("search") || "";
 
   const clickHandler: MouseEventHandler<HTMLDivElement> = (e) => {
     if (!(e.target instanceof HTMLDivElement)) return;
@@ -56,7 +57,19 @@ const BlogToolbox: FC<IBlogToolboxProps> = ({ type }) => {
           />
         </div>
 
-        <Input width="50%" image="search" placeholder="Search blog..." type="search" />
+        <Input
+          width="50%"
+          image="search"
+          placeholder="Search blog..."
+          type="search"
+          value={search}
+          onChange={(e) =>
+            setParams({
+              type,
+              search: e.target.value,
+            })
+          }
+        />
       </div>
     </div>
   );

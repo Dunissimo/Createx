@@ -134,6 +134,7 @@ export const Item: FC<IItemProps> = ({
         {[...(data as IBlogCard[])]
           .slice(0, +limit)
           .filter((item) => filterByType(item, itemType))
+          .filter((item) => filterItems(item, search, "blog"))
           .sort((a, b) => sortByTime(a, b, sortBy))
           .map((item) => (
             <div key={item.id} style={style}>

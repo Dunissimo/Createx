@@ -12,6 +12,7 @@ import styles from "./BlogPage.module.scss";
 const BlogPage: FC = () => {
   const [params] = useSearchParams();
   const type = params.get("type") || "";
+  const search = params.get("search") || "";
 
   return (
     <section>
@@ -36,6 +37,7 @@ const BlogPage: FC = () => {
             // Строчка ниже нужна, чтобы отрезать "с" у табов Videos, Articles, Podcasts
             // у All "s" нет, так что резать ничего не надо
             itemType={(type !== "All" ? type.slice(0, -1) : type) as BlogTabsTypeEnum}
+            search={search}
           />
         </div>
 
