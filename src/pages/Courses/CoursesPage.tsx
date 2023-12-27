@@ -1,15 +1,15 @@
-import { FC } from "react";
 import Certificate from "@components/Certificate/Certificate";
 import Navbar from "@components/Navbar/Navbar";
 import Subscribe from "@components/Subscribe/Subscribe";
 import Testimonials from "@components/Testimonials/Testimonials";
 import Title from "@ui/Title/Title";
+import { FC } from "react";
 
-import styles from "./Courses.module.scss";
-import ItemsList from "@src/components/ItemList/ItemList";
 import CoursesToolbox from "@src/components/CoursesToolbox/CoursesToolbox";
-import { useSearchParams } from "react-router-dom";
+import ItemsList from "@src/components/ItemList/ItemList";
 import { CourseTypeEnum } from "@src/utils/interfaces";
+import { useSearchParams } from "react-router-dom";
+import styles from "./Courses.module.scss";
 
 const CoursesPage: FC = () => {
   const [params] = useSearchParams();

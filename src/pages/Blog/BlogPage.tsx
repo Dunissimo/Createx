@@ -5,10 +5,14 @@ import Navbar from "@src/components/Navbar/Navbar";
 import { BlogTabsTypeEnum } from "@src/utils/interfaces";
 import { FC } from "react";
 
-import styles from "./BlogPage.module.scss";
 import SubscribeNews from "@src/components/SubscribeNews/SubscribeNews";
+import { useSearchParams } from "react-router-dom";
+import styles from "./BlogPage.module.scss";
 
 const BlogPage: FC = () => {
+  const [params] = useSearchParams();
+  const type = params.get("type") || "";
+
   return (
     <section>
       <Navbar />
@@ -20,13 +24,19 @@ const BlogPage: FC = () => {
 
       <div className="blogToolbox">
         <div className="container">
-          <BlogToolbox type={BlogTabsTypeEnum.All} />
+          <BlogToolbox type={type as BlogTabsTypeEnum} />
         </div>
       </div>
 
       <div className={styles.postsList}>
         <div className="container">
-          <ItemsList type="blog" limit={9} />
+          <ItemsList
+            type="blog"
+            limit={9}
+            // Строчка ниже нужна, чтобы отрезать "с" у табов Videos, Articles, Podcasts
+            // у All "s" нет, так что резать ничего не надо
+            itemType={(type !== "All" ? type.slice(0, -1) : type) as BlogTabsTypeEnum}
+          />
         </div>
 
         {/* pagination */}

@@ -1,20 +1,29 @@
 import ToolboxTabs from "@src/UI/Tabs/ToolboxTab/ToolboxTab";
 import { BlogTabsTypeEnum, CourseTypeEnum } from "@src/utils/interfaces";
-import { FC } from "react";
+import { FC, MouseEventHandler } from "react";
 
-import styles from "./BlogToolbox.module.scss";
-import Select from "@src/UI/Form/Select/Select";
 import Input from "@src/UI/Form/Input/Input";
+import Select from "@src/UI/Form/Select/Select";
+import styles from "./BlogToolbox.module.scss";
 
-import video from "@assets/blog/video.svg";
 import article from "@assets/blog/article.svg";
 import podcast from "@assets/blog/podcast.svg";
+import video from "@assets/blog/video.svg";
+import { useSearchParams } from "react-router-dom";
 
 interface IBlogToolboxProps {
   type: BlogTabsTypeEnum;
 }
 
 const BlogToolbox: FC<IBlogToolboxProps> = ({ type }) => {
+  const [params, setParams] = useSearchParams();
+
+  const clickHandler: MouseEventHandler<HTMLDivElement> = (e) => {
+    if (!(e.target instanceof HTMLDivElement)) return;
+
+    setParams({ type: e.target.dataset.type || "" });
+  };
+
   return (
     <div className={styles.toolbox}>
       <ToolboxTabs
@@ -25,6 +34,7 @@ const BlogToolbox: FC<IBlogToolboxProps> = ({ type }) => {
           { text: BlogTabsTypeEnum.Video, icon: video },
           { text: BlogTabsTypeEnum.Podcast, icon: podcast },
         ]}
+        onClick={clickHandler}
         defaultValue={type}
       />
 

@@ -1,39 +1,42 @@
+import CourseUI from "@src/UI/Cards/Course/Course";
 import EventUI, { TOrientation } from "@src/UI/Cards/Event/Event";
-import clsx from "clsx";
-import { CSSProperties, FC } from "react";
-import { Link } from "react-router-dom";
+import { useGetCoursesQuery } from "@src/api/courses";
+import { useGetEventsQuery } from "@src/api/events";
 import {
   filterByType,
   filterItems,
   handleLinkClick,
   sortByTime,
 } from "@src/utils/helpers";
-import CourseUI from "@src/UI/Cards/Course/Course";
 import {
-  ICourse,
-  IEvent,
+  BlogTabsTypeEnum,
   CourseTypeEnum,
   EventTypeEnum,
   IBlogCard,
+  ICourse,
+  IEvent,
 } from "@src/utils/interfaces";
-import { useGetCoursesQuery } from "@src/api/courses";
-import { useGetEventsQuery } from "@src/api/events";
+import clsx from "clsx";
+import { CSSProperties, FC } from "react";
 import Skeleton from "react-loading-skeleton";
+import { Link } from "react-router-dom";
 
-import styles from "./ItemList.module.scss";
-import "react-loading-skeleton/dist/skeleton.css";
 import BlogCardUI from "@src/UI/Blog/BlogCard/BlogCard";
 import { useGetPostsQuery } from "@src/api/posts";
+import "react-loading-skeleton/dist/skeleton.css";
+import styles from "./ItemList.module.scss";
 
-interface IItemListProps {
+interface ICommonProps {
   limit?: number;
   orientation?: TOrientation;
   search?: string;
-  itemType?: CourseTypeEnum | EventTypeEnum;
+  itemType?: CourseTypeEnum | EventTypeEnum | BlogTabsTypeEnum;
   type?: "event" | "course" | "blog";
   columns?: number;
   sortBy?: "Newest" | "Oldest";
 }
+
+interface IItemListProps extends ICommonProps {}
 
 const ItemsList: FC<IItemListProps> = (props) => {
   const { columns = 3, orientation = "horizontal", type, limit } = props;
@@ -65,15 +68,8 @@ const ItemsList: FC<IItemListProps> = (props) => {
   );
 };
 
-interface IItemProps {
+interface IItemProps extends ICommonProps {
   data?: ICourse[] | IEvent[] | IBlogCard[];
-  limit?: number;
-  orientation?: TOrientation;
-  search?: string;
-  itemType?: CourseTypeEnum | EventTypeEnum;
-  type?: "event" | "course" | "blog";
-  columns?: number;
-  sortBy?: "Newest" | "Oldest";
   style?: CSSProperties;
 }
 
@@ -136,8 +132,9 @@ export const Item: FC<IItemProps> = ({
     return (
       <>
         {[...(data as IBlogCard[])]
-          .sort((a, b) => sortByTime(a, b, sortBy))
           .slice(0, +limit)
+          .filter((item) => filterByType(item, itemType))
+          .sort((a, b) => sortByTime(a, b, sortBy))
           .map((item) => (
             <div key={item.id} style={style}>
               <BlogCardUI card={item} />
