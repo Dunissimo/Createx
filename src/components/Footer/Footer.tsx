@@ -134,8 +134,8 @@ const Footer: FC = () => {
             <Input image="arrow" imageAsSubmit theme="dark" placeholder="Email address" />
           </form>
           <p>
-            *Subscribe to our newsletter to receive communications and early <br />
-            updates from Createx SEO Agency.
+            *Subscribe to our newsletter to receive communications and early updates from
+            Createx SEO Agency.
           </p>
         </div>
       </div>
