@@ -1,20 +1,21 @@
 import { FC } from "react";
 
-import { ITeam } from "@utils/interfaces";
-import { useUrl } from "@utils/hooks";
 import SocialMedia from "@ui/SocialMedia/SocialMedia";
+import { useUrl } from "@utils/hooks";
+import { ITeam } from "@utils/interfaces";
 
 import styles from "./Team.module.scss";
 
 interface IProps {
   team: ITeam;
+  className?: string;
 }
 
-const Team: FC<IProps> = ({ team }) => {
+const Team: FC<IProps> = ({ team, className }) => {
   const url = useUrl(`team/${team.imgName}`);
 
   return (
-    <div className={styles.team}>
+    <div className={`${styles.team} ${className || ""}`}>
       <div className={styles.bg}>
         <img src={url} alt="" />
         <div className={styles.social}>

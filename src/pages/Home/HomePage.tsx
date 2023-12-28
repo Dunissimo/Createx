@@ -1,21 +1,21 @@
-import { FC } from "react";
-import { Link } from "react-router-dom";
-import Button from "@ui/Button/Button";
-import Row from "@ui/Row/Row";
-import RowItem from "@ui/Row/RowItem/RowItem";
-import Title from "@ui/Title/Title";
-import BenefitsTabs from "@src/UI/Tabs/BenefitTabs";
+import Certificate from "@components/Certificate/Certificate";
 import Navbar from "@components/Navbar/Navbar";
 import Subscribe from "@components/Subscribe/Subscribe";
 import TeamList from "@components/TeamList/TeamList";
 import Testimonials from "@components/Testimonials/Testimonials";
-import Certificate from "@components/Certificate/Certificate";
+import BenefitsTabs from "@src/UI/Tabs/BenefitTabs";
 import { handleLinkClick } from "@src/utils/helpers";
+import Button from "@ui/Button/Button";
+import Row from "@ui/Row/Row";
+import RowItem from "@ui/Row/RowItem/RowItem";
+import Title from "@ui/Title/Title";
+import { FC } from "react";
+import { Link } from "react-router-dom";
 
 import styles from "./Home.module.scss";
 
-import showreel from "@assets/icons/showreel.svg";
 import homeIllustration from "@assets/homeIllustration.svg";
+import showreel from "@assets/icons/showreel.svg";
 import whoWeAreIllustration from "@assets/whoWeAre.png";
 import ItemsList from "@src/components/ItemList/ItemList";
 
@@ -84,13 +84,7 @@ const HomePage: FC = () => {
 
       {/* Who we are */}
       <section className={styles.whoWeAre}>
-        <Row
-          className="container"
-          settings={{
-            gap: "100px",
-            align: "flex-start",
-          }}
-        >
+        <Row className={`container ${styles.whoWeAreContainer}`}>
           <RowItem>
             <img src={whoWeAreIllustration} alt="" />
           </RowItem>
@@ -191,6 +185,7 @@ const HomePage: FC = () => {
             </Title>
           </div>
 
+          {/* TODO: не отображаются skeletons */}
           <TeamList />
         </div>
       </section>

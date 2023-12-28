@@ -102,6 +102,11 @@
     justify-content: space-between;
   }
 
+  .whoWeAreContainer {
+    gap: 100px;
+    align-items: flex-start;
+  }
+
   .whoWeAreList {
     max-width: 75%;
 
@@ -158,8 +163,7 @@
 }
 
 .team {
-  padding-top: 170px;
-  padding-bottom: 180px;
+  padding: 180px;
   background: #f4f5f6;
 
   .teamTop {
@@ -170,4 +174,29 @@
 
 .latestPosts {
   padding: 60px 0;
+}
+
+@media (max-width: 1300px) {
+  .header {
+    .headerBody {
+      padding: 2em 0 40px;
+    }
+  }
+
+  .whoWeAre,
+  .team {
+    padding: 60px 0;
+  }
+  .courses {
+    padding-bottom: 0;
+  }
+  .events {
+    padding: 40px 0;
+  }
+
+  .whoWeAre {
+    .whoWeAreContainer {
+      align-items: center;
+    }
+  }
 }

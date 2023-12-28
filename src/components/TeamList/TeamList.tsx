@@ -1,17 +1,16 @@
-import { FC } from "react";
-import Team from "@ui/Team/Team";
 import { useGetTeamQuery } from "@src/api/team";
+import Team from "@ui/Team/Team";
+import { FC } from "react";
 import Skeleton from "react-loading-skeleton";
 
-import styles from "./TeamList.module.scss";
 import "react-loading-skeleton/dist/skeleton.css";
+import styles from "./TeamList.module.scss";
 
 interface IProps {
   limit?: number | string;
-  cardWidth?: string;
 }
 
-const TeamList: FC<IProps> = ({ limit = 4, cardWidth = "25%" }) => {
+const TeamList: FC<IProps> = ({ limit = 4 }) => {
   const { data, isError, isLoading } = useGetTeamQuery();
 
   if (isError) {
@@ -20,8 +19,8 @@ const TeamList: FC<IProps> = ({ limit = 4, cardWidth = "25%" }) => {
 
   return (
     <div className={styles.list}>
-      {data?.slice(0, +limit).map((team) => (
-        <div key={team.id} style={{ width: `calc(${cardWidth} - 15px)` }}>
+      {data?.slice(0, Number(limit)).map((team) => (
+        <div key={team.id} className={styles.teamItem}>
           {isLoading ? (
             new Array(1)
               .fill(0)
@@ -31,7 +30,7 @@ const TeamList: FC<IProps> = ({ limit = 4, cardWidth = "25%" }) => {
                   baseColor="#dee1e3"
                   highlightColor="#ebeef0"
                   count={1}
-                  height={400}
+                  height={300}
                 />
               ))
           ) : (

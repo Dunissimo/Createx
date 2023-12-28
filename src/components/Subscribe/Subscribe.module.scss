@@ -32,7 +32,10 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1250px) {
+  .subscribe {
+    padding: 60px 0 90px 0;
+  }
   .illustration {
     display: none;
   }
