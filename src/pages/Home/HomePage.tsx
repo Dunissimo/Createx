@@ -34,9 +34,7 @@ const HomePage: FC = () => {
                   <img src={showreel} alt="" />
                   Play showreel
                 </button>
-                <h2>
-                  Enjoy studying <br /> with Createx <br /> Online Courses
-                </h2>
+                <h2>Enjoy studying with Createx Online Courses</h2>
                 <div className={styles.buttons}>
                   <Link to="/about" onClick={handleLinkClick}>
                     <Button outline>About us</Button>
@@ -48,7 +46,7 @@ const HomePage: FC = () => {
               </div>
             </RowItem>
 
-            <RowItem>
+            <RowItem className={styles.headerRight}>
               <img src={homeIllustration} alt="" />
             </RowItem>
           </Row>

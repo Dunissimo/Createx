@@ -9,10 +9,9 @@
       h2 {
         margin: 24px 0 60px 0;
 
-        font-size: clamp(2rem, 6vw, 64px);
-
         color: #1e212c;
 
+        font-size: 3em;
         line-height: 1.25em;
         font-weight: 900;
       }
@@ -181,6 +180,10 @@
     .headerBody {
       padding: 2em 0 40px;
     }
+
+    .headerFooter {
+      padding-bottom: 40px;
+    }
   }
 
   .whoWeAre,
@@ -197,6 +200,35 @@
   .whoWeAre {
     .whoWeAreContainer {
       align-items: center;
+    }
+  }
+}
+
+@media (max-width: 1050px) {
+  .header {
+    .headerLeft {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+
+      h2 {
+        font-size: 2em;
+        text-align: center;
+      }
+    }
+
+    .headerRight {
+      text-align: center;
+      > img {
+        width: 50%;
+      }
+    }
+
+    .headerFooter .headerAchievements li {
+      > span {
+        font-size: 2em;
+      }
     }
   }
 }

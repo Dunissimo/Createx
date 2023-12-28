@@ -1,14 +1,14 @@
+import Button from "@ui/Button/Button";
+import clsx from "clsx";
 import { FC } from "react";
 import { Link, NavLink } from "react-router-dom";
-import clsx from "clsx";
-import Button from "@ui/Button/Button";
 
 import styles from "./Navbar.module.scss";
 
 import darkLogo from "@assets/dark-logo.svg";
-import lightLogo from "@assets/light-logo.svg";
 import darkPerson from "@assets/icons/dark-person.svg";
 import lightPerson from "@assets/icons/light-person.svg";
+import lightLogo from "@assets/light-logo.svg";
 
 interface IProps {
   theme?: "dark" | "light";
@@ -22,7 +22,7 @@ const Navbar: FC<IProps> = ({ theme = "light" }) => {
 
   return (
     <header className={clsx(styles.navbar, styles[`navbar-${theme}`])}>
-      <div className="container flex-row items-center justify-between">
+      <div className={`container ${styles.navbarContainer}`}>
         <div className="logo">
           <Link to="/">
             {theme === "dark" ? (
