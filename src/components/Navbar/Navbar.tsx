@@ -23,7 +23,7 @@ const Navbar: FC<IProps> = ({ theme = "light" }) => {
   return (
     <header className={clsx(styles.navbar, styles[`navbar-${theme}`])}>
       <div className={`container ${styles.navbarContainer}`}>
-        <div className="logo">
+        <nav className={styles.nav}>
           <Link to="/">
             {theme === "dark" ? (
               <img src={lightLogo} width={130} alt="createx logo" />
@@ -31,9 +31,7 @@ const Navbar: FC<IProps> = ({ theme = "light" }) => {
               <img src={darkLogo} width={130} alt="createx logo" />
             )}
           </Link>
-        </div>
-        <nav className={styles.nav}>
-          <li>
+          <li className={styles.first}>
             <NavLink className={({ isActive }) => classs(isActive)} to="/about">
               About us
             </NavLink>

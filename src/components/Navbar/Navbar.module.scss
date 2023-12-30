@@ -10,8 +10,11 @@
 
   & .nav {
     display: flex;
-    margin-right: 5vw;
     gap: 40px;
+
+    li.first {
+      margin-left: 20px;
+    }
 
     li {
       list-style: none;
@@ -83,22 +86,15 @@
 }
 
 @media (max-width: 1000px) {
-  .navbar {
-    .nav {
-      display: none;
-    }
+  .navbar .nav li {
+    display: none;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 550px) {
   .navbar {
-    .navbarContainer {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
     .auth {
-      flex-direction: column;
+      display: none;
     }
   }
 }

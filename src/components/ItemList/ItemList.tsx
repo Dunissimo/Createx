@@ -55,10 +55,7 @@ const ItemsList: FC<IItemListProps> = (props) => {
   }
 
   return (
-    <div
-      className={clsx(styles[`item-${orientation}`], styles[`item-${type}`])}
-      style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
-    >
+    <div className={clsx(styles[`items-${orientation}`], styles[`items-${type}`])}>
       {isLoading ? (
         new Array(limit || 9)
           .fill(0)

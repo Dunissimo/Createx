@@ -83,11 +83,11 @@ const HomePage: FC = () => {
       {/* Who we are */}
       <section className={styles.whoWeAre}>
         <Row className={`container ${styles.whoWeAreContainer}`}>
-          <RowItem>
+          <RowItem className={styles.whoWeAreLeft}>
             <img src={whoWeAreIllustration} alt="" />
           </RowItem>
 
-          <RowItem className={styles.whoWeAreDiv}>
+          <RowItem className={styles.whoWeAreRight}>
             <Title>
               <h2>Who we are</h2>
               <h3>Why Createx?</h3>
