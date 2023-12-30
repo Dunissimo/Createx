@@ -327,6 +327,11 @@
       }
     }
   }
+
+  .events .eventsFooter {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
 
 @media (max-width: 400px) {
