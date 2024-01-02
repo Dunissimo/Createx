@@ -15,6 +15,7 @@ import {
   IBlogCard,
   ICourse,
   IEvent,
+  ITeam,
 } from "@src/utils/interfaces";
 import clsx from "clsx";
 import { CSSProperties, FC } from "react";
@@ -22,11 +23,14 @@ import Skeleton from "react-loading-skeleton";
 import { Link } from "react-router-dom";
 
 import BlogCardUI from "@src/UI/Blog/BlogCard/BlogCard";
+import Team from "@src/UI/Team/Team";
 import { useGetPostsQuery } from "@src/api/posts";
+import { useGetTeamQuery } from "@src/api/team";
 import "react-loading-skeleton/dist/skeleton.css";
 import styles from "./ItemList.module.scss";
 
-type CommonType = "event" | "course" | "blog";
+export type CommonType = "event" | "course" | "blog" | "team";
+export type CardsTypes = ICourse | IEvent | IBlogCard | ITeam;
 
 interface ICommonProps {
   limit?: number;
@@ -47,7 +51,9 @@ const ItemsList: FC<IItemListProps> = (props) => {
       ? useGetCoursesQuery()
       : type == "event"
         ? useGetEventsQuery()
-        : useGetPostsQuery();
+        : type == "blog"
+          ? useGetPostsQuery()
+          : useGetTeamQuery();
 
   if (isError) {
     return <div>Error!</div>;
@@ -65,11 +71,16 @@ const ItemsList: FC<IItemListProps> = (props) => {
         <Skeleton count={1} width={"100%"} height={500} />,
       </div>
     ),
+    team: (
+      <div key={ind}>
+        <Skeleton baseColor="#dee1e3" highlightColor="#ebeef0" count={1} height={300} />
+      </div>
+    ),
   });
 
   return (
-    <div className={clsx(styles[`items-${orientation}`], styles[`items-${type}`])}>
-      {!isLoading || !isFetching ? (
+    <div className={clsx(styles.items, styles[`items-${orientation}`], styles[type])}>
+      {isLoading || isFetching ? (
         new Array(limit || 9).fill(0).map((_, ind) => skeletons(ind)[type])
       ) : (
         <Item data={data} {...props} />
@@ -79,7 +90,7 @@ const ItemsList: FC<IItemListProps> = (props) => {
 };
 
 interface IItemProps extends ICommonProps {
-  data?: ICourse[] | IEvent[] | IBlogCard[];
+  data?: Array<CardsTypes>;
   style?: CSSProperties;
 }
 
@@ -99,13 +110,14 @@ export const Item: FC<IItemProps> = ({
   itemType,
   style,
 }) => {
-  const components = (item: IBlogCard | ICourse | IEvent) => ({
+  const components = (item: CardsTypes) => ({
     course: <CourseUI course={item as ICourse} orientation={orientation} />,
     event: <EventUI event={item as IEvent} orientation={orientation as TOrientation} />,
     blog: <BlogCardUI card={item as IBlogCard} />,
+    team: <Team team={item as ITeam} />,
   });
 
-  const renderItems = (data?: Array<ICourse | IEvent | IBlogCard>, type?: CommonType) => {
+  const renderItems = (data?: Array<CardsTypes>, type?: CommonType) => {
     if (!data || !type) return <div>Ошибка</div>;
 
     return data

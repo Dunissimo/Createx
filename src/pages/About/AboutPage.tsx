@@ -1,40 +1,40 @@
 import { FC } from "react";
 
-import Navbar from "@src/components/Navbar/Navbar";
-import Testimonials from "@src/components/Testimonials/Testimonials";
-import LatestPosts from "@src/components/LatestPosts/LatestPosts";
-import Subscribe from "@src/components/Subscribe/Subscribe";
 import Button from "@src/UI/Button/Button";
+import Direction from "@src/UI/Cards/Direction/Direction";
 import Row from "@src/UI/Row/Row";
 import RowItem from "@src/UI/Row/RowItem/RowItem";
+import Steps from "@src/UI/Steps/Steps";
 import Title from "@src/UI/Title/Title";
 import Value from "@src/UI/Values/Value";
-import Direction from "@src/UI/Cards/Direction/Direction";
-import Steps from "@src/UI/Steps/Steps";
-import TeamList from "@src/components/TeamList/TeamList";
-import { CourseTypeEnum } from "@src/utils/interfaces";
+import LatestPosts from "@src/components/LatestPosts/LatestPosts";
+import Navbar from "@src/components/Navbar/Navbar";
+import Subscribe from "@src/components/Subscribe/Subscribe";
+import Testimonials from "@src/components/Testimonials/Testimonials";
 import { handleLinkClick } from "@src/utils/helpers";
+import { CourseTypeEnum } from "@src/utils/interfaces";
 import { Link } from "react-router-dom";
 
 import styles from "./AboutPage.module.scss";
 
-import about from "@assets/illustration-blog.svg";
-import video from "@assets/video.svg";
-import strucure from "@assets/blog/ic-structure.svg";
 import calendar from "@assets/blog/ic-calendar.svg";
 import chat from "@assets/blog/ic-chat.svg";
+import strucure from "@assets/blog/ic-structure.svg";
 import target from "@assets/blog/ic-target.svg";
 import process from "@assets/illustration-about.svg";
+import about from "@assets/illustration-blog.svg";
 import job1 from "@assets/jobs/Atlantis Health Logo.svg";
 import job2 from "@assets/jobs/Complete Health Logo - Untitled Page.svg";
 import job4 from "@assets/jobs/For Sale Logo.svg";
 import job5 from "@assets/jobs/Happy Home Logo.svg";
+import job12 from "@assets/jobs/Higher Fit Logo - Untitled Page.svg";
 import job6 from "@assets/jobs/InDepth Consulting Logo - Untitled Page.svg";
 import job7 from "@assets/jobs/National Health Logo.svg";
 import job8 from "@assets/jobs/Sentinal Consulting Logo.svg";
 import job10 from "@assets/jobs/Ultimate Gym Logo.svg";
 import job11 from "@assets/jobs/United Strategy Logo.svg";
-import job12 from "@assets/jobs/Higher Fit Logo - Untitled Page.svg";
+import video from "@assets/video.svg";
+import ItemsList from "@src/components/ItemList/ItemList";
 
 const AboutPage: FC = () => {
   return (
@@ -285,7 +285,7 @@ const AboutPage: FC = () => {
             <h3>Meet our team</h3>
           </Title>
 
-          <TeamList limit={8} />
+          <ItemsList limit={8} type="team" />
         </div>
       </section>
 

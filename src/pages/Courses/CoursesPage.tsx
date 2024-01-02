@@ -37,7 +37,6 @@ const CoursesPage: FC = () => {
               orientation="vertical"
               search={search}
               limit={9}
-              columns={3}
               itemType={type as CourseTypeEnum}
             />
           </div>

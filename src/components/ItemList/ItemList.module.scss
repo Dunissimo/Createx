@@ -1,54 +1,41 @@
-.items-horizontal,
-.items-vertical {
+.items {
   display: grid;
   grid-template-rows: auto;
-  grid-template: "a a a" "b b c" "c c c";
   justify-content: center;
   justify-items: center;
   gap: 24px;
-
+  // TODO: разобраться с grid, во второй строчке item должен занимать две колонки
   > div {
     width: 100%;
   }
 }
 
-.items-horizontal.items-course {
+.items-horizontal.course {
   grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
 }
-.items-vertical.items-course {
+.items-vertical.course {
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
 
-.items-horizontal.items-event {
-  grid-template-columns: 1;
+.items-horizontal.event {
+  grid-template-columns: repeat(1, 1fr);
 }
-.items-vertical.items-event {
+.items-vertical.event {
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
 
-.items-horizontal.items-blog {
+.items-horizontal.blog {
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
-.items-vertical.items-blog {
+.items-vertical.blog {
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
 
-.items-horizontal,
-.items-vertical {
-  &.course {
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-  }
-
-  &.event {
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-  }
-
-  &.blog {
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-  }
+.items.team {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
 
-.items-horizontal.item-blog > div:nth-child(4) {
+.items-horizontal.blog > div:nth-child(4) {
   height: 500px;
   display: grid;
   grid-column-start: 1;

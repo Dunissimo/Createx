@@ -1,7 +1,6 @@
 import Certificate from "@components/Certificate/Certificate";
 import Navbar from "@components/Navbar/Navbar";
 import Subscribe from "@components/Subscribe/Subscribe";
-import TeamList from "@components/TeamList/TeamList";
 import Testimonials from "@components/Testimonials/Testimonials";
 import BenefitsTabs from "@src/UI/Tabs/BenefitTabs";
 import { handleLinkClick } from "@src/utils/helpers";
@@ -18,6 +17,7 @@ import homeIllustration from "@assets/homeIllustration.svg";
 import showreel from "@assets/icons/showreel.svg";
 import whoWeAreIllustration from "@assets/whoWeAre.png";
 import ItemsList from "@src/components/ItemList/ItemList";
+import LatestPosts from "@src/components/LatestPosts/LatestPosts";
 
 const HomePage: FC = () => {
   return (
@@ -183,8 +183,7 @@ const HomePage: FC = () => {
             </Title>
           </div>
 
-          {/* TODO: не отображаются skeletons */}
-          <TeamList />
+          <ItemsList type="team" limit={4} />
         </div>
       </section>
 
@@ -192,11 +191,7 @@ const HomePage: FC = () => {
       <Testimonials />
 
       {/* latest posts */}
-      <div className={styles.latestPosts}>
-        <div className="container">
-          <ItemsList limit={3} type="blog" />
-        </div>
-      </div>
+      <LatestPosts className={styles.latestPosts} />
 
       {/* subscribe */}
       <Subscribe />
