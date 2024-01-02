@@ -23,20 +23,29 @@
   padding-bottom: 4rem;
 
   display: flex;
-  flex-direction: column;
   gap: 2rem;
-}
-
-.newsLeft {
-  text-align: center;
 }
 
 .newsRight {
   display: flex;
+  align-items: start;
   flex-direction: column;
-  align-items: center;
+}
 
-  h3 {
+@media (max-width: 1200px) {
+  .newsRow {
+    flex-direction: column;
+  }
+
+  .newsLeft {
     text-align: center;
+  }
+
+  .newsRight {
+    flex-direction: column;
+
+    h3 {
+      text-align: center;
+    }
   }
 }
