@@ -11,7 +11,7 @@ interface IProps {
   className?: string;
 }
 
-const Team: FC<IProps> = ({ team, className }) => {
+const TeamUI: FC<IProps> = ({ team, className }) => {
   const url = useUrl(`team/${team.imgName}`);
 
   return (
@@ -32,4 +32,4 @@ const Team: FC<IProps> = ({ team, className }) => {
   );
 };
 
-export default Team;
+export default TeamUI;

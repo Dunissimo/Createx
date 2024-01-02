@@ -2,12 +2,7 @@ import CourseUI from "@src/UI/Cards/Course/Course";
 import EventUI, { TOrientation } from "@src/UI/Cards/Event/Event";
 import { useGetCoursesQuery } from "@src/api/courses";
 import { useGetEventsQuery } from "@src/api/events";
-import {
-  filterByType,
-  filterItems,
-  handleLinkClick,
-  sortByTime,
-} from "@src/utils/helpers";
+import { filterByType, filterItems, sortByTime } from "@src/utils/helpers";
 import {
   BlogTabsTypeEnum,
   CourseTypeEnum,
@@ -20,10 +15,9 @@ import {
 import clsx from "clsx";
 import { CSSProperties, FC } from "react";
 import Skeleton from "react-loading-skeleton";
-import { Link } from "react-router-dom";
 
 import BlogCardUI from "@src/UI/Blog/BlogCard/BlogCard";
-import Team from "@src/UI/Team/Team";
+import TeamUI from "@src/UI/Team/Team";
 import { useGetPostsQuery } from "@src/api/posts";
 import { useGetTeamQuery } from "@src/api/team";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -94,12 +88,6 @@ interface IItemProps extends ICommonProps {
   style?: CSSProperties;
 }
 
-const paths = {
-  events: "/events",
-  courses: "/courses",
-  blog: "/blog",
-};
-
 export const Item: FC<IItemProps> = ({
   data,
   limit = 3,
@@ -114,7 +102,7 @@ export const Item: FC<IItemProps> = ({
     course: <CourseUI course={item as ICourse} orientation={orientation} />,
     event: <EventUI event={item as IEvent} orientation={orientation as TOrientation} />,
     blog: <BlogCardUI card={item as IBlogCard} />,
-    team: <Team team={item as ITeam} />,
+    team: <TeamUI team={item as ITeam} />,
   });
 
   const renderItems = (data?: Array<CardsTypes>, type?: CommonType) => {
@@ -139,13 +127,7 @@ export const Item: FC<IItemProps> = ({
       })
       .map((item) => (
         <div key={item.id} style={style}>
-          <Link
-            className={styles.linkToItem}
-            onClick={handleLinkClick}
-            to={`${paths[type as keyof typeof paths]}/${item.id}`}
-          >
-            {components(item)[type]}
-          </Link>
+          {components(item)[type]}
         </div>
       ));
   };
