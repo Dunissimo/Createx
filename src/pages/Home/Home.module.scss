@@ -285,8 +285,12 @@
       align-items: start;
     }
 
-    .whoWeAreLeft img {
-      width: 75%;
+    .whoWeAreLeft {
+      align-items: center;
+
+      img {
+        width: 75%;
+      }
     }
 
     .whoWeAreList {

@@ -53,6 +53,11 @@
 .values {
   margin-bottom: 180px;
 
+  .valuesTitle {
+    color: "#1e212c";
+    margin-bottom: 60px;
+  }
+
   .divider {
     width: 2px;
     height: 130px;
@@ -70,6 +75,14 @@
 
 .directions {
   margin-bottom: 180px;
+
+  .directionsRow {
+    margin-bottom: 30px;
+
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .process {
@@ -85,4 +98,84 @@
   padding-bottom: 60px;
 
   background: #f4f5f6;
+
+  .companiesRow {
+    gap: 60px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .about {
+    margin-top: 40px;
+    margin-bottom: 120px;
+    .aboutRight {
+      display: none;
+    }
+  }
+
+  .video,
+  .team,
+  .directions,
+  .values,
+  .process {
+    margin-bottom: 60px;
+  }
+
+  .video {
+    .videoLeft,
+    .videoRight {
+      // width is set in style prop, so I use important
+      width: 100% !important;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .videoLeft {
+      margin-bottom: 2rem;
+
+      img {
+        width: 50%;
+      }
+    }
+  }
+
+  .values {
+    .valuesRow {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .valuesTitle {
+      margin-bottom: 30px;
+    }
+
+    .divider {
+      display: none;
+    }
+  }
+
+  .directions .directionsRow {
+    grid-template-columns: repeat(1, 0.55fr);
+    justify-content: center;
+  }
+
+  .process img {
+    display: none;
+  }
+
+  .companies .companiesRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 800px) {
+  .directions .directionsRow {
+    grid-template-columns: repeat(1, 0.85fr);
+    justify-content: center;
+  }
 }

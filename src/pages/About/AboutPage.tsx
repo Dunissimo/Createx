@@ -73,7 +73,7 @@ const AboutPage: FC = () => {
               </div>
             </RowItem>
 
-            <RowItem contentPosition="center">
+            <RowItem className={styles.aboutRight} contentPosition="center">
               <img src={about} alt="" />
             </RowItem>
           </Row>
@@ -83,12 +83,12 @@ const AboutPage: FC = () => {
       <section className={styles.video}>
         <div className="container">
           <Row settings={{ gap: "135px" }}>
-            <RowItem width="65%">
+            <RowItem className={styles.videoLeft} width="65%">
               {/* Here must be video */}
               <img src={video} alt="" />
             </RowItem>
 
-            <RowItem width="35%">
+            <RowItem className={styles.videoRight} width="35%">
               <div className={styles.videoStats}>
                 <h3>1200</h3>
                 <span>students graduated</span>
@@ -115,12 +115,12 @@ const AboutPage: FC = () => {
 
       <section className={styles.values}>
         <div className="container">
-          <Title align="center" style={{ color: "#1e212c", marginBottom: "60px" }}>
+          <Title className={styles.valuesTitle} align="center">
             <h2>we always stand for</h2>
             <h3>Our core values</h3>
           </Title>
 
-          <Row settings={{ justify: "center", gap: "45px" }}>
+          <Row className={styles.valuesRow} settings={{ justify: "center", gap: "45px" }}>
             <Value
               img={strucure}
               title="Structured Approach"
@@ -177,9 +177,8 @@ const AboutPage: FC = () => {
             <h3>What do we teach</h3>
           </Title>
 
-          <Row settings={{ gap: "30px" }} style={{ marginBottom: "30px" }}>
+          <div className={styles.directionsRow}>
             <Direction
-              width="33.333%"
               directionData={{
                 imgUrlWithExtension: "directions/image-4.svg",
                 type: CourseTypeEnum.Marketing,
@@ -190,7 +189,6 @@ const AboutPage: FC = () => {
             />
 
             <Direction
-              width="33.333%"
               directionData={{
                 imgUrlWithExtension: "directions/image-3.svg",
                 type: CourseTypeEnum.Management,
@@ -201,7 +199,6 @@ const AboutPage: FC = () => {
             />
 
             <Direction
-              width="33.333%"
               directionData={{
                 imgUrlWithExtension: "directions/image-2.svg",
                 type: CourseTypeEnum.Recruting,
@@ -210,11 +207,8 @@ const AboutPage: FC = () => {
                   "Odio posuere netus quisque faucibus lectus arcu donec. Eget dictum eu viverra faucibus. Viverra scelerisque consequat.",
               }}
             />
-          </Row>
 
-          <Row settings={{ gap: "30px" }}>
             <Direction
-              width="33.333%"
               directionData={{
                 imgUrlWithExtension: "directions/image-1.svg",
                 type: CourseTypeEnum.Design,
@@ -225,7 +219,6 @@ const AboutPage: FC = () => {
             />
 
             <Direction
-              width="33.333%"
               directionData={{
                 imgUrlWithExtension: "directions/image.svg",
                 type: CourseTypeEnum.Development,
@@ -235,8 +228,8 @@ const AboutPage: FC = () => {
               }}
             />
 
-            <Direction width="33.333%" isEmpty />
-          </Row>
+            <Direction isEmpty />
+          </div>
         </div>
       </section>
 
@@ -298,12 +291,12 @@ const AboutPage: FC = () => {
             <h3>Our students work here</h3>
           </Title>
 
-          <Row settings={{ justify: "center", gap: "60px" }}>
+          <Row className={styles.companiesRow}>
             {[job1, job2, job4, job5, job6].map((job) => (
               <img key={job} src={job} alt="" />
             ))}
           </Row>
-          <Row settings={{ justify: "center", gap: "60px" }}>
+          <Row className={styles.companiesRow}>
             {[job7, job8, job10, job11, job12].map((job) => (
               <img key={job} src={job} alt="" />
             ))}
