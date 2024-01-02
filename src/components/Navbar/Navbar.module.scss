@@ -93,16 +93,15 @@
   .navbar .nav li {
     display: none;
   }
-
-  .navbar .burger {
-    display: block;
-  }
 }
 
 @media (max-width: 550px) {
   .navbar {
     .auth {
       display: none;
+    }
+    .burger {
+      display: block;
     }
   }
 }

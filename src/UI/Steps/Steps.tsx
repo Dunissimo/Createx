@@ -2,8 +2,8 @@ import { IStepData } from "@src/utils/interfaces";
 import { FC } from "react";
 import Step from "./Step/Step";
 
-import styles from "./Steps.module.scss";
 import clsx from "clsx";
+import styles from "./Steps.module.scss";
 
 export type TStepType = "horizontal" | "vertical";
 
@@ -14,7 +14,7 @@ interface IProps {
 
 const Steps: FC<IProps> = ({ data, type = "horizontal" }) => {
   return (
-    <div className={clsx(type == "horizontal" ? styles.steps : styles.stepVertical)}>
+    <div className={clsx(type == "horizontal" ? styles.steps : styles.stepsVertical)}>
       {data.map((step, index) => (
         <Step
           key={index}

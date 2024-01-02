@@ -66,7 +66,7 @@ const Navbar: FC<IProps> = ({ theme = "light" }) => {
         </nav>
 
         <div className={styles.burger} style={{ textAlign: "center" }}>
-          <p>Here'll be Burger menu Please wait</p>
+          <p>Burger menu</p>
         </div>
 
         <div className={styles.auth}>
