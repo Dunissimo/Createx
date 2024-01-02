@@ -34,16 +34,15 @@ interface ICommonProps {
   search?: string;
   itemType?: CourseTypeEnum | EventTypeEnum | BlogTabsTypeEnum;
   type?: CommonType;
-  columns?: number;
   sortBy?: "Newest" | "Oldest";
 }
 
 interface IItemListProps extends ICommonProps {}
 
 const ItemsList: FC<IItemListProps> = (props) => {
-  const { columns = 3, orientation = "horizontal", type, limit } = props;
+  const { orientation = "horizontal", type = "course", limit } = props;
 
-  const { data, isError, isLoading } =
+  const { data, isError, isLoading, isFetching } =
     type == "course"
       ? useGetCoursesQuery()
       : type == "event"
@@ -54,12 +53,24 @@ const ItemsList: FC<IItemListProps> = (props) => {
     return <div>Error!</div>;
   }
 
+  const skeletons = (ind: number) => ({
+    course: (
+      <div key={ind}>
+        <Skeleton count={1} width={"100%"} height={200} />
+      </div>
+    ),
+    event: <Skeleton count={1} width={"80vw"} height={200} />,
+    blog: (
+      <div key={ind}>
+        <Skeleton count={1} width={"100%"} height={500} />,
+      </div>
+    ),
+  });
+
   return (
     <div className={clsx(styles[`items-${orientation}`], styles[`items-${type}`])}>
-      {isLoading ? (
-        new Array(limit || 9)
-          .fill(0)
-          .map((_, ind) => <Skeleton key={ind} count={1} height={200} />)
+      {!isLoading || !isFetching ? (
+        new Array(limit || 9).fill(0).map((_, ind) => skeletons(ind)[type])
       ) : (
         <Item data={data} {...props} />
       )}

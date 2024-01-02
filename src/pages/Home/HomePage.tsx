@@ -133,7 +133,7 @@ const HomePage: FC = () => {
             </Button>
           </div>
 
-          <ItemsList type="course" limit={6} columns={2} />
+          <ItemsList type="course" limit={6} />
         </div>
       </section>
 
@@ -158,7 +158,7 @@ const HomePage: FC = () => {
             <h3>Lectures & workshops</h3>
           </Title>
 
-          <ItemsList type="event" limit={3} columns={1} />
+          <ItemsList type="event" limit={3} />
 
           <div className={styles.eventsFooter}>
             <h3>Do you want more?</h3>
