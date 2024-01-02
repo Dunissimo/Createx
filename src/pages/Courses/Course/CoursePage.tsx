@@ -1,25 +1,25 @@
 import { FC } from "react";
 import { useParams } from "react-router-dom";
 
-import Navbar from "@src/components/Navbar/Navbar";
-import Title from "@src/UI/Title/Title";
-import Testimonials from "@src/components/Testimonials/Testimonials";
+import Accordion from "@src/UI/Accordion/Accordion";
+import Button from "@src/UI/Button/Button";
+import Input from "@src/UI/Form/Input/Input";
 import Row from "@src/UI/Row/Row";
 import RowItem from "@src/UI/Row/RowItem/RowItem";
-import Button from "@src/UI/Button/Button";
 import SocialMedia from "@src/UI/SocialMedia/SocialMedia";
-import Input from "@src/UI/Form/Input/Input";
-import Accordion from "@src/UI/Accordion/Accordion";
 import Steps from "@src/UI/Steps/Steps";
+import Title from "@src/UI/Title/Title";
 import { useGetCourseContentQuery } from "@src/api/courses";
+import Navbar from "@src/components/Navbar/Navbar";
+import Testimonials from "@src/components/Testimonials/Testimonials";
 import Skeleton from "react-loading-skeleton";
 
-import styles from "./CoursePage.module.scss";
 import "react-loading-skeleton/dist/skeleton.css";
+import styles from "./CoursePage.module.scss";
 
-import curatorImg from "@assets/team/curator-image.svg";
 import illustration from "@assets/illustration-course.svg";
 import register from "@assets/illustration-register.svg";
+import curatorImg from "@assets/team/curator-image.svg";
 
 const CoursePage: FC = () => {
   const { id } = useParams();
@@ -43,18 +43,16 @@ const CoursePage: FC = () => {
       <header style={{ background: "#ffdad5" }}>
         <Navbar />
 
-        <Title align="center" style={{ padding: "120px 0" }}>
-          <h2 style={{ color: "#FF3F3A" }}>Course</h2>
+        <Title className={styles.title} align="center">
+          <h2>Course</h2>
 
-          <h3 style={{ color: "#1e212c", maxWidth: "75%", margin: "0 auto" }}>
-            {isLoading ? <Skeleton /> : title}
-          </h3>
+          <h3>{isLoading ? <Skeleton /> : title}</h3>
         </Title>
       </header>
 
       <section className={styles.about}>
         <div className="container">
-          <Row settings={{ gap: "135px", align: "flex-start" }}>
+          <Row className={styles.aboutRow}>
             <RowItem className={styles.aboutLeft}>
               <h2>About the course</h2>
 
@@ -107,7 +105,7 @@ const CoursePage: FC = () => {
 
       <section className={styles.curator}>
         <div className="container">
-          <Row settings={{ gap: "135px" }}>
+          <Row className={styles.curatorRow}>
             <RowItem>
               {isLoading ? <Skeleton height={500} /> : <img src={curatorImg} alt="" />}
             </RowItem>
@@ -191,21 +189,19 @@ const CoursePage: FC = () => {
             </div>
 
             <form className={styles.body}>
-              <div style={{ minWidth: "25%" }}>
+              <div>
                 <Input placeholder="Your full name" />
               </div>
 
-              <div style={{ minWidth: "25%" }}>
+              <div>
                 <Input type="email" placeholder="Your working email" />
               </div>
 
-              <div style={{ minWidth: "25%" }}>
+              <div>
                 <Input type="tel" placeholder="Your phone number" />
               </div>
 
-              <Button type="submit" style={{ width: "135px" }}>
-                Join the course
-              </Button>
+              <Button type="submit">Join the course</Button>
             </form>
           </div>
         </section>
@@ -213,7 +209,7 @@ const CoursePage: FC = () => {
 
       <section className={styles.forWhom}>
         <div className="container">
-          <Row settings={{ gap: "135px", align: "flex-start" }}>
+          <Row className={styles.forWhomRow}>
             <RowItem>
               <Title style={{ color: "#1e212c" }}>
                 <h2>For whom?</h2>
@@ -275,7 +271,7 @@ const CoursePage: FC = () => {
               </div>
             </RowItem>
 
-            <RowItem>
+            <RowItem className={styles.programRight}>
               <img src={illustration} alt="" />
             </RowItem>
           </Row>
@@ -287,11 +283,11 @@ const CoursePage: FC = () => {
       <section className={styles.register}>
         <div className="container">
           <Row settings={{ gap: "100px" }}>
-            <RowItem>
+            <RowItem className={styles.registerLeft} width="55%">
               <img src={register} alt="" />
             </RowItem>
 
-            <RowItem width="40%" contentAlign="center">
+            <RowItem className={styles.registerRight} contentAlign="center">
               <Title style={{ color: "#1e212c" }}>
                 <h2>leave a request now and get 20% off!</h2>
                 <h3>Register for the course</h3>

@@ -1,5 +1,24 @@
+.title {
+  padding: 120px 0;
+
+  h2 {
+    color: "#FF3F3A";
+  }
+
+  h3 {
+    color: "#1e212c";
+    max-width: 75%;
+    margin: 0 auto;
+  }
+}
+
 .about {
   padding: 120px 0;
+
+  .aboutRow {
+    gap: 135px;
+    align-items: flex-start;
+  }
 
   .aboutLeft {
     h2 {
@@ -50,7 +69,8 @@
     border: 1px solid #e5e8ed;
     background: #fff;
 
-    box-shadow: 0px 4px 4px -4px rgba(30, 33, 44, 0.03),
+    box-shadow:
+      0px 4px 4px -4px rgba(30, 33, 44, 0.03),
       0px 12px 10px -6px rgba(154, 156, 165, 0.04),
       0px 30px 24px -10px rgba(154, 156, 165, 0.05),
       0px 80px 80px -20px rgba(154, 156, 165, 0.08);
@@ -83,6 +103,10 @@
 
 .curator {
   padding-bottom: 180px;
+
+  .curatorRow {
+    gap: 135px;
+  }
 
   .curatorInfo {
     span {
@@ -186,11 +210,20 @@
     display: flex;
     align-items: end;
     justify-content: space-between;
+
+    input {
+      min-width: 25%;
+    }
   }
 }
 
 .forWhom {
   margin-bottom: 180px;
+
+  .forWhomRow {
+    gap: 135px;
+    align-items: flex-start;
+  }
 
   .whomList {
     display: flex;
@@ -226,6 +259,10 @@
 
   background-color: #f4f5f6;
 
+  .registerRight {
+    width: 45%;
+  }
+
   .registerForm {
     width: 100%;
     margin-top: 40px;
@@ -239,5 +276,83 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .title,
+  .about,
+  .register {
+    padding: 50px 0;
+    padding-bottom: 70px;
+  }
+
+  .curator {
+    padding-bottom: 90px;
+  }
+
+  .steps,
+  .cta,
+  .forWhom,
+  .program {
+    margin-bottom: 90px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .about .aboutRow,
+  .curator .curatorRow,
+  .forWhom .forWhomRow {
+    gap: 2rem;
+  }
+
+  .program .programRight,
+  .register .registerLeft {
+    display: none;
+  }
+
+  .cta {
+    padding: 35px 20px;
+
+    .top {
+      text-align: center;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .body {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+
+      > * {
+        width: 50%;
+      }
+
+      button {
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    h3 {
+      max-width: 100%;
+    }
+  }
+
+  .cta {
+    .body {
+      > * {
+        width: 85%;
+      }
+    }
+  }
+
+  .registerForm {
+    width: 100%;
   }
 }
