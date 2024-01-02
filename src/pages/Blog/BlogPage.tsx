@@ -25,7 +25,7 @@ const BlogPage: FC = () => {
 
       <div className="blogToolbox">
         <div className="container">
-          <BlogToolbox type={type as BlogTabsTypeEnum} />
+          <BlogToolbox />
         </div>
       </div>
 

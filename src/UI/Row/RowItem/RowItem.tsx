@@ -1,5 +1,5 @@
-import { CSSProperties, FC, ReactNode } from "react";
 import clsx from "clsx";
+import { CSSProperties, FC, ReactNode } from "react";
 
 import style from "./RowItem.module.scss";
 
@@ -18,7 +18,7 @@ const RowItem: FC<IProps> = ({
   className,
   contentPosition,
   contentAlign,
-  width = "50%",
+  width = "100%",
 }) => {
   return (
     <div

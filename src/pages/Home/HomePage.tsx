@@ -1,23 +1,23 @@
-import { FC } from "react";
-import { Link } from "react-router-dom";
+import Certificate from "@components/Certificate/Certificate";
+import Navbar from "@components/Navbar/Navbar";
+import Subscribe from "@components/Subscribe/Subscribe";
+import Testimonials from "@components/Testimonials/Testimonials";
+import BenefitsTabs from "@src/UI/Tabs/BenefitTabs";
+import { handleLinkClick } from "@src/utils/helpers";
 import Button from "@ui/Button/Button";
 import Row from "@ui/Row/Row";
 import RowItem from "@ui/Row/RowItem/RowItem";
 import Title from "@ui/Title/Title";
-import BenefitsTabs from "@src/UI/Tabs/BenefitTabs";
-import Navbar from "@components/Navbar/Navbar";
-import Subscribe from "@components/Subscribe/Subscribe";
-import TeamList from "@components/TeamList/TeamList";
-import Testimonials from "@components/Testimonials/Testimonials";
-import Certificate from "@components/Certificate/Certificate";
-import { handleLinkClick } from "@src/utils/helpers";
+import { FC } from "react";
+import { Link } from "react-router-dom";
 
 import styles from "./Home.module.scss";
 
-import showreel from "@assets/icons/showreel.svg";
 import homeIllustration from "@assets/homeIllustration.svg";
+import showreel from "@assets/icons/showreel.svg";
 import whoWeAreIllustration from "@assets/whoWeAre.png";
 import ItemsList from "@src/components/ItemList/ItemList";
+import LatestPosts from "@src/components/LatestPosts/LatestPosts";
 
 const HomePage: FC = () => {
   return (
@@ -34,9 +34,7 @@ const HomePage: FC = () => {
                   <img src={showreel} alt="" />
                   Play showreel
                 </button>
-                <h2>
-                  Enjoy studying <br /> with Createx <br /> Online Courses
-                </h2>
+                <h2>Enjoy studying with Createx Online Courses</h2>
                 <div className={styles.buttons}>
                   <Link to="/about" onClick={handleLinkClick}>
                     <Button outline>About us</Button>
@@ -48,7 +46,7 @@ const HomePage: FC = () => {
               </div>
             </RowItem>
 
-            <RowItem>
+            <RowItem className={styles.headerRight}>
               <img src={homeIllustration} alt="" />
             </RowItem>
           </Row>
@@ -84,18 +82,12 @@ const HomePage: FC = () => {
 
       {/* Who we are */}
       <section className={styles.whoWeAre}>
-        <Row
-          className="container"
-          settings={{
-            gap: "100px",
-            align: "flex-start",
-          }}
-        >
-          <RowItem>
+        <Row className={`container ${styles.whoWeAreContainer}`}>
+          <RowItem className={styles.whoWeAreLeft}>
             <img src={whoWeAreIllustration} alt="" />
           </RowItem>
 
-          <RowItem className={styles.whoWeAreDiv}>
+          <RowItem className={styles.whoWeAreRight}>
             <Title>
               <h2>Who we are</h2>
               <h3>Why Createx?</h3>
@@ -141,7 +133,7 @@ const HomePage: FC = () => {
             </Button>
           </div>
 
-          <ItemsList type="course" limit={6} columns={2} />
+          <ItemsList type="course" limit={6} />
         </div>
       </section>
 
@@ -166,7 +158,7 @@ const HomePage: FC = () => {
             <h3>Lectures & workshops</h3>
           </Title>
 
-          <ItemsList type="event" limit={3} columns={1} />
+          <ItemsList type="event" limit={3} />
 
           <div className={styles.eventsFooter}>
             <h3>Do you want more?</h3>
@@ -191,7 +183,7 @@ const HomePage: FC = () => {
             </Title>
           </div>
 
-          <TeamList />
+          <ItemsList type="team" limit={4} />
         </div>
       </section>
 
@@ -199,11 +191,7 @@ const HomePage: FC = () => {
       <Testimonials />
 
       {/* latest posts */}
-      <div className={styles.latestPosts}>
-        <div className="container">
-          <ItemsList limit={3} type="blog" />
-        </div>
-      </div>
+      <LatestPosts className={styles.latestPosts} />
 
       {/* subscribe */}
       <Subscribe />

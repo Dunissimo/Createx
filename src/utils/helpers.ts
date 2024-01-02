@@ -1,3 +1,4 @@
+import { CardsTypes } from "@src/components/ItemList/ItemList";
 import {
   BlogTabsTypeEnum,
   CourseTypeEnum,
@@ -11,11 +12,7 @@ export const firstLetterToUpperCase = (str: string) => {
   return `${str[0].toUpperCase()}${str.slice(1)}`;
 };
 
-export const filterItems = (
-  item: ICourse | IEvent | IBlogCard,
-  search: string,
-  type?: string,
-) => {
+export const filterItems = (item: CardsTypes, search: string, type?: string) => {
   if (type == "event") {
     return (item as IEvent).text.title.toLowerCase().includes(search.toLowerCase());
   } else if (type == "course") {
@@ -26,14 +23,17 @@ export const filterItems = (
 };
 
 export const filterByType = (
-  item: ICourse | IEvent | IBlogCard,
+  item: CardsTypes,
   itemType?: CourseTypeEnum | EventTypeEnum | BlogTabsTypeEnum,
 ) => {
   if (
+    // При фильтре "все" нам не нужно фильтровать
     itemType === EventTypeEnum.All ||
     itemType === CourseTypeEnum.All ||
     itemType === BlogTabsTypeEnum.All ||
-    !itemType
+    !itemType ||
+    // Так как нам также не нужно фильтровать ITeam, то прерываем выполнение функции
+    "job" in item
   ) {
     return item;
   }
@@ -41,11 +41,7 @@ export const filterByType = (
   return item.type.toLowerCase() == itemType.toLowerCase();
 };
 
-export const sortByTime = (
-  a: IEvent | IBlogCard,
-  b: IEvent | IBlogCard,
-  sortBy: "Newest" | "Oldest",
-) => {
+export const sortByTime = (a: CardsTypes, b: CardsTypes, sortBy: "Newest" | "Oldest") => {
   if ("text" in a && "text" in b) {
     if (sortBy == "Newest") return +getEventDate(b) - +getEventDate(a);
     if (sortBy == "Oldest") return +getEventDate(a) - +getEventDate(b);

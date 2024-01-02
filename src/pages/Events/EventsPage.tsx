@@ -1,12 +1,12 @@
-import { FC } from "react";
+import { TOrientation } from "@src/UI/Cards/Event/Event";
 import Title from "@src/UI/Title/Title";
+import EventsToolbox from "@src/components/EventsToolbox/EventsToolbox";
+import ItemsList from "@src/components/ItemList/ItemList";
 import Navbar from "@src/components/Navbar/Navbar";
 import Subscribe from "@src/components/Subscribe/Subscribe";
-import EventsToolbox from "@src/components/EventsToolbox/EventsToolbox";
-import { useSearchParams } from "react-router-dom";
-import { TOrientation } from "@src/UI/Cards/Event/Event";
-import ItemsList from "@src/components/ItemList/ItemList";
 import { EventTypeEnum } from "@src/utils/interfaces";
+import { FC } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const EventsPage: FC = () => {
   const [searchParams] = useSearchParams();
@@ -41,7 +41,6 @@ const EventsPage: FC = () => {
             limit={+limit}
             orientation={orientation as TOrientation}
             search={search}
-            columns={orientation == "horizontal" ? 1 : 3}
             itemType={type as EventTypeEnum}
             sortBy={sortBy as "Newest" | "Oldest"}
           />

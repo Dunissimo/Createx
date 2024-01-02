@@ -6,8 +6,8 @@ import { useUrl } from "@src/utils/hooks";
 import { FC } from "react";
 import { useParams } from "react-router-dom";
 
-import styles from "./Post.module.scss";
 import { firstLetterToUpperCase } from "@src/utils/helpers";
+import styles from "./Post.module.scss";
 
 const PostPage: FC = () => {
   const { id } = useParams();

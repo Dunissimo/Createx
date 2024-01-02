@@ -1,7 +1,8 @@
 import { useGetCoursesQuery } from "@src/api/courses";
 import clsx from "clsx";
-import { MouseEventHandler, FC, useState } from "react";
+import { FC, MouseEventHandler, useEffect, useState } from "react";
 
+import { useSearchParams } from "react-router-dom";
 import styles from "./ToolboxTab.module.scss";
 
 export type ToolboxValue = {
@@ -24,16 +25,21 @@ const ToolboxTabs: FC<ITabsProps> = ({
   defaultValue,
   isWithBadge,
 }) => {
+  const [params] = useSearchParams();
   const { data: courses } = useGetCoursesQuery();
   const [active, setActive] = useState(defaultValue);
 
   const clickHandler: MouseEventHandler<HTMLDivElement> = (e) => {
-    setActive(e.currentTarget.dataset.type || "All");
-
-    console.log(e.currentTarget.dataset.type);
+    setActive(e.currentTarget.dataset.type || defaultValue);
 
     onClick && onClick(e);
   };
+
+  useEffect(() => {
+    if (params.get("type") === defaultValue) {
+      setActive(defaultValue);
+    }
+  }, [params]);
 
   return (
     <div className={className}>

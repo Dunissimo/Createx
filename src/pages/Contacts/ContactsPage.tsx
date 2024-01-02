@@ -1,12 +1,12 @@
+import Button from "@src/UI/Button/Button";
+import Input from "@src/UI/Form/Input/Input";
+import Textarea from "@src/UI/Form/Textarea/Textarea";
 import Row from "@src/UI/Row/Row";
 import RowItem from "@src/UI/Row/RowItem/RowItem";
 import SocialMedia from "@src/UI/SocialMedia/SocialMedia";
 import Title from "@src/UI/Title/Title";
 import Navbar from "@src/components/Navbar/Navbar";
 import { FC } from "react";
-import Button from "@src/UI/Button/Button";
-import Textarea from "@src/UI/Form/Textarea/Textarea";
-import Input from "@src/UI/Form/Input/Input";
 
 import styles from "./ContactsPage.module.scss";
 
@@ -18,11 +18,8 @@ const ContactsPage: FC = () => {
       <Navbar />
 
       {/* contact info */}
-      <div
-        className="container contactInfo"
-        style={{ marginTop: "80px", marginBottom: "180px" }}
-      >
-        <Row>
+      <div className="container">
+        <Row className={styles.contacts}>
           <RowItem>
             <Title>
               <h2>Contact info</h2>
@@ -69,7 +66,7 @@ const ContactsPage: FC = () => {
       {/* questions */}
       <div className="container">
         <div className={styles.questions}>
-          <Row>
+          <Row className={styles.questionsRow}>
             <RowItem width="40%">
               <img src={img} alt="" />
             </RowItem>

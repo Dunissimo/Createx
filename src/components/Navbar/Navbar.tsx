@@ -1,14 +1,15 @@
+/* eslint-disable react/no-unescaped-entities */
+import Button from "@ui/Button/Button";
+import clsx from "clsx";
 import { FC } from "react";
 import { Link, NavLink } from "react-router-dom";
-import clsx from "clsx";
-import Button from "@ui/Button/Button";
 
 import styles from "./Navbar.module.scss";
 
 import darkLogo from "@assets/dark-logo.svg";
-import lightLogo from "@assets/light-logo.svg";
 import darkPerson from "@assets/icons/dark-person.svg";
 import lightPerson from "@assets/icons/light-person.svg";
+import lightLogo from "@assets/light-logo.svg";
 
 interface IProps {
   theme?: "dark" | "light";
@@ -22,8 +23,8 @@ const Navbar: FC<IProps> = ({ theme = "light" }) => {
 
   return (
     <header className={clsx(styles.navbar, styles[`navbar-${theme}`])}>
-      <div className="container flex-row items-center justify-between">
-        <div className="logo">
+      <div className={`container ${styles.navbarContainer}`}>
+        <nav className={styles.nav}>
           <Link to="/">
             {theme === "dark" ? (
               <img src={lightLogo} width={130} alt="createx logo" />
@@ -31,9 +32,7 @@ const Navbar: FC<IProps> = ({ theme = "light" }) => {
               <img src={darkLogo} width={130} alt="createx logo" />
             )}
           </Link>
-        </div>
-        <nav className={styles.nav}>
-          <li>
+          <li className={styles.first}>
             <NavLink className={({ isActive }) => classs(isActive)} to="/about">
               About us
             </NavLink>
@@ -55,7 +54,7 @@ const Navbar: FC<IProps> = ({ theme = "light" }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink className={({ isActive }) => classs(isActive)} to="/blog">
+            <NavLink className={({ isActive }) => classs(isActive)} to="/blog?type=All">
               Blog
             </NavLink>
           </li>
@@ -65,6 +64,11 @@ const Navbar: FC<IProps> = ({ theme = "light" }) => {
             </NavLink>
           </li>
         </nav>
+
+        <div className={styles.burger} style={{ textAlign: "center" }}>
+          <p>Here'll be Burger menu Please wait</p>
+        </div>
+
         <div className={styles.auth}>
           <Button size="xl">Get consultation</Button>
           <Button simple style={{ display: "block" }}>

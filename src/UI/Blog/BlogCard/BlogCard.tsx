@@ -9,7 +9,7 @@ import styles from "./BlogCard.module.scss";
 import calendar from "@assets/icons/Calendar.svg";
 import clock from "@assets/icons/Clock.svg";
 import { Link } from "react-router-dom";
-import { firstLetterToUpperCase } from "@src/utils/helpers";
+import { firstLetterToUpperCase, handleLinkClick } from "@src/utils/helpers";
 
 interface IProps {
   card: IBlogCard;
@@ -36,7 +36,7 @@ const BlogCardUI: FC<IProps> = ({ card }) => {
   return (
     <section className={styles.card}>
       <div className={styles.cardImg}>
-        <Link to={`/blog/${id}`}>
+        <Link onClick={handleLinkClick} to={`/blog/${id}`}>
           <img src={url} alt="" />
         </Link>
 
@@ -53,7 +53,11 @@ const BlogCardUI: FC<IProps> = ({ card }) => {
         {duration}
       </div>
       <div className={styles.title}>
-        <Link to={`/blog/${id}`} style={{ fontWeight: "700", color: "#1e212c" }}>
+        <Link
+          onClick={handleLinkClick}
+          to={`/blog/${id}`}
+          style={{ fontWeight: "700", color: "#1e212c" }}
+        >
           <h2>{title}</h2>
         </Link>
 

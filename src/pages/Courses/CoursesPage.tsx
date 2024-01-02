@@ -29,7 +29,7 @@ const CoursesPage: FC = () => {
             <h3>Our online courses</h3>
           </Title>
 
-          <CoursesToolbox type={type as CourseTypeEnum} />
+          <CoursesToolbox />
 
           <div style={{ marginBottom: "120px" }}>
             <ItemsList
@@ -37,7 +37,6 @@ const CoursesPage: FC = () => {
               orientation="vertical"
               search={search}
               limit={9}
-              columns={3}
               itemType={type as CourseTypeEnum}
             />
           </div>

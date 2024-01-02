@@ -1,5 +1,5 @@
-import { CSSProperties, FC, ReactNode } from "react";
 import clsx from "clsx";
+import { CSSProperties, FC, ReactNode } from "react";
 
 import styles from "./Row.module.scss";
 
@@ -20,7 +20,7 @@ const Row: FC<IProps> = ({ className, style, children, settings }) => {
   return (
     <div
       className={clsx(styles.row, className)}
-      style={{ alignItems: align, justifyContent: justify, gap, ...style }}
+      style={{ alignItems: align, justifyContent: justify, gap: gap || "", ...style }}
     >
       {children}
     </div>

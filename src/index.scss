@@ -156,13 +156,6 @@ body {
   margin: 0 auto;
 }
 
-@media (max-width: 1440px) {
-  .container {
-    max-width: 95%;
-    padding: 0 2rem;
-  }
-}
-
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -194,8 +187,14 @@ body {
   justify-content: space-between;
 }
 
-@media (max-width: 1250px) {
+@media ((min-width: 450px) and (max-width: 1400px)) {
   .container {
     padding: 0 2rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .container {
+    padding: 0 10px;
   }
 }

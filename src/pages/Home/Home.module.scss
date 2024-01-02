@@ -7,12 +7,12 @@
 
     .headerLeft {
       h2 {
+        width: 70%;
         margin: 24px 0 60px 0;
-
-        font-size: clamp(2rem, 6vw, 64px);
 
         color: #1e212c;
 
+        font-size: 3em;
         line-height: 1.25em;
         font-weight: 900;
       }
@@ -50,6 +50,13 @@
         }
       }
     }
+
+    .headerRight {
+      img {
+        width: 100%;
+      }
+    }
+
     .buttons {
       display: flex;
       gap: 1.5rem;
@@ -94,12 +101,17 @@
 .whoWeAre {
   padding: 180px 0;
 
-  .whoWeAreDiv {
+  .whoWeAreRight {
     min-height: 530px;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+
+  .whoWeAreContainer {
+    gap: 100px;
+    align-items: flex-start;
   }
 
   .whoWeAreList {
@@ -158,8 +170,7 @@
 }
 
 .team {
-  padding-top: 170px;
-  padding-bottom: 180px;
+  padding: 180px;
   background: #f4f5f6;
 
   .teamTop {
@@ -170,4 +181,178 @@
 
 .latestPosts {
   padding: 60px 0;
+}
+
+@media (max-width: 1300px) {
+  .header {
+    .headerBody {
+      padding: 2em 0 40px;
+    }
+
+    .headerFooter {
+      padding-bottom: 40px;
+    }
+  }
+
+  .whoWeAre,
+  .team {
+    padding: 60px 0;
+  }
+  .courses {
+    padding-bottom: 0;
+  }
+  .events {
+    padding: 40px 0;
+  }
+
+  .whoWeAre {
+    .whoWeAreContainer {
+      align-items: center;
+    }
+  }
+}
+
+@media (max-width: 1050px) {
+  .header {
+    min-height: auto;
+
+    .headerLeft {
+      margin-bottom: 40px;
+
+      h2 {
+        font-size: 2em;
+      }
+    }
+
+    .headerRight {
+      display: none;
+    }
+
+    .headerFooter .headerAchievements li > span {
+      font-size: 1.5em;
+    }
+  }
+
+  .whoWeAre {
+    .whoWeAreContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .whoWeAreLeft img {
+      width: 60%;
+    }
+
+    .whoWeAreRight {
+      min-height: auto;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .header {
+    .headerBody {
+      padding: 0;
+      padding-top: 20px;
+
+      .headerLeft {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h2 {
+          width: 100%;
+          margin: 20px 0;
+          text-align: center;
+        }
+      }
+    }
+
+    .headerFooter {
+      .headerAchievements {
+        flex-direction: column;
+      }
+    }
+  }
+
+  .whoWeAre .whoWeAreContainer {
+    .whoWeAreLeft,
+    .whoWeAreRight {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+    }
+
+    .whoWeAreLeft {
+      align-items: center;
+
+      img {
+        width: 75%;
+      }
+    }
+
+    .whoWeAreList {
+      max-width: 100%;
+    }
+
+    a,
+    button {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    .headerBody .headerLeft h2 {
+      width: 100%;
+      margin: 10px 0 30px;
+      font-size: 30px;
+    }
+  }
+
+  .whoWeAre .whoWeAreLeft img {
+    width: 100%;
+  }
+
+  .courses {
+    margin-top: 60px;
+    .coursesHeader {
+      flex-direction: column;
+      align-items: start;
+      justify-content: center;
+      gap: 20px;
+
+      a,
+      button {
+        width: 100%;
+      }
+    }
+  }
+
+  .events .eventsFooter {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .header {
+    .headerBody {
+      .buttons button {
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .headerLeft > button img {
+        width: 30%;
+        padding: 10px;
+      }
+    }
+  }
 }

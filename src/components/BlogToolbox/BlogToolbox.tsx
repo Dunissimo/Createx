@@ -11,12 +11,9 @@ import podcast from "@assets/blog/podcast.svg";
 import video from "@assets/blog/video.svg";
 import { useSearchParams } from "react-router-dom";
 
-interface IBlogToolboxProps {
-  type: BlogTabsTypeEnum;
-}
-
-const BlogToolbox: FC<IBlogToolboxProps> = ({ type }) => {
+const BlogToolbox: FC = () => {
   const [params, setParams] = useSearchParams();
+  const type = params.get("type") || "";
   const search = params.get("search") || "";
 
   const clickHandler: MouseEventHandler<HTMLDivElement> = (e) => {
@@ -36,7 +33,7 @@ const BlogToolbox: FC<IBlogToolboxProps> = ({ type }) => {
           { text: BlogTabsTypeEnum.Podcast, icon: podcast },
         ]}
         onClick={clickHandler}
-        defaultValue={type}
+        defaultValue={BlogTabsTypeEnum.All}
       />
 
       <div className={styles.toolboxRight}>
@@ -54,11 +51,17 @@ const BlogToolbox: FC<IBlogToolboxProps> = ({ type }) => {
               CourseTypeEnum.Marketing,
               CourseTypeEnum.Recruting,
             ]}
+            onChange={(e) => {
+              setParams({
+                type,
+                search,
+                theme: e.target.value,
+              });
+            }}
           />
         </div>
 
         <Input
-          width="50%"
           image="search"
           placeholder="Search blog..."
           type="search"

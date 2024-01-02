@@ -2,12 +2,7 @@ import CourseUI from "@src/UI/Cards/Course/Course";
 import EventUI, { TOrientation } from "@src/UI/Cards/Event/Event";
 import { useGetCoursesQuery } from "@src/api/courses";
 import { useGetEventsQuery } from "@src/api/events";
-import {
-  filterByType,
-  filterItems,
-  handleLinkClick,
-  sortByTime,
-} from "@src/utils/helpers";
+import { filterByType, filterItems, sortByTime } from "@src/utils/helpers";
 import {
   BlogTabsTypeEnum,
   CourseTypeEnum,
@@ -15,18 +10,21 @@ import {
   IBlogCard,
   ICourse,
   IEvent,
+  ITeam,
 } from "@src/utils/interfaces";
 import clsx from "clsx";
 import { CSSProperties, FC } from "react";
 import Skeleton from "react-loading-skeleton";
-import { Link } from "react-router-dom";
 
 import BlogCardUI from "@src/UI/Blog/BlogCard/BlogCard";
+import TeamUI from "@src/UI/Team/Team";
 import { useGetPostsQuery } from "@src/api/posts";
+import { useGetTeamQuery } from "@src/api/team";
 import "react-loading-skeleton/dist/skeleton.css";
 import styles from "./ItemList.module.scss";
 
-type CommonType = "event" | "course" | "blog";
+export type CommonType = "event" | "course" | "blog" | "team";
+export type CardsTypes = ICourse | IEvent | IBlogCard | ITeam;
 
 interface ICommonProps {
   limit?: number;
@@ -34,35 +32,50 @@ interface ICommonProps {
   search?: string;
   itemType?: CourseTypeEnum | EventTypeEnum | BlogTabsTypeEnum;
   type?: CommonType;
-  columns?: number;
   sortBy?: "Newest" | "Oldest";
 }
 
 interface IItemListProps extends ICommonProps {}
 
 const ItemsList: FC<IItemListProps> = (props) => {
-  const { columns = 3, orientation = "horizontal", type, limit } = props;
+  const { orientation = "horizontal", type = "course", limit } = props;
 
-  const { data, isError, isLoading } =
+  const { data, isError, isLoading, isFetching } =
     type == "course"
       ? useGetCoursesQuery()
       : type == "event"
         ? useGetEventsQuery()
-        : useGetPostsQuery();
+        : type == "blog"
+          ? useGetPostsQuery()
+          : useGetTeamQuery();
 
   if (isError) {
     return <div>Error!</div>;
   }
 
+  const skeletons = (ind: number) => ({
+    course: (
+      <div key={ind}>
+        <Skeleton count={1} width={"100%"} height={200} />
+      </div>
+    ),
+    event: <Skeleton count={1} width={"80vw"} height={200} />,
+    blog: (
+      <div key={ind}>
+        <Skeleton count={1} width={"100%"} height={500} />,
+      </div>
+    ),
+    team: (
+      <div key={ind}>
+        <Skeleton baseColor="#dee1e3" highlightColor="#ebeef0" count={1} height={300} />
+      </div>
+    ),
+  });
+
   return (
-    <div
-      className={clsx(styles[`item-${orientation}`], styles[`item-${type}`])}
-      style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
-    >
-      {isLoading ? (
-        new Array(limit || 9)
-          .fill(0)
-          .map((_, ind) => <Skeleton key={ind} count={1} height={200} />)
+    <div className={clsx(styles.items, styles[`items-${orientation}`], styles[type])}>
+      {isLoading || isFetching ? (
+        new Array(limit || 9).fill(0).map((_, ind) => skeletons(ind)[type])
       ) : (
         <Item data={data} {...props} />
       )}
@@ -71,15 +84,9 @@ const ItemsList: FC<IItemListProps> = (props) => {
 };
 
 interface IItemProps extends ICommonProps {
-  data?: ICourse[] | IEvent[] | IBlogCard[];
+  data?: Array<CardsTypes>;
   style?: CSSProperties;
 }
-
-const paths = {
-  events: "/events",
-  courses: "/courses",
-  blog: "/blog",
-};
 
 export const Item: FC<IItemProps> = ({
   data,
@@ -91,13 +98,14 @@ export const Item: FC<IItemProps> = ({
   itemType,
   style,
 }) => {
-  const components = (item: IBlogCard | ICourse | IEvent) => ({
+  const components = (item: CardsTypes) => ({
     course: <CourseUI course={item as ICourse} orientation={orientation} />,
     event: <EventUI event={item as IEvent} orientation={orientation as TOrientation} />,
     blog: <BlogCardUI card={item as IBlogCard} />,
+    team: <TeamUI team={item as ITeam} />,
   });
 
-  const renderItems = (data?: Array<ICourse | IEvent | IBlogCard>, type?: CommonType) => {
+  const renderItems = (data?: Array<CardsTypes>, type?: CommonType) => {
     if (!data || !type) return <div>Ошибка</div>;
 
     return data
@@ -119,13 +127,7 @@ export const Item: FC<IItemProps> = ({
       })
       .map((item) => (
         <div key={item.id} style={style}>
-          <Link
-            className={styles.linkToItem}
-            onClick={handleLinkClick}
-            to={`${paths[type as keyof typeof paths]}/${item.id}`}
-          >
-            {components(item)[type]}
-          </Link>
+          {components(item)[type]}
         </div>
       ));
   };

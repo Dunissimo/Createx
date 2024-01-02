@@ -1,6 +1,5 @@
 .testimonials {
-  padding-top: 80px;
-  padding-bottom: 100px;
+  padding: 90px;
   background: #f4f5f6;
 }
 
@@ -13,7 +12,8 @@
 
   background: #fff;
   border-radius: 4px;
-  box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08),
+  box-shadow:
+    0px 80px 80px -20px rgba(154, 156, 165, 0.08),
     0px 30px 24px -10px rgba(154, 156, 165, 0.05),
     0px 12px 10px -6px rgba(154, 156, 165, 0.04),
     0px 4px 4px -4px rgba(30, 33, 44, 0.03);
@@ -29,7 +29,7 @@
       display: block;
       position: absolute;
       top: 0;
-      left: -7.5%;
+      left: -40px;
     }
   }
 
@@ -48,6 +48,29 @@
     span {
       color: #787a80;
       font-size: 0.9em;
+    }
+  }
+}
+
+@media (max-width: 1300px) {
+  .testimonials {
+    padding: 45px 0;
+  }
+  .testimonial {
+    width: 100%;
+    padding: 3rem 4rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .testimonial {
+    padding: 2rem 1rem;
+    text-align: center;
+    p::before {
+      display: none;
+    }
+    .author {
+      justify-content: center;
     }
   }
 }

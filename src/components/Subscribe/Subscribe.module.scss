@@ -32,8 +32,42 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1250px) {
+  .subscribe {
+    padding: 60px 0 90px 0;
+  }
   .illustration {
     display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .subscribe {
+    .body {
+      h3 {
+        font-size: 40px;
+      }
+    }
+
+    .footer {
+      flex-direction: column;
+      align-items: center;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .subscribe {
+    .body h3 {
+      font-size: 28px;
+    }
+
+    .footer {
+      width: 100%;
+    }
   }
 }

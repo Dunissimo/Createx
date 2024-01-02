@@ -1,22 +1,22 @@
 import { FC } from "react";
 
-import styles from "./SubscribeNews.module.scss";
+import Button from "@src/UI/Button/Button";
+import Input from "@src/UI/Form/Input/Input";
 import Row from "@src/UI/Row/Row";
 import RowItem from "@src/UI/Row/RowItem/RowItem";
-import Input from "@src/UI/Form/Input/Input";
-import Button from "@src/UI/Button/Button";
+import styles from "./SubscribeNews.module.scss";
 
 import blog from "@assets/blog/blog-illustration.svg";
 
 const SubscribeNews: FC = () => {
   return (
     <div className={styles.newsletters}>
-      <Row>
-        <RowItem>
+      <Row className={styles.newsRow}>
+        <RowItem className={styles.newsLeft}>
           <img src={blog} alt="" />
         </RowItem>
 
-        <RowItem>
+        <RowItem className={styles.newsRight}>
           <h3>
             Want to get the best articles weekly? <br /> Subscribe to our newsletter!
           </h3>
