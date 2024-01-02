@@ -26,3 +26,32 @@
 .toolboxSelect {
   width: 100%;
 }
+
+@media (max-width: 1000px) {
+  .tabs {
+    // TODO: сделать табы для мобилок
+    display: none;
+  }
+
+  .toolboxRight {
+    width: 100%;
+
+    .toolboxItem,
+    .toolboxItem > *,
+    > * {
+      width: 50%;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .toolboxRight {
+    flex-direction: column;
+
+    .toolboxItem,
+    .toolboxItem > *,
+    > * {
+      width: 100%;
+    }
+  }
+}

@@ -62,7 +62,6 @@ const BlogToolbox: FC = () => {
         </div>
 
         <Input
-          width="50%"
           image="search"
           placeholder="Search blog..."
           type="search"

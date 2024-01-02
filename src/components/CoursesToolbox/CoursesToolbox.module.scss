@@ -8,5 +8,18 @@
 .coursesTabs {
   display: flex;
   gap: 12px;
-  margin-right: 200px;
+  margin-right: 15%;
+}
+
+@media (max-width: 1200px) {
+  .coursesTabs {
+    margin-right: 5%;
+  }
+}
+
+@media (max-width: 1000px) {
+  // TODO: сделать табы для мобилок
+  .coursesTabs {
+    display: none;
+  }
 }
