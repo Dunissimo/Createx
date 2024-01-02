@@ -53,7 +53,7 @@ const Navbar: FC<IProps> = ({ theme = "light" }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink className={({ isActive }) => classs(isActive)} to="/blog">
+            <NavLink className={({ isActive }) => classs(isActive)} to="/blog?type=All">
               Blog
             </NavLink>
           </li>

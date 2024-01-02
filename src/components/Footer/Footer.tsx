@@ -58,7 +58,7 @@ const Footer: FC = () => {
               </Link>
             </li>
             <li>
-              <Link onClick={handleSmoothLinkClick} to="/blog">
+              <Link onClick={handleSmoothLinkClick} to="/blog?type=All">
                 Blog
               </Link>
             </li>

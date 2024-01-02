@@ -1,17 +1,17 @@
 import { FC, MouseEventHandler } from "react";
 
-import styles from "./CoursesToolbox.module.scss";
 import Input from "@src/UI/Form/Input/Input";
+import ToolboxTabs from "@src/UI/Tabs/ToolboxTab/ToolboxTab";
 import { CourseTypeEnum } from "@src/utils/interfaces";
 import { useSearchParams } from "react-router-dom";
-import ToolboxTabs from "@src/UI/Tabs/ToolboxTab/ToolboxTab";
+import styles from "./CoursesToolbox.module.scss";
 
-interface ICoursesToolboxProps {
-  type: CourseTypeEnum;
-}
+interface ICoursesToolboxProps {}
 
-const CoursesToolbox: FC<ICoursesToolboxProps> = ({ type }) => {
+const CoursesToolbox: FC<ICoursesToolboxProps> = () => {
   const [params, setParams] = useSearchParams();
+  const type = params.get("type") || "";
+  const search = params.get("search") || "";
 
   const clickHandler: MouseEventHandler<HTMLDivElement> = (e) => {
     if (!(e.target instanceof HTMLDivElement)) return;
@@ -32,13 +32,13 @@ const CoursesToolbox: FC<ICoursesToolboxProps> = ({ type }) => {
           { text: CourseTypeEnum.Development },
         ]}
         onClick={clickHandler}
-        defaultValue={type}
+        defaultValue={CourseTypeEnum.All}
       />
 
       <Input
         image="search"
         placeholder="Search course..."
-        value={params.get("search") || ""}
+        value={search}
         onChange={(e) =>
           setParams({
             type,
