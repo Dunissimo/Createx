@@ -49,6 +49,10 @@
     }
   }
 
+  .burger {
+    display: none;
+  }
+
   &.navbar-light {
     color: #424551;
     background: inherit;
@@ -88,6 +92,10 @@
 @media (max-width: 1000px) {
   .navbar .nav li {
     display: none;
+  }
+
+  .navbar .burger {
+    display: block;
   }
 }
 

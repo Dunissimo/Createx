@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Button from "@ui/Button/Button";
 import clsx from "clsx";
 import { FC } from "react";
@@ -63,6 +64,11 @@ const Navbar: FC<IProps> = ({ theme = "light" }) => {
             </NavLink>
           </li>
         </nav>
+
+        <div className={styles.burger} style={{ textAlign: "center" }}>
+          <p>Here'll be Burger menu Please wait</p>
+        </div>
+
         <div className={styles.auth}>
           <Button size="xl">Get consultation</Button>
           <Button simple style={{ display: "block" }}>
