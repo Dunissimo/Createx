@@ -48,7 +48,7 @@ export interface ICourse {
   imgName: string;
 }
 
-interface ICurator {
+export interface ICurator {
   coursesCount: number;
   job: string;
   name: string;
@@ -56,6 +56,14 @@ interface ICurator {
   socialMediaLinks: string[];
   studentsCount: number;
   text: string;
+}
+
+export interface ISpeaker {
+  job: string;
+  name: string;
+  socialMediaLinks: string[];
+  text: string;
+  companies: string[];
 }
 
 export interface ICourseContent {

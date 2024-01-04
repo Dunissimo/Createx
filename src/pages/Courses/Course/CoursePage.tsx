@@ -1,26 +1,23 @@
-import { FC } from "react";
-import { useParams } from "react-router-dom";
-
+import illustration from "@assets/illustration-course.svg";
+import register from "@assets/illustration-register.svg";
+import curatorImg from "@assets/team/curator-image.svg";
 import Accordion from "@src/UI/Accordion/Accordion";
 import Button from "@src/UI/Button/Button";
+import { Info, InfoItem } from "@src/UI/Cards/Info/Info";
 import Input from "@src/UI/Form/Input/Input";
 import Row from "@src/UI/Row/Row";
 import RowItem from "@src/UI/Row/RowItem/RowItem";
-import SocialMedia from "@src/UI/SocialMedia/SocialMedia";
 import Steps from "@src/UI/Steps/Steps";
 import Title from "@src/UI/Title/Title";
 import { useGetCourseContentQuery } from "@src/api/courses";
 import Navbar from "@src/components/Navbar/Navbar";
+import Person from "@src/components/Person/Person";
 import Testimonials from "@src/components/Testimonials/Testimonials";
+import { FC } from "react";
 import Skeleton from "react-loading-skeleton";
-
 import "react-loading-skeleton/dist/skeleton.css";
+import { useParams } from "react-router-dom";
 import styles from "./CoursePage.module.scss";
-
-import illustration from "@assets/illustration-course.svg";
-import register from "@assets/illustration-register.svg";
-import curatorImg from "@assets/team/curator-image.svg";
-import { Info, InfoItem } from "@src/UI/Cards/Info/Info";
 
 const CoursePage: FC = () => {
   const { id } = useParams();
@@ -72,7 +69,7 @@ const CoursePage: FC = () => {
               {isLoading ? (
                 <Skeleton height={500} />
               ) : (
-                <Info>
+                <Info className={styles.aboutInfo}>
                   <InfoItem
                     subtitle="Dates"
                     title={info?.date}
@@ -101,44 +98,7 @@ const CoursePage: FC = () => {
       </section>
 
       <section className={styles.curator}>
-        <div className="container">
-          <Row className={styles.curatorRow}>
-            <RowItem>
-              {isLoading ? <Skeleton height={500} /> : <img src={curatorImg} alt="" />}
-            </RowItem>
-
-            <RowItem className={styles.curatorInfo}>
-              {isLoading ? (
-                <Skeleton height={500} />
-              ) : (
-                <>
-                  <Title style={{ color: "#1e212c", marginBottom: "16px" }}>
-                    <h2>course curator</h2>
-                    <h3>{curator?.name}</h3>
-                  </Title>
-
-                  <span>{curator?.job}</span>
-
-                  <ul className={styles.stats}>
-                    <li>{curator?.rating} rate</li>
-                    <li>{curator?.coursesCount} courses</li>
-                    <li>{curator?.studentsCount} students</li>
-                  </ul>
-
-                  <p>{curator?.text}</p>
-
-                  {/* TODO: replace to curator?.socialMediaLinks */}
-                  <div className={styles.social}>
-                    <SocialMedia social="facebook" className="curator" />
-                    <SocialMedia social="behance" className="curator" />
-                    <SocialMedia social="twitter" className="curator" />
-                    <SocialMedia social="instagram" className="curator" />
-                  </div>
-                </>
-              )}
-            </RowItem>
-          </Row>
-        </div>
+        <Person imgLink={curatorImg} isLoading={isLoading} person={curator} />
       </section>
 
       <section className={styles.steps}>

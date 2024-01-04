@@ -6,16 +6,19 @@ import RowItem from "@src/UI/Row/RowItem/RowItem";
 import Title from "@src/UI/Title/Title";
 import { useGetEventContentQuery } from "@src/api/events";
 import Navbar from "@src/components/Navbar/Navbar";
+import Person from "@src/components/Person/Person";
+import { ISpeaker } from "@src/utils/interfaces";
 import { FC } from "react";
 import Skeleton from "react-loading-skeleton";
 import { Link, useParams } from "react-router-dom";
-
 import styles from "./EventPage.module.scss";
+
+import speakerImg from "@assets/team/speaker-image.svg";
 
 const EventPage: FC = () => {
   const { id } = useParams();
   const { data: eventContent, isLoading } = useGetEventContentQuery(Number(id));
-  const { themes, info } = eventContent?.data || {};
+  const { themes, info, speaker, listForWhom } = eventContent?.data || {};
 
   return (
     <section>
@@ -88,9 +91,35 @@ const EventPage: FC = () => {
         </div>
       </div>
 
-      <div className="spear"></div>
+      <div className={styles.speaker}>
+        {/* TODO: поменять данные speaker */}
+        <Person isLoading={isLoading} person={speaker as ISpeaker} imgLink={speakerImg} />
+      </div>
 
-      <div className="forWhom"></div>
+      <section className={styles.forWhom}>
+        <div className="container">
+          <Row className={styles.forWhomRow}>
+            <RowItem>
+              <Title style={{ color: "#1e212c" }}>
+                <h2>For whom?</h2>
+                <h3>
+                  Who will benefit from <br /> the course:
+                </h3>
+              </Title>
+            </RowItem>
+
+            <RowItem>
+              <ul className={styles.whomList}>
+                {isLoading
+                  ? new Array(5)
+                      .fill(0)
+                      .map((_, index) => <Skeleton key={index} height={30} />)
+                  : listForWhom?.map((item, key) => <li key={key}>{item}</li>)}
+              </ul>
+            </RowItem>
+          </Row>
+        </div>
+      </section>
 
       <div className="news"></div>
 
