@@ -53,29 +53,44 @@ const ItemsList: FC<IItemListProps> = (props) => {
     return <div>Error!</div>;
   }
 
-  const skeletons = (ind: number) => ({
-    course: (
-      <div key={ind}>
-        <Skeleton count={1} width={"100%"} height={200} />
-      </div>
-    ),
-    event: <Skeleton count={1} width={"80vw"} height={200} />,
-    blog: (
-      <div key={ind}>
-        <Skeleton count={1} width={"100%"} height={500} />,
-      </div>
-    ),
-    team: (
-      <div key={ind}>
-        <Skeleton baseColor="#dee1e3" highlightColor="#ebeef0" count={1} height={300} />
-      </div>
-    ),
-  });
+  const skeletons = (type: CommonType, ind: number) => {
+    switch (type) {
+      case "event":
+      case "course":
+        return (
+          <div key={ind}>
+            <Skeleton count={1} width={"100%"} height={200} />
+          </div>
+        );
+
+      case "blog":
+        return (
+          <div key={ind}>
+            <Skeleton count={1} width={"100%"} height={500} />,
+          </div>
+        );
+
+      case "team":
+        return (
+          <div key={ind}>
+            <Skeleton
+              baseColor="#dee1e3"
+              highlightColor="#ebeef0"
+              count={1}
+              height={300}
+            />
+          </div>
+        );
+
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className={clsx(styles.items, styles[`items-${orientation}`], styles[type])}>
       {isLoading || isFetching ? (
-        new Array(limit || 9).fill(0).map((_, ind) => skeletons(ind)[type])
+        new Array(limit || 9).fill(0).map((_, ind) => skeletons(type, ind))
       ) : (
         <Item data={data} {...props} />
       )}

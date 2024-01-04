@@ -28,11 +28,11 @@ const App = () => {
   };
 
   useEffect(() => {
-    if (localStorage.getItem("isToastShowed") !== "yes") {
+    if (sessionStorage.getItem("isToastShowed") !== "yes") {
       showToastMessage();
     }
 
-    localStorage.setItem("isToastShowed", "yes");
+    sessionStorage.setItem("isToastShowed", "yes");
   }, []);
 
   return (

@@ -49,6 +49,13 @@
     }
   }
 }
+
+@media (max-width: 785px) {
+  .changeView {
+    display: none;
+  }
+}
+
 @media (max-width: 600px) {
   .toolbox {
     align-items: start;
