@@ -1,0 +1,39 @@
+.title {
+  width: 80%;
+  margin: 0 auto;
+  padding: 120px 0;
+}
+
+.talkAbout {
+  padding: 120px 0 180px 0;
+
+  .talkAboutLeft {
+    h2 {
+      margin-bottom: 40px;
+      color: #1e212c;
+
+      font-size: 46px;
+      font-weight: 900;
+    }
+
+    .accord {
+      margin-bottom: 24px;
+    }
+  }
+
+  .talkAboutRight {
+    display: flex;
+    justify-content: center;
+
+    a {
+      text-decoration: underline;
+      color: #ff3f3a;
+    }
+  }
+
+  .talkAboutInfo {
+    max-width: 495px;
+    min-height: 455px;
+    gap: 32px;
+  }
+}

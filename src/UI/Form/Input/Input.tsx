@@ -1,7 +1,7 @@
-import { FC } from "react";
-import clsx from "clsx";
-import { IInputProps } from "@utils/interfaces";
 import Checkbox from "@ui/Form/Checkbox/Checkbox";
+import { IInputProps } from "@utils/interfaces";
+import clsx from "clsx";
+import { FC } from "react";
 
 import styles from "./Input.module.scss";
 
@@ -15,6 +15,7 @@ interface IProps extends IInputProps {
   imageAsSubmit?: boolean;
   className?: string;
   width?: string;
+  inputClassName?: string;
 }
 
 const Input: FC<IProps> = ({
@@ -24,6 +25,7 @@ const Input: FC<IProps> = ({
   image,
   className,
   width,
+  inputClassName,
   ...props
 }) => {
   if (props?.type === "checkbox") {
@@ -31,14 +33,17 @@ const Input: FC<IProps> = ({
   }
 
   return (
-    <div className={clsx(styles.parrentBlock, styles[theme])} style={{ width }}>
+    <div
+      className={clsx(styles.parrentBlock, styles[theme], className)}
+      style={{ width }}
+    >
       <div className={styles.inputDiv}>
         <input
           className={clsx(
             styles.input,
             styles[`input-${variant}`],
             styles[`input-${theme}`],
-            className,
+            inputClassName,
           )}
           {...props}
         />

@@ -101,6 +101,7 @@
 
   .companiesRow {
     gap: 60px;
+    justify-content: center;
   }
 }
 
@@ -168,6 +169,7 @@
 
   .companies .companiesRow {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     gap: 30px;
   }

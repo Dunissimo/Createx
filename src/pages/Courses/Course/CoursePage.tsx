@@ -20,6 +20,7 @@ import styles from "./CoursePage.module.scss";
 import illustration from "@assets/illustration-course.svg";
 import register from "@assets/illustration-register.svg";
 import curatorImg from "@assets/team/curator-image.svg";
+import { Info, InfoItem } from "@src/UI/Cards/Info/Info";
 
 const CoursePage: FC = () => {
   const { id } = useParams();
@@ -71,32 +72,28 @@ const CoursePage: FC = () => {
               {isLoading ? (
                 <Skeleton height={500} />
               ) : (
-                <>
-                  <div className={styles.info}>
-                    <h4>Dates</h4>
-                    <h3>{info?.date}</h3>
-                    <p>Metus turpis sit lorem lacus, in elit tellus lacus.</p>
-                  </div>
+                <Info>
+                  <InfoItem
+                    subtitle="Dates"
+                    title={info?.date}
+                    par="Metus turpis sit lorem lacus, in elit tellus lacus."
+                  />
 
-                  <div className={styles.info}>
-                    <h4>Duration</h4>
-                    <h3>{info?.duration}</h3>
-                    <p>
-                      Rhoncus pellentesque auctor auctor orci vulputate faucibus quis ut.
-                    </p>
-                  </div>
+                  <InfoItem
+                    subtitle="Duration"
+                    title={info?.duration}
+                    par="Rhoncus pellentesque auctor auctor orci vulputate faucibus quis ut."
+                  />
 
-                  <div className={styles.info}>
-                    <h4>Price</h4>
-                    <h3>${info?.price} per month</h3>
-                    <p>
-                      Nulla sem adipiscing adipiscing felis fringilla. Adipiscing mauris
-                      quam ac elit tristique dis.
-                    </p>
-                  </div>
+                  <InfoItem
+                    subtitle="Price"
+                    title={`$${info?.price} per month`}
+                    par="Nulla sem adipiscing adipiscing felis fringilla. Adipiscing mauris
+                      quam ac elit tristique dis."
+                  />
 
                   <Button isFullWidth>Join the course</Button>
-                </>
+                </Info>
               )}
             </RowItem>
           </Row>
