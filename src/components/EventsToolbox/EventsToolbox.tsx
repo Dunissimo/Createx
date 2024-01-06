@@ -67,6 +67,7 @@ const EventsToolbox: FC = () => {
           inputClassName={styles.inputNumber}
           id="inputNumber"
           type="number"
+          defaultValue={9}
           value={searchParams.get("perPage")!}
           onChange={(e) => {
             // this is needed to check entered value by keyboard
