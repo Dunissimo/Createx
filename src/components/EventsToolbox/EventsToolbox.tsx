@@ -1,15 +1,15 @@
-import { FC } from "react";
-import clsx from "clsx";
-import { Link, useSearchParams } from "react-router-dom";
 import Input from "@src/UI/Form/Input/Input";
 import Select from "@src/UI/Form/Select/Select";
+import clsx from "clsx";
+import { FC } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 
 import styles from "./EventsToolbox.module.scss";
 
-import grid from "@assets/icons/grid-tool.svg";
-import list from "@assets/icons/list-tool.svg";
 import gridActive from "@assets/icons/grid-tool-active.svg";
+import grid from "@assets/icons/grid-tool.svg";
 import listActive from "@assets/icons/list-tool-active.svg";
+import list from "@assets/icons/list-tool.svg";
 
 const EventsToolbox: FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -64,13 +64,18 @@ const EventsToolbox: FC = () => {
         <label htmlFor="inputNumber">Show</label>
 
         <Input
-          className={styles.inputNumber}
+          inputClassName={styles.inputNumber}
           id="inputNumber"
           type="number"
-          min={0}
-          max={100}
-          value={searchParams.get("perPage") || 9}
+          defaultValue={9}
+          value={searchParams.get("perPage")!}
           onChange={(e) => {
+            // this is needed to check entered value by keyboard
+            // "min" and "max" input props only check arrow presses
+            if (Number(e.target.value) > 100 || Number(e.target.value) < 0) {
+              return;
+            }
+
             setSearchParams({
               orientation,
               perPage: e.target.value,

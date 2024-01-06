@@ -1,14 +1,15 @@
-import { FC, ReactNode, useState } from "react";
 import clsx from "clsx";
+import { FC, ReactNode, useState } from "react";
 
 import styles from "./Accordion.module.scss";
 
 interface IProps {
   head: ReactNode;
   children: ReactNode;
+  className?: string;
 }
 
-const Accordion: FC<IProps> = ({ head, children }) => {
+const Accordion: FC<IProps> = ({ head, children, className }) => {
   const [open, setOpen] = useState(false);
 
   const toggle = () => {
@@ -16,7 +17,7 @@ const Accordion: FC<IProps> = ({ head, children }) => {
   };
 
   return (
-    <div className={styles.accordion}>
+    <div className={clsx(styles.accordion, className)}>
       <h3 onClick={toggle} className={clsx(open && styles.accOpen)}>
         {head}
       </h3>

@@ -2,6 +2,9 @@ import { useGetCoursesQuery } from "@src/api/courses";
 import clsx from "clsx";
 import { FC, MouseEventHandler, useEffect, useState } from "react";
 
+import Select from "@src/UI/Form/Select/Select";
+import { useGetPostsQuery } from "@src/api/posts";
+import { ICourse } from "@src/utils/interfaces";
 import { useSearchParams } from "react-router-dom";
 import styles from "./ToolboxTab.module.scss";
 
@@ -16,6 +19,7 @@ interface ITabsProps {
   values?: ToolboxValue[];
   defaultValue: string;
   isWithBadge?: boolean;
+  type?: "courses" | "blog";
 }
 
 const ToolboxTabs: FC<ITabsProps> = ({
@@ -24,9 +28,10 @@ const ToolboxTabs: FC<ITabsProps> = ({
   values,
   defaultValue,
   isWithBadge,
+  type = "courses",
 }) => {
-  const [params] = useSearchParams();
-  const { data: courses } = useGetCoursesQuery();
+  const [params, setSearchParams] = useSearchParams();
+  const { data } = type == "courses" ? useGetCoursesQuery() : useGetPostsQuery();
   const [active, setActive] = useState(defaultValue);
 
   const clickHandler: MouseEventHandler<HTMLDivElement> = (e) => {
@@ -42,28 +47,45 @@ const ToolboxTabs: FC<ITabsProps> = ({
   }, [params]);
 
   return (
-    <div className={className}>
-      {values?.map((value) => (
-        <div
-          className={clsx(styles.tab, value.text == active ? styles.active : "")}
-          data-type={value.text}
-          onClick={clickHandler}
-          key={value.text}
-        >
-          {value?.icon ? <img src={value.icon} alt="" /> : null}
+    <>
+      <div className={className}>
+        {values?.map((value) => (
+          <div
+            className={clsx(styles.tab, value.text == active ? styles.active : "")}
+            data-type={value.text}
+            onClick={clickHandler}
+            key={value.text}
+          >
+            {value?.icon ? <img src={value.icon} alt="" /> : null}
 
-          {value.text}
+            {value.text}
 
-          {isWithBadge && (
-            <div className={styles.tabBadge}>
-              {value.text == "All"
-                ? courses?.length
-                : courses?.filter((course) => course.type == value.text).length}
-            </div>
-          )}
-        </div>
-      ))}
-    </div>
+            {isWithBadge && (
+              <div className={styles.tabBadge}>
+                {value.text == "All"
+                  ? (data as ICourse[])?.length
+                  : (data as ICourse[])?.filter((item) => item.type == value.text).length}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+      <div className={styles.mobile}>
+        <Select
+          id="themes"
+          defaultValue="All themes"
+          values={values?.map((item) => item.text) || []}
+          onChange={(e) => {
+            setSearchParams(
+              {
+                type: e.target.value,
+              },
+              { replace: false },
+            );
+          }}
+        />
+      </div>
+    </>
   );
 };
 

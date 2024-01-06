@@ -1,4 +1,5 @@
 .items {
+  position: relative;
   display: grid;
   justify-content: center;
   justify-items: center;
@@ -48,6 +49,22 @@
 
 .linkToItem {
   color: inherit;
+}
+
+.error {
+  width: 50%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+
+  font-size: 24px;
+  border: 1px solid gray;
+  color: gray;
+  text-align: center;
+
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 @media (max-width: 1160px) {

@@ -129,7 +129,9 @@ const HomePage: FC = () => {
             </Title>
 
             <Button>
-              <Link to="/courses?type=All">View all courses</Link>
+              <Link onClick={handleLinkClick} to="/courses?type=All">
+                View all courses
+              </Link>
             </Button>
           </div>
 

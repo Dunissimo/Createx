@@ -41,6 +41,13 @@ export const filterByType = (
   return item.type.toLowerCase() == itemType.toLowerCase();
 };
 
+export const filterByTheme = (item: CardsTypes, theme: CourseTypeEnum) => {
+  if (!("details" in item) || theme.includes("All")) return true;
+  console.log(item, theme);
+
+  return item.details.theme.toLowerCase() === theme.toLowerCase();
+};
+
 export const sortByTime = (a: CardsTypes, b: CardsTypes, sortBy: "Newest" | "Oldest") => {
   if ("text" in a && "text" in b) {
     if (sortBy == "Newest") return +getEventDate(b) - +getEventDate(a);

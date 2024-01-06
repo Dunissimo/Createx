@@ -1,0 +1,70 @@
+.title {
+  width: 80%;
+  margin: 0 auto;
+  padding: 120px 0;
+}
+
+.talkAbout {
+  padding: 120px 0 180px 0;
+
+  .talkAboutLeft {
+    h2 {
+      margin-bottom: 40px;
+      color: #1e212c;
+
+      font-size: 46px;
+      font-weight: 900;
+    }
+
+    .accord {
+      margin-bottom: 24px;
+    }
+  }
+
+  .talkAboutRight {
+    display: flex;
+    justify-content: center;
+
+    a {
+      text-decoration: underline;
+      color: #ff3f3a;
+    }
+  }
+
+  .talkAboutInfo {
+    max-width: 495px;
+    min-height: 455px;
+    gap: 32px;
+  }
+}
+
+.speaker {
+  margin-bottom: 180px;
+}
+
+.forWhom {
+  margin-bottom: 180px;
+
+  .forWhomRow {
+    gap: 135px;
+    align-items: flex-start;
+  }
+
+  .whomList {
+    margin-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    li {
+      margin-left: 1.5rem;
+      padding-left: 16px;
+
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 30px;
+      color: #424551;
+      list-style: url("@assets/icons/check.svg");
+    }
+  }
+}

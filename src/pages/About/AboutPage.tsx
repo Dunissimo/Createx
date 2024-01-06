@@ -64,10 +64,10 @@ const AboutPage: FC = () => {
               </p>
 
               <div className={styles.aboutButtons}>
-                <Link to="/events" onClick={handleLinkClick}>
+                <Link onClick={handleLinkClick} to="/events">
                   <Button outline>Explore events</Button>
                 </Link>
-                <Link to="/courses?type=All" onClick={handleLinkClick}>
+                <Link onClick={handleLinkClick} to="/courses?type=All">
                   <Button>Explore courses</Button>
                 </Link>
               </div>
@@ -182,7 +182,11 @@ const AboutPage: FC = () => {
               directionData={{
                 imgUrlWithExtension: "directions/image-4.svg",
                 type: CourseTypeEnum.Marketing,
-                button: "Check courses",
+                button: (
+                  <Link onClick={handleLinkClick} to="/courses?type=Marketing">
+                    Check courses
+                  </Link>
+                ),
                 paragraph:
                   "Odio posuere netus quisque faucibus lectus arcu donec. Eget dictum eu viverra faucibus. Viverra scelerisque consequat.",
               }}
@@ -192,7 +196,11 @@ const AboutPage: FC = () => {
               directionData={{
                 imgUrlWithExtension: "directions/image-3.svg",
                 type: CourseTypeEnum.Management,
-                button: "Check courses",
+                button: (
+                  <Link onClick={handleLinkClick} to="/courses?type=Management">
+                    Check courses
+                  </Link>
+                ),
                 paragraph:
                   "Odio posuere netus quisque faucibus lectus arcu donec. Eget dictum eu viverra faucibus. Viverra scelerisque consequat.",
               }}
@@ -202,7 +210,11 @@ const AboutPage: FC = () => {
               directionData={{
                 imgUrlWithExtension: "directions/image-2.svg",
                 type: CourseTypeEnum.Recruting,
-                button: "Check courses",
+                button: (
+                  <Link onClick={handleLinkClick} to="/courses?type=Recruting">
+                    Check courses
+                  </Link>
+                ),
                 paragraph:
                   "Odio posuere netus quisque faucibus lectus arcu donec. Eget dictum eu viverra faucibus. Viverra scelerisque consequat.",
               }}
@@ -212,7 +224,11 @@ const AboutPage: FC = () => {
               directionData={{
                 imgUrlWithExtension: "directions/image-1.svg",
                 type: CourseTypeEnum.Design,
-                button: "Check courses",
+                button: (
+                  <Link onClick={handleLinkClick} to="/courses?type=Design">
+                    Check courses
+                  </Link>
+                ),
                 paragraph:
                   "Odio posuere netus quisque faucibus lectus arcu donec. Eget dictum eu viverra faucibus. Viverra scelerisque consequat.",
               }}
@@ -222,7 +238,11 @@ const AboutPage: FC = () => {
               directionData={{
                 imgUrlWithExtension: "directions/image.svg",
                 type: CourseTypeEnum.Development,
-                button: "Check courses",
+                button: (
+                  <Link onClick={handleLinkClick} to="/courses?type=Development">
+                    Check courses
+                  </Link>
+                ),
                 paragraph:
                   "Odio posuere netus quisque faucibus lectus arcu donec. Eget dictum eu viverra faucibus. Viverra scelerisque consequat.",
               }}

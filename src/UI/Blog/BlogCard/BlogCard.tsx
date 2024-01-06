@@ -1,15 +1,15 @@
-import { FC } from "react";
 import Button from "@ui/Button/Button";
-import clsx from "clsx";
-import { IBlogCard } from "@utils/interfaces";
 import { useUrl } from "@utils/hooks";
+import { IBlogCard } from "@utils/interfaces";
+import clsx from "clsx";
+import { FC } from "react";
 
 import styles from "./BlogCard.module.scss";
 
 import calendar from "@assets/icons/Calendar.svg";
 import clock from "@assets/icons/Clock.svg";
-import { Link } from "react-router-dom";
 import { firstLetterToUpperCase, handleLinkClick } from "@src/utils/helpers";
+import { Link } from "react-router-dom";
 
 interface IProps {
   card: IBlogCard;
@@ -65,7 +65,11 @@ const BlogCardUI: FC<IProps> = ({ card }) => {
       </div>
 
       <Button isWithArrow simple>
-        <Link to={`/blog/${id}`} style={{ fontWeight: "700", color: "#1e212c" }}>
+        <Link
+          onClick={handleLinkClick}
+          to={`/blog/${id}`}
+          style={{ fontWeight: "700", color: "#1e212c" }}
+        >
           {buttons[type]}
         </Link>
       </Button>
