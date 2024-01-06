@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from "react";
+import { InputHTMLAttributes, ReactNode } from "react";
 
 export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   theme?: "light" | "dark";
@@ -128,8 +128,8 @@ export interface IEvent {
 export interface IDirectionData {
   imgUrlWithExtension: string;
   type: CourseTypeEnum;
-  paragraph: string;
-  button: string;
+  paragraph: ReactNode;
+  button: ReactNode;
 }
 
 export interface ITeam {

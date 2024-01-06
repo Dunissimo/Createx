@@ -22,6 +22,7 @@ const CoursesToolbox: FC<ICoursesToolboxProps> = () => {
   return (
     <div className={styles.coursesToolbox}>
       <ToolboxTabs
+        isWithBadge
         className={styles.coursesTabs}
         values={[
           { text: CourseTypeEnum.All },
@@ -32,7 +33,7 @@ const CoursesToolbox: FC<ICoursesToolboxProps> = () => {
           { text: CourseTypeEnum.Development },
         ]}
         onClick={clickHandler}
-        defaultValue={CourseTypeEnum.All}
+        defaultValue={type}
       />
 
       <Input

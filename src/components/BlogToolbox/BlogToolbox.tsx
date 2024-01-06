@@ -25,6 +25,7 @@ const BlogToolbox: FC = () => {
   return (
     <div className={styles.toolbox}>
       <ToolboxTabs
+        type="blog"
         className={styles.tabs}
         values={[
           { text: BlogTabsTypeEnum.All },

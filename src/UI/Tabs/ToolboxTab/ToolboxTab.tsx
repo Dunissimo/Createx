@@ -2,6 +2,8 @@ import { useGetCoursesQuery } from "@src/api/courses";
 import clsx from "clsx";
 import { FC, MouseEventHandler, useEffect, useState } from "react";
 
+import { useGetPostsQuery } from "@src/api/posts";
+import { ICourse } from "@src/utils/interfaces";
 import { useSearchParams } from "react-router-dom";
 import styles from "./ToolboxTab.module.scss";
 
@@ -16,6 +18,7 @@ interface ITabsProps {
   values?: ToolboxValue[];
   defaultValue: string;
   isWithBadge?: boolean;
+  type?: "courses" | "blog";
 }
 
 const ToolboxTabs: FC<ITabsProps> = ({
@@ -24,9 +27,10 @@ const ToolboxTabs: FC<ITabsProps> = ({
   values,
   defaultValue,
   isWithBadge,
+  type = "courses",
 }) => {
   const [params] = useSearchParams();
-  const { data: courses } = useGetCoursesQuery();
+  const { data } = type == "courses" ? useGetCoursesQuery() : useGetPostsQuery();
   const [active, setActive] = useState(defaultValue);
 
   const clickHandler: MouseEventHandler<HTMLDivElement> = (e) => {
@@ -57,8 +61,8 @@ const ToolboxTabs: FC<ITabsProps> = ({
           {isWithBadge && (
             <div className={styles.tabBadge}>
               {value.text == "All"
-                ? courses?.length
-                : courses?.filter((course) => course.type == value.text).length}
+                ? (data as ICourse[])?.length
+                : (data as ICourse[])?.filter((item) => item.type == value.text).length}
             </div>
           )}
         </div>
