@@ -40,14 +40,22 @@ interface IItemListProps extends ICommonProps {}
 const ItemsList: FC<IItemListProps> = (props) => {
   const { orientation = "horizontal", type = "course", limit } = props;
 
-  const { data, isError, isLoading, isFetching } =
-    type == "course"
-      ? useGetCoursesQuery()
-      : type == "event"
-        ? useGetEventsQuery()
-        : type == "blog"
-          ? useGetPostsQuery()
-          : useGetTeamQuery();
+  let queryResult;
+  switch (type) {
+    case "course":
+      queryResult = useGetCoursesQuery();
+      break;
+    case "event":
+      queryResult = useGetEventsQuery();
+      break;
+    case "blog":
+      queryResult = useGetPostsQuery();
+      break;
+    case "team":
+      queryResult = useGetTeamQuery();
+  }
+
+  const { data, isError, isLoading, isFetching } = queryResult;
 
   if (isError) {
     return <div>Error!</div>;
