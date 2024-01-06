@@ -67,10 +67,14 @@ const EventsToolbox: FC = () => {
           inputClassName={styles.inputNumber}
           id="inputNumber"
           type="number"
-          min={1}
-          max={100}
-          value={searchParams.get("perPage") || 9}
+          value={searchParams.get("perPage")!}
           onChange={(e) => {
+            // this is needed to check entered value by keyboard
+            // "min" and "max" input props only check arrow presses
+            if (Number(e.target.value) > 100 || Number(e.target.value) < 0) {
+              return;
+            }
+
             setSearchParams({
               orientation,
               perPage: e.target.value,

@@ -33,3 +33,14 @@
   right: 7px;
   font-size: 14px;
 }
+
+.mobile {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .mobile {
+    width: 100%;
+    display: block;
+  }
+}

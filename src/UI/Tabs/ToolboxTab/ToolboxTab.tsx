@@ -2,6 +2,7 @@ import { useGetCoursesQuery } from "@src/api/courses";
 import clsx from "clsx";
 import { FC, MouseEventHandler, useEffect, useState } from "react";
 
+import Select from "@src/UI/Form/Select/Select";
 import { useGetPostsQuery } from "@src/api/posts";
 import { ICourse } from "@src/utils/interfaces";
 import { useSearchParams } from "react-router-dom";
@@ -29,7 +30,7 @@ const ToolboxTabs: FC<ITabsProps> = ({
   isWithBadge,
   type = "courses",
 }) => {
-  const [params] = useSearchParams();
+  const [params, setSearchParams] = useSearchParams();
   const { data } = type == "courses" ? useGetCoursesQuery() : useGetPostsQuery();
   const [active, setActive] = useState(defaultValue);
 
@@ -46,28 +47,45 @@ const ToolboxTabs: FC<ITabsProps> = ({
   }, [params]);
 
   return (
-    <div className={className}>
-      {values?.map((value) => (
-        <div
-          className={clsx(styles.tab, value.text == active ? styles.active : "")}
-          data-type={value.text}
-          onClick={clickHandler}
-          key={value.text}
-        >
-          {value?.icon ? <img src={value.icon} alt="" /> : null}
+    <>
+      <div className={className}>
+        {values?.map((value) => (
+          <div
+            className={clsx(styles.tab, value.text == active ? styles.active : "")}
+            data-type={value.text}
+            onClick={clickHandler}
+            key={value.text}
+          >
+            {value?.icon ? <img src={value.icon} alt="" /> : null}
 
-          {value.text}
+            {value.text}
 
-          {isWithBadge && (
-            <div className={styles.tabBadge}>
-              {value.text == "All"
-                ? (data as ICourse[])?.length
-                : (data as ICourse[])?.filter((item) => item.type == value.text).length}
-            </div>
-          )}
-        </div>
-      ))}
-    </div>
+            {isWithBadge && (
+              <div className={styles.tabBadge}>
+                {value.text == "All"
+                  ? (data as ICourse[])?.length
+                  : (data as ICourse[])?.filter((item) => item.type == value.text).length}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+      <div className={styles.mobile}>
+        <Select
+          id="themes"
+          defaultValue="All themes"
+          values={values?.map((item) => item.text) || []}
+          onChange={(e) => {
+            setSearchParams(
+              {
+                type: e.target.value,
+              },
+              { replace: false },
+            );
+          }}
+        />
+      </div>
+    </>
   );
 };
 
